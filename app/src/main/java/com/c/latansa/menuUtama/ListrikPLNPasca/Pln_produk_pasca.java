@@ -91,7 +91,6 @@ public class Pln_produk_pasca extends AppCompatActivity {
         });
 
 
-
         String id = getIntent().getStringExtra("id");
         getCodesub(id);
 

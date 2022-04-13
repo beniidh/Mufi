@@ -80,7 +80,7 @@ public class TrasferBank extends AppCompatActivity implements ModalPinTopUpSaldo
 
         });
 
-        saldokubank.setText(utils.ConvertRP(Preference.getSaldoku(getApplicationContext())));
+        saldokubank.setText(utils.ConvertRP(Preference.getSaldoku(getApplicationContext()).replaceAll(",","")));
 
         oktransaksi.setOnClickListener(new View.OnClickListener() {
             @Override

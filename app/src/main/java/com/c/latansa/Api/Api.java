@@ -324,7 +324,7 @@ public interface Api {
     Call<ResponUangElektronik> getProdukCategoryUE(@Header("X-Signature") String token, @Path("id") String id);
 
     @GET("transaction/history")
-    Call<ResponTransaksi> getHistoriTransaksi(@Header("X-Signature") String token, @Query("date") String date);
+    Call<ResponTransaksi> getHistoriTransaksi(@Header("X-Signature") String token, @Query("start") String start,@Query("end") String end);
 
     @GET("transaction/history?date=week")
     Call<ResponTransaksiN> getHistoriTransaksiN(@Header("X-Signature") String token);
@@ -419,7 +419,8 @@ public interface Api {
     Call<ResponUPP> SetUPP(@Header("X-Signature") String token, @Body AddUPP upp);
 
     @GET("user-paylater-payment")
-    Call<ResponTagihanKonter> getTagihanSales(@Header("X-Signature") String token);
+    Call<ResponTagihanKonter> getTagihanSales(@Header("X-Signature") String token,@Query("start")
+            String datestart,@Query("end") String dateend);
 
     @GET("users-referal")
     Call<ModelKonter> getKonter(@Header("X-Signature") String token);
@@ -487,5 +488,10 @@ public interface Api {
 
     @POST("sales-komisi/withdraw")
     Call<ResponKomisi> withdrawKomisi(@Header("X-Signature") String token, @Body mKomisi komisi);
+
+
+    @GET("user-history/komisi")
+    Call<ResponSales> getKomisiHistory(@Header("X-Signature") String token,@Query("start")
+            String datestart,@Query("end") String dateend);
 
 }

@@ -150,7 +150,7 @@ public class cetak extends AppCompatActivity {
         buttondownloadPDF.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                savepdf();
+                saveImage();
             }
         });
 
@@ -252,18 +252,98 @@ public class cetak extends AppCompatActivity {
     private void saveImage() {
 
         Rect bounds = new Rect();
-        Bitmap bmp = Bitmap.createBitmap(200, 300, Bitmap.Config.RGB_565);
+        Bitmap bmp = Bitmap.createBitmap(1400, 1600, Bitmap.Config.ARGB_4444);
         Canvas canvas = new Canvas(bmp);
         canvas.drawColor(-1);
         Paint paint = new Paint();
-        paint.setTextSize(13);
+        Typeface type3 = ResourcesCompat.getFont(getApplicationContext(), R.font.exobold);
+        paint.setTypeface(type3);
+        paint.setTextSize(70);
         paint.setColor(Color.rgb(0, 0, 0));
 
-        String judul = "halo aku beni cell";
+        int y = 150; // x = 10,
+        int x = 10;
 
-        paint.getTextBounds(judul, 0, judul.length(), bounds);
-        int x = (canvas.getWidth() / 2) - (bounds.width() / 2);
-        canvas.drawText(judul, x, 20, paint);
+        String text = titlestrukC.getText().toString();
+
+        paint.getTextBounds(text, 0, text.length(), bounds);
+        x = (canvas.getWidth() / 2) - (bounds.width() / 2);
+        canvas.drawText(text, x, y, paint);
+        Paint paint1 = new Paint();
+
+        paint1.setColor(getColor(R.color.gray4));
+        Typeface type2 = ResourcesCompat.getFont(getApplicationContext(), R.font.courierprimereguler);
+        paint1.setTypeface(type2);
+        paint1.setTextSize(72);
+
+        int left = 120;
+        int tambahan = 50;
+
+        canvas.drawText("Nomor  : ", left, 250 + tambahan, paint1);
+        canvas.drawText(idNomorStruk.getText().toString(), 460, 250 + tambahan, paint1);
+
+        String produk = idProdukStruk.getText().toString();
+
+        if (produk.length() >= 50) {
+            canvas.drawText("Produk : ", left, 350 + tambahan, paint1);
+            canvas.drawText(produk.substring(0, 18), 460, 350 + tambahan, paint1);
+            canvas.drawText(produk.substring(19, 36), 460, 450 + tambahan, paint1);
+            canvas.drawText(produk.substring(37), 460, 550 + tambahan, paint1);
+            tambahan = 230;
+
+        } else if (produk.length() >= 20) {
+
+            canvas.drawText("Produk : ", left, 350 + tambahan, paint1);
+            canvas.drawText(produk.substring(0, 18), 460, 350 + tambahan, paint1);
+            canvas.drawText(produk.substring(19), 460, 450 + tambahan, paint1);
+            tambahan = 130;
+        } else {
+
+            canvas.drawText("Produk : ", left, 350 + tambahan, paint1);
+            canvas.drawText(produk, 460, 350 + tambahan, paint1);
+        }
+//
+        canvas.drawText("Tanggal:", left, 450 + tambahan, paint1);
+        canvas.drawText(idTanggalStruk.getText().toString(), 460, 450 + tambahan, paint1);
+//
+        canvas.drawText("Waktu  :", left, 550 + tambahan, paint1);
+        canvas.drawText(idWaktuStruk.getText().toString(), 460, 550 + tambahan, paint1);
+
+        canvas.drawText("Trx ID :", left, 650 + tambahan, paint1);
+        canvas.drawText(idNomorTransaksiStruk.getText().toString(), 460, 650 + tambahan, paint1);
+//
+        canvas.drawText("Total  :", left, 750 + tambahan, paint1);
+        canvas.drawText(idTotalPembelianStruk.getText().toString(), 460, 750 + tambahan, paint1);
+        canvas.drawText("---------------------------", left, 850 + tambahan, paint1);
+        String sn = idNomorSNStruk.getText().toString();
+        if (sn.length() >= 42) {
+            canvas.drawText("SN :", left, 950 + tambahan, paint1);
+            canvas.drawText(sn.substring(0, 21), 300, 950 + tambahan, paint1);
+            canvas.drawText(sn.substring(22, 41), 300, 1050 + tambahan, paint1);
+            canvas.drawText(sn.substring(41), 300, 1150 + tambahan, paint1);
+
+        } else if (sn.length() >= 25) {
+            canvas.drawText("SN :", left, 950 + tambahan, paint1);
+            canvas.drawText(sn.substring(0, 21), 300, 950 + tambahan, paint1);
+            canvas.drawText(sn.substring(22), 300, 1050 + tambahan, paint1);
+        } else {
+            canvas.drawText("SN :", left, 950 + tambahan, paint1);
+            canvas.drawText(sn, 300, 950 + tambahan, paint1);
+        }
+
+        Paint paint3 = new Paint();
+
+        paint3.setColor(getColor(R.color.gray4));
+        Typeface type4 = ResourcesCompat.getFont(getApplicationContext(), R.font.mukta);
+        paint3.setTypeface(type4);
+        paint3.setTextSize(36);
+
+        canvas.drawText("* Struk ini merupakan bukti pembayaran yang sah ", left, 1250 + tambahan, paint3);
+        canvas.drawText("mohon disimpan,Terimakasih", left, 1300 + tambahan, paint3);
+
+        //blank space
+        y += paint.descent() - paint.ascent();
+        canvas.drawText("", x, y, paint);
 
 
         saveImageExternal(bmp);
@@ -280,7 +360,6 @@ public class cetak extends AppCompatActivity {
             startActivity(Intent.createChooser(shareIntent, "Choose an app"));
         }
     }
-
     private void saveImageExternal(Bitmap image) {
         //TODO - Should be processed in another thread
         try {
@@ -349,6 +428,8 @@ public class cetak extends AppCompatActivity {
 
         canvas.drawText("Total Pembelian", left, 210, paint1);
         canvas.drawText(idTotalPembelianStruk.getText().toString(), 150, 210, paint1);
+
+
 
         //blank space
         y += paint.descent() - paint.ascent();

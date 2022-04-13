@@ -4,12 +4,26 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.core.content.FileProvider;
+import androidx.core.content.res.ResourcesCompat;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Path;
+import android.graphics.Rect;
+import android.graphics.Typeface;
+import android.graphics.pdf.PdfDocument;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -35,6 +49,9 @@ import com.dantsu.escposprinter.connection.bluetooth.BluetoothConnection;
 import com.dantsu.escposprinter.connection.bluetooth.BluetoothPrintersConnections;
 import com.muddzdev.styleabletoast.StyleableToast;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -48,7 +65,7 @@ public class CetakPlnPasca extends AppCompatActivity {
 
     private final Locale locale = new Locale("id", "ID");
     private final NumberFormat nf = NumberFormat.getCurrencyInstance(locale);
-    Button setAdmin, CetakPasca;
+    Button setAdmin, CetakPasca,shareStrukP;
     EditText pilihPerangkat;
 
     TextView KonterPS, AlamatPS, namaPS, TagihanPS,
@@ -76,6 +93,7 @@ public class CetakPlnPasca extends AppCompatActivity {
         WaktuPS = findViewById(R.id.WaktuPS);
 
         namaPS = findViewById(R.id.namaPS);
+        shareStrukP = findViewById(R.id.shareStrukP);
         TagihanPS = findViewById(R.id.TagihanPS);
         jumlahBulanPS = findViewById(R.id.jumlahBulanPS);
         TarifDayaPS = findViewById(R.id.TarifDayaPS);
@@ -119,7 +137,115 @@ public class CetakPlnPasca extends AppCompatActivity {
             browseBluetoothDevice();
 
         });
+
+        shareStrukP.setOnClickListener(v -> {
+
+            Rect bounds = new Rect();
+            Bitmap bmp = Bitmap.createBitmap(1400, 1500, Bitmap.Config.ARGB_4444);
+            Canvas canvas = new Canvas(bmp);
+            canvas.drawColor(-1);
+            Paint paint = new Paint();
+            Typeface type3 = ResourcesCompat.getFont(getApplicationContext(), R.font.exobold);
+            paint.setTypeface(type3);
+            paint.setTextSize(70);
+            paint.setColor(Color.rgb(0, 0, 0));
+
+            int y = 150; // x = 10,
+            int x = 10;
+
+            String text = KonterPS.getText().toString();
+
+            paint.getTextBounds(text, 0, text.length(), bounds);
+            x = (canvas.getWidth() / 2) - (bounds.width() / 2);
+            canvas.drawText(text, x, y, paint);
+            Paint paint4 = new Paint();
+            paint4.setTextSize(73);
+            String jenis = " * Struk PLN Pasca *";
+            paint4.getTextBounds(jenis, 0, jenis.length(), bounds);
+            x = (canvas.getWidth() / 2) - (bounds.width() / 2);
+            canvas.drawText(jenis, x, 250, paint4);
+
+            Paint paint1 = new Paint();
+
+            paint1.setColor(getColor(R.color.gray4));
+            Typeface type2 = ResourcesCompat.getFont(getApplicationContext(), R.font.courierprimereguler);
+            paint1.setTypeface(type2);
+
+            paint1.setTextSize(72);
+
+            int left = 120;
+            int tambahan = 50;
+
+            canvas.drawText("Nama  : ", left, 400 + tambahan, paint1);
+            canvas.drawText(namaPS.getText().toString().substring(6), 460, 400 + tambahan, paint1);
+
+            canvas.drawText("PTAG  : ", left, 500 + tambahan, paint1);
+            canvas.drawText(TagihanPS.getText().toString().substring(18), 460, 500 + tambahan, paint1);
+//
+            canvas.drawText("JBLN  : ", left, 600 + tambahan, paint1);
+            canvas.drawText(jumlahBulanPS.getText().toString().substring(15), 460, 600 + tambahan, paint1);
+//
+            canvas.drawText("TD    : ", left, 700 + tambahan, paint1);
+            canvas.drawText(TarifDayaPS.getText().toString().substring(13), 460, 700 + tambahan, paint1);
+//
+            canvas.drawText("SM    : ", left, 800 + tambahan, paint1);
+            canvas.drawText(SMPS.getText().toString().substring(14), 460, 800 + tambahan, paint1);
+//
+            canvas.drawText("TGHN  : ", left, 900 + tambahan, paint1);
+            canvas.drawText(jmlhTagihanPS.getText().toString().substring(10), 460, 900 + tambahan, paint1);
+//
+            canvas.drawText("Admin : ", left, 1000 + tambahan, paint1);
+            canvas.drawText(adminPS.getText().toString(), 460, 1000 + tambahan, paint1);
+
+            canvas.drawText("Total : ", left, 1100 + tambahan, paint1);
+            canvas.drawText(totaltagihanPS.getText().toString().substring(16), 460, 1100 + tambahan, paint1);
+//            paint4.setTextSize(63);
+//            paint4.setTypeface(Typeface.DEFAULT_BOLD);
+//            canvas.drawText("SN :" + SNPR.getText().toString().substring(8), left+100, 1230, paint4);
+
+            Paint paint3 = new Paint();
+
+            paint3.setColor(getColor(R.color.gray4));
+            Typeface type4 = ResourcesCompat.getFont(getApplicationContext(), R.font.mukta);
+            paint3.setTypeface(type4);
+            paint3.setTextSize(36);
+
+            canvas.drawText("* Struk ini merupakan bukti pembayaran yang sah ", left+200, 1280 + tambahan, paint3);
+            canvas.drawText("mohon disimpan,Terimakasih", left+350, 1330 + tambahan, paint3);
+
+            saveImageExternal(bmp);
+            File imagePath = new File(getApplicationContext().getCacheDir(), "images");
+            File newFile = new File(imagePath, "image.png");
+            Uri contentUri = FileProvider.getUriForFile(getApplicationContext(), "com.c.latansa.fileprovider", newFile);
+
+            if (contentUri != null) {
+                Intent shareIntent = new Intent();
+                shareIntent.setAction(Intent.ACTION_SEND);
+                shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION); // temp permission for receiving app to read this file
+                shareIntent.setDataAndType(contentUri, getContentResolver().getType(contentUri));
+                shareIntent.putExtra(Intent.EXTRA_STREAM, contentUri);
+                startActivity(Intent.createChooser(shareIntent, "Choose an app"));
+            }
+
+        });
     }
+
+    private void saveImageExternal(Bitmap image) {
+        //TODO - Should be processed in another thread
+        try {
+
+            File cachePath = new File(getApplicationContext().getCacheDir(), "images");
+            cachePath.mkdirs(); // don't forget to make the directory
+            FileOutputStream stream = new FileOutputStream(cachePath + "/image.png"); // overwrites this image every time
+            image.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+            stream.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 
     private BluetoothConnection selectedDevice;
 

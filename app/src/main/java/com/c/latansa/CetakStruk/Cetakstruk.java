@@ -37,7 +37,7 @@ public class Cetakstruk extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cetakstruk);
 
-        String color = Integer.toHexString(getResources().getColor(R.color.green,null)).toUpperCase();
+        String color = Integer.toHexString(getResources().getColor(R.color.green, null)).toUpperCase();
         String color2 = "#" + color.substring(1);
         getSupportActionBar().setTitle(Html.fromHtml("<font color='" + color2 + "'><b>Cetak Struk <b></font>"));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

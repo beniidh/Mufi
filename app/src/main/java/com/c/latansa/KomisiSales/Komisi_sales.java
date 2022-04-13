@@ -1,6 +1,8 @@
 package com.c.latansa.KomisiSales;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
@@ -13,6 +15,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.c.latansa.Api.Api;
+import com.c.latansa.Fragment.RekapsaldoFragment.Komponen.AdapterRekapDebit;
+import com.c.latansa.Helper.LoadingPrimer;
 import com.c.latansa.Helper.RetroClient;
 import com.c.latansa.Helper.utils;
 import com.c.latansa.R;
@@ -30,7 +34,10 @@ public class Komisi_sales extends AppCompatActivity {
     EditText TanggalMulaiKomisi, TanggalSelesaiKomisi;
     TextView jumlahKomisi;
     private int mYear, mMonth, mDay, mHour, mMinute;
+    ArrayList<mListSales> data = new ArrayList<>();
+    AdapterHistoryKomisi adapterHistoryKomisi;
     Button periksa;
+    RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +45,7 @@ public class Komisi_sales extends AppCompatActivity {
         setContentView(R.layout.activity_komisi_sales);
         String color = Integer.toHexString(getResources().getColor(R.color.green, null)).toUpperCase();
         String color2 = "#" + color.substring(1);
-        getSupportActionBar().setTitle(Html.fromHtml("<font color='" + color2 +"'><b>Komisi Sales<b></font>"));
+        getSupportActionBar().setTitle(Html.fromHtml("<font color='" + color2 + "'><b>Komisi Sales<b></font>"));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_24);
 
@@ -46,15 +53,21 @@ public class Komisi_sales extends AppCompatActivity {
         TanggalMulaiKomisi = findViewById(R.id.TanggalMulaiKomisi);
         jumlahKomisi = findViewById(R.id.jumlahKomisi);
         periksa = findViewById(R.id.PeriksaKomisi);
+        recyclerView = findViewById(R.id.RiwayatKomisi);
+
+
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerView.setLayoutManager(mLayoutManager);
+
 
         periksa.setOnClickListener(view -> {
 
-            if(TanggalMulaiKomisi.getText().toString().equals("")||TanggalSelesaiKomisi.getText().toString().equals("")){
-                Toast.makeText(getApplicationContext(),"Tanggal tidak boleh kosong",Toast.LENGTH_SHORT).show();
+            if (TanggalMulaiKomisi.getText().toString().equals("") || TanggalSelesaiKomisi.getText().toString().equals("")) {
+                Toast.makeText(getApplicationContext(), "Tanggal tidak boleh kosong", Toast.LENGTH_SHORT).show();
 
-            }else {
+            } else {
 
-                getKomisi(TanggalMulaiKomisi.getText().toString(), TanggalSelesaiKomisi.getText().toString());
+                getKomisiHistory(TanggalMulaiKomisi.getText().toString(), TanggalSelesaiKomisi.getText().toString());
             }
 
         });
@@ -73,7 +86,6 @@ public class Komisi_sales extends AppCompatActivity {
         });
 
 
-
     }
 
     public void showDateDialogStart() {
@@ -86,7 +98,6 @@ public class Komisi_sales extends AppCompatActivity {
 
         @SuppressLint("SetTextI18n") DatePickerDialog datePickerDialog = new DatePickerDialog(Komisi_sales.this,
                 (view, year, monthOfYear, dayOfMonth) -> {
-                    TanggalMulaiKomisi.setText(year + "-" + (monthOfYear + 1) + "-" + dayOfMonth);
                     String bulan = String.valueOf(monthOfYear + 1);
                     String day = String.valueOf(dayOfMonth);
                     if (bulan.length() == 1) {
@@ -99,6 +110,7 @@ public class Komisi_sales extends AppCompatActivity {
                     }
 
                     String tnggl = year + "-" + bulan + "-" + day;
+                    TanggalMulaiKomisi.setText(tnggl);
                 }, mYear, mMonth, mDay);
 
         datePickerDialog.getDatePicker().setMaxDate(c.getTimeInMillis());
@@ -115,7 +127,7 @@ public class Komisi_sales extends AppCompatActivity {
 
         @SuppressLint("SetTextI18n") DatePickerDialog datePickerDialog = new DatePickerDialog(Komisi_sales.this,
                 (view, year, monthOfYear, dayOfMonth) -> {
-                    TanggalSelesaiKomisi.setText(year + "-" + (monthOfYear + 1) + "-" + dayOfMonth);
+
                     String bulan = String.valueOf(monthOfYear + 1);
                     String day = String.valueOf(dayOfMonth);
                     if (bulan.length() == 1) {
@@ -128,6 +140,7 @@ public class Komisi_sales extends AppCompatActivity {
                     }
 
                     String tnggl = year + "-" + bulan + "-" + day;
+                    TanggalSelesaiKomisi.setText(tnggl);
                 }, mYear, mMonth, mDay);
 
         datePickerDialog.getDatePicker().setMaxDate(c.getTimeInMillis());
@@ -145,39 +158,42 @@ public class Komisi_sales extends AppCompatActivity {
         super.onBackPressed();
     }
 
-    public void getKomisi(String dateStart, String dateEnd){
 
-        String token = "Bearer "+ Preference.getToken(getApplicationContext());
+    public void getKomisiHistory(String dateStart, String dateEnd) {
+        LoadingPrimer loadingPrimer = new LoadingPrimer(Komisi_sales.this);
+        loadingPrimer.startDialogLoading();
+
+        String token = "Bearer " + Preference.getToken(getApplicationContext());
         Api api = RetroClient.getApiServices();
-        Call<ResponSales>call = api.getKomisiSales(token,dateStart,dateEnd);
+        Call<ResponSales> call = api.getKomisiHistory(token, dateStart, dateEnd);
         call.enqueue(new Callback<ResponSales>() {
             @Override
             public void onResponse(Call<ResponSales> call, Response<ResponSales> response) {
                 String code = response.body().getCode();
-                if(code.equals("200")){
+                if (code.equals("200")) {
+                    data = response.body().getData().getUser_history();
+                    if (data == null) {
+                        Toast.makeText(getApplicationContext(), "Belum ada komisi", Toast.LENGTH_SHORT).show();
+                        loadingPrimer.dismissDialog();
+                    } else {
 
-                    ArrayList<ResponSales.mData> komisi = response.body().getData();
-                    int harga =0;
-
-                    for (int i = 0; i < komisi.size(); i++){
-
-                        harga += Integer.parseInt(komisi.get(i).getKomisi());
-
+                        jumlahKomisi.setText(utils.ConvertRP(response.body().getData().getKomisi_wallet()));
+                        adapterHistoryKomisi = new AdapterHistoryKomisi(getApplicationContext(), data);
+                        recyclerView.setAdapter(adapterHistoryKomisi);
+                        loadingPrimer.dismissDialog();
                     }
 
-                    jumlahKomisi.setText(utils.ConvertRP(String.valueOf(harga)));
-                }else {
-
-
-                    Toast.makeText(getApplicationContext(),"Tidak ada komisi",Toast.LENGTH_SHORT).show();
-                    jumlahKomisi.setText(utils.ConvertRP("0"));
+                } else {
+                    loadingPrimer.dismissDialog();
+                    Toast.makeText(getApplicationContext(), response.body().getError(), Toast.LENGTH_SHORT).show();
                 }
 
             }
 
             @Override
             public void onFailure(Call<ResponSales> call, Throwable t) {
-
+                Toast.makeText(getApplicationContext(), t.toString(), Toast.LENGTH_SHORT).show();
+                loadingPrimer.dismissDialog();
             }
         });
 

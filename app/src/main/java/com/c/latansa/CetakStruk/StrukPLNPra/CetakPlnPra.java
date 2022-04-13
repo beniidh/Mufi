@@ -4,12 +4,26 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.core.content.FileProvider;
+import androidx.core.content.res.ResourcesCompat;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Path;
+import android.graphics.Rect;
+import android.graphics.Typeface;
+import android.graphics.pdf.PdfDocument;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,6 +46,9 @@ import com.dantsu.escposprinter.connection.bluetooth.BluetoothConnection;
 import com.dantsu.escposprinter.connection.bluetooth.BluetoothPrintersConnections;
 import com.muddzdev.styleabletoast.StyleableToast;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 
 import retrofit2.Call;
@@ -42,7 +59,7 @@ public class CetakPlnPra extends AppCompatActivity {
 
     TextView KonterPR, AlamatPR, WaktuPR, namaPR, tarifPR, DayaPR,
             KWHPR, NominalPR, adminPR, totaltagihanPR, SNPR, nomorPR;
-    Button setAdmin, CetakPra;
+    Button setAdmin, CetakPra, shareStruk;
     EditText pilihPerangkat;
 
     @Override
@@ -62,7 +79,7 @@ public class CetakPlnPra extends AppCompatActivity {
         KonterPR = findViewById(R.id.KonterPR);
         AlamatPR = findViewById(R.id.AlamatPR);
         WaktuPR = findViewById(R.id.WaktuPR);
-
+        shareStruk = findViewById(R.id.shareStruk);
         nomorPR = findViewById(R.id.nomorPR);
         namaPR = findViewById(R.id.namaPR);
         tarifPR = findViewById(R.id.tarifPR);
@@ -107,6 +124,122 @@ public class CetakPlnPra extends AppCompatActivity {
 
 
         getContentProfil();
+
+        shareStruk.setOnClickListener(v -> {
+
+            Rect bounds = new Rect();
+            Bitmap bmp = Bitmap.createBitmap(1400, 1500, Bitmap.Config.ARGB_4444);
+            Canvas canvas = new Canvas(bmp);
+            canvas.drawColor(-1);
+            Paint paint = new Paint();
+            Typeface type3 = ResourcesCompat.getFont(getApplicationContext(), R.font.exobold);
+            paint.setTypeface(type3);
+            paint.setTextSize(70);
+            paint.setColor(Color.rgb(0, 0, 0));
+
+            int y = 150; // x = 10,
+            int x = 10;
+
+            String text = KonterPR.getText().toString();
+
+            paint.getTextBounds(text, 0, text.length(), bounds);
+            x = (canvas.getWidth() / 2) - (bounds.width() / 2);
+            canvas.drawText(text, x, y, paint);
+            Paint paint4 = new Paint();
+            paint4.setTextSize(73);
+            String jenis = " * Struk PLN Prabayar *";
+            paint4.getTextBounds(jenis, 0, jenis.length(), bounds);
+            x = (canvas.getWidth() / 2) - (bounds.width() / 2);
+            canvas.drawText(jenis, x, 250, paint4);
+
+            Paint paint1 = new Paint();
+
+            paint1.setColor(getColor(R.color.gray4));
+            Typeface type2 = ResourcesCompat.getFont(getApplicationContext(), R.font.courierprimereguler);
+            paint1.setTypeface(type2);
+
+            paint1.setTextSize(72);
+
+            int left = 120;
+            int tambahan = 50;
+
+            canvas.drawText("Nomor  : ", left, 400 + tambahan, paint1);
+            canvas.drawText(nomorPR.getText().toString().substring(7), 460, 400 + tambahan, paint1);
+
+            canvas.drawText("Nama   : ", left, 500 + tambahan, paint1);
+            canvas.drawText(namaPR.getText().toString().substring(7), 460, 500 + tambahan, paint1);
+
+            canvas.drawText("Tarif  : ", left, 600 + tambahan, paint1);
+            canvas.drawText(tarifPR.getText().toString().substring(13), 460, 600 + tambahan, paint1);
+
+            canvas.drawText("KWH    : ", left, 700 + tambahan, paint1);
+            canvas.drawText(KWHPR.getText().toString().substring(6), 460, 700 + tambahan, paint1);
+
+            canvas.drawText("Harga  : ", left, 800 + tambahan, paint1);
+            canvas.drawText(NominalPR.getText().toString().substring(9), 460, 800 + tambahan, paint1);
+
+            canvas.drawText("Admin  : ", left, 900 + tambahan, paint1);
+            canvas.drawText(" " + adminPR.getText().toString(), 460, 900 + tambahan, paint1);
+
+            canvas.drawText("Total  : ", left, 1000 + tambahan, paint1);
+            canvas.drawText(totaltagihanPR.getText().toString().substring(15), 460, 1000 + tambahan, paint1);
+            paint4.setTextSize(63);
+            paint4.setTypeface(Typeface.DEFAULT_BOLD);
+            canvas.drawText("SN :" + SNPR.getText().toString().substring(8), left + 100, 1230, paint4);
+
+
+            Paint paint3 = new Paint();
+
+            paint3.setColor(getColor(R.color.gray4));
+            Typeface type4 = ResourcesCompat.getFont(getApplicationContext(), R.font.mukta);
+            paint3.setTypeface(type4);
+            paint3.setTextSize(36);
+
+            canvas.drawText("* Struk ini merupakan bukti pembayaran yang sah ", left + 200, 1280 + tambahan, paint3);
+            canvas.drawText("mohon disimpan,Terimakasih", left + 350, 1330 + tambahan, paint3);
+
+            saveImageExternal(bmp);
+            File imagePath = new File(getApplicationContext().getCacheDir(), "images");
+            File newFile = new File(imagePath, "image.png");
+            Uri contentUri = FileProvider.getUriForFile(getApplicationContext(), "com.c.latansa.fileprovider", newFile);
+
+            if (contentUri != null) {
+                Intent shareIntent = new Intent();
+                shareIntent.setAction(Intent.ACTION_SEND);
+                shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION); // temp permission for receiving app to read this file
+                shareIntent.setDataAndType(contentUri, getContentResolver().getType(contentUri));
+                shareIntent.putExtra(Intent.EXTRA_STREAM, contentUri);
+                startActivity(Intent.createChooser(shareIntent, "Choose an app"));
+            }
+
+
+        });
+    }
+
+    private void saveImageExternal(Bitmap image) {
+        //TODO - Should be processed in another thread
+        try {
+
+            File cachePath = new File(getApplicationContext().getCacheDir(), "images");
+            cachePath.mkdirs(); // don't forget to make the directory
+            FileOutputStream stream = new FileOutputStream(cachePath + "/image.png"); // overwrites this image every time
+            image.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+            stream.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
     }
 
     public void getContentProfil() {

@@ -2,9 +2,11 @@ package com.c.latansa.pinNew;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -72,12 +74,9 @@ public class pinnew extends AppCompatActivity implements View.OnClickListener {
 
         LupaPinNew = findViewById(R.id.LupaPinNew);
 
-        LupaPinNew.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(pinnew.this, GantiPin.class);
-                startActivity(intent);
-            }
+        LupaPinNew.setOnClickListener(view -> {
+            Intent intent = new Intent(pinnew.this, GantiPin.class);
+            startActivity(intent);
         });
 
     }
@@ -106,16 +105,13 @@ public class pinnew extends AppCompatActivity implements View.OnClickListener {
         num8.setOnClickListener(this);
         num9.setOnClickListener(this);
         num0.setOnClickListener(this);
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (noOfDigits <= 6 && noOfDigits > 0) {
-                  noOfDigits = 0;
+        backButton.setOnClickListener(v -> {
+            if (noOfDigits <= 6 && noOfDigits > 0) {
+              noOfDigits = 0;
 
-                    clearDotsIndicator();
-                    passwordTryList.clear();
+                clearDotsIndicator();
+                passwordTryList.clear();
 
-                }
             }
         });
 
@@ -130,6 +126,7 @@ public class pinnew extends AppCompatActivity implements View.OnClickListener {
     }
 
     // Back button's listener is in initialiseWidgets(), not here
+    @SuppressLint("NonConstantResourceId")
     @Override
     public void onClick(View v) {
         // Check if the number of digits already entered by the user is 0 to 3;
@@ -405,6 +402,7 @@ public class pinnew extends AppCompatActivity implements View.OnClickListener {
 
         FirebaseMessaging.getInstance().getToken().addOnCompleteListener(task -> {
             String deviceToken = task.getResult();
+            Log.v("tokenku",deviceToken);
             Mlogin mlogin = new Mlogin("SRVID00000014",telepon, pin, deviceToken, IP, Value.getMacAddress(getApplicationContext()), useragent, longlitude, latitude);
 
             Api api = RetroClient.getApiServices();

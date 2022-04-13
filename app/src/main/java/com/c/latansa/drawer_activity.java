@@ -23,6 +23,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -109,7 +111,6 @@ public class drawer_activity extends AppCompatActivity implements NavigationView
         nbchatt = findViewById(R.id.NBchatT);
         nbchat.setTypeface(type2);
         notifikasi = findViewById(R.id.notifikasiID);
-
 
         notifikasi.setBadgeValue(Preference.getNilaiNotif(getApplicationContext()))
                 .setBadgeTextSize(9)

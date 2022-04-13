@@ -12,6 +12,7 @@
         <entry key="..\:/AndroidP/DompetAbata/app/src/main/res/layout/navbottom_bar.xml" value="0.22135416666666666" />
         <entry key="..\:/AndroidP/LatansaReload/app/src/main/res/drawable/bg_blue.xml" value="0.1455" />
         <entry key="..\:/AndroidP/LatansaReload/app/src/main/res/drawable/bg_blueround.xml" value="0.1455" />
+        <entry key="..\:/AndroidP/LatansaReload/app/src/main/res/drawable/bg_netral.xml" value="0.157" />
         <entry key="..\:/AndroidP/LatansaReload/app/src/main/res/drawable/bg_overlay.xml" value="0.1455" />
         <entry key="..\:/AndroidP/LatansaReload/app/src/main/res/drawable/bg_pilihbank.xml" value="0.1455" />
         <entry key="..\:/AndroidP/LatansaReload/app/src/main/res/drawable/bg_pink.xml" value="0.1455" />
@@ -41,6 +42,7 @@
         <entry key="..\:/AndroidP/LatansaReload/app/src/main/res/layout/activity_detail_transaksi_truk.xml" value="0.18640350877192982" />
         <entry key="..\:/AndroidP/LatansaReload/app/src/main/res/layout/activity_drawer_activity.xml" value="0.18640350877192982" />
         <entry key="..\:/AndroidP/LatansaReload/app/src/main/res/layout/activity_group_holder.xml" value="0.18640350877192982" />
+        <entry key="..\:/AndroidP/LatansaReload/app/src/main/res/layout/activity_komisi_sales.xml" value="0.18640350877192982" />
         <entry key="..\:/AndroidP/LatansaReload/app/src/main/res/layout/activity_konter.xml" value="0.25" />
         <entry key="..\:/AndroidP/LatansaReload/app/src/main/res/layout/activity_login_.xml" value="0.18640350877192982" />
         <entry key="..\:/AndroidP/LatansaReload/app/src/main/res/layout/activity_mark_up_spesifik.xml" value="0.18640350877192982" />
@@ -48,13 +50,16 @@
         <entry key="..\:/AndroidP/LatansaReload/app/src/main/res/layout/activity_metodebayar_bank.xml" value="0.18640350877192982" />
         <entry key="..\:/AndroidP/LatansaReload/app/src/main/res/layout/activity_o_t_pinsert.xml" value="0.18640350877192982" />
         <entry key="..\:/AndroidP/LatansaReload/app/src/main/res/layout/activity_o_t_psend.xml" value="0.18640350877192982" />
+        <entry key="..\:/AndroidP/LatansaReload/app/src/main/res/layout/activity_pengajuan_dompet.xml" value="0.18640350877192982" />
         <entry key="..\:/AndroidP/LatansaReload/app/src/main/res/layout/activity_persetujuan_saldo_sales.xml" value="0.18640350877192982" />
+        <entry key="..\:/AndroidP/LatansaReload/app/src/main/res/layout/activity_point.xml" value="0.18640350877192982" />
         <entry key="..\:/AndroidP/LatansaReload/app/src/main/res/layout/activity_produkholder.xml" value="0.18640350877192982" />
         <entry key="..\:/AndroidP/LatansaReload/app/src/main/res/layout/activity_profil.xml" value="0.18640350877192982" />
         <entry key="..\:/AndroidP/LatansaReload/app/src/main/res/layout/activity_register_activity.xml" value="0.18640350877192982" />
         <entry key="..\:/AndroidP/LatansaReload/app/src/main/res/layout/activity_rekap_saldo.xml" value="0.18640350877192982" />
         <entry key="..\:/AndroidP/LatansaReload/app/src/main/res/layout/activity_splash_activity.xml" value="0.165" />
         <entry key="..\:/AndroidP/LatansaReload/app/src/main/res/layout/activity_syaratdanketentuan_activity.xml" value="0.18640350877192982" />
+        <entry key="..\:/AndroidP/LatansaReload/app/src/main/res/layout/activity_tagihan_konter.xml" value="0.18640350877192982" />
         <entry key="..\:/AndroidP/LatansaReload/app/src/main/res/layout/activity_tambah_konter.xml" value="0.18640350877192982" />
         <entry key="..\:/AndroidP/LatansaReload/app/src/main/res/layout/activity_tarik_komisi_sales.xml" value="0.25" />
         <entry key="..\:/AndroidP/LatansaReload/app/src/main/res/layout/activity_topup_saldoku_activity.xml" value="0.18640350877192982" />
@@ -74,6 +79,7 @@
         <entry key="..\:/AndroidP/LatansaReload/app/src/main/res/layout/list.xml" value="0.18640350877192982" />
         <entry key="..\:/AndroidP/LatansaReload/app/src/main/res/layout/list_daftarharga.xml" value="0.25" />
         <entry key="..\:/AndroidP/LatansaReload/app/src/main/res/layout/list_groupkategori.xml" value="0.18640350877192982" />
+        <entry key="..\:/AndroidP/LatansaReload/app/src/main/res/layout/list_komisi.xml" value="0.25" />
         <entry key="..\:/AndroidP/LatansaReload/app/src/main/res/layout/list_konter.xml" value="0.25" />
         <entry key="..\:/AndroidP/LatansaReload/app/src/main/res/layout/list_pengajuandompet.xml" value="0.18640350877192982" />
         <entry key="..\:/AndroidP/LatansaReload/app/src/main/res/layout/list_subcategory.xml" value="0.25" />

@@ -73,7 +73,7 @@ public class AdapterProdukHolder extends RecyclerView.Adapter<AdapterProdukHolde
 
 
                 Api api = RetroClient.getApiServices();
-                MInquiry mInquiry = new MInquiry(Produk.getCode(), nomor, "PRABAYAR", Value.getMacAddress(context), Value.getIPaddress(), Value.getUserAgent(context),Double.valueOf(Preference.getLang(v.getContext())), Double.valueOf(Preference.getLong(v.getContext())));
+                MInquiry mInquiry = new MInquiry(Produk.getCode(),  Preference.getNo(context), "PRABAYAR", Value.getMacAddress(context), Value.getIPaddress(), Value.getUserAgent(context),Double.valueOf(Preference.getLang(v.getContext())), Double.valueOf(Preference.getLong(v.getContext())));
                 String token = "Bearer " + Preference.getToken(context);
 
                 Call<ResponInquiry> call = api.CekInquiry(token, mInquiry);

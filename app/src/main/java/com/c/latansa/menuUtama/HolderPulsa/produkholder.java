@@ -59,6 +59,7 @@ public class produkholder extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_produkholder);
+        Preference.setNo(getApplicationContext(),"");
         String produkname = getIntent().getStringExtra("name");
 
         String color = Integer.toHexString(getResources().getColor(R.color.green, null)).toUpperCase();
@@ -103,11 +104,6 @@ public class produkholder extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 Preference.setNo(getApplicationContext(), inputnomorproduk.getText().toString());
-                if (jenis.equals("sub")) {
-                    getProdukSub(id);
-                } else {
-                    getProduk(id);
-                }
 
             }
 
@@ -122,6 +118,7 @@ public class produkholder extends AppCompatActivity {
     private void getProdukSub(String id) {
         LoadingPrimer loadingPrimer = new LoadingPrimer(produkholder.this);
         loadingPrimer.startDialogLoading();
+
         String token = "Bearer " + Preference.getToken(getApplicationContext());
         Api api = RetroClient.getApiServices();
         Call<ResponProdukHolder> call = api.getProdukHolderSub(token, id);
@@ -131,8 +128,9 @@ public class produkholder extends AppCompatActivity {
                 String code = response.body().getCode();
                 if (code.equals("200")) {
                     produk = response.body().getData();
-                    adapterProdukHolder = new AdapterProdukHolder(getApplicationContext(), produk, inputnomorproduk.getText().toString());
+                    adapterProdukHolder = new AdapterProdukHolder(getApplicationContext(), produk, Preference.getNo(getApplicationContext()));
                     ReyProdukHolder.setAdapter(adapterProdukHolder);
+
                     loadingPrimer.dismissDialog();
 
                 } else {
@@ -167,7 +165,7 @@ public class produkholder extends AppCompatActivity {
                 String code = response.body().getCode();
                 if (code.equals("200")) {
                     produk = response.body().getData();
-                    adapterProdukHolder = new AdapterProdukHolder(getApplicationContext(), produk, inputnomorproduk.getText().toString());
+                    adapterProdukHolder = new AdapterProdukHolder(getApplicationContext(), produk, Preference.getNo(getApplicationContext()));
                     ReyProdukHolder.setAdapter(adapterProdukHolder);
                     loadingPrimer.dismissDialog();
 
@@ -300,7 +298,7 @@ public class produkholder extends AppCompatActivity {
                 }
 
                 Intent intent = getIntent();
-                Preference.setNo(getApplicationContext(), nom);
+                Preference.setNo(getApplicationContext(), nom.replaceAll("-",""));
                 String id = intent.getStringExtra("id");
                 String jenis = intent.getStringExtra("jenis");
                 if (jenis.equals("sub")) {

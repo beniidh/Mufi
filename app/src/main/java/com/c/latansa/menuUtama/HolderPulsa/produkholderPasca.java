@@ -52,6 +52,7 @@ public class produkholderPasca extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_produkholder_pasca);
         String produkname = getIntent().getStringExtra("name");
+        Preference.setNo(getApplicationContext(),"");
 
         String color = Integer.toHexString(getResources().getColor(R.color.green, null)).toUpperCase();
         String color2 = "#" + color.substring(1);
@@ -87,7 +88,6 @@ public class produkholderPasca extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 Preference.setNo(getApplicationContext(), inputnomorproduk.getText().toString());
-                getProduk(id, inputnomorproduk.getText().toString());
 
             }
 
@@ -113,7 +113,7 @@ public class produkholderPasca extends AppCompatActivity {
                 String code = response.body().getCode();
                 if (code.equals("200")) {
                     produk = response.body().getData();
-                    adapterProdukHolder = new AdapterProdukHolderP(getApplicationContext(), produk, nomor, produkholderPasca.this);
+                    adapterProdukHolder = new AdapterProdukHolderP(getApplicationContext(), produk,  Preference.getNo(getApplicationContext()), produkholderPasca.this);
                     ReyProdukHolder.setAdapter(adapterProdukHolder);
                     loadingPrimer.dismissDialog();
 

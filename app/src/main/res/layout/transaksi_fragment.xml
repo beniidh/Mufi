@@ -6,8 +6,9 @@
     android:orientation="vertical"
     android:padding="18dp">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
+        android:orientation="horizontal"
         android:layout_height="wrap_content">
 
         <Button
@@ -26,17 +27,37 @@
 
         <EditText
             android:id="@+id/idTransaksiTanggalEditText"
-            android:layout_width="140sp"
-            android:layout_height="34sp"
-            android:layout_alignParentEnd="true"
-            android:background="@drawable/bg_saldo"
-            android:drawableEnd="@drawable/ic_baseline_arrow_drop_down_24"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
             android:focusable="false"
-            android:textSize="15sp"
-            android:gravity="center"
-            android:hint="tanggal" />
+            android:layout_weight="1"
+            android:layout_marginRight="5sp"
+            android:hint="Mulai"
+            android:fontFamily="@font/mukta"
+            android:textSize="15sp" />
 
-    </RelativeLayout>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="0.3"
+            android:layout_height="wrap_content"
+            android:text="To"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            />
+
+        <EditText
+            android:id="@+id/idTransaksiTanggalSelesai"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:focusable="false"
+            android:layout_weight="1"
+            android:layout_marginLeft="5sp"
+            android:layout_marginRight="5sp"
+            android:hint="Selesai"
+            android:fontFamily="@font/mukta"
+            android:textSize="15sp" />
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -49,16 +70,19 @@
             android:layout_marginTop="20sp"
             android:layout_marginRight="15sp"
             android:layout_weight="1"
+            android:layout_marginLeft="2dp"
+            android:elevation="2dp"
+            android:layout_marginBottom="1dp"
             android:paddingVertical="5dp"
-            android:background="@drawable/bg_button_homesaldo"
+            android:background="@drawable/bg_netral"
             android:orientation="vertical"
-         >
+            >
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Total Transaksi"
+                android:text="Total"
                 android:textColor="@color/black"
                 android:textStyle="bold" />
             <TextView
@@ -76,15 +100,17 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20sp"
             android:layout_weight="1"
+            android:layout_marginRight="2dp"
+            android:elevation="2dp"
+            android:layout_marginBottom="1dp"
             android:paddingVertical="5dp"
-            android:background="@drawable/bg_button_homesaldo"
-            android:orientation="vertical"
-            >
+            android:background="@drawable/bg_netral"
+            android:orientation="vertical">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Transaksi Sukses"
+                android:text="Sukses"
                 android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textStyle="bold" />
@@ -106,14 +132,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15sp"
-        android:background="@drawable/bg_button_homesaldo"
+        android:elevation="2dp"
+        android:layout_marginHorizontal="2dp"
+        android:background="@drawable/bg_netral"
         android:orientation="vertical"
         android:padding="10sp">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Total Pengeluaran"
+            android:text="Penjualan"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textStyle="bold" />

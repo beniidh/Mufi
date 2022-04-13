@@ -6,7 +6,7 @@ public class ResponSales {
 
     String code,error,message;
 
-    ArrayList<mData> data;
+    mData data;
 
     public String getCode() {
         return code;
@@ -20,15 +20,21 @@ public class ResponSales {
         return message;
     }
 
-    public ArrayList<mData> getData() {
+    public mData getData() {
         return data;
     }
 
     public class mData{
 
+        String id,komisi,sales_id,server_id,komisi_wallet;
+        ArrayList<mListSales> user_history;
+        public String getKomisi_wallet() {
+            return komisi_wallet;
+        }
 
-
-        String id,komisi,sales_id,server_id;
+        public ArrayList<mListSales> getUser_history() {
+            return user_history;
+        }
 
         public String getId() {
             return id;
@@ -45,5 +51,11 @@ public class ResponSales {
         public String getServer_id() {
             return server_id;
         }
+
+
+
+
     }
+
+
 }

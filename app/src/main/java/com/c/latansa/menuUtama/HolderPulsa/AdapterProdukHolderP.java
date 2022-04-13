@@ -75,7 +75,7 @@ public class AdapterProdukHolderP extends RecyclerView.Adapter<AdapterProdukHold
             LoadingPrimer loadingPrimer = new LoadingPrimer(ProdukholderPasca);
             loadingPrimer.startDialogLoading();
 
-            if (!nomor.isEmpty()) {
+
 
                 GpsTracker gpsTracker = new GpsTracker(context);
                 Api api = RetroClient.getApiServices();
@@ -129,10 +129,6 @@ public class AdapterProdukHolderP extends RecyclerView.Adapter<AdapterProdukHold
                     }
                 });
 
-            }else {
-                Toast.makeText(v.getContext(), "Nomor tidak boleh kosong",Toast.LENGTH_LONG).show();
-           loadingPrimer.dismissDialog();
-            }
         });
 
 

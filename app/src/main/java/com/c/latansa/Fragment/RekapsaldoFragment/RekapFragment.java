@@ -127,15 +127,15 @@ public class RekapFragment extends Fragment {
                 }
 
 
-                tabAdapter = new TabAdapter(getParentFragmentManager());
+                tabAdapter = new TabAdapter(getChildFragmentManager());
                 tabAdapter.addFragment(new SemuaFragment(data), "Tab 1");
                 tabAdapter.addFragment(new DebitFragment(dataDebit), "Tab 2");
                 tabAdapter.addFragment(new KreditFragment(dataKredit), "Tab 3");
                 ViewPagerlayoutTRekap.setAdapter(tabAdapter);
                 tablayoutRekap.setupWithViewPager(ViewPagerlayoutTRekap);
                 tablayoutRekap.getTabAt(0).setText("Semua");
-                tablayoutRekap.getTabAt(1).setText("Debit");
-                tablayoutRekap.getTabAt(2).setText("Kredit");
+                tablayoutRekap.getTabAt(1).setText("Kredit");
+                tablayoutRekap.getTabAt(2).setText("Debit");
             }
 
             @Override

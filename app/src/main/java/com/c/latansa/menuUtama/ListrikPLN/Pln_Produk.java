@@ -70,7 +70,7 @@ public class Pln_Produk extends AppCompatActivity {
         Intent intent = getIntent();
         type = intent.getStringExtra("type");
         String id = intent.getStringExtra("id");
-
+        getSubProdukID(id);
         recyclerPLN = findViewById(R.id.ReyProdukPlnPra);
         nomorinputpln = findViewById(R.id.nomorinputPLN);
         adapterProdukPLN = new AdapterProdukPLN(getApplicationContext(), modelProdukPlns,nomorinputpln.getText().toString(),type);
@@ -102,14 +102,14 @@ public class Pln_Produk extends AppCompatActivity {
                 } else {
                     keterangan.setVisibility(View.VISIBLE);
                 }
-
+                getSubProdukID(id);
             }
 
             @Override
             public void afterTextChanged(Editable s) {
 
 //                nomor = nomorinputpln.getText().toString();
-                getSubProdukID(id);
+
             }
         });
 

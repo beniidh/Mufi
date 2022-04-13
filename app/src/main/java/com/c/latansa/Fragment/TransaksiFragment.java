@@ -12,6 +12,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,13 +52,12 @@ public class TransaksiFragment extends Fragment {
     private ViewPager viewPager;
     TabAdapter tabAdapter;
     Button RekapSaldo;
-    EditText idtransaksiTanggalEditText;
+    EditText idtransaksiTanggalEditText, idTransaksiTanggalSelesai;
     ArrayList<ResponTransaksi.DataTransaksi> datahistory = new ArrayList<>();
     ArrayList<ResponTransaksi.DataTransaksi> datasaldoserver = new ArrayList<>();
     ArrayList<ResponTransaksi.DataTransaksi> datasaldoku = new ArrayList<>();
     TextView idTotalTransaksiTextView, idTransaksiSuksesTextView, idTotalPengeluaranTextView;
     private int mYear, mMonth, mDay, mHour, mMinute;
-
 
 
     @Override
@@ -65,7 +66,7 @@ public class TransaksiFragment extends Fragment {
 
         View v = inflater.inflate(R.layout.transaksi_fragment, container, false);
 
-//        framelayoutnotifikasi = (FrameLayout) v.findViewById(R.id.framelayoutTransaksi);
+        idTransaksiTanggalSelesai = v.findViewById(R.id.idTransaksiTanggalSelesai);
         tablayoutnotifikasi = (TabLayout) v.findViewById(R.id.tablayoutransaksi);
         viewPager = v.findViewById(R.id.ViewPagerlayoutTransaksi);
         idtransaksiTanggalEditText = v.findViewById(R.id.idTransaksiTanggalEditText);
@@ -73,17 +74,38 @@ public class TransaksiFragment extends Fragment {
         idTransaksiSuksesTextView = v.findViewById(R.id.idTransaksiSuksesTextView);
         idTotalPengeluaranTextView = v.findViewById(R.id.idTotalPengeluaranTextView);
         RekapSaldo = v.findViewById(R.id.RekapSaldo);
-        RekapSaldo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getContext(), RekapSaldoActivity.class);
-                startActivity(intent);
-            }
+
+        RekapSaldo.setOnClickListener(view -> {
+            Intent intent = new Intent(getContext(), RekapSaldoActivity.class);
+            startActivity(intent);
         });
 
         idtransaksiTanggalEditText.setOnClickListener(v1 -> {
-            showDateDialog();
+            showDateDialog("start");
         });
+        idTransaksiTanggalSelesai.setOnClickListener(v1 -> {
+            showDateDialog("end");
+        });
+
+        idTransaksiTanggalSelesai.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+
         return v;
     }
 
@@ -94,12 +116,12 @@ public class TransaksiFragment extends Fragment {
         // TODO: Use the ViewModel
     }
 
-    public void getDataHistory(String tanggall) {
+    public void getDataHistory(String start, String end) {
         LoadingPrimer loadingPrimer = new LoadingPrimer(getActivity());
         loadingPrimer.startDialogLoading();
         String token = "Bearer " + Preference.getToken(getContext());
         Api api = RetroClient.getApiServices();
-        Call<ResponTransaksi> call = api.getHistoriTransaksi(token, tanggall);
+        Call<ResponTransaksi> call = api.getHistoriTransaksi(token, start, end);
         call.enqueue(new Callback<ResponTransaksi>() {
             @Override
             public void onResponse(Call<ResponTransaksi> call, Response<ResponTransaksi> response) {
@@ -144,7 +166,8 @@ public class TransaksiFragment extends Fragment {
                     loadingPrimer.dismissDialog();
 
                 }
-                tabAdapter = new TabAdapter(getParentFragmentManager());
+
+                tabAdapter = new TabAdapter(getChildFragmentManager());
                 tabAdapter.addFragment(new FragmentSaldoku(datasaldoku), "Tab 1");
                 tabAdapter.addFragment(new FragmentSaldoServer(datasaldoserver), "Tab 2");
                 viewPager.setAdapter(tabAdapter);
@@ -170,7 +193,7 @@ public class TransaksiFragment extends Fragment {
     }
 
 
-    public void showDateDialog() {
+    public void showDateDialog(String jenis) {
         // Get Current Date
         final Calendar c = Calendar.getInstance();
         mYear = c.get(Calendar.YEAR);
@@ -180,7 +203,8 @@ public class TransaksiFragment extends Fragment {
 
         @SuppressLint("SetTextI18n") DatePickerDialog datePickerDialog = new DatePickerDialog(getContext(),
                 (view, year, monthOfYear, dayOfMonth) -> {
-                    idtransaksiTanggalEditText.setText(year + "-" + (monthOfYear + 1) + "-" + dayOfMonth);
+
+
                     String bulan = String.valueOf(monthOfYear + 1);
                     String day = String.valueOf(dayOfMonth);
                     if (bulan.length() == 1) {
@@ -193,8 +217,53 @@ public class TransaksiFragment extends Fragment {
                     }
 
                     String tnggl = year + "-" + bulan + "-" + day;
-                    datahistory.clear();
-                    getDataHistory(tnggl);
+
+                    if (jenis.equals("start")) {
+                        int mulai = Integer.parseInt(tnggl.replaceAll("-", ""));
+                        int selesai = Integer.parseInt(idTransaksiTanggalSelesai.getText().toString().replaceAll("-", ""));
+
+                        int jumlah = selesai - mulai;
+
+                        if (jumlah > 30) {
+
+                            jumlah = jumlah - 70;
+                        }
+                        idtransaksiTanggalEditText.setText(tnggl);
+                        if ((jumlah) < 8) {
+
+                            datahistory.clear();
+                            getDataHistory(tnggl, idTransaksiTanggalSelesai.getText().toString());
+
+                        } else {
+
+                            Toast.makeText(getContext(), "Transaksi Maksimal 7 hari", Toast.LENGTH_LONG).show();
+                        }
+
+
+                    } else {
+
+                        int selesai = Integer.parseInt(tnggl.replaceAll("-", ""));
+                        int mulai = Integer.parseInt(idtransaksiTanggalEditText.getText().toString().replaceAll("-", ""));
+
+                        int jumlah = selesai - mulai;
+
+                        if (jumlah > 30) {
+
+                            jumlah = jumlah - 70;
+                        }
+                        idTransaksiTanggalSelesai.setText(tnggl);
+                        if ((jumlah) < 8) {
+
+                            datahistory.clear();
+                            getDataHistory(idtransaksiTanggalEditText.getText().toString(),tnggl);
+
+                        } else {
+
+                            Toast.makeText(getContext(), "Transaksi Maksimal 7 hari", Toast.LENGTH_LONG).show();
+                        }
+
+
+                    }
                 }, mYear, mMonth, mDay);
 
         datePickerDialog.getDatePicker().setMaxDate(c.getTimeInMillis());
@@ -206,8 +275,9 @@ public class TransaksiFragment extends Fragment {
         super.onResume();
         String date = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
         idtransaksiTanggalEditText.setText(date);
-        getDataHistory(date);
-        getDataHistory(date);
+        idTransaksiTanggalSelesai.setText(date);
+        getDataHistory(date, date);
+        getDataHistory(date, date);
         datahistory.clear();
     }
 }

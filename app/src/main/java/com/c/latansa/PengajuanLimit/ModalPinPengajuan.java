@@ -1,6 +1,8 @@
 package com.c.latansa.PengajuanLimit;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,6 +52,32 @@ public class ModalPinPengajuan extends BottomSheetDialogFragment {
         idCancelPengajuan = v.findViewById(R.id.idCancelPengajuan);
         idPinPengajuanButtonn = v.findViewById(R.id.idPinPengajuanButton);
         idCancelPengajuan.setOnClickListener(v1 -> dismiss());
+
+        pinpengajuan.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                if(pinpengajuan.length()==6){
+
+                    String pinn = utils.hmacSha(pinpengajuan.getText().toString());
+                    String jumlahpengajuan = getArguments().getString("jumlahpengajuan");
+                    double pengajuan = Double.valueOf(jumlahpengajuan);
+                    ajukanlimit(pinn, Value.getMacAddress(getContext()), getIPaddress(), getUserAgent(), gpsTracker.getLatitude(), gpsTracker.getLongitude(), pengajuan);
+
+                }
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
 
 
         idPinPengajuanButtonn.setOnClickListener(v1 -> {
