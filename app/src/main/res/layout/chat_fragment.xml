@@ -43,7 +43,7 @@
                     android:layout_width="match_parent"
                     android:layout_marginTop="5dp"
                     android:layout_height="wrap_content"
-                    android:text="+62 856-5555-5587"
+                    android:text="+62 812-9744-3747"
                     android:textStyle="bold"
                     android:fontFamily="@font/notoregular"
                     />

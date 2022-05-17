@@ -11,7 +11,7 @@
         android:id="@+id/logosplash"
         android:layout_width="130dp"
         android:layout_height="130dp"
-        android:src="@drawable/logobarusetianobg"
+        android:src="@drawable/logobarusetia"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -21,11 +21,11 @@
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/myprogress"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_marginBottom="92dp"
         app:lottie_autoPlay="true"
-        app:lottie_url="https://assets2.lottiefiles.com/packages/lf20_9345yvlv.json"
+        app:lottie_url="https://assets10.lottiefiles.com/packages/lf20_dkz94xcg.json"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

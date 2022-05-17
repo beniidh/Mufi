@@ -68,12 +68,11 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/LinearBankBRI"
+            android:id="@+id/LinearBankMandiri"
             android:clickable="true"
             android:foreground="?android:attr/selectableItemBackground"
             android:layout_width="match_parent"
             android:layout_height="78dp"
-            android:visibility="gone"
             android:layout_marginTop="20dp"
             android:background="@drawable/bgpembayaran"
             android:orientation="horizontal"
@@ -85,7 +84,7 @@
                 android:layout_gravity="center"
                 android:layout_marginRight="10dp"
                 android:layout_weight="1"
-                android:src="@drawable/logobri" />
+                android:src="@drawable/logomandiri" />
 
             <TextView
                 android:layout_width="0dp"
@@ -93,7 +92,7 @@
                 android:layout_weight="4"
                 android:fontFamily="@font/mukta"
                 android:gravity="center_vertical"
-                android:text="Transfer Bank BRI"
+                android:text="Transfer Bank Mandiri"
                 android:textColor="@color/black"
                 android:textSize="18dp"
 
@@ -110,8 +109,9 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/LinearBankMandiri"
+            android:id="@+id/LinearBankBRI"
             android:clickable="true"
+            android:visibility="gone"
             android:foreground="?android:attr/selectableItemBackground"
             android:layout_width="match_parent"
             android:layout_height="78dp"

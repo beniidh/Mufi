@@ -30,11 +30,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:fontFamily="sans-serif-medium"
+            android:fontFamily="@font/miriamlibrebold"
             android:textAlignment="textStart"
             android:text="Daftar Harga"
             android:textColor="@color/black"
-            android:textSize="16sp" />
+            android:textSize="16dp" />
 
     </LinearLayout>
 

@@ -189,14 +189,15 @@
 <!--            />-->
 
 <!--    </LinearLayout>-->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/ReySubMenu"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:itemCount="45"
-        tools:listitem="@layout/listmenu_sidebar" />
 
-    <View
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/ReySubMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:itemCount="15"
+            tools:listitem="@layout/listmenu_sidebar" />
+
+        <View
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="1dp"
@@ -223,11 +224,11 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
-            android:fontFamily="sans-serif-medium"
+            android:fontFamily="@font/miriamlibrebold"
             android:gravity="center"
             android:text="Keluar"
             android:textColor="@color/red"
-            android:textSize="16sp" />
+            android:textSize="16dp" />
 
     </LinearLayout>
     <!--    <View-->

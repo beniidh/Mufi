@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+
     android:orientation="vertical"
     android:padding="18dp">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/RekapSaldo"
             android:layout_width="wrap_content"
             android:layout_height="35dp"
-            android:visibility="gone"
             android:layout_alignParentStart="true"
             android:layout_marginStart="0dp"
             android:background="@drawable/bg_button_login2"
@@ -23,38 +23,38 @@
             android:text="Rekap Saldo"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            android:textSize="10sp" />
+            android:textSize="10sp"
+            android:visibility="gone" />
 
         <EditText
             android:id="@+id/idTransaksiTanggalEditText"
             android:layout_width="0dp"
             android:layout_height="40dp"
-            android:focusable="false"
-            android:layout_weight="1"
             android:layout_marginRight="5sp"
-            android:hint="Mulai"
+            android:layout_weight="1"
+            android:focusable="false"
             android:fontFamily="@font/mukta"
+            android:hint="Mulai"
             android:textSize="15sp" />
 
         <TextView
             android:layout_width="0dp"
-            android:layout_weight="0.3"
             android:layout_height="wrap_content"
+            android:layout_weight="0.3"
             android:text="To"
             android:textAlignment="center"
-            android:textStyle="bold"
-            />
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/idTransaksiTanggalSelesai"
             android:layout_width="0dp"
             android:layout_height="40dp"
-            android:focusable="false"
-            android:layout_weight="1"
             android:layout_marginLeft="5sp"
             android:layout_marginRight="5sp"
-            android:hint="Selesai"
+            android:layout_weight="1"
+            android:focusable="false"
             android:fontFamily="@font/mukta"
+            android:hint="Selesai"
             android:textSize="15sp" />
 
     </LinearLayout>
@@ -67,16 +67,15 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
             android:layout_marginTop="20sp"
             android:layout_marginRight="15sp"
-            android:layout_weight="1"
-            android:layout_marginLeft="2dp"
-            android:elevation="2dp"
             android:layout_marginBottom="1dp"
-            android:paddingVertical="5dp"
+            android:layout_weight="1"
             android:background="@drawable/bg_netral"
+            android:elevation="2dp"
             android:orientation="vertical"
-            >
+            android:paddingVertical="5dp">
 
             <TextView
                 android:layout_width="match_parent"
@@ -85,6 +84,7 @@
                 android:text="Total"
                 android:textColor="@color/black"
                 android:textStyle="bold" />
+
             <TextView
                 android:id="@+id/idTotalTransaksiTextView"
                 android:layout_width="match_parent"
@@ -99,13 +99,13 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20sp"
-            android:layout_weight="1"
             android:layout_marginRight="2dp"
-            android:elevation="2dp"
             android:layout_marginBottom="1dp"
-            android:paddingVertical="5dp"
+            android:layout_weight="1"
             android:background="@drawable/bg_netral"
-            android:orientation="vertical">
+            android:elevation="2dp"
+            android:orientation="vertical"
+            android:paddingVertical="5dp">
 
             <TextView
                 android:layout_width="match_parent"
@@ -131,10 +131,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15sp"
-        android:elevation="2dp"
         android:layout_marginHorizontal="2dp"
+        android:layout_marginTop="15sp"
         android:background="@drawable/bg_netral"
+        android:elevation="2dp"
         android:orientation="vertical"
         android:padding="10sp">
 
@@ -162,8 +162,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:tabIndicatorColor="@color/green"
-        app:tabSelectedTextColor="@color/green">
-    </com.google.android.material.tabs.TabLayout>
+        app:tabSelectedTextColor="@color/green" />
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/ViewPagerlayoutTransaksi"

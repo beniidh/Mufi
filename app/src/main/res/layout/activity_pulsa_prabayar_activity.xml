@@ -70,7 +70,18 @@
         android:layout_below="@id/linearLayout6"
         android:layout_marginTop="20sp"
         android:padding="5dp"
-        tools:layout_editor_absoluteX="15dp" />
+        tools:layout_editor_absoluteX="15dp"/>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animasipulsaPra"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20sp"
+        android:layout_below="@id/linearLayout6"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_url="https://assets5.lottiefiles.com/private_files/lf30_2c7wnifx.json"
+        />
 
 
 </RelativeLayout>

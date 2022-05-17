@@ -2,6 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:elevation="4dp"
+    android:layout_marginTop="4dp"
+    android:layout_marginHorizontal="2dp"
+    android:background="@drawable/bg_netral"
     android:id="@+id/LinearFSS"
     android:orientation="vertical">
 
@@ -10,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
-        android:background="@drawable/bg_saldo"
+
         android:foreground="?android:attr/selectableItemBackground"
         android:orientation="horizontal"
         android:padding="5dp">

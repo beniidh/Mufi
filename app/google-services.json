@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:673024307746:android:76ef7b8de39b1720ee107b",
+        "mobilesdk_app_id": "1:673024307746:android:07c169c7dda94721ee107b",
         "android_client_info": {
-          "package_name": "com.c.latansa"
+          "package_name": "com.c.ajatreload"
         }
       },
       "oauth_client": [
@@ -36,7 +36,36 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:673024307746:android:01a8f0ac6e9f2d6dee107b",
+        "mobilesdk_app_id": "1:673024307746:android:a3ba8e7c2c614c8bee107b",
+        "android_client_info": {
+          "package_name": "com.c.kreload"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "673024307746-n6204v2aumc7na3apsbfbcg1rn86tqat.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAbspLNyrFyER777dWKYcp6pqarLTHCUP8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "673024307746-n6204v2aumc7na3apsbfbcg1rn86tqat.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:673024307746:android:76ef7b8de39b1720ee107b",
         "android_client_info": {
           "package_name": "com.c.latansa"
         }

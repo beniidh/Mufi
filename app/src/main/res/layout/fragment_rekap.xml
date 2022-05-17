@@ -12,7 +12,7 @@
         android:id="@+id/FilterRekap"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:src="@drawable/search_filter"
+        android:src="@drawable/search_paste"
         android:layout_gravity="right"
         />
 

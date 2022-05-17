@@ -89,10 +89,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/mukta"
-            android:text="A.n PT M. Lukman Hakim"
+            android:text="A.n ZAENAL ABDI"
             android:textColor="@color/gray3"
             android:textSize="18dp"
-
             />
 
         <View
