@@ -220,6 +220,7 @@ public class CetakPlnPra extends AppCompatActivity {
 
             Paint paint3 = new Paint();
 
+
             paint3.setColor(ContextCompat.getColor(getApplicationContext(), R.color.gray4));
             Typeface type4 = ResourcesCompat.getFont(getApplicationContext(), R.font.mukta);
             paint3.setTypeface(type4);
