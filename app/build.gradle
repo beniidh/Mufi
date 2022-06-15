@@ -10,8 +10,8 @@ android {
         applicationId "com.c.kreload"
         minSdkVersion 21
         targetSdkVersion 31
-        versionCode 1
-        versionName "0"
+        versionCode 4
+        versionName "2.1"
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -25,6 +25,11 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+    buildFeatures {
+
+        viewBinding true
+
     }
 
 }

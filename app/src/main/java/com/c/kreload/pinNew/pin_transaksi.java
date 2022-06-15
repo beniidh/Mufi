@@ -400,6 +400,9 @@ public class pin_transaksi extends AppCompatActivity implements View.OnClickList
                     intent.putExtra("transaksid", response.body().getData().getRef_id());
                     intent.putExtra("iconn", bundle.getString("iconn"));
                     showSucceedVibration();
+                    Intent intent2 = new Intent("finish_activity");
+                    sendBroadcast(intent2);
+
                     startActivity(intent);
                     finish();
 

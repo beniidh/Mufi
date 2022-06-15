@@ -2,12 +2,13 @@ package com.c.kreload.Respon;
 
 import com.c.kreload.Model.MSubPLN;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ResponSubP {
     String code ;
     String error;
-    List<MSubPLN> data;
+    ArrayList<MSubPLN> data;
 
     public String getCode() {
         return code;
@@ -17,7 +18,7 @@ public class ResponSubP {
         return error;
     }
 
-    public List<MSubPLN> getData() {
+    public ArrayList<MSubPLN> getData() {
         return data;
     }
 }

@@ -26,12 +26,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.c.kreload.Api.Api;
 import com.c.kreload.CetakStruk.Epos.AsyncBluetoothEscPosPrint;
 import com.c.kreload.CetakStruk.Epos.AsyncEscPosPrinter;
+import com.c.kreload.CetakStruk.StrukPLNPra.CetakPlnPra;
 import com.c.kreload.CetakStruk.cetak;
 import com.c.kreload.Helper.LoadingPrimer;
 import com.c.kreload.Helper.RetroClient;
@@ -61,24 +63,48 @@ public class CetakPlnPasca extends AppCompatActivity {
 
     private final Locale locale = new Locale("id", "ID");
     private final NumberFormat nf = NumberFormat.getCurrencyInstance(locale);
-    Button setAdmin, CetakPasca,shareStrukP;
+    Button setAdmin, CetakPasca, shareStrukP;
     EditText pilihPerangkat;
 
     TextView KonterPS, AlamatPS, namaPS, TagihanPS,
             jumlahBulanPS, TarifDayaPS, jmlhTagihanPS, SMPS, adminPS,
-            totaltagihanPS, RefPS, WaktuPS;
+            totaltagihanPS, RefPS, WaktuPS, IdPS;
     LoadingPrimer loadingPrimer = new LoadingPrimer(CetakPlnPasca.this);
+
+    TextView header, footer;
+    ImageView EditHeader, EditFooter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cetak_pln_pasca);
-        String color = Integer.toHexString(ContextCompat.getColor(getApplicationContext(),R.color.green)).toUpperCase();
+        String color = Integer.toHexString(ContextCompat.getColor(getApplicationContext(), R.color.green)).toUpperCase();
         String color2 = "#" + color.substring(1);
-        getSupportActionBar().setTitle(Html.fromHtml("<font color='" + color2 +"'><b>Cetak Struk <b></font>"));
+        getSupportActionBar().setTitle(Html.fromHtml("<font color='" + color2 + "'><b>Cetak Struk <b></font>"));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_24);
 
+        EditFooter = findViewById(R.id.EditFooter);
+        EditHeader = findViewById(R.id.EditHeader);
+        header = findViewById(R.id.header);
+        footer = findViewById(R.id.footer);
+        IdPS = findViewById(R.id.IdPS);
+
+        IdPS.setText("ID : " + getIntent().getStringExtra("nomor"));
+
+        header.setText(Preference.getHeader(getApplicationContext()));
+        footer.setText(Preference.getFooter(getApplicationContext()));
+
+        EditFooter.setOnClickListener(v -> {
+            popUpEditFooter();
+
+        });
+
+        EditHeader.setOnClickListener(v -> {
+
+            popUpEditHeader();
+
+        });
 
         //Button
         setAdmin = findViewById(R.id.setAdmin);
@@ -137,7 +163,7 @@ public class CetakPlnPasca extends AppCompatActivity {
         shareStrukP.setOnClickListener(v -> {
 
             Rect bounds = new Rect();
-            Bitmap bmp = Bitmap.createBitmap(1400, 1500, Bitmap.Config.ARGB_4444);
+            Bitmap bmp = Bitmap.createBitmap(1400, 1850, Bitmap.Config.ARGB_4444);
             Canvas canvas = new Canvas(bmp);
             canvas.drawColor(-1);
             Paint paint = new Paint();
@@ -146,7 +172,18 @@ public class CetakPlnPasca extends AppCompatActivity {
             paint.setTextSize(70);
             paint.setColor(Color.rgb(0, 0, 0));
 
-            int y = 150; // x = 10,
+            Paint paint5 = new Paint();
+
+            paint5.setColor(ContextCompat.getColor(getApplicationContext(), R.color.gray4));
+            Typeface type5 = ResourcesCompat.getFont(getApplicationContext(), R.font.mukta);
+            paint5.setTypeface(type5);
+            paint5.setTextSize(52);
+
+            String headerr = header.getText().toString();
+            canvas.drawText(headerr, 80, 150, paint5);
+
+            int tambahan2 = 100;
+            int y = 150+tambahan2; // x = 10,
             int x = 10;
 
             String text = KonterPS.getText().toString();
@@ -159,22 +196,26 @@ public class CetakPlnPasca extends AppCompatActivity {
             String jenis = " * Struk PLN Pasca *";
             paint4.getTextBounds(jenis, 0, jenis.length(), bounds);
             x = (canvas.getWidth() / 2) - (bounds.width() / 2);
-            canvas.drawText(jenis, x, 250, paint4);
+            canvas.drawText(jenis, x, 250 +tambahan2, paint4);
 
             Paint paint1 = new Paint();
 
-            paint1.setColor(ContextCompat.getColor(getApplicationContext(),R.color.gray4));
+            paint1.setColor(ContextCompat.getColor(getApplicationContext(), R.color.gray4));
             Typeface type2 = ResourcesCompat.getFont(getApplicationContext(), R.font.courierprimereguler);
             paint1.setTypeface(type2);
 
             paint1.setTextSize(72);
 
             int left = 120;
-            int tambahan = 50;
+            int tambahan = 50+tambahan2;
 
             canvas.drawText("Nama  : ", left, 400 + tambahan, paint1);
             canvas.drawText(namaPS.getText().toString().substring(6), 460, 400 + tambahan, paint1);
 
+            canvas.drawText("ID    : ", left, 500 + tambahan, paint1);
+            canvas.drawText(IdPS.getText().toString().substring(5), 460, 500 + tambahan, paint1);
+
+            tambahan = 150+ tambahan2;
             canvas.drawText("PTAG  : ", left, 500 + tambahan, paint1);
             canvas.drawText(TagihanPS.getText().toString().substring(18), 460, 500 + tambahan, paint1);
 //
@@ -201,13 +242,22 @@ public class CetakPlnPasca extends AppCompatActivity {
 
             Paint paint3 = new Paint();
 
-            paint3.setColor(ContextCompat.getColor(getApplicationContext(),R.color.gray4));
+            paint3.setColor(ContextCompat.getColor(getApplicationContext(), R.color.gray4));
             Typeface type4 = ResourcesCompat.getFont(getApplicationContext(), R.font.mukta);
             paint3.setTypeface(type4);
             paint3.setTextSize(36);
 
-            canvas.drawText("* Struk ini merupakan bukti pembayaran yang sah ", left+200, 1280 + tambahan, paint3);
-            canvas.drawText("mohon disimpan,Terimakasih", left+350, 1330 + tambahan, paint3);
+            canvas.drawText("* Struk ini merupakan bukti pembayaran yang sah ", left + 200, 1280 + tambahan, paint3);
+            canvas.drawText("mohon disimpan,Terimakasih", left + 350, 1330 + tambahan, paint3);
+
+            String Footer = footer.getText().toString();
+
+            if (Footer.length() > 45) {
+                canvas.drawText(Footer.substring(0, 45), left, 1430 + tambahan, paint5);
+                canvas.drawText(Footer.substring(45), left, 1480 + tambahan, paint5);
+            } else {
+                canvas.drawText(Footer, left, 1430 + tambahan, paint5);
+            }
 
             saveImageExternal(bmp);
             File imagePath = new File(getApplicationContext().getCacheDir(), "images");
@@ -241,6 +291,49 @@ public class CetakPlnPasca extends AppCompatActivity {
         }
     }
 
+    public void popUpEditFooter() {
+
+        android.app.AlertDialog dialogBuilder = new android.app.AlertDialog.Builder(CetakPlnPasca.this).create();
+        LayoutInflater inflater = getLayoutInflater();
+        View dialogView = inflater.inflate(R.layout.set_footer, null);
+
+        EditText editText = (EditText) dialogView.findViewById(R.id.EFooter);
+        editText.setText(Preference.getFooter(getApplicationContext()));
+        Button button1 = (Button) dialogView.findViewById(R.id.BEFoter);
+
+        button1.setOnClickListener(v -> {
+            footer.setText(editText.getText().toString());
+            Preference.setFooter(getApplicationContext(), editText.getText().toString());
+
+            dialogBuilder.dismiss();
+        });
+
+        dialogBuilder.setView(dialogView);
+        dialogBuilder.show();
+
+    }
+
+    public void popUpEditHeader() {
+
+        android.app.AlertDialog dialogBuilder = new android.app.AlertDialog.Builder(CetakPlnPasca.this).create();
+        LayoutInflater inflater = getLayoutInflater();
+        View dialogView = inflater.inflate(R.layout.set_header, null);
+
+        EditText editText = (EditText) dialogView.findViewById(R.id.EFooter);
+        editText.setText(Preference.getHeader(getApplicationContext()));
+        Preference.setHeader(getApplicationContext(), editText.getText().toString());
+        Button button1 = (Button) dialogView.findViewById(R.id.BEFoter);
+
+        button1.setOnClickListener(v -> {
+            header.setText(editText.getText().toString());
+            Preference.setHeader(getApplicationContext(), editText.getText().toString());
+            dialogBuilder.dismiss();
+        });
+
+        dialogBuilder.setView(dialogView);
+        dialogBuilder.show();
+
+    }
 
 
     private BluetoothConnection selectedDevice;
@@ -304,7 +397,8 @@ public class CetakPlnPasca extends AppCompatActivity {
         SimpleDateFormat format = new SimpleDateFormat("'' yyyy-MM-dd ':' HH:mm:ss");
         AsyncEscPosPrinter printer = new AsyncEscPosPrinter(printerConnection, 203, 48f, 32);
         return printer.setTextToPrint(
-                "[C]<u><font size='tall' color ='bg-black'>" + KonterPS.getText().toString() + "</font></u>\n" +
+                "[L]" + header.getText().toString() + "\n" + "\n" +
+                        "[C]<u><font size='tall' color ='bg-black'>" + KonterPS.getText().toString() + "</font></u>\n" +
                         "[C]\n" +
                         "[C]" + AlamatPS.getText().toString() + "\n" +
                         "[C]<u type='double'>" + WaktuPS.getText().toString() + "</u>\n" +
@@ -315,6 +409,7 @@ public class CetakPlnPasca extends AppCompatActivity {
                         "[C]\n" +
                         "[L]Produk [L]: PLN PASCA" + "\n" +
                         "[L]Nama [L]: " + namaPS.getText().toString().substring(6) + "\n" +
+                        "[L]ID [L]: " + IdPS.getText().toString().substring(5) + "\n" +
                         "[L]Periode TAG [L]: " + TagihanPS.getText().toString().substring(18) + "\n" +
                         "[L]Jumlah BLN [L]:" + jumlahBulanPS.getText().toString().substring(14) + "\n" +
                         "[L]Tarif Daya [L]:" + TarifDayaPS.getText().toString().substring(12) + "\n" +
@@ -332,6 +427,8 @@ public class CetakPlnPasca extends AppCompatActivity {
                         "[C]harap disimpan\n" +
                         "[C]\n" +
                         "[C]" + "<b>---Terimakasih---<b>" + "\n" +
+                        "[L]\n" +
+                        "[L]" + footer.getText().toString() + "\n" +
                         "[L]\n"
         );
     }

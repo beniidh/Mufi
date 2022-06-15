@@ -5,13 +5,18 @@ import java.util.ArrayList;
 public class data {
 
     String id,code,name,email,phone;
-    String token,icon;
+    String token,icon,type_login,otp_id;
     String store_name,address,status,roles,parent,province_id,regencies_id,districts_id,sub_districts_id,postal_code_id,mac_address,ip_address,user_agent,refresh_token,longitude,latitude,paylater_status,referal_code,server_code,server_id,avatar,logo,login_at,id_card,selfie,id_card_selfie,is_deleted,created_at,updated_at;
 
     ArrayList<MSubMenu> menu;
    MWallet wallet;
 
    DataSales sales;
+   Point user_poin;
+
+    public Point getUser_poin() {
+        return user_poin;
+    }
 
     public DataSales getSales() {
         return sales;
@@ -43,6 +48,14 @@ public class data {
 
     public String getParent() {
         return parent;
+    }
+
+    public String getOtp_id() {
+        return otp_id;
+    }
+
+    public String getType_login() {
+        return type_login;
     }
 
     public String getProvince_id() {
@@ -206,6 +219,24 @@ public class data {
 
         public String getPhone() {
             return phone;
+        }
+    }
+
+    public class Point{
+
+        String id,user_id;
+        int poin;
+
+        public String getId() {
+            return id;
+        }
+
+        public String getUser_id() {
+            return user_id;
+        }
+
+        public int getPoin() {
+            return poin;
         }
     }
 }

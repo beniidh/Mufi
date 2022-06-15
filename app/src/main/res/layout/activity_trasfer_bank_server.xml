@@ -14,6 +14,7 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/BankTujuan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/mukta"
@@ -75,6 +76,7 @@
             />
 
         <TextView
+            android:id="@+id/rekeningserver"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/mukta"
@@ -84,6 +86,7 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/namaRekeningServer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/mukta"

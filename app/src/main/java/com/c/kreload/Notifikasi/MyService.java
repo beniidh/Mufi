@@ -45,7 +45,7 @@ public class MyService extends FirebaseMessagingService {
             resultIntent.putExtra("transaksid", transaksi);
 
         }
-        PendingIntent PI = PendingIntent.getActivity(this, 1, resultIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent PI = PendingIntent.getActivity(this, 1, resultIntent, PendingIntent.FLAG_IMMUTABLE);
         int NotificationID = 0;
         String ChanelID = "Abata";
         String ChanelName = "AbataChannel";

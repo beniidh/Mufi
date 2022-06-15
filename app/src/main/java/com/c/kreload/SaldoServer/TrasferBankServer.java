@@ -36,7 +36,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class TrasferBankServer extends AppCompatActivity implements ModalPinUPPServer.BottomSheetListeneridUpload {
-    TextView saldokubank;
+    TextView saldokubank,BankTujuan,saldokubankserver,rekeningserver,namaRekeningServer;
     Button oktransaksi, uploadBuktiTBSaldo;
     int up = 0;
     String primaryid="";
@@ -52,6 +52,19 @@ public class TrasferBankServer extends AppCompatActivity implements ModalPinUPPS
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_24);
 
         saldokubank = findViewById(R.id.saldokubank);
+        BankTujuan = findViewById(R.id.BankTujuan);
+        rekeningserver = findViewById(R.id.rekeningserver);
+        namaRekeningServer = findViewById(R.id.namaRekeningServer);
+
+        String noRekening = getIntent().getStringExtra("NoRekening");
+        String titleakun = getIntent().getStringExtra("Title");
+        String namaRekening = getIntent().getStringExtra("NamaRekening");
+
+        rekeningserver.setText(noRekening);
+        BankTujuan.setText(titleakun);
+        namaRekeningServer.setText(namaRekening);
+
+
         uploadBuktiTBSaldo = findViewById(R.id.uploadBuktiTBSaldo);
 
         uploadBuktiTBSaldo.setOnClickListener(v -> {

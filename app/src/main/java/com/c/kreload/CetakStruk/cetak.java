@@ -34,16 +34,20 @@ import android.os.Handler;
 import android.os.StrictMode;
 import android.text.Html;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.c.kreload.Api.Api;
 import com.c.kreload.CetakStruk.Epos.AsyncBluetoothEscPosPrint;
 import com.c.kreload.CetakStruk.Epos.AsyncEscPosPrinter;
+import com.c.kreload.CetakStruk.StrukPLNPasca.CetakPlnPasca;
 import com.c.kreload.Helper.RetroClient;
+import com.c.kreload.Helper.utils;
 import com.c.kreload.R;
 import com.c.kreload.Respon.ResponProfil;
 import com.c.kreload.sharePreference.Preference;
@@ -72,6 +76,8 @@ public class cetak extends AppCompatActivity {
 
     TextView idNomorStruk, namaTPCC, idProdukStruk, hargastruk, titlestrukC, idTanggalStruk, idWaktuStruk, idNomorSNStruk, idNomorTransaksiStruk, idTotalPembelianStruk;
     Button buttondownloadPDF, cetakStrukPDF;
+    TextView header, footer;
+    ImageView EditHeader, EditFooter;
     int PERMISSION_ALL = 1;
     BluetoothAdapter mBluetoothAdapter;
     BluetoothSocket mmSocket;
@@ -104,12 +110,31 @@ public class cetak extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cetak);
-        String color = Integer.toHexString(ContextCompat.getColor(getApplicationContext(),R.color.green)).toUpperCase();
+        String color = Integer.toHexString(ContextCompat.getColor(getApplicationContext(), R.color.green)).toUpperCase();
         String color2 = "#" + color.substring(1);
         getSupportActionBar().setTitle(Html.fromHtml("<font color='" + color2 + "'><b>Cetak<b></font>"));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_24);
         myLabel = findViewById(R.id.myLabel);
+
+        EditFooter = findViewById(R.id.EditFooter);
+        EditHeader = findViewById(R.id.EditHeader);
+        header = findViewById(R.id.header);
+        footer = findViewById(R.id.footer);
+
+        header.setText(Preference.getHeader(getApplicationContext()));
+        footer.setText(Preference.getFooter(getApplicationContext()));
+
+        EditFooter.setOnClickListener(v -> {
+            popUpEditFooter();
+
+        });
+
+        EditHeader.setOnClickListener(v -> {
+
+            popUpEditHeader();
+
+        });
 
         StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
         StrictMode.setVmPolicy(builder.build());
@@ -157,7 +182,6 @@ public class cetak extends AppCompatActivity {
         cetakStrukPDF.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 printBluetooth();
 
             }
@@ -168,6 +192,51 @@ public class cetak extends AppCompatActivity {
 
         });
     }
+
+    public void popUpEditFooter() {
+
+        AlertDialog dialogBuilder = new AlertDialog.Builder(cetak.this).create();
+        LayoutInflater inflater = getLayoutInflater();
+        View dialogView = inflater.inflate(R.layout.set_footer, null);
+
+        EditText editText = (EditText) dialogView.findViewById(R.id.EFooter);
+        editText.setText(Preference.getFooter(getApplicationContext()));
+        Button button1 = (Button) dialogView.findViewById(R.id.BEFoter);
+
+        button1.setOnClickListener(v -> {
+            footer.setText(editText.getText().toString());
+            Preference.setFooter(getApplicationContext(), editText.getText().toString());
+
+            dialogBuilder.dismiss();
+        });
+
+        dialogBuilder.setView(dialogView);
+        dialogBuilder.show();
+
+    }
+
+    public void popUpEditHeader() {
+
+        AlertDialog dialogBuilder = new AlertDialog.Builder(cetak.this).create();
+        LayoutInflater inflater = getLayoutInflater();
+        View dialogView = inflater.inflate(R.layout.set_header, null);
+
+        EditText editText = (EditText) dialogView.findViewById(R.id.EFooter);
+        editText.setText(Preference.getHeader(getApplicationContext()));
+        Preference.setHeader(getApplicationContext(), editText.getText().toString());
+        Button button1 = (Button) dialogView.findViewById(R.id.BEFoter);
+
+        button1.setOnClickListener(v -> {
+            header.setText(editText.getText().toString());
+            Preference.setHeader(getApplicationContext(), editText.getText().toString());
+            dialogBuilder.dismiss();
+        });
+
+        dialogBuilder.setView(dialogView);
+        dialogBuilder.show();
+
+    }
+
 
     @Override
     public boolean onSupportNavigateUp() {
@@ -252,7 +321,7 @@ public class cetak extends AppCompatActivity {
     private void saveImage() {
 
         Rect bounds = new Rect();
-        Bitmap bmp = Bitmap.createBitmap(1400, 1600, Bitmap.Config.ARGB_4444);
+        Bitmap bmp = Bitmap.createBitmap(1400, 1700, Bitmap.Config.ARGB_4444);
         Canvas canvas = new Canvas(bmp);
         canvas.drawColor(-1);
         Paint paint = new Paint();
@@ -261,23 +330,33 @@ public class cetak extends AppCompatActivity {
         paint.setTextSize(70);
         paint.setColor(Color.rgb(0, 0, 0));
 
+        Paint paint4 = new Paint();
+
+        paint4.setColor(ContextCompat.getColor(getApplicationContext(), R.color.gray4));
+        Typeface type5 = ResourcesCompat.getFont(getApplicationContext(), R.font.mukta);
+        paint4.setTypeface(type5);
+        paint4.setTextSize(52);
+
         int y = 150; // x = 10,
+        int tambahan2 = 150;
         int x = 10;
 
         String text = titlestrukC.getText().toString();
+        String headerr = header.getText().toString();
 
         paint.getTextBounds(text, 0, text.length(), bounds);
         x = (canvas.getWidth() / 2) - (bounds.width() / 2);
-        canvas.drawText(text, x, y, paint);
+        canvas.drawText(text, x, y + tambahan2, paint);
+
         Paint paint1 = new Paint();
 
-        paint1.setColor(ContextCompat.getColor(getApplicationContext(),R.color.gray4));
+        paint1.setColor(ContextCompat.getColor(getApplicationContext(), R.color.gray4));
         Typeface type2 = ResourcesCompat.getFont(getApplicationContext(), R.font.courierprimereguler);
         paint1.setTypeface(type2);
         paint1.setTextSize(72);
-
+        canvas.drawText(headerr, 120, y, paint4);
         int left = 120;
-        int tambahan = 50;
+        int tambahan = 50 + tambahan2;
 
         canvas.drawText("Nomor  : ", left, 250 + tambahan, paint1);
         canvas.drawText(idNomorStruk.getText().toString(), 460, 250 + tambahan, paint1);
@@ -333,13 +412,23 @@ public class cetak extends AppCompatActivity {
 
         Paint paint3 = new Paint();
 
-        paint3.setColor(ContextCompat.getColor(getApplicationContext(),R.color.gray4));
+        paint3.setColor(ContextCompat.getColor(getApplicationContext(), R.color.gray4));
         Typeface type4 = ResourcesCompat.getFont(getApplicationContext(), R.font.mukta);
         paint3.setTypeface(type4);
         paint3.setTextSize(36);
 
         canvas.drawText("* Struk ini merupakan bukti pembayaran yang sah ", left, 1250 + tambahan, paint3);
         canvas.drawText("mohon disimpan,Terimakasih", left, 1300 + tambahan, paint3);
+
+        String Footer = footer.getText().toString();
+
+        if (Footer.length() > 45) {
+            canvas.drawText(Footer.substring(0,45), left, 1400 + tambahan, paint4);
+            canvas.drawText(Footer.substring(45), left, 1450 + tambahan, paint4);
+        } else {
+            canvas.drawText(Footer, left, 1400 + tambahan, paint4);
+        }
+
 
         //blank space
         y += paint.descent() - paint.ascent();
@@ -360,6 +449,7 @@ public class cetak extends AppCompatActivity {
             startActivity(Intent.createChooser(shareIntent, "Choose an app"));
         }
     }
+
     private void saveImageExternal(Bitmap image) {
         //TODO - Should be processed in another thread
         try {
@@ -375,89 +465,6 @@ public class cetak extends AppCompatActivity {
         }
     }
 
-
-    public void savepdf() {
-
-        Rect bounds = new Rect();
-        int pageWidth = 300;
-        int pageheight = 330;
-        int pathHeight = 2;
-
-        PdfDocument myPdfDocument = new PdfDocument();
-        Paint paint = new Paint();
-        Paint paint2 = new Paint();
-        Path path = new Path();
-        PdfDocument.PageInfo myPageInfo = new PdfDocument.PageInfo.Builder(pageWidth, pageheight, 1).create();
-        PdfDocument.Page documentPage = myPdfDocument.startPage(myPageInfo);
-        Canvas canvas = documentPage.getCanvas();
-        int y = 25; // x = 10,
-        //int x = (canvas.getWidth() / 2);
-        int x = 10;
-
-        String text = titlestrukC.getText().toString();
-
-        paint.getTextBounds(text, 0, text.length(), bounds);
-        x = (canvas.getWidth() / 2) - (bounds.width() / 2);
-        canvas.drawText(text, x, y, paint);
-
-        Paint paint1 = new Paint();
-
-        paint1.setColor(ContextCompat.getColor(getApplicationContext(),R.color.gray4));
-        Typeface type2 = ResourcesCompat.getFont(getApplicationContext(), R.font.courierprimereguler);
-        paint1.setTypeface(type2);
-
-        int left = 20;
-
-        canvas.drawText("Nomor", left, 90, paint1);
-        canvas.drawText(idNomorStruk.getText().toString(), 150, 90, paint1);
-
-        canvas.drawText("Produk", left, 110, paint1);
-        canvas.drawText(idProdukStruk.getText().toString(), 150, 110, paint1);
-
-        canvas.drawText("Tanggal", left, 130, paint1);
-        canvas.drawText(idTanggalStruk.getText().toString(), 150, 130, paint1);
-
-        canvas.drawText("Waktu", left, 150, paint1);
-        canvas.drawText(idWaktuStruk.getText().toString(), 150, 150, paint1);
-
-        canvas.drawText("Nomor SN", left, 170, paint1);
-        canvas.drawText(idNomorSNStruk.getText().toString(), 150, 170, paint1);
-
-        canvas.drawText("Nomor Transaksi", left, 190, paint1);
-        canvas.drawText(idNomorTransaksiStruk.getText().toString(), 150, 190, paint1);
-
-        canvas.drawText("Total Pembelian", left, 210, paint1);
-        canvas.drawText(idTotalPembelianStruk.getText().toString(), 150, 210, paint1);
-
-
-
-        //blank space
-        y += paint.descent() - paint.ascent();
-        canvas.drawText("", x, y, paint);
-
-        //horizontal line
-        path.lineTo(pageWidth, pathHeight);
-        paint2.setColor(Color.GRAY);
-        paint2.setStyle(Paint.Style.STROKE);
-        path.moveTo(x, y);
-        canvas.drawLine(0, y, pageWidth, y, paint2);
-
-        path.lineTo(pageWidth, pathHeight);
-        paint2.setColor(Color.GRAY);
-        paint2.setStyle(Paint.Style.STROKE);
-        path.moveTo(x, y);
-        canvas.drawLine(0, 300, pageWidth, 300, paint2);
-        myPdfDocument.finishPage(documentPage);
-
-        File file = new File(Environment.getExternalStorageDirectory(), idTanggalStruk.getText().toString() + "-" + idNomorTransaksiStruk.getText().toString() + ".pdf");
-        try {
-            myPdfDocument.writeTo(new FileOutputStream(file));
-            Toast.makeText(getApplicationContext(), "File Tersimpan pada internal memory, dengan nama" + idTanggalStruk.getText().toString() + "-" + idNomorTransaksiStruk.getText().toString() + ".pdf", Toast.LENGTH_LONG).show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
 
     public void getContentProfil() {
 
@@ -554,7 +561,8 @@ public class cetak extends AppCompatActivity {
         SimpleDateFormat format = new SimpleDateFormat(" yyyy-MM-dd ':' HH:mm:ss");
         AsyncEscPosPrinter printer = new AsyncEscPosPrinter(printerConnection, 203, 48f, 32);
         return printer.setTextToPrint(
-                "[C]<u><font size='big'>" + titlestrukC.getText().toString() + "</font></u>\n" +
+                "[L]" + header.getText().toString() + "\n" + "\n" +
+                        "[C]<u><font size='big'>" + titlestrukC.getText().toString() + "</font></u>\n" +
                         "[C]\n" +
                         "[C]" + "JL " + getAlamat() + "\n" +
                         "[C]<u type='double'>" + format.format(new Date()) + "</u>\n" +
@@ -574,8 +582,9 @@ public class cetak extends AppCompatActivity {
                         "[L]<b>Total Bayar</b>[R]" + idTotalPembelianStruk.getText().toString() + "\n" +
                         "[L]\n" +
                         "[C]" + "SN " + idNomorSNStruk.getText().toString() + "\n" +
+                        "[L]\n" +
+                        "[L]" + footer.getText().toString() + "\n" +
                         "[L]\n"
-
         );
     }
 

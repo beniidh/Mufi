@@ -43,29 +43,17 @@ public class ModalMetodePemayaran extends BottomSheetDialogFragment {
         });
 
         LinearLayout LinearBayarBank = v.findViewById(R.id.LinearBayarBank);
-//
-//        String codebayar = getArguments().getString("saldotipe");
-//
-//        if (codebayar.equals("saldoserver")) {
-//            LinearBayarBank.setVisibility(View.GONE);
-//
-//        }
 
         LinearBayarBank.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String codebayar = getArguments().getString("saldotipe");
-                if (codebayar.equals("saldoserver")) {
-                    Intent intent = new Intent(getActivity(), TrasferBankServer.class);
-                    startActivity(intent);
-                    dismiss();
 
-                } else {
+                Intent intent = new Intent(getActivity(), BayarViaBank.class);
+                intent.putExtra("saldotipe",codebayar);
+                startActivity(intent);
+                dismiss();
 
-                    Intent intent = new Intent(getActivity(), BayarViaBank.class);
-                    startActivity(intent);
-                    dismiss();
-                }
             }
         });
 

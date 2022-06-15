@@ -19,7 +19,7 @@ public class ResponSub {
         return data;
     }
 
-    protected class mData {
+    public class mData {
         String name,id,icon;
 
         public String getName() {

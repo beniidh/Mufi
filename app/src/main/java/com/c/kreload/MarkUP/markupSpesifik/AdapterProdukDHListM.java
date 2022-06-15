@@ -50,6 +50,7 @@ String sales_code;
         ResponProdukListM.mData mdata = mData.get(position);
         holder.name.setText(mdata.getName());
         holder.harga.setText(utils.ConvertRP(mdata.getBasic_price()));
+        holder.MarkupSalesS.setText("MarkUp : "+utils.ConvertRP(mdata.getMarkup_price()));
 
         holder.ButtonMarkup.setOnClickListener(view -> {
             Bundle bundle = new Bundle();
@@ -75,13 +76,14 @@ String sales_code;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView name, harga;
+        TextView name, harga,MarkupSalesS;
         Button ButtonMarkup;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.namaProdukDH);
             harga = itemView.findViewById(R.id.hargaProdukDH);
+            MarkupSalesS = itemView.findViewById(R.id.MarkupSalesS);
             ButtonMarkup = itemView.findViewById(R.id.ButtonMarkup);
         }
     }

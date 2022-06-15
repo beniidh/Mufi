@@ -19,7 +19,7 @@ public class ResponGroup {
         return data;
     }
 
-    protected class Data{
+    public class Data{
 
         String id,subcategory_id,name;
 

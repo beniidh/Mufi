@@ -25,6 +25,8 @@ import com.c.kreload.Adapter.AdapterMenuUtama;
 import com.c.kreload.Adapter.AdapterSubMenuSide;
 import com.c.kreload.Adapter.SliderAdapter;
 import com.c.kreload.Api.Api;
+import com.c.kreload.Fragment.DirectLink.AdapterDirectLink;
+import com.c.kreload.Fragment.DirectLink.mDirect;
 import com.c.kreload.Helper.RetroClient;
 import com.c.kreload.Helper.utils;
 import com.c.kreload.Model.MBanner;
@@ -55,9 +57,10 @@ public class HomeFragment extends Fragment {
     LinearLayout linsaldoserver,KlikSaldoku;
     SliderView sliderView;
     AdapterMenuUtama adapterMenuUtama;
-    RecyclerView reymenu;
+    AdapterDirectLink adapterDirectLink;
+    RecyclerView reymenu,reydirectmenu;
     ArrayList<ModelMenuUtama> menuUtamas = new ArrayList<>();
-    ArrayList<ModelMenuUtama> menuUtamadua = new ArrayList<>();
+    ArrayList<mDirect.Data> menuDirect = new ArrayList<>();
 
 
     @Override
@@ -65,7 +68,9 @@ public class HomeFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.home_fragment, container, false);
         reymenu = v.findViewById(R.id.ReyMenuUtama);
+        reydirectmenu = v.findViewById(R.id.ReyMenuDirect);
         getAllmenu();
+        getDirectLink();
 //        getContentProfil();
 
         int numberOfColumns = 5;
@@ -73,6 +78,9 @@ public class HomeFragment extends Fragment {
         adapterMenuUtama = new AdapterMenuUtama(getActivity(), menuUtamas);
         reymenu.setAdapter(adapterMenuUtama);
 
+        reydirectmenu.setLayoutManager(new GridLayoutManager(getActivity(), numberOfColumns, GridLayoutManager.VERTICAL, false));
+        adapterDirectLink = new AdapterDirectLink(getActivity(), menuDirect);
+        reydirectmenu.setAdapter(adapterDirectLink);
         marqueeText = v.findViewById(R.id.marqueeText);
         marqueeText.setSelected(true);
 
@@ -102,6 +110,7 @@ public class HomeFragment extends Fragment {
                 getAllmenu();
                 swipelainnya.setRefreshing(false);
                 ((drawer_activity)getActivity()).getContentProfil();
+                getDirectLink();
             }
         });
 
@@ -185,15 +194,13 @@ public class HomeFragment extends Fragment {
             @Override
             public void onChanged(String s) {
                 if(s.isEmpty()){
-                    marqueeText.setText("Selamat datang di Aplikasi Ajat Reload, maksimalkan transaksi anda");
+                    marqueeText.setText("Selamat datang di Aplikasi K Reload, maksimalkan transaksi anda");
                 }else {
                     marqueeText.setText(s);
                 }
 
             }
         });
-
-
 
         ViewModelProviders.of(getActivity()).get(HomeViewModel.class).getSaldoku().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
@@ -217,16 +224,6 @@ public class HomeFragment extends Fragment {
 
                     menuUtamas = response.body().getData();
 
-//                    for (ModelMenuUtama data : menuUtamas){
-//
-//                        if(!Preference.getServerID(((drawer_activity)getActivity())).equals("SRVID00000002") && data.getName().equals("Voucher Game")){
-//
-//                            menuUtamadua.add(data);
-//                        }
-//
-//
-//                    }
-
                     adapterMenuUtama = new AdapterMenuUtama(getContext(), menuUtamas);
                     reymenu.setAdapter(adapterMenuUtama);
                 }
@@ -241,27 +238,30 @@ public class HomeFragment extends Fragment {
 
     }
 
-    public void getContentProfil() {
-
+    private void getDirectLink(){
         Api api = RetroClient.getApiServices();
-        Call<ResponProfil> call = api.getProfileDas("Bearer " + Preference.getToken(getContext()));
-        call.enqueue(new Callback<ResponProfil>() {
+        Call<mDirect> call = api.getDirectMenu("Bearer " + Preference.getToken(getActivity()));
+        call.enqueue(new Callback<mDirect>() {
             @Override
-            public void onResponse(Call<ResponProfil> call, Response<ResponProfil> response) {
+            public void onResponse(Call<mDirect> call, Response<mDirect> response) {
+                String code = response.body().getCode();
+                if(code.equals("200")){
 
-               String server = response.body().getData().getServer_id();
+                    menuDirect = response.body().getData();
+                    adapterDirectLink = new AdapterDirectLink(getActivity(), menuDirect);
+                    reydirectmenu.setAdapter(adapterDirectLink);
+
+                }
 
             }
 
             @Override
-            public void onFailure(Call<ResponProfil> call, Throwable t) {
-                StyleableToast.makeText(getContext(), "Periksa Sambungan internet", Toast.LENGTH_SHORT, R.style.mytoast2).show();
+            public void onFailure(Call<mDirect> call, Throwable t) {
+
             }
         });
+
     }
-
-
-
 
 }
 

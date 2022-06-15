@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
@@ -21,13 +22,14 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MarkUpSpesifikActi extends AppCompatActivity implements ModalProdukDHS.BottomSheetListenerProduk,ModalSubProdukDHS.BottomSheetListenerProdukSub {
+public class MarkUpSpesifikActi extends AppCompatActivity implements ModalProdukDHS.BottomSheetListenerProduk,ModalSubProdukDHS.BottomSheetListenerProdukSub,ModalInputSpesifikMarkup.BottomSheetListenerProdukS {
 
     EditText idprodukDaftarHarga,idProviderDaftarHarga;
     RecyclerView reyIDDaftarHarga;
     AdapterProdukDHListM adapterProdukDHList;
     ArrayList<ResponProdukListM.mData> mData = new ArrayList<>();
     String idDH;
+    String idsalesProduk;
 
 
     @Override
@@ -83,6 +85,9 @@ public class MarkUpSpesifikActi extends AppCompatActivity implements ModalProduk
     }
 
     public void getDaftarHarga(String id){
+
+
+
         String token = "Bearer " + Preference.getToken(getApplicationContext());
         Api api = RetroClient.getApiServices();
         Call<ResponProdukListM> call = api.getProdukDHListMM(token,id);
@@ -91,7 +96,6 @@ public class MarkUpSpesifikActi extends AppCompatActivity implements ModalProduk
             public void onResponse(Call<ResponProdukListM> call, Response<ResponProdukListM> response) {
                 String respon = response.body().getCode();
                 if (respon.equals("200")){
-
                     mData = response.body().getData();
                     adapterProdukDHList = new AdapterProdukDHListM(getApplicationContext(),mData);
                     reyIDDaftarHarga.setAdapter(adapterProdukDHList);
@@ -125,6 +129,31 @@ public class MarkUpSpesifikActi extends AppCompatActivity implements ModalProduk
         idProviderDaftarHarga.setText(name);
         mData.clear();
         getDaftarHarga(id);
+        Preference.setIDsalesProduk(getApplicationContext(),id);
+
+    }
+
+    @Override
+    public void onButtonClickS(String name, String id) {
+        mData.clear();
+        adapterProdukDHList = new AdapterProdukDHListM(getApplicationContext(),mData);
+        reyIDDaftarHarga.setAdapter(adapterProdukDHList);
+        getDaftarHarga(Preference.getIDsalesProduk(getApplicationContext()));
+        Toast.makeText(getApplicationContext(),"Berhasil",Toast.LENGTH_SHORT).show();
+
+    }
+
+    public String getIdsalesProduk() {
+        return idsalesProduk;
+    }
+
+    public void setIdsalesProduk(String idsalesProduk) {
+        this.idsalesProduk = idsalesProduk;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
 
     }
 }

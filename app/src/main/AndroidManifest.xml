@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.c.kreload" >
+    package="com.c.kreload">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
@@ -27,114 +27,124 @@
         android:icon="@drawable/logobarusetia"
         android:label="@string/app_name"
         android:largeHeap="true"
+        android:usesCleartextTraffic="true"
         android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.DompetAbata" >
+        android:theme="@style/Theme.DompetAbata">
+
         <activity
-            android:name="com.c.kreload.Notifikasi.Pesan.detail_pesan_activity"
-            android:exported="false"
-  />
+            android:name=".Fragment.DirectLink.webDirect_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".menuUtama.ListrikPLN.groupPLN"
+            android:exported="false" />
+        <activity
+            android:name=".Notifikasi.Pesan.detail_pesan_activity"
+            android:exported="false" />
         <activity
             android:name=".konter.DrawSaldo.drawsaldoku"
             android:exported="false" />
         <activity
-            android:name="com.c.kreload.TarikKomisi.TarikKomisiSales_Activity"
+            android:name=".TarikKomisi.TarikKomisiSales_Activity"
             android:exported="false" />
         <activity
-            android:name="com.c.kreload.menuUtama.HolderPulsa.groupHolder_Activity"
+            android:name=".menuUtama.HolderPulsa.groupHolder_Activity"
             android:exported="false" />
         <activity
-            android:name="com.c.kreload.konter.MarkupKonter.MarkupKonter"
+            android:name=".konter.MarkupKonter.MarkupKonter"
             android:exported="false" />
         <activity
-            android:name="com.c.kreload.konter.KirimSaldo.TransferSaldo"
+            android:name=".konter.KirimSaldo.TransferSaldo"
             android:exported="false" />
         <activity
-            android:name="com.c.kreload.konter.tambahKonter"
+            android:name=".otpvery"
             android:exported="false" />
         <activity
-            android:name="com.c.kreload.CetakStruk.StrukPLNPra.CetakPlnPra"
+            android:name=".konter.tambahKonter"
+            android:exported="false" />
+        <activity
+            android:name=".CetakStruk.StrukPLNPra.CetakPlnPra"
             android:exported="true" />
         <activity
-            android:name="com.c.kreload.CetakStruk.StrukPLNPasca.CetakPlnPasca"
+            android:name=".CetakStruk.StrukPLNPasca.CetakPlnPasca"
             android:exported="true" />
         <activity
-            android:name="com.c.kreload.reseller.PilihMetodeBayar"
+            android:name=".reseller.PilihMetodeBayar"
             android:exported="true" />
         <activity
-            android:name="com.c.kreload.reseller.PersetujuanSaldokuReseller"
+            android:name=".reseller.PersetujuanSaldokuReseller"
             android:exported="true" />
         <activity
-            android:name="com.c.kreload.pinNew.pin_transaksi"
+            android:name=".pinNew.pin_transaksi"
             android:exported="true" />
         <activity
-            android:name="com.c.kreload.pinNew.pinnew"
+            android:name=".pinNew.pinnew"
             android:exported="true" />
         <activity
-            android:name="com.c.kreload.MarkUP.markupSpesifik.MarkUpSpesifikActi"
+            android:name=".MarkUP.markupSpesifik.MarkUpSpesifikActi"
             android:exported="true" />
         <activity
-            android:name="com.c.kreload.Fragment.RekapSaldo.RekapSaldoActivity"
+            android:name=".Fragment.RekapSaldo.RekapSaldoActivity"
             android:exported="true" />
         <activity
-            android:name="com.c.kreload.MarkUP.markupSpesifik.markupSpesifikActivity"
+            android:name=".MarkUP.markupSpesifik.markupSpesifikActivity"
             android:exported="true" />
         <activity
-            android:name="com.c.kreload.TransferBank.metodebayarBank"
+            android:name=".TransferBank.metodebayarBank"
             android:exported="true" />
         <activity
-            android:name="com.c.kreload.TransferBank.transferBank"
+            android:name=".TransferBank.transferBank"
             android:exported="true" />
         <activity
-            android:name="com.c.kreload.TagihanKonterSales.TagihanKonterbySales"
+            android:name=".TagihanKonterSales.TagihanKonterbySales"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.c.kreload.KomisiSales.Komisi_sales"
+            android:name=".KomisiSales.Komisi_sales"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.c.kreload.konter.konter_activity"
+            android:name=".konter.konter_activity"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.c.kreload.menuUtama.HolderPulsa.produkholderPasca"
+            android:name=".menuUtama.HolderPulsa.produkholderPasca"
             android:exported="false" />
         <activity
-            android:name="com.c.kreload.menuUtama.HolderPulsa.produkholder"
+            android:name=".menuUtama.HolderPulsa.produkholder"
             android:exported="false" />
         <activity
-            android:name="com.c.kreload.menuUtama.HolderPulsa.holder_pulsa_activity"
+            android:name=".menuUtama.HolderPulsa.holder_pulsa_activity"
             android:exported="false" /> <!-- <meta-data -->
         <!-- android:name="io.sentry.dsn" -->
         <!-- android:value="https://c7552e566d0148ef9d067b45fc46742b@o505958.ingest.sentry.io/5965814" /> -->
-        <activity android:name="com.c.kreload.Transfer.transferKonter" />
+        <activity android:name=".Transfer.transferKonter" />
         <activity
-            android:name="com.c.kreload.Pending_Activity"
+            android:name=".Pending_Activity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.c.kreload.TagihanKonter.DetailTagihanKonter"
+            android:name=".TagihanKonter.DetailTagihanKonter"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.c.kreload.TagihanKonter.TagihanKonter"
+            android:name=".TagihanKonter.TagihanKonter"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.c.kreload.MarkUP.markup"
+            android:name=".MarkUP.markup"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.c.kreload.CetakStruk.cetak"
+            android:name=".CetakStruk.cetak"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.c.kreload.Inquiry.InquiryPasca"
+            android:name=".Inquiry.InquiryPasca"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.c.kreload.GantiPin"
+            android:name=".GantiPin"
             android:screenOrientation="portrait" />
 
         <service
-            android:name="com.c.kreload.Notifikasi.MyService"
-            android:exported="true" >
+            android:name=".Notifikasi.MyService"
+            android:exported="true">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
@@ -144,188 +154,188 @@
             android:name="androidx.core.content.FileProvider"
             android:authorities="com.c.kreload.fileprovider"
             android:exported="false"
-            android:grantUriPermissions="true" >
+            android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
 
         <activity
-            android:name="com.c.kreload.ResetPIN"
+            android:name=".ResetPIN"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.c.kreload.PersetujuanSaldoSales.DetailPersetujuan"
+            android:name=".PersetujuanSaldoSales.DetailPersetujuan"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.c.kreload.TambahKonter.addKonter"
+            android:name=".TambahKonter.addKonter"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.c.kreload.PersetujuanSaldoSales.PersetujuanSaldoSales"
+            android:name=".PersetujuanSaldoSales.PersetujuanSaldoSales"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.c.kreload.SaldoServer.AjukanLimit"
+            android:name=".SaldoServer.AjukanLimit"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.c.kreload.Fragment.RiwayatTransaksi.HistoryTransaksi"
+            android:name=".Fragment.RiwayatTransaksi.HistoryTransaksi"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.c.kreload.Notifikasi.DetailNotifikasi"
+            android:name=".Notifikasi.DetailNotifikasi"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.c.kreload.TentangKami.TentangKamiAct"
+            android:name=".TentangKami.TentangKamiAct"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.c.kreload.KodeProduk.Kodeprodukact"
+            android:name=".KodeProduk.Kodeprodukact"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.c.kreload.CetakStruk.DetailTransaksiTruk"
+            android:name=".CetakStruk.DetailTransaksiTruk"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.c.kreload.CetakStruk.Cetakstruk"
+            android:name=".CetakStruk.Cetakstruk"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.c.kreload.DaftarHarga.DaftarHarga_activity"
+            android:name=".DaftarHarga.DaftarHarga_activity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.c.kreload.PengajuanLimit.PengajuanDompet"
+            android:name=".PengajuanLimit.PengajuanDompet"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.c.kreload.menuUtama.WarungAbata.produkWarungAbata"
+            android:name=".menuUtama.WarungAbata.produkWarungAbata"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.c.kreload.menuUtama.PajakPBB.produkPajakPBB"
+            android:name=".menuUtama.PajakPBB.produkPajakPBB"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.c.kreload.menuUtama.GasNegara.produkGasnegara"
+            android:name=".menuUtama.GasNegara.produkGasnegara"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.c.kreload.menuUtama.AngsuranKredit.ProdukAngsuranKredit"
+            android:name=".menuUtama.AngsuranKredit.ProdukAngsuranKredit"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.c.kreload.menuUtama.BPJS.produkBPJS"
+            android:name=".menuUtama.BPJS.produkBPJS"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.c.kreload.menuUtama.Voucher.produkVoucher"
+            android:name=".menuUtama.Voucher.produkVoucher"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.c.kreload.menuUtama.TV.tv_produk"
+            android:name=".menuUtama.TV.tv_produk"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.c.kreload.menuUtama.Internet.InternetProduk"
+            android:name=".menuUtama.Internet.InternetProduk"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.c.kreload.menuUtama.VoucherGame.produkVoucherGame"
+            android:name=".menuUtama.VoucherGame.produkVoucherGame"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.c.kreload.menuUtama.air.produkair"
+            android:name=".menuUtama.air.produkair"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.c.kreload.menuUtama.UangElektronik.ProdukUangElektronik"
+            android:name=".menuUtama.UangElektronik.ProdukUangElektronik"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.c.kreload.menuUtama.PaketsmsTelpon.produksmstelpon"
+            android:name=".menuUtama.PaketsmsTelpon.produksmstelpon"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.c.kreload.menuUtama.ListrikPLNPasca.Pln_produk_pasca"
+            android:name=".menuUtama.ListrikPLNPasca.Pln_produk_pasca"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.c.kreload.menuUtama.ListrikPLN.Pln_Produk"
+            android:name=".menuUtama.ListrikPLN.Pln_Produk"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.c.kreload.menuUtama.Paket.PaketData_Activity"
+            android:name=".menuUtama.Paket.PaketData_Activity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.c.kreload.Notifikasi.Notifikasi_Activity"
+            android:name=".Notifikasi.Notifikasi_Activity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.c.kreload.menuUtama.PulsaPrabayar.TransaksiPending"
+            android:name=".menuUtama.PulsaPrabayar.TransaksiPending"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.c.kreload.menuUtama.PulsaPrabayar.KonfirmasiPembayaran"
+            android:name=".menuUtama.PulsaPrabayar.KonfirmasiPembayaran"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.c.kreload.menuUtama.PulsaPrabayar.PulsaPrabayar_activity"
+            android:name=".menuUtama.PulsaPrabayar.PulsaPrabayar_activity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.c.kreload.menuUtama.PulsaPascaBayar.PulsaPascaBayar_activity"
+            android:name=".menuUtama.PulsaPascaBayar.PulsaPascaBayar_activity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.c.kreload.Kodeproduk"
+            android:name=".Kodeproduk"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.c.kreload.SaldoServer.BayarSalesServer"
+            android:name=".SaldoServer.BayarSalesServer"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.c.kreload.Profil.Device"
+            android:name=".Profil.Device"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.c.kreload.Profil.Point"
+            android:name=".Profil.Poin.Point"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.c.kreload.Profil.ubah_pin"
+            android:name=".Profil.ubah_pin"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.c.kreload.Profil.ubah_profil"
+            android:name=".Profil.ubah_profil"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.c.kreload.Profil.Profil"
+            android:name=".Profil.Profil"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.c.kreload.SaldoServer.RincianTagihan"
+            android:name=".SaldoServer.RincianTagihan"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.c.kreload.SaldoServer.RiwayatTagihan"
+            android:name=".SaldoServer.RiwayatTagihan"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.c.kreload.SaldoServer.TopupSaldoServer"
+            android:name=".SaldoServer.TopupSaldoServer"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.c.kreload.TopUpSaldoku.TrasferBank"
+            android:name=".TopUpSaldoku.TrasferBank"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.c.kreload.SaldoServer.TrasferBankServer"
+            android:name=".SaldoServer.TrasferBankServer"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.c.kreload.Transaksi.BayarViaBank"
+            android:name=".Transaksi.BayarViaBank"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.c.kreload.TopUpSaldoku.BayarSales"
+            android:name=".TopUpSaldoku.BayarSales"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.c.kreload.InsertPIN_activity"
+            android:name=".InsertPIN_activity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.c.kreload.TopUpSaldoku.topup_saldoku_activity"
+            android:name=".TopUpSaldoku.topup_saldoku_activity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.c.kreload.homelainnya"
+            android:name=".homelainnya"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.c.kreload.MainActivity"
+            android:name=".MainActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
             android:theme="@style/Base.Theme.AppCompat" />
-        <activity android:name="com.c.kreload.pin_activity" />
-        <activity android:name="com.c.kreload.syaratdanketentuan_activity" />
-        <activity android:name="com.c.kreload.RegisterFoto_activity" />
-        <activity android:name="com.c.kreload.Modal.OTPinsert" />
-        <activity android:name="com.c.kreload.OTPsend" />
-        <activity android:name="com.c.kreload.Register_activity" />
+        <activity android:name=".pin_activity" />
+        <activity android:name=".syaratdanketentuan_activity" />
+        <activity android:name=".RegisterFoto_activity" />
+        <activity android:name=".Modal.OTPinsert" />
+        <activity android:name=".OTPsend" />
+        <activity android:name=".Register_activity" />
         <activity
-            android:name="com.c.kreload.Login_Activity"
+            android:name=".Login_Activity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.c.kreload.drawer_activity"
+            android:name=".drawer_activity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.DompetAbata2"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.c.kreload.splash_activity"
+            android:name=".splash_activity"
             android:exported="true"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

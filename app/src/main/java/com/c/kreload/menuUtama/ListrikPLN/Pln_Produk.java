@@ -13,10 +13,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.BroadcastReceiver;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
@@ -70,7 +72,22 @@ public class Pln_Produk extends AppCompatActivity {
         Intent intent = getIntent();
         type = intent.getStringExtra("type");
         String id = intent.getStringExtra("id");
-        getSubProdukID(id);
+        getProdukPln(id);
+
+        //Broadcase for kill activity from another activity
+        BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
+
+            @Override
+            public void onReceive(Context arg0, Intent intent) {
+                String action = intent.getAction();
+                if (action.equals("finish_activity")) {
+                    finish();
+                    // DO WHATEVER YOU WANT.
+                }
+            }
+        };
+        registerReceiver(broadcastReceiver, new IntentFilter("finish_activity"));
+
         recyclerPLN = findViewById(R.id.ReyProdukPlnPra);
         nomorinputpln = findViewById(R.id.nomorinputPLN);
         adapterProdukPLN = new AdapterProdukPLN(getApplicationContext(), modelProdukPlns,nomorinputpln.getText().toString(),type);
@@ -102,13 +119,12 @@ public class Pln_Produk extends AppCompatActivity {
                 } else {
                     keterangan.setVisibility(View.VISIBLE);
                 }
-                getSubProdukID(id);
+                getProdukPln(id);
             }
 
             @Override
             public void afterTextChanged(Editable s) {
 
-//                nomor = nomorinputpln.getText().toString();
 
             }
         });

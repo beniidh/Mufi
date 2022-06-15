@@ -43,8 +43,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:background="@drawable/bg_edittextlogin"
-                android:hint="Nomor Tujuan"
+                android:hint="Input Nomor Tujuan"
                 android:inputType="number"
+                android:fontFamily="@font/poppins"
                 android:paddingStart="7dp"
                 android:paddingEnd="8sp"
                 android:textSize="17dp" />

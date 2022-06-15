@@ -5,6 +5,7 @@ import com.c.kreload.CetakStruk.ResponStruk;
 import com.c.kreload.DaftarHarga.ResponProdukDH;
 import com.c.kreload.DaftarHarga.ResponProdukList;
 import com.c.kreload.DaftarHarga.ResponSubProdukDH;
+import com.c.kreload.Fragment.DirectLink.mDirect;
 import com.c.kreload.Fragment.RekapSaldo.responRekap;
 import com.c.kreload.Fragment.Respon.MRuningText;
 import com.c.kreload.Fragment.RiwayatTransaksi.ResponTransaksi;
@@ -15,6 +16,7 @@ import com.c.kreload.MarkUP.markupSpesifik.ResponProdukListM;
 import com.c.kreload.MarkUP.markupSpesifik.ResponSubProdukDHM;
 import com.c.kreload.MarkUP.sendMarkUP;
 import com.c.kreload.Model.MResestPIN;
+import com.c.kreload.Model.mOTP;
 import com.c.kreload.Model.mResetPassword;
 import com.c.kreload.Notifikasi.Pesan.mPesan;
 import com.c.kreload.Notifikasi.Pesan.mPesanDetail;
@@ -26,6 +28,8 @@ import com.c.kreload.PersetujuanSaldoSales.ResponPersetujuanSaldo;
 import com.c.kreload.PersetujuanSaldoSales.SendDataPersetujuan;
 import com.c.kreload.Profil.MPin;
 import com.c.kreload.Profil.MProfilEdit;
+import com.c.kreload.Profil.Poin.mExcange;
+import com.c.kreload.Profil.Poin.mReward;
 import com.c.kreload.Profil.ResEdit;
 import com.c.kreload.Respon.Respon;
 import com.c.kreload.Respon.ResponBanner;
@@ -67,6 +71,7 @@ import com.c.kreload.TopUpSaldoku.ReqSaldoku;
 import com.c.kreload.TopUpSaldoku.ResponTopUp;
 import com.c.kreload.Transaksi.MInquiry;
 import com.c.kreload.Transaksi.ResponInquiry;
+import com.c.kreload.Transaksi.mBankOption;
 import com.c.kreload.Transfer.ModelKonter;
 import com.c.kreload.Transfer.Mtransfer;
 import com.c.kreload.TagihanKonterSales.ResponTagihanKonterSales;
@@ -269,7 +274,7 @@ public interface Api {
     @GET("product-subcategory/category/{id}")
     Call<ResponSubP> getSubCategoryPLN(@Header("X-Signature") String token, @Path("id") String id);
 
-    @GET("product-us/sub-category/{id}")
+    @GET("product-us/group/{id}")
     Call<ResponListrikPln> getProdukPLNListrik(@Header("X-Signature") String token, @Path("id") String id);
 
     @GET("product/sub-category/{id}")
@@ -394,6 +399,7 @@ public interface Api {
 
     @GET("all-product-category?$limit=0&$order=urutan&status=1")
     Call<ResponProdukDH> getProdukDH(@Header("X-Signature") String token);
+
     @GET("all-product-category?$limit=0&$order=urutan&status=1")
     Call<ResponProdukDHM> getProdukDHM(@Header("X-Signature") String token);
 
@@ -505,5 +511,23 @@ public interface Api {
 
     @POST("draw-saldoku")
     Call<mDraw> drawSaldoku(@Header("X-Signature") String token, @Body mDraw mdraw);
+
+// get All menu Direct API hit
+
+    @GET("all-direct-link")
+    Call<mDirect> getDirectMenu(@Header("X-Signature") String token);
+
+    @GET("payment-option-server/serverid/{id}")
+    Call<mBankOption> getBankOptionsd(@Header("X-Signature") String token, @Path("id") String id);
+
+    @POST("otp-login-verify")
+    Call<mOTP> SetverifyOtp( @Body mOTP mOTP);
+
+    @GET("poin-reward/serverid/{id}")
+    Call<mReward> getRewards(@Header("X-Signature") String token, @Path("id") String id);
+
+    @POST("poin-reward-exchange")
+    Call<mExcange> tukarPoint(@Header("X-Signature") String token, @Body mExcange Mexchange);
+
 
 }

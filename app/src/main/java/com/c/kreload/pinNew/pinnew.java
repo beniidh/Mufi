@@ -27,6 +27,7 @@ import com.c.kreload.Login_Activity;
 import com.c.kreload.Model.Mlogin;
 import com.c.kreload.R;
 import com.c.kreload.drawer_activity;
+import com.c.kreload.otpvery;
 import com.c.kreload.sharePreference.Preference;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.muddzdev.styleabletoast.StyleableToast;
@@ -46,11 +47,9 @@ public class pinnew extends AppCompatActivity implements View.OnClickListener {
     private ImageView dot1, dot2, dot3, dot4, dot5, dot6;
     private TextView LupaPinNew;
     private Handler handler;
-    PinEditText pin1;
     String telepon;
     GpsTracker gpsTracker;
     int salah = 0;
-    TextView warningpinsalah;
 
     // Actual password
     private String actualPassword;
@@ -78,7 +77,6 @@ public class pinnew extends AppCompatActivity implements View.OnClickListener {
             Intent intent = new Intent(pinnew.this, GantiPin.class);
             startActivity(intent);
         });
-
     }
 
     private void initialiseWidgets() {
@@ -399,7 +397,6 @@ public class pinnew extends AppCompatActivity implements View.OnClickListener {
             telepon = tlp.getStringExtra("number");
         }
 
-
         FirebaseMessaging.getInstance().getToken().addOnCompleteListener(task -> {
             String deviceToken = task.getResult();
             Log.v("tokenku",deviceToken);
@@ -415,12 +412,30 @@ public class pinnew extends AppCompatActivity implements View.OnClickListener {
 
                     if (code.equals("200")) {
                         showSucceedVibration();
-                        Intent home = new Intent(pinnew.this, drawer_activity.class);
-                        startActivity(home);
-                        String token = response.body().getData().getToken();
-                        Preference.getSharedPreference(getApplicationContext());
-                        Preference.setToken(getApplicationContext(), token);
-                        finish();
+                        String device = response.body().getData().getType_login();
+
+
+                        if (device.equals("DD")) {
+
+                            Intent intent = new Intent(pinnew.this, otpvery.class);
+                            intent.putExtra("keterangan", "Kode telah dikirim ke WA, silahkan cek WA Anda");
+                            intent.putExtra("userid",response.body().getData().getId());
+                            intent.putExtra("otp",response.body().getData().getOtp_id());
+                            intent.putExtra("pushid",deviceToken);
+                            startActivity(intent);
+                            finish();
+
+                        } else {
+                            Intent home = new Intent(pinnew.this, drawer_activity.class);
+                            startActivity(home);
+                            String token = response.body().getData().getToken();
+                            Preference.getSharedPreference(getApplicationContext());
+                            Preference.setToken(getApplicationContext(), token);
+                            Preference.setKeyOtpId(getBaseContext(), response.body().getData().getId());
+                            Preference.setKeyUserCode(getBaseContext(), response.body().getData().getCode());
+                            finish();
+
+                        }
 
                     } else if (code.equals("403")) {
 

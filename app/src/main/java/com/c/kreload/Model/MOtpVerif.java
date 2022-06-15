@@ -11,7 +11,7 @@ public class MOtpVerif {
         this.otp = otp;
     }
 
-    public com.c.kreload.Model.data getData() {
+    public data getData() {
         return data;
     }
 

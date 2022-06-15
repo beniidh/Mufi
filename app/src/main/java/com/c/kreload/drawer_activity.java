@@ -83,8 +83,6 @@ public class drawer_activity extends AppCompatActivity implements NavigationView
     ImageBadgeView notifikasi;
     TextView parent;
 
-    @SuppressLint("StaticFieldLeak")
-    static Activity drawwer;
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
@@ -93,7 +91,6 @@ public class drawer_activity extends AppCompatActivity implements NavigationView
         setContentView(R.layout.activity_drawer_activity);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
-        drawwer = this;
         iconprofilsidebar = findViewById(R.id.iconprofilsidebar);
         parent = findViewById(R.id.parent);
         Typeface type2 = ResourcesCompat.getFont(getApplicationContext(), R.font.abata);

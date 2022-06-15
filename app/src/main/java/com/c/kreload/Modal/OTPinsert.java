@@ -30,6 +30,7 @@ public class OTPinsert extends AppCompatActivity {
 
     PinView otp;
     Button verif;
+    TextView otpsend;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +43,8 @@ public class OTPinsert extends AppCompatActivity {
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_24);
 
         otp = findViewById(R.id.otpid);
+        otpsend = findViewById(R.id.otpsend);
+        otpsend.setText(getIntent().getStringExtra("otp"));
         verif = findViewById(R.id.VerifikasiOTP);
         otp.setPasswordHidden(true);
         verif.setOnClickListener(v -> {

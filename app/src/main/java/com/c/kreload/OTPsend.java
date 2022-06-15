@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.c.kreload.Api.Api;
 import com.c.kreload.Api.Value;
+import com.c.kreload.Helper.RetroClient;
 import com.c.kreload.Modal.OTPinsert;
 import com.c.kreload.Model.MRegisData;
 import com.c.kreload.sharePreference.Preference;
@@ -51,11 +52,8 @@ public class OTPsend extends AppCompatActivity {
         String otp_id = Preference.getKeyOtpId(getBaseContext());
 
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(Value.BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        Api api = retrofit.create(Api.class);
+
+        Api api = RetroClient.getApiServices();
         MRegisData mRegisData = new MRegisData(user_id, user_code, phone, otp_id);
         Call<MRegisData> call = api.SendOTP(mRegisData);
         call.enqueue(new Callback<MRegisData>() {
@@ -67,6 +65,7 @@ public class OTPsend extends AppCompatActivity {
                     Intent otpInsert = new Intent(OTPsend.this, OTPinsert.class);
                     otpInsert.putExtra("user_id", user_id);
                     otpInsert.putExtra("otp_id", otp_id);
+                    otpInsert.putExtra("otp","Kode telah dikirim ke Email, silahkan cek Email Anda");
                     Preference.setTrackRegister(getApplicationContext(), "2");
                     startActivity(otpInsert);
 
@@ -96,11 +95,8 @@ public class OTPsend extends AppCompatActivity {
         String otp_id = Preference.getKeyOtpId(getBaseContext());
 
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(Value.BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        Api api = retrofit.create(Api.class);
+
+        Api api = RetroClient.getApiServices();
         MRegisData mRegisData = new MRegisData(user_id, user_code, phone, otp_id);
         Call<MRegisData> call = api.SendOTPWA(mRegisData);
         call.enqueue(new Callback<MRegisData>() {
@@ -112,6 +108,7 @@ public class OTPsend extends AppCompatActivity {
                     Intent otpInsert = new Intent(OTPsend.this, OTPinsert.class);
                     otpInsert.putExtra("user_id", user_id);
                     otpInsert.putExtra("otp_id", otp_id);
+                    otpInsert.putExtra("otp","Kode telah dikirim ke WA, silahkan cek WA Anda");
                     Preference.setTrackRegister(getApplicationContext(), "2");
                     startActivity(otpInsert);
 

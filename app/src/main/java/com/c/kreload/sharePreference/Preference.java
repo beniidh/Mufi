@@ -183,7 +183,6 @@ public class Preference {
         editor.putString("token", token);
         editor.apply();
     }
-
     public static String getToken(Context context){
         return getSharedPreference(context).getString("token","");
     }
@@ -275,4 +274,41 @@ public class Preference {
     public static String getServerID(Context context){
         return getSharedPreference(context).getString("server", "");
     }
+
+    public static void setHeader(Context context, String header){
+        SharedPreferences.Editor editor = getSharedPreference(context).edit();
+        editor.putString("header", header);
+        editor.apply();
+    }
+    public static String getHeader(Context context){
+        return getSharedPreference(context).getString("header","");
+    }
+
+    public static void setFooter(Context context, String footer){
+        SharedPreferences.Editor editor = getSharedPreference(context).edit();
+        editor.putString("footer", footer);
+        editor.apply();
+    }
+    public static String getFooter(Context context){
+        return getSharedPreference(context).getString("footer","");
+    }
+
+    public static void setType(Context context, String type){
+        SharedPreferences.Editor editor = getSharedPreference(context).edit();
+        editor.putString("type", type);
+        editor.apply();
+    }
+    public static String getTypee(Context context){
+        return getSharedPreference(context).getString("type","");
+    }
+
+    public static void setIDsalesProduk(Context context, String type){
+        SharedPreferences.Editor editor = getSharedPreference(context).edit();
+        editor.putString("ss", type);
+        editor.apply();
+    }
+    public static String getIDsalesProduk(Context context){
+        return getSharedPreference(context).getString("ss","");
+    }
+
 }

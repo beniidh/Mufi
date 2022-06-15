@@ -5,7 +5,10 @@ import androidx.core.content.ContextCompat;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
@@ -69,6 +72,19 @@ public class KonfirmasiPembayaran extends AppCompatActivity {
 
         server = findViewById(R.id.LinearSaldoServer);
         saldoku = findViewById(R.id.LinearSaldoku);
+
+        BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
+
+            @Override
+            public void onReceive(Context arg0, Intent intent) {
+                String action = intent.getAction();
+                if (action.equals("finish_activity")) {
+                    finish();
+                    // DO WHATEVER YOU WANT.
+                }
+            }
+        };
+        registerReceiver(broadcastReceiver, new IntentFilter("finish_activity"));
 
         server.setOnClickListener(new View.OnClickListener() {
             @Override

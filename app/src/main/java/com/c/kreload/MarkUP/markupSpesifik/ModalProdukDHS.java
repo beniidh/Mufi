@@ -108,14 +108,15 @@ public class ModalProdukDHS extends BottomSheetDialogFragment {
             @Override
             public void onResponse(Call<ResponProdukDHM> call, Response<ResponProdukDHM> response) {
 
-                for(ResponProdukDHM.mData  produk : response.body().getData()){
-
-                    if (produk.getType().equals("PRABAYAR")){
-
-                        mData.add(produk);
-                    }
-
-                }
+                mData = response.body().getData();
+//                for(ResponProdukDHM.mData  produk : response.body().getData()){
+//
+//                    if (produk.getType().equals("PRABAYAR")){
+//
+//                        mData.add(produk);
+//                    }
+//
+//                }
 
                 adapterProdukDH = new AdapterProdukDHM(ModalProdukDHS.this,getContext(), mData);
                 recyclerViewK.setAdapter(adapterProdukDH);

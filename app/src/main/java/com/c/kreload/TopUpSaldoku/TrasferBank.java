@@ -35,7 +35,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class TrasferBank extends AppCompatActivity implements ModalPinTopUpSaldoku.BottomSheetListeneridUpload {
-    TextView saldokubank,titleakunbank,noRekenning;
+    TextView saldokubank,titleakunbank,noRekenning,NamaRekening;
     Button oktransaksi, uploadBuktiTBSaldo;
     int up = 0;
     String primaryid = "";
@@ -55,13 +55,16 @@ public class TrasferBank extends AppCompatActivity implements ModalPinTopUpSaldo
         oktransaksi = findViewById(R.id.oktransaksi);
         titleakunbank = findViewById(R.id.titleakunbank);
         noRekenning = findViewById(R.id.noRekenning);
+        NamaRekening = findViewById(R.id.NamaRekening);
 
 
         String noRekening = getIntent().getStringExtra("NoRekening");
         String titleakun = getIntent().getStringExtra("Title");
+        String namaRekening = getIntent().getStringExtra("NamaRekening");
 
         noRekenning.setText(noRekening);
         titleakunbank.setText(titleakun);
+        NamaRekening.setText(namaRekening);
 
         uploadBuktiTBSaldo.setOnClickListener(v -> {
             String idprimary = getPrimaryid();

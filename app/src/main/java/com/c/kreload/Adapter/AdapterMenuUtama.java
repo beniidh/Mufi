@@ -17,6 +17,7 @@ import com.c.kreload.TransferBank.transferBank;
 import com.c.kreload.menuUtama.BPJS.produkBPJS;
 import com.c.kreload.menuUtama.HolderPulsa.holder_pulsa_activity;
 import com.c.kreload.menuUtama.ListrikPLN.Pln_Produk;
+import com.c.kreload.menuUtama.ListrikPLN.groupPLN;
 import com.c.kreload.menuUtama.ListrikPLNPasca.Pln_produk_pasca;
 import com.c.kreload.menuUtama.PulsaPascaBayar.PulsaPascaBayar_activity;
 import com.c.kreload.R;
@@ -96,7 +97,7 @@ public class AdapterMenuUtama extends RecyclerView.Adapter<AdapterMenuUtama.View
                     break;
                 }
                 case "pln_prabayar": {
-                    Intent intent = new Intent(context, Pln_Produk.class);
+                    Intent intent = new Intent(context, groupPLN.class);
                     intent.putExtra("id", modelMenuUtama.getId());
                     intent.putExtra("type", modelMenuUtama.getType());
                     context.startActivity(intent);

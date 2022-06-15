@@ -26,11 +26,19 @@
             android:textSize="20sp"
             android:textStyle="bold" />
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:id="@+id/reyOptionsBank"
+            android:layout_marginTop="15dp"
+            tools:listitem="@layout/listbankoptions"
+            tools:itemCount="3"
+            android:layout_height="wrap_content"/>
+
         <LinearLayout
             android:id="@+id/LinearBankBCA"
             android:layout_width="match_parent"
             android:layout_height="78dp"
-
+            android:visibility="gone"
             android:layout_marginTop="20dp"
             android:background="@drawable/bgpembayaran"
             android:foreground="?android:attr/selectableItemBackground"
@@ -70,6 +78,7 @@
         <LinearLayout
             android:id="@+id/LinearBankMandiri"
             android:clickable="true"
+            android:visibility="gone"
             android:foreground="?android:attr/selectableItemBackground"
             android:layout_width="match_parent"
             android:layout_height="78dp"

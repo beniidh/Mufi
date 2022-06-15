@@ -25,7 +25,7 @@ import com.c.kreload.Model.MSubMenu;
 import com.c.kreload.Notifikasi.Notifikasi_Activity;
 import com.c.kreload.PengajuanLimit.PengajuanDompet;
 import com.c.kreload.PersetujuanSaldoSales.PersetujuanSaldoSales;
-import com.c.kreload.Profil.Point;
+import com.c.kreload.Profil.Poin.Point;
 import com.c.kreload.R;
 import com.c.kreload.TagihanKonter.TagihanKonter;
 import com.c.kreload.TagihanKonterSales.TagihanKonterbySales;

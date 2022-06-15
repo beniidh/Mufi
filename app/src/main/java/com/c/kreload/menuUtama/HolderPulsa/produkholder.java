@@ -3,10 +3,12 @@ package com.c.kreload.menuUtama.HolderPulsa;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.BroadcastReceiver;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
@@ -71,6 +73,20 @@ public class produkholder extends AppCompatActivity {
         inputnomorproduk = findViewById(R.id.inputnomorproduk);
         ReyProdukHolder = findViewById(R.id.ReyProdukHolder);
 
+        // broadcast for kill activity from another activity
+        BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
+
+            @Override
+            public void onReceive(Context arg0, Intent intent) {
+                String action = intent.getAction();
+                if (action.equals("finish_activity")) {
+                    finish();
+                    // DO WHATEVER YOU WANT.
+                }
+            }
+        };
+        registerReceiver(broadcastReceiver, new IntentFilter("finish_activity"));
+
         registerForContextMenu(inputnomorproduk);
         adapterProdukHolder = new AdapterProdukHolder(getApplicationContext(), produk, inputnomorproduk.getText().toString());
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
@@ -93,7 +109,6 @@ public class produkholder extends AppCompatActivity {
                 requestContactPermission();
             }
         });
-
 
         inputnomorproduk.addTextChangedListener(new TextWatcher() {
             @Override

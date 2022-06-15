@@ -31,6 +31,7 @@ public class ModalInputSpesifikMarkup extends BottomSheetDialogFragment {
 Button markupButtonMS;
 TextView produkNameMS;
 EditText markupNilaiMS;
+    public BottomSheetListenerProdukS bottomSheetListenerProduk;
 
     @Nullable
     @Override
@@ -52,6 +53,7 @@ EditText markupNilaiMS;
         markupButtonMS.setOnClickListener(view -> {
             if(!markupNilaiMS.getText().toString().isEmpty()){
                 setHarga(id,user_id,server_code,status,sales_code,markupNilaiMS.getText().toString(),product_id,getContext());
+                bottomSheetListenerProduk.onButtonClickS("test","test");
                 dismiss();
             }else {
                 Toast.makeText(getContext(),"harga tidak boleh kosong",Toast.LENGTH_SHORT).show();
@@ -79,8 +81,10 @@ EditText markupNilaiMS;
         call.enqueue(new Callback<ResponMarkup>() {
             @Override
             public void onResponse(Call<ResponMarkup> call, Response<ResponMarkup> response) {
-                if(response.body().getCode().equals("200"))
-                    Toast.makeText(context, "Berhasil", Toast.LENGTH_SHORT).show();
+                if(response.body().getCode().equals("200")){
+//                    Toast.makeText(context, "Berhasil", Toast.LENGTH_SHORT).show();
+                }
+
                 else {
                     Toast.makeText(getContext(),response.body().getError(),Toast.LENGTH_SHORT).show();
 
@@ -95,5 +99,21 @@ EditText markupNilaiMS;
 
 
 
+
+
+    }
+
+    public interface BottomSheetListenerProdukS {
+        void onButtonClickS(String name, String id);
+    }
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        try {
+            bottomSheetListenerProduk = (BottomSheetListenerProdukS) context;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(context.toString() + "must implement bottomsheet Listener");
+        }
     }
 }

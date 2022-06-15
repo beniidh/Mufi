@@ -12,6 +12,31 @@
         android:orientation="vertical"
         android:layout_height="match_parent">
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="2dp">
+
+            <TextView
+                android:id="@+id/header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_marginRight="40dp"
+                android:layout_toEndOf="@id/EditHeader"
+                android:hint="Edit Header"
+                android:text="" />
+
+            <ImageView
+                android:id="@+id/EditHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="239dp"
+                android:src="@drawable/ic_baseline_edit_24" />
+
+        </RelativeLayout>
+
         <TextView
             android:id="@+id/KonterPR"
             android:layout_width="match_parent"
@@ -119,7 +144,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Admin : "
+                android:text="Harga jual : "
                 android:layout_marginTop="5sp"
                 android:textSize="15sp"
                 android:textColor="@color/gray4"
@@ -170,12 +195,38 @@
             android:layout_marginTop="20sp"
             android:textColor="@color/black"
             />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:paddingVertical="2dp">
+
+            <TextView
+                android:id="@+id/footer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_marginRight="40dp"
+                android:layout_toEndOf="@id/EditFooter"
+                android:hint="Edit Footer"
+                android:text="" />
+
+            <ImageView
+                android:id="@+id/EditFooter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="239dp"
+                android:src="@drawable/ic_baseline_edit_24" />
+
+        </RelativeLayout>
         <Button
             android:id="@+id/setAdmin"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:layout_marginTop="15dp"
-            android:text="Set Admin"
+            android:text="Set Harga jual"
             android:layout_marginBottom="10dp"
             android:textSize="10dp"
             android:textAllCaps="false"

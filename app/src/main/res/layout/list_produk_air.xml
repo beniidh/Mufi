@@ -49,7 +49,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="-"
-                android:fontFamily="@font/mukta"
+                android:fontFamily="@font/miriamlibrebold"
                 android:textStyle="bold"
                 android:textColor="@color/black"
                 android:textSize="15sp" />
@@ -58,11 +58,12 @@
                 android:id="@+id/brandair"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/miriamlibrebold"
                 android:text="-"
-                android:fontFamily="@font/mukta"
-                android:textStyle="bold"
                 android:textColor="@color/black"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
             <TextView
                 android:id="@+id/deskriair"
                 android:layout_width="match_parent"

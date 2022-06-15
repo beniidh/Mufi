@@ -26,7 +26,7 @@ import retrofit2.Response;
 
 public class TopupSaldoServer extends AppCompatActivity {
 
-    TextView tagihanSaldoServer,tanggalTagihan,TotalSS,PengembalianSS,limitsaldoserverr;
+    TextView tagihanSaldoServer, tanggalTagihan, TotalSS, PengembalianSS, limitsaldoserverr;
     RelativeLayout LinearBayartagihan;
 
 
@@ -34,9 +34,9 @@ public class TopupSaldoServer extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_topup_saldo_server);
-        String color = Integer.toHexString(ContextCompat.getColor(getApplicationContext(),R.color.green)).toUpperCase();
+        String color = Integer.toHexString(ContextCompat.getColor(getApplicationContext(), R.color.green)).toUpperCase();
         String color2 = "#" + color.substring(1);
-        getSupportActionBar().setTitle(Html.fromHtml("<font color='" + color2 +"'><b>Top Up Saldo Server <b></font>"));
+        getSupportActionBar().setTitle(Html.fromHtml("<font color='" + color2 + "'><b>Top Up Saldo Server <b></font>"));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_24);
 
@@ -63,42 +63,43 @@ public class TopupSaldoServer extends AppCompatActivity {
         super.onBackPressed();
     }
 
-    public void RiwayatTagihan(View view){
+    public void RiwayatTagihan(View view) {
         Intent intent = new Intent(TopupSaldoServer.this, RiwayatTagihan.class);
         startActivity(intent);
     }
-    public void BayarTagihan(View view){
-        String codebayar ="saldoserver";
+
+    public void BayarTagihan(View view) {
+        String codebayar = "saldoserver";
         Bundle bundle = new Bundle();
-        bundle.putString("saldotipe",codebayar);
+        bundle.putString("saldotipe", codebayar);
         ModalMetodePemayaran modalPembayaran = new ModalMetodePemayaran();
         modalPembayaran.setArguments(bundle);
         modalPembayaran.show(getSupportFragmentManager(), "ModalPebayaran");
     }
 
-    public void getTagihan(){
+    public void getTagihan() {
 
-        String token = "Bearer "+ Preference.getToken(getApplicationContext());
+        String token = "Bearer " + Preference.getToken(getApplicationContext());
         Api api = RetroClient.getApiServices();
         Call<ResponTagihanPayLatter> call = api.getTagihan(token);
         call.enqueue(new Callback<ResponTagihanPayLatter>() {
             @Override
             public void onResponse(Call<ResponTagihanPayLatter> call, Response<ResponTagihanPayLatter> response) {
 
-                if (response.body().getCode().equals("200")){
+                if (response.body().getCode().equals("200")) {
                     tagihanSaldoServer.setText(utils.ConvertRP(response.body().getData().getTotal_bill()));
-                    Preference.setSaldoServer(getApplicationContext(),response.body().getData().getTotal_bill());
+                    Preference.setSaldoServer(getApplicationContext(), response.body().getData().getTotal_bill());
                     String tanggal = response.body().getData().getDue_date();
-                    tanggalTagihan.setText(tanggal.substring(0,10));
+                    tanggalTagihan.setText(tanggal.substring(0, 10));
                     PengembalianSS.setText(utils.ConvertRP(response.body().getData().getTotal_bill()));
                     TotalSS.setText(utils.ConvertRP(response.body().getData().getTotal_bill()));
-                    Preference.setIdUPP(getApplicationContext(),response.body().getData().getId());
+                    Preference.setIdUPP(getApplicationContext(), response.body().getData().getId());
 
 
-                }else {
+                } else {
 
                     LinearBayartagihan.setEnabled(false);
-                    Toast.makeText(TopupSaldoServer.this, response.body().getError()+" Belum ada tagihan", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(TopupSaldoServer.this, response.body().getError() + " Belum ada tagihan", Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -117,15 +118,15 @@ public class TopupSaldoServer extends AppCompatActivity {
             @Override
             public void onResponse(Call<ResponProfil> call, Response<ResponProfil> response) {
                 String limit = response.body().getData().getWallet().getPaylater_limit();
-                if(limit == null){
+                if (limit == null) {
                     limitsaldoserverr.setText(utils.ConvertRP("0"));
-                }else {
+                } else {
                     limitsaldoserverr.setText(utils.ConvertRP(response.body().getData().getWallet().getPaylater_limit()));
                 }
 
 
-
             }
+
             @Override
             public void onFailure(Call<ResponProfil> call, Throwable t) {
                 StyleableToast.makeText(getApplicationContext(), "Periksa Sambungan internet", Toast.LENGTH_SHORT, R.style.mytoast2).show();

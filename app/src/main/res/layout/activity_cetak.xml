@@ -10,8 +10,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -21,6 +21,32 @@
             android:orientation="vertical"
             android:padding="10sp">
 
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="2dp">
+
+                <TextView
+                    android:id="@+id/header"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginRight="40dp"
+                    android:layout_toEndOf="@id/EditHeader"
+                    android:hint="Edit Header"
+                    android:text="" />
+
+                <ImageView
+                    android:id="@+id/EditHeader"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="239dp"
+                    android:src="@drawable/ic_baseline_edit_24" />
+
+            </RelativeLayout>
+
+
             <TextView
                 android:id="@+id/titlestrukC"
                 android:layout_width="wrap_content"
@@ -28,7 +54,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="30dp"
                 android:fontFamily="@font/notoregular"
-                android:text=""
+                android:text="Test Cell"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -224,6 +250,33 @@
 
                     />
             </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:paddingVertical="2dp">
+
+                <TextView
+                    android:id="@+id/footer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginRight="40dp"
+                    android:layout_toEndOf="@id/EditFooter"
+                    android:hint="Edit Footer"
+                    android:text="" />
+
+                <ImageView
+                    android:id="@+id/EditFooter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="239dp"
+                    android:src="@drawable/ic_baseline_edit_24" />
+
+            </RelativeLayout>
+
 
         </LinearLayout>
 

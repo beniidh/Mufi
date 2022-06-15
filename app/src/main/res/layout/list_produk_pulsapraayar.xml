@@ -49,7 +49,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Telkomsel 2000"
-                android:fontFamily="@font/mukta"
+                android:fontFamily="@font/miriamlibrebold"
                 android:textStyle="bold"
                 android:textColor="@color/black"
                 android:textSize="15sp" />
@@ -58,7 +58,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Pulsa Telkomsel 2000"
-                android:fontFamily="@font/mukta"
+                android:fontFamily="@font/miriamlibrebold"
                 android:textColor="@color/gray4"
                 android:textSize="13sp" />
 

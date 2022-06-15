@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.c.kreload.Api.Api;
 import com.c.kreload.Helper.utils;
+import com.c.kreload.Profil.Poin.Point;
 import com.c.kreload.ResetPIN;
 import com.c.kreload.Respon.ResponProfil;
 import com.c.kreload.Helper.RetroClient;
@@ -153,7 +154,7 @@ public class Profil extends AppCompatActivity {
     }
     public void point(View view){
 
-        Intent intent = new Intent(Profil.this,Point.class);
+        Intent intent = new Intent(Profil.this, Point.class);
         startActivity(intent);
     }
     public void Device(View view){

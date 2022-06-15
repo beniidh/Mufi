@@ -24,10 +24,14 @@ public class ResponProdukListM {
 
     public class mData {
 
-        String name, basic_price,total_price,user_id,server_code,product_id,id,status;
+        String name, basic_price,total_price,user_id,server_code,product_id,id,status,markup_price;
 
         public String getStatus() {
             return status;
+        }
+
+        public String getMarkup_price() {
+            return markup_price;
         }
 
         public String getUser_id() {
