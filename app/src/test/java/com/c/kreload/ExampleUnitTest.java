@@ -4,6 +4,8 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
+import java.nio.charset.StandardCharsets;
+
 /**
  * Example local unit test, which will execute on the development machine (host).
  *
@@ -19,7 +21,7 @@ public class ExampleUnitTest {
     public void TestString(){
 
         String hallo = "08515-83838-9393";
-        System.out.println(hallo.replaceAll("-",""));
+        System.out.println(hallo.length());
 
     }
 }

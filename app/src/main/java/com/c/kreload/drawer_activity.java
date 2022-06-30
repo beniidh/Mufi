@@ -109,14 +109,7 @@ public class drawer_activity extends AppCompatActivity implements NavigationView
         nbchat.setTypeface(type2);
         notifikasi = findViewById(R.id.notifikasiID);
 
-//        notifikasi.setBadgeValue(Preference.getNilaiNotif(getApplicationContext()))
-//                .setBadgeTextSize(9)
-//                .setMaxBadgeValue(999)
-//                .setBadgeBackground(getResources().getDrawable(R.drawable.rectangle_rounded))
-//                .setBadgePosfition(BadgePosition.TOP_RIGHT)
-//                .setBadgeTextStyle(Typeface.NORMAL)
-//                .setShowCounter(true)
-//                .setBadgePadding(4);
+
 
         notifikasi.setOnClickListener(v -> {
 
@@ -305,10 +298,10 @@ public class drawer_activity extends AppCompatActivity implements NavigationView
                 myViewModel.sendPayLater(response.body().getData().getPaylater_status());
                 myViewModel.sendSaldoku(response.body().getData().getWallet().getSaldoku());
                 myViewModel.sendPayyLetter(response.body().getData().getWallet().getPaylatter());
-//                Picasso.get().load(response.body().getData().getAvatar()).into(iconprofilsidebar);
                 parent.setText(response.body().getData().getReferal_code());
                 Preference.setServerID(getApplicationContext(),response.body().getData().getServer_id());
                 getIconBanner(response.body().getData().getServer_id());
+                Preference.setKeyUserCode(getApplicationContext(),response.body().getData().getCode());
                 mSubMenus = (ArrayList<MSubMenu>) response.body().getData().getMenu();
                 getRunningText(response.body().getData().getServer_id());
                 adapterSubMenuSide = new AdapterSubMenuSide(getApplicationContext(), mSubMenus, drawer_activity.this);
@@ -367,7 +360,7 @@ public class drawer_activity extends AppCompatActivity implements NavigationView
 
             @Override
             public void onFailure(Call<ResponBanner> call, @NonNull Throwable t) {
-//                StyleableToast.makeText(getApplicationContext(), "Periksa Sambungan internet", Toast.LENGTH_SHORT, R.style.mytoast2).show();
+
             }
         });
         return mBanners;
@@ -391,16 +384,7 @@ public class drawer_activity extends AppCompatActivity implements NavigationView
 
     }
 
-    public String getIdServer() {
-        return idServer;
-    }
-
-    public void setIdServer(String idServer) {
-        this.idServer = idServer;
-    }
-
     private void getRunningText(String id) {
-//        myViewModel.sendRunning("hallo");
         String token = "Bearer " + Preference.getToken(getApplicationContext());
         Api api = RetroClient.getApiServices();
         Call<MRuningText> call = api.getRunningText(token, id);

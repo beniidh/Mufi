@@ -20,7 +20,7 @@
             android:textAlignment="center"
             android:textColor="@color/black"
             android:layout_height="0dp"
-            android:text="Masukan Harga Jual"
+            android:text="Masukan Harga "
             />
 
 
@@ -28,7 +28,7 @@
             android:id="@+id/edithargajual"
             android:layout_width="match_parent"
             android:layout_height="35dp"
-            android:hint="Harga jual"
+            android:hint="Harga"
             android:inputType="number"
             android:layout_marginTop="20sp"
             android:textAlignment="center"

@@ -383,8 +383,9 @@ public class pin_transaksi extends AppCompatActivity implements View.OnClickList
         String type = bundle.getString("inquiry");
         String wallet_type = bundle.getString("wallettype");
 
+
         MTransaksiPraPulsa mTransaksiPraPulsa = new MTransaksiPraPulsa(sku_code, customer_code, ref_id, type, wallet_type, Value.getMacAddress(getApplicationContext()), Value.getIPaddress(), Value.getUserAgent(getApplicationContext()),
-                pin,Double.parseDouble(Preference.getLong(getApplicationContext())),Double.parseDouble(Preference.getLang(getApplicationContext())));
+                pin,gpsTracker.getLongitude(),gpsTracker.getLatitude());
 
         Call<ResponTransaksiPulsaPra> call = api.transalsiPulsaPra(token, mTransaksiPraPulsa);
         call.enqueue(new Callback<ResponTransaksiPulsaPra>() {

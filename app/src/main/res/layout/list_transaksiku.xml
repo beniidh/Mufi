@@ -145,7 +145,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
                         android:layout_marginLeft="10sp"
-                        android:background="@color/green"
+                        android:background="#4CAF50"
                         android:paddingHorizontal="7dp"
                         android:text="Sukses"
                         android:textColor="@color/white" />

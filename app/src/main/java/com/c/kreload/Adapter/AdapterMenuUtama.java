@@ -219,6 +219,15 @@ public class AdapterMenuUtama extends RecyclerView.Adapter<AdapterMenuUtama.View
                     context.startActivity(intent);
                     break;
                 }
+                case "produk_digipos": {
+                    Intent intent = new Intent(context, holder_pulsa_activity.class);
+                    intent.putExtra("id", modelMenuUtama.getId());
+                    Preference.setPascatype(context,modelMenuUtama.getUrl());
+                    Preference.setNoType(context, modelMenuUtama.getType());
+                    intent.putExtra("name", modelMenuUtama.getName());
+                    context.startActivity(intent);
+                    break;
+                }
 
             }
 

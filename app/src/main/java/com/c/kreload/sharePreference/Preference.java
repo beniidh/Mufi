@@ -32,13 +32,13 @@ public class Preference {
         return getSharedPreference(context).getString("no","");
     }
 
-    public static void setSubBank(Context context, String id){
+    public static void setPascatype(Context context, String id){
         SharedPreferences.Editor editor = getSharedPreference(context).edit();
         editor.putString("sbk", id);
         editor.apply();
     }
 
-    public static String getSubBank(Context context){
+    public static String getPascatype(Context context){
         return getSharedPreference(context).getString("sbk","");
     }
 
@@ -309,6 +309,16 @@ public class Preference {
     }
     public static String getIDsalesProduk(Context context){
         return getSharedPreference(context).getString("ss","");
+    }
+
+
+    public static void setJenisProduk(Context context, String type){
+        SharedPreferences.Editor editor = getSharedPreference(context).edit();
+        editor.putString("jp", type);
+        editor.apply();
+    }
+    public static String getJenisProduk(Context context){
+        return getSharedPreference(context).getString("jp","");
     }
 
 }

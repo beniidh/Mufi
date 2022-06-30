@@ -51,7 +51,7 @@
                 android:layout_gravity="center"
                 android:layout_marginRight="10dp"
                 android:layout_weight="1"
-                android:src="@drawable/logobca" />
+               />
 
             <TextView
                 android:layout_width="0dp"

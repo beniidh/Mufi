@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:padding="18dp"
+    android:padding="15dp"
     android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context=".menuUtama.HolderPulsa.produkholderPasca">
@@ -15,6 +15,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/bg_putih"
         android:elevation="2dp"
+        android:layout_margin="3dp"
         android:orientation="vertical"
         android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -65,9 +66,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:background="@drawable/bg_edittextlogin"
+                android:fontFamily="@font/poppins"
                 android:hint="Input Nomor Tujuan"
                 android:inputType="number"
-                android:fontFamily="@font/poppins"
                 android:paddingStart="7dp"
                 android:paddingEnd="8sp"
                 android:textSize="17dp" />

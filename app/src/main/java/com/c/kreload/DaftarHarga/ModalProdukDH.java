@@ -109,7 +109,6 @@ public class ModalProdukDH extends BottomSheetDialogFragment {
         call.enqueue(new Callback<ResponProdukDH>() {
             @Override
             public void onResponse(Call<ResponProdukDH> call, Response<ResponProdukDH> response) {
-
                 for(ResponProdukDH.mData  produk : response.body().getData()){
 
                     if (produk.getType().equals("PRABAYAR")){

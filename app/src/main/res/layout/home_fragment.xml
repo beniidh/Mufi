@@ -160,13 +160,12 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="40sp" />
 
-
             </RelativeLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Lainnya"
+                android:text="Menu Lainnya"
                 android:textSize="16dp"
                 android:fontFamily="@font/acmereguler"
                 />

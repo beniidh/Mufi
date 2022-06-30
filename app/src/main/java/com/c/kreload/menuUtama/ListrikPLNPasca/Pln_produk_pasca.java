@@ -97,7 +97,7 @@ public class Pln_produk_pasca extends AppCompatActivity {
 
         periksaplnpascaP.setOnClickListener(v -> {
 
-            if (periksaplnpascaP.getText().toString().equals("Periksa")) {
+            if (periksaplnpascaP.getText().toString().equals("Cek Tagihan")) {
 
                 if (!inputplnpasca.getText().toString().isEmpty()) {
 
@@ -130,7 +130,7 @@ public class Pln_produk_pasca extends AppCompatActivity {
                                     setSkucode(response.body().getData().getBuyer_sku_code());
                                     tanggall.setText(hari + " " + bulan + " " + tahun);
                                     PPdayaP.setText(response.body().getData().getDetail_product().getDaya());
-                                    tagihan.setText(utils.ConvertRP(response.body().getData().getBasic_price()));
+                                    tagihan.setText(utils.ConvertRP(response.body().getData().getSelling_price()));
                                     transaksi.setText(response.body().getData().getRef_id());
                                     PPAdminP.setText(utils.ConvertRP(response.body().getData().getAdmin_fee()));
                                     PPtarifP.setText(response.body().getData().getDetail_product().getTarif());

@@ -95,6 +95,12 @@ public class Profil extends AppCompatActivity {
         super.onBackPressed();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        getContentProfil();
+    }
+
     public void getContentProfil() {
 
         Api api = RetroClient.getApiServices();

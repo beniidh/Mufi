@@ -219,7 +219,7 @@ public class CetakPlnPra extends AppCompatActivity {
             canvas.drawText("SN :" + SNPR.getText().toString().substring(8), left + 100, 1230 + tambahan, paint4);
 
             Paint paint3 = new Paint();
-
+//hallo
 
             paint3.setColor(ContextCompat.getColor(getApplicationContext(), R.color.gray4));
             Typeface type4 = ResourcesCompat.getFont(getApplicationContext(), R.font.mukta);
@@ -420,12 +420,12 @@ public class CetakPlnPra extends AppCompatActivity {
                         "[C]\n" +
                         "[C]\n" +
                         "[L]Nomor [L]: " + nomorPR.getText().toString().substring(7) + "\n" +
-                        "[L]Nama [L]: " + namaPR.getText().toString().substring(7) + "\n" +
+                        "[L]Nama [R]: " + "namaPR.getText().toString().substring(7)" + "\n" +
                         "[L]Tarif/Daya [L]: " + tarifPR.getText().toString().substring(13) + "\n" +
                         "[L]KwH [L]: " + KWHPR.getText().toString().substring(6) + "\n" +
 
                         "[l]\n" +
-                        "[L]<b>Total Bayar<b>" + "[L]: " + adminPR.getText().toString().substring(15) + "\n" +
+                        "[L]<b>Total Bayar<b>" + "[L]: " + adminPR.getText().toString() + "\n" +
                         "[C]--------------------------------\n" +
                         "[C]<font size='tall'>" + SNPR.getText().toString().substring(7) + "</font>" + "\n" +
                         "[C]\n" +

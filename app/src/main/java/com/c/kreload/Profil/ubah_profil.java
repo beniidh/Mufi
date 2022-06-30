@@ -1,12 +1,18 @@
 package com.c.kreload.Profil;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.text.Html;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.c.kreload.Api.Api;
@@ -16,6 +22,7 @@ import com.c.kreload.Modal.ModalKecamatan;
 import com.c.kreload.Modal.ModalKelurahan;
 import com.c.kreload.Modal.ModalKodePos;
 import com.c.kreload.Modal.ModalProvinsi;
+import com.c.kreload.Model.Responphoto;
 import com.c.kreload.R;
 import com.c.kreload.Respon.ResponEditKec;
 import com.c.kreload.Respon.ResponEditLokasi;
@@ -24,8 +31,16 @@ import com.c.kreload.Respon.ResponEditkel;
 import com.c.kreload.Respon.ResponKEditKab;
 import com.c.kreload.Respon.ResponProfil;
 import com.c.kreload.sharePreference.Preference;
+import com.github.dhaval2404.imagepicker.ImagePicker;
 import com.muddzdev.styleabletoast.StyleableToast;
+import com.squareup.picasso.Picasso;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -34,6 +49,8 @@ public class ubah_profil extends AppCompatActivity implements ModalProvinsi.Bott
 
     EditText editnama,editnamakonter,editalamat,editnomor,editemail,editprovinsi,editkecamatan,editkelurahan,editkabupaten,editkodepos;
     Button saveedit;
+    ImageView UbahProfil,iconProfil;
+    private Bitmap photo;
     int provinsiID,kabupatenID,kecamatanID,kelurahanID,kodePOSID;
 
     @Override
@@ -55,6 +72,19 @@ public class ubah_profil extends AppCompatActivity implements ModalProvinsi.Bott
         editkecamatan = findViewById(R.id.editkecamatan);
         editkelurahan = findViewById(R.id.editkelurahan);
         editkodepos = findViewById(R.id.editkodepos);
+        iconProfil =findViewById(R.id.iconprofile);
+
+        UbahProfil = findViewById(R.id.UbahProfil);
+        UbahProfil.setOnClickListener( view -> {
+
+            ImagePicker.with(ubah_profil.this)
+                    .crop()	    			//Crop image(Optional), Check Customization for more option
+                    .compress(1024)			//Final image size will be less than 1 MB(Optional)
+                    .maxResultSize(1080, 1080)//Final image resolution will be less than 1080 x 1080(Optional)
+                    .start();
+
+        });
+
         saveedit = findViewById(R.id.saveedit);
         getContentProfil();
 
@@ -107,6 +137,72 @@ public class ubah_profil extends AppCompatActivity implements ModalProvinsi.Bott
     }
 
     @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if ( resultCode == RESULT_OK) {
+
+            assert data != null;
+            Uri imageUri = data.getData();
+            try {
+
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), imageUri);
+                photo = bitmap;
+//                    uploadKTP.setImageBitmap(photo);
+                uploadFile(photo);
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+
+        }
+    }
+
+    private void uploadFile(Bitmap photo) {
+
+
+
+        RequestBody type = RequestBody.create(MediaType.parse("text/plain"), "photo_profile");
+        RequestBody primary_id = RequestBody.create(MediaType.parse("text/plain"), Preference.getKeyUserCode(getApplicationContext()));
+        RequestBody requestFile = RequestBody.create(MediaType.parse("image/jpeg"), getFileDataFromDrawable(photo));
+        MultipartBody.Part body = MultipartBody.Part.createFormData("photo", "image.jpg", requestFile);
+
+        //creating retrofit object
+        Api api = RetroClient.getApiServices();
+        Call<Responphoto> call = api.uploadProfil("Bearer " + Preference.getToken(getApplicationContext()),
+                body, primary_id,type);
+        call.enqueue(new Callback<Responphoto>() {
+            @Override
+            public void onResponse(Call<Responphoto> call, Response<Responphoto> response) {
+                String code = response.body().getCode();
+                if (code.equals("200")) {
+
+                    Toast.makeText(getApplicationContext(), "Berhasil", Toast.LENGTH_LONG).show();
+                    finish();
+
+                } else {
+                    Toast.makeText(getApplicationContext(), response.body().getError(), Toast.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Responphoto> call, Throwable t) {
+                Toast.makeText(getApplicationContext(), "Periksa Koneksi, yuk upload lagi", Toast.LENGTH_LONG).show();
+
+
+            }
+        });
+
+
+    }
+
+    public byte[] getFileDataFromDrawable(Bitmap bitmap) {
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 70, byteArrayOutputStream);
+        return byteArrayOutputStream.toByteArray();
+    }
+    @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
         return true;
@@ -129,6 +225,7 @@ public class ubah_profil extends AppCompatActivity implements ModalProvinsi.Bott
                 editnamakonter.setText(response.body().getData().getStore_name());
                 editalamat.setText(response.body().getData().getAddress());
                 editemail.setText(response.body().getData().getEmail());
+                Picasso.get().load(response.body().getData().getAvatar()).into(iconProfil);
                 getProvinsi(response.body().getData().getProvince_id());
                 setProvinsiID(Integer.parseInt(response.body().getData().getProvince_id()));
                 Preference.setIDProvinsi(getApplicationContext(),response.body().getData().getProvince_id());

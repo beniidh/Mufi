@@ -50,6 +50,7 @@ import com.muddzdev.styleabletoast.StyleableToast;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -89,6 +90,8 @@ public class CetakPlnPasca extends AppCompatActivity {
         header = findViewById(R.id.header);
         footer = findViewById(R.id.footer);
         IdPS = findViewById(R.id.IdPS);
+
+
 
         IdPS.setText("ID : " + getIntent().getStringExtra("nomor"));
 

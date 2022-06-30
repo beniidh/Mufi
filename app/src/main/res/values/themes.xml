@@ -5,6 +5,7 @@
         <item name="colorPrimary">@color/white</item>
         <item name="colorPrimaryVariant">@color/green</item>
         <item name="colorOnPrimary">@color/white</item>
+        <item name="android:screenOrientation">userPortrait</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/orange</item>
         <item name="colorSecondaryVariant">@color/green</item>
@@ -21,6 +22,7 @@
         <item name="colorPrimaryVariant">@color/green</item>
         <item name="colorOnPrimary">@color/white</item>
         <item name="windowNoTitle">true</item>
+        <item name="android:screenOrientation">portrait</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/orange</item>
         <item name="colorSecondaryVariant">@color/green</item>
@@ -38,6 +40,7 @@
         <item name="colorPrimaryVariant">@color/green</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
+        <item name="android:screenOrientation">portrait</item>
         <item name="colorSecondary">@color/orange</item>
         <item name="colorSecondaryVariant">@color/teal_700</item>
         <item name="colorOnSecondary">@color/black</item>
@@ -129,11 +132,14 @@
     <style name="Theme.Transparent" parent="Theme.Design.Light">
         <item name="android:windowBackground">@android:color/transparent</item>
     </style>
+
     <style name="Theme.DompetAbata.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
+
     <style name="Theme.DompetAbata.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
     <style name="Theme.DompetAbata.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 </resources>

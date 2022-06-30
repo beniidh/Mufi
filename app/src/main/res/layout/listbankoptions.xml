@@ -15,13 +15,13 @@
         android:padding="10dp">
 
         <ImageView
+            android:id="@+id/iconBank"
             android:layout_width="0dp"
             android:layout_height="40dp"
-            android:visibility="gone"
             android:layout_gravity="center"
             android:layout_marginRight="10dp"
             android:layout_weight="1"
-            android:src="@drawable/logobca" />
+           />
 
         <TextView
             android:id="@+id/bankName"

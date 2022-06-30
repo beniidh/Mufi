@@ -171,6 +171,10 @@ public interface Api {
     @POST("ekyc-selfie")
     Call<Responphoto> uploadImageDiri(@Part MultipartBody.Part image, @Part("id") RequestBody id);
 
+    @Multipart
+    @POST("photo-upload")
+    Call<Responphoto> uploadProfil(@Header("X-Signature") String token,@Part MultipartBody.Part photo, @Part("primary_id") RequestBody id, @Part("type") RequestBody type);
+
     @POST("transaction")
     Call<ResponTransfer> TransferBank(@Header("X-Signature") String token,
                                       @Body MTransfer mTransfer);

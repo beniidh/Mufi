@@ -111,7 +111,7 @@ public class produkBPJS extends AppCompatActivity implements ModalBpjs.BottomShe
 
         periksaBpjs.setOnClickListener(v -> {
 
-            if (periksaBpjs.getText().toString().equals("Periksa")) {
+            if (periksaBpjs.getText().toString().equals("Cek Tagihan")) {
 
                 if (!nomorinputBpjs.getText().toString().isEmpty()) {
 

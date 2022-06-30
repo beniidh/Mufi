@@ -18,9 +18,11 @@ import com.c.kreload.Api.Api;
 import com.c.kreload.Helper.LoadingPrimer;
 import com.c.kreload.Helper.RetroClient;
 import com.c.kreload.Helper.utils;
+import com.c.kreload.Profil.ubah_profil;
 import com.c.kreload.R;
 import com.c.kreload.TopUpSaldoku.ResponTopUp;
 import com.c.kreload.sharePreference.Preference;
+import com.github.dhaval2404.imagepicker.ImagePicker;
 import com.muddzdev.styleabletoast.StyleableToast;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
@@ -74,12 +76,11 @@ public class TrasferBankServer extends AppCompatActivity implements ModalPinUPPS
                 Toast.makeText(getApplicationContext(),"Lakukan Pengajuan terlebih dahulu",Toast.LENGTH_SHORT).show();
             }else {
 
-                Intent intent = CropImage.activity()
-                        .setAspectRatio(1, 1)
-                        .setGuidelines(CropImageView.Guidelines.ON)
-                        .getIntent(TrasferBankServer.this);
-
-                startActivityForResult(intent, 1001);
+                ImagePicker.with(TrasferBankServer.this)
+                        .crop()	    			//Crop image(Optional), Check Customization for more option
+                        .compress(1024)			//Final image size will be less than 1 MB(Optional)
+                        .maxResultSize(1080, 1080)//Final image resolution will be less than 1080 x 1080(Optional)
+                        .start();
             }
 
         });
@@ -115,12 +116,10 @@ public class TrasferBankServer extends AppCompatActivity implements ModalPinUPPS
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == 1001) {
 
             if (resultCode == RESULT_OK) {
 
-                CropImage.ActivityResult result = CropImage.getActivityResult(data);
-                Uri imageUri = result.getUri();
+                Uri imageUri = data.getData();
                 try {
 
                     Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), imageUri);
@@ -134,7 +133,7 @@ public class TrasferBankServer extends AppCompatActivity implements ModalPinUPPS
 
 
             }
-        }
+
     }
 
     @Override

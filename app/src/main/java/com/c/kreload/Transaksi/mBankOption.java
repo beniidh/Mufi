@@ -22,7 +22,7 @@ public class mBankOption {
 
     public class Data {
 
-        String id, value, name, account_no, account_name;
+        String id, value, name, account_no, account_name,icon;
 
         public String getId() {
             return id;
@@ -30,6 +30,10 @@ public class mBankOption {
 
         public String getValue() {
             return value;
+        }
+
+        public String getIcon() {
+            return icon;
         }
 
         public String getName() {

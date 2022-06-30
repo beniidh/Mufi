@@ -40,9 +40,12 @@ public class MyService extends FirebaseMessagingService {
             resultIntent = new Intent(this, detail_pesan_activity.class);
             resultIntent.putExtra("id", id);
 
+
         }else {
             resultIntent = new Intent(this, TransaksiPending.class);
             resultIntent.putExtra("transaksid", transaksi);
+            Intent refresh = new Intent("refresh");
+            sendBroadcast(refresh);
 
         }
         PendingIntent PI = PendingIntent.getActivity(this, 1, resultIntent, PendingIntent.FLAG_IMMUTABLE);

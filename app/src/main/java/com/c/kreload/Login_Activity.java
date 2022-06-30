@@ -133,11 +133,6 @@ public class Login_Activity extends AppCompatActivity {
 
     }
 
-    private void setLogologin() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            logologin.setImageDrawable(getDrawable(R.drawable.csoftware));
-        }
-    }
 
     public void getLocation() {
         GpsTracker gpsTracker = new GpsTracker(Login_Activity.this);

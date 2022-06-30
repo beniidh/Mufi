@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.text.Html;
 import android.transition.AutoTransition;
@@ -22,6 +24,7 @@ import com.c.kreload.CetakStruk.DetailTransaksiTruk;
 import com.c.kreload.CetakStruk.ResponCodeSubPS;
 import com.c.kreload.CetakStruk.StrukPLNPasca.CetakPlnPasca;
 import com.c.kreload.CetakStruk.StrukPLNPra.CetakPlnPra;
+import com.c.kreload.CetakStruk.StrukPLNPra.cetakBank;
 import com.c.kreload.Helper.LoadingPrimer;
 import com.c.kreload.Helper.RetroClient;
 import com.c.kreload.Helper.utils;
@@ -69,6 +72,12 @@ public class TransaksiPending extends AppCompatActivity {
         copySNTransaksi = findViewById(R.id.copySNTransaksi);
         copyTransaksi = findViewById(R.id.copyTransaksi);
 
+        saldokuterpakai = findViewById(R.id.saldokuterpakai);
+        tanggalDetail = findViewById(R.id.tanggalDetail);
+        waktuDetail = findViewById(R.id.waktuDetail);
+        NomorTransaksiDetail = findViewById(R.id.NomorTransaksiDetail);
+        hargatotalDetail = findViewById(R.id.hargatotalDetail);
+
         swipeTransaksi = findViewById(R.id.swipeTransaksi);
         String transaksiid = getIntent().getStringExtra("transaksid");
         loadingPrimer = new LoadingPrimer(TransaksiPending.this);
@@ -77,8 +86,41 @@ public class TransaksiPending extends AppCompatActivity {
             swipeTransaksi.setRefreshing(false);
         });
 
+
+        //Broadcase for Refresh Transaksi
+        BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
+
+            @Override
+            public void onReceive(Context arg0, Intent intent) {
+                String action = intent.getAction();
+                if (action.equals("refresh")) {
+                    ChekTransaksi(transaksiid);
+                    // DO WHATEVER YOU WANT.
+                }
+            }
+        };
+        registerReceiver(broadcastReceiver, new IntentFilter("refresh"));
+
+
+
+
+
+
+
         ChekTransaksi(transaksiid);
         cetakStruk.setOnClickListener(v -> {
+            Bundle bundle = new Bundle();
+            bundle.putString("nomor", nomorTP.getText().toString());
+            bundle.putString("produk", produkTransaksi.getText().toString());
+            bundle.putString("harga", getHarga());
+            bundle.putString("nama", namaTP.getText().toString());
+            bundle.putString("tanggal", tanggalDetail.getText().toString());
+            bundle.putString("waktu", waktuDetail.getText().toString());
+            bundle.putString("waktu2", getTanggaldet());
+            bundle.putString("sn", noSN.getText().toString());
+            bundle.putString("transaksid", NomorTransaksiDetail.getText().toString());
+
+
             LoadingPrimer loadingPrimer = new LoadingPrimer(TransaksiPending.this);
             loadingPrimer.startDialogLoading();
             String token = "Bearer " + Preference.getToken(getApplicationContext());
@@ -118,7 +160,13 @@ public class TransaksiPending extends AppCompatActivity {
                             intent.putExtra("transaksid", NomorTransaksiDetail.getText().toString());
                             startActivity(intent);
 
-                        } else {
+                        }  else if (productSub.equals("SUBCATID110102100000108")) {
+
+                            Intent intent = new Intent(TransaksiPending.this, cetakBank.class);
+                            intent.putExtras(bundle);
+                            startActivity(intent);
+
+                        }else {
 
                             Intent intent = new Intent(TransaksiPending.this, DetailTransaksiTruk.class);
                             intent.putExtra("nomor", nomorTP.getText().toString());
@@ -164,11 +212,7 @@ public class TransaksiPending extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Copied", Toast.LENGTH_SHORT).show();
         });
 
-        saldokuterpakai = findViewById(R.id.saldokuterpakai);
-        tanggalDetail = findViewById(R.id.tanggalDetail);
-        waktuDetail = findViewById(R.id.waktuDetail);
-        NomorTransaksiDetail = findViewById(R.id.NomorTransaksiDetail);
-        hargatotalDetail = findViewById(R.id.hargatotalDetail);
+
 
         if (Preference.getIconUrl(getApplicationContext()).isEmpty()) {
             iconTP.setBackground(getDrawable(R.drawable.logobarusetianobg));
@@ -183,7 +227,7 @@ public class TransaksiPending extends AppCompatActivity {
             if (code == null) {
 
                 finish();
-                KonfirmasiPembayaran.konifirmpembayaran.finish();
+
 
             } else {
 

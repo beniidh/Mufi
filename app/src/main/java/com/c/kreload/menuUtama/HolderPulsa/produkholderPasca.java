@@ -56,6 +56,7 @@ public class produkholderPasca extends AppCompatActivity {
         setContentView(R.layout.activity_produkholder_pasca);
         String produkname = getIntent().getStringExtra("name");
         Preference.setNo(getApplicationContext(),"");
+        Preference.setJenisProduk(getApplicationContext(),produkname);
 
         String color = Integer.toHexString(ContextCompat.getColor(getApplicationContext(),R.color.green )).toUpperCase();
         String color2 = "#" + color.substring(1);

@@ -1,7 +1,9 @@
-package com.c.kreload.menuUtama.TransaksiHandle;
+package com.c.kreload.menuUtama.HolderPulsa;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.renderscript.ScriptGroup;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,26 +19,24 @@ import com.c.kreload.menuUtama.PulsaPrabayar.KonfirmasiPembayaran;
 import com.c.kreload.sharePreference.Preference;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
-public class DetailTransaksiPasca extends BottomSheetDialogFragment {
-    TextView total;
-    TextView nomor, produk, tagihan, status, harga, deskripsi,AdminP;
+public class DetailTransaksiDigipos extends BottomSheetDialogFragment {
 
+    TextView nomor,produk,jenis,harga;
+    Button beli,tutup;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.activity_detail_transaksi_pasca, container, false);
+        View v = inflater.inflate(R.layout.activity_detail_digipos, container, false);
 
-        nomor = v.findViewById(R.id.nomortujuanP);
-        produk = v.findViewById(R.id.ProdukP);
-        tagihan = v.findViewById(R.id.tagihanP);
-        status = v.findViewById(R.id.statusP);
-        harga = v.findViewById(R.id.hargaP);
-        AdminP = v.findViewById(R.id.AdminP);
-        deskripsi = v.findViewById(R.id.deskripsiP);
+        nomor =v.findViewById(R.id.nomorD);
+        produk =v.findViewById(R.id.ProdukD);
+        jenis =v.findViewById(R.id.JenisD);
+        harga =v.findViewById(R.id.hargaD);
 
-        Button konfirasidetail = v.findViewById(R.id.konfirmasidetaill);
+        beli =v.findViewById(R.id.beli);
+        tutup =v.findViewById(R.id.tutupdetaill);
 
-        konfirasidetail.setOnClickListener(v12 -> {
+        beli.setOnClickListener(v12 -> {
 
             String urllicon = getArguments().getString("urlicon");
             Intent intent = new Intent(getContext(), KonfirmasiPembayaran.class);
@@ -51,33 +51,24 @@ public class DetailTransaksiPasca extends BottomSheetDialogFragment {
             dismiss();
 
         });
-        Button tutupdetail = v.findViewById(R.id.tutupdetaill);
-        tutupdetail.setOnClickListener(v1 -> {
+
+        tutup.setOnClickListener(v1 -> {
             dismiss();
         });
 
 
-        String deskripsii = getArguments().getString("deskription");
+
+
         String nomorr = getArguments().getString("nomorr");
         String hargaa = getArguments().getString("hargga");
         String nama = getArguments().getString("namecustomer");
-        String admin = getArguments().getString("admin");
-        String statuss = getArguments().getString("status");
-        String tagihann = getArguments().getString("tagihan");
 
-        if(statuss.equals("Gagal")){
-            konfirasidetail.setEnabled(false);
-        }
+
 
         nomor.setText(nomorr);
         produk.setText(nama);
-        tagihan.setText(tagihann);
         harga.setText(utils.ConvertRP(hargaa));
-        status.setText(statuss);
-        deskripsi.setText(deskripsii);
-        AdminP.setText(admin);
-
+        jenis.setText(Preference.getJenisProduk(getContext()));
         return v;
     }
-
 }

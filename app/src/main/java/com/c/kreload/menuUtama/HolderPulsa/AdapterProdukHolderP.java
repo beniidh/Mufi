@@ -75,8 +75,6 @@ public class AdapterProdukHolderP extends RecyclerView.Adapter<AdapterProdukHold
             LoadingPrimer loadingPrimer = new LoadingPrimer(ProdukholderPasca);
             loadingPrimer.startDialogLoading();
 
-
-
                 GpsTracker gpsTracker = new GpsTracker(context);
                 Api api = RetroClient.getApiServices();
                 MInquiry mInquiry = new MInquiry(Produk.getCode(), Preference.getNo(context), "PASCABAYAR", Value.getMacAddress(context), Value.getIPaddress(), Value.getUserAgent(context),Double.valueOf(Preference.getLang(v.getContext())), Double.valueOf(Preference.getLong(v.getContext())));
@@ -107,11 +105,23 @@ public class AdapterProdukHolderP extends RecyclerView.Adapter<AdapterProdukHold
                                 bundle.putString("admin", response.body().getData().getAdmin_fee());
 
                                 Preference.setUrlIcon(context, "");
-                                DetailTransaksiPasca fragment = new DetailTransaksiPasca(); // you fragment
-                                FragmentManager fragmentManager = ((FragmentActivity) v.getContext()).getSupportFragmentManager();
-                                fragment.setArguments(bundle);
-                                loadingPrimer.dismissDialog();
-                                fragment.show(fragmentManager, "detail");
+
+                                if(Preference.getPascatype(context).equals("produk_digipos")){
+                                    DetailTransaksiDigipos fragment = new DetailTransaksiDigipos(); // you fragment
+                                    FragmentManager fragmentManager = ((FragmentActivity) v.getContext()).getSupportFragmentManager();
+                                    fragment.setArguments(bundle);
+                                    loadingPrimer.dismissDialog();
+                                    fragment.show(fragmentManager, "detail");
+
+                                }else {
+                                    DetailTransaksiPasca fragment = new DetailTransaksiPasca(); // you fragment
+                                    FragmentManager fragmentManager = ((FragmentActivity) v.getContext()).getSupportFragmentManager();
+                                    fragment.setArguments(bundle);
+                                    loadingPrimer.dismissDialog();
+                                    fragment.show(fragmentManager, "detail");
+                                }
+
+
                             } else {
                                 loadingPrimer.dismissDialog();
                                 Toast.makeText(context, response.body().getData().getStatus() + " " + response.body().getData().getDescription(), Toast.LENGTH_LONG).show();
@@ -153,64 +163,4 @@ public class AdapterProdukHolderP extends RecyclerView.Adapter<AdapterProdukHold
         }
     }
 
-    public void chekPasca ( ResponProdukHolder.Mdata Produk, View v){
-
-//        LoadingPrimer loadingPrimer = new LoadingPrimer(Produkair);
-//        loadingPrimer.startDialogLoading();
-
-        GpsTracker gpsTracker = new GpsTracker(context);
-
-        Api api = RetroClient.getApiServices();
-        MInquiry mInquiry = new MInquiry(Produk.getCode(), nomor, "PASCABAYAR", Value.getMacAddress(context), Value.getIPaddress(), Value.getUserAgent(context), gpsTracker.getLatitude(), gpsTracker.getLongitude());
-        String token = "Bearer " + Preference.getToken(context);
-        Call<ResponInquiry> call = api.CekInquiry(token, mInquiry);
-        call.enqueue(new Callback<ResponInquiry>() {
-            @Override
-            public void onResponse(Call<ResponInquiry> call, Response<ResponInquiry> response) {
-
-                String code = response.body().getCode();
-                if (code.equals("200")) {
-
-                    if (response.body().getData().getStatus().equals("Sukses")) {
-                        Bundle bundle = new Bundle();
-                        bundle.putString("nomorr", nomor);
-                        bundle.putString("namecustomer", response.body().getData().getCustomer_name());
-                        bundle.putString("RefID", response.body().getData().getRef_id());
-                        bundle.putString("sku_code", response.body().getData().getBuyer_sku_code());
-                        bundle.putString("kodeproduk", "pulsapasca");
-                        bundle.putString("inquiry", response.body().getData().getInquiry_type());
-                        bundle.putString("hargga", response.body().getData().getSelling_price());
-
-                        bundle.putString("status", response.body().getData().getStatus());
-                        bundle.putString("tagihan", utils.ConvertRP(response.body().getData().getDetail_product().getDetail().get(0).getNilai_tagihan()));
-                        bundle.putString("deskription", response.body().getData().getDescription());
-                        bundle.putString("admin", utils.ConvertRP(response.body().getData().getDetail_product().getDetail().get(0).getAdmin()));
-
-                        Preference.setUrlIcon(context, "");
-                        DetailTransaksiPasca fragment = new DetailTransaksiPasca(); // you fragment
-                        FragmentManager fragmentManager = ((FragmentActivity) v.getContext()).getSupportFragmentManager();
-                        fragment.setArguments(bundle);
-//                        loadingPrimer.dismissDialog();
-                        fragment.show(fragmentManager, "detail");
-                    } else {
-//                        loadingPrimer.dismissDialog();
-                        Toast.makeText(context, response.body().getData().getStatus() + " " + response.body().getData().getDescription(), Toast.LENGTH_LONG).show();
-                    }
-                } else {
-//                    loadingPrimer.dismissDialog();
-                    Toast.makeText(context, response.body().getError(), Toast.LENGTH_LONG).show();
-                }
-
-            }
-
-            @Override
-            public void onFailure(Call<ResponInquiry> call, Throwable t) {
-                Toast.makeText(context,"Koneksi Tidak stabil,silahkan ulangi",Toast.LENGTH_SHORT).show();
-//                loadingPrimer.dismissDialog();
-            }
-        });
-
-
-
-}
 }
