@@ -97,6 +97,7 @@ public class cetakBank extends AppCompatActivity {
                 shareIntent.setDataAndType(contentUri, getContentResolver().getType(contentUri));
                 shareIntent.putExtra(Intent.EXTRA_STREAM, contentUri);
                 startActivity(Intent.createChooser(shareIntent, "Choose an app"));
+
             }
         });
 
@@ -284,10 +285,10 @@ public class cetakBank extends AppCompatActivity {
                         "[C]" + binding.Harga.getText().toString() + "\n" +
                         "[C]\n" +
                         "[C]\n" +
-                        "[L]Penerima [L]: " + binding.namaPS.getText().toString().substring(11) + "\n" +
-                        "[L]Bank [L]: " + binding.IdPS.getText().toString().substring(16) + "\n" +
-                        "[L]Rekening [L]: " + binding.nomorRekening.getText().toString().substring(17) + "\n" +
-                        "[L]Admin [L]: " + binding.admin.getText().toString() + "\n" +
+                        Penerima(binding.namaPS.getText().toString().substring(11)) + "\n" +
+                        "[L]Bank [L]:" + binding.IdPS.getText().toString().substring(16) + "\n" +
+                        Rekening(binding.nomorRekening.getText().toString().substring(17),"Rekening") + "\n" +
+                        "[L]Admin [L]:" + binding.admin.getText().toString() + "\n" +
 
                         "[l]\n" +
                         "[L]<b>Total <b>" + "[L]: " + binding.total.getText().toString() + "\n" +
@@ -302,6 +303,37 @@ public class cetakBank extends AppCompatActivity {
                         "[L]" + binding.footer.getText().toString() + "\n" +
                         "[L]\n"
         );
+    }
+
+
+    private String Penerima(String penerima){
+
+        String value="";
+
+        if(penerima.length()<=15){
+            value = "[L]<b>Nama</b>[L]:" + penerima;
+        }else if(penerima.length()>16 && penerima.length()<30 ){
+            value = "[L]<b>Nama</b>[L]:" + penerima.substring(0,14)+"\n"+"[L][L] " + penerima.substring(14);
+        }else {
+            value = "[L]<b>Nama</b>[L]:" + penerima.substring(0,14)+"\n"+"[L][L] " + penerima.substring(14,30)+"\n"+"[L][L] " + penerima.substring(30,45);
+        }
+
+        return value;
+    }
+
+    private String Rekening(String rekening,String judul){
+
+        String value="";
+
+        if(rekening.length()<15){
+            value = "[L]<b>"+judul+"</b>[L]:" + rekening;
+        }else if(rekening.length()>=15 && rekening.length()<30 ){
+            value = "[L]<b>"+judul+"</b>[L]:" + rekening.substring(0,14)+"\n"+"[L][L] " + rekening.substring(14);
+        }else {
+            value = "[L]<b>"+judul+"</b>[L]:" + rekening.substring(0,14)+"\n"+"[L][L] " + rekening.substring(14,30)+"\n"+"[L][L] " + rekening.substring(30,45);
+        }
+
+        return value;
     }
 
 }

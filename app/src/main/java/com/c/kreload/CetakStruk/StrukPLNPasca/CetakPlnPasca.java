@@ -27,6 +27,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -70,10 +71,12 @@ public class CetakPlnPasca extends AppCompatActivity {
     TextView KonterPS, AlamatPS, namaPS, TagihanPS,
             jumlahBulanPS, TarifDayaPS, jmlhTagihanPS, SMPS, adminPS,
             totaltagihanPS, RefPS, WaktuPS, IdPS;
+
     LoadingPrimer loadingPrimer = new LoadingPrimer(CetakPlnPasca.this);
 
     TextView header, footer;
     ImageView EditHeader, EditFooter;
+    LinearLayout LinCetakPasca;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,11 +93,9 @@ public class CetakPlnPasca extends AppCompatActivity {
         header = findViewById(R.id.header);
         footer = findViewById(R.id.footer);
         IdPS = findViewById(R.id.IdPS);
-
-
+        LinCetakPasca = findViewById(R.id.LinCetakPasca);
 
         IdPS.setText("ID : " + getIntent().getStringExtra("nomor"));
-
         header.setText(Preference.getHeader(getApplicationContext()));
         footer.setText(Preference.getFooter(getApplicationContext()));
 
@@ -104,9 +105,7 @@ public class CetakPlnPasca extends AppCompatActivity {
         });
 
         EditHeader.setOnClickListener(v -> {
-
-            popUpEditHeader();
-
+            popUpEditFooterHeader();
         });
 
         //Button
@@ -140,23 +139,11 @@ public class CetakPlnPasca extends AppCompatActivity {
         jumlahBulanPS.setText("Jumlah Bulan :" + sn[2].substring(5));
         SMPS.setText("Stand Meter :" + sn[4].substring(3));
         RefPS.setText(sn[8]);
-
         getContentProfil();
 
-        setAdmin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                popUpMenuSetHargajual();
+        setAdmin.setOnClickListener(view -> popUpMenuSetHargajual());
+        CetakPasca.setOnClickListener(view -> printBluetooth());
 
-            }
-        });
-        CetakPasca.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                printBluetooth();
-
-            }
-        });
         pilihPerangkat = findViewById(R.id.pilihPerangkat);
         pilihPerangkat.setOnClickListener(v -> {
             browseBluetoothDevice();
@@ -165,104 +152,11 @@ public class CetakPlnPasca extends AppCompatActivity {
 
         shareStrukP.setOnClickListener(v -> {
 
-            Rect bounds = new Rect();
-            Bitmap bmp = Bitmap.createBitmap(1400, 1850, Bitmap.Config.ARGB_4444);
-            Canvas canvas = new Canvas(bmp);
-            canvas.drawColor(-1);
-            Paint paint = new Paint();
-            Typeface type3 = ResourcesCompat.getFont(getApplicationContext(), R.font.exobold);
-            paint.setTypeface(type3);
-            paint.setTextSize(70);
-            paint.setColor(Color.rgb(0, 0, 0));
+            Bitmap bitmap = Bitmap.createBitmap(LinCetakPasca.getWidth(),LinCetakPasca.getHeight(),Bitmap.Config.ARGB_8888);
+            Canvas canvas = new Canvas(bitmap);
+            LinCetakPasca.draw(canvas);
 
-            Paint paint5 = new Paint();
-
-            paint5.setColor(ContextCompat.getColor(getApplicationContext(), R.color.gray4));
-            Typeface type5 = ResourcesCompat.getFont(getApplicationContext(), R.font.mukta);
-            paint5.setTypeface(type5);
-            paint5.setTextSize(52);
-
-            String headerr = header.getText().toString();
-            canvas.drawText(headerr, 80, 150, paint5);
-
-            int tambahan2 = 100;
-            int y = 150+tambahan2; // x = 10,
-            int x = 10;
-
-            String text = KonterPS.getText().toString();
-
-            paint.getTextBounds(text, 0, text.length(), bounds);
-            x = (canvas.getWidth() / 2) - (bounds.width() / 2);
-            canvas.drawText(text, x, y, paint);
-            Paint paint4 = new Paint();
-            paint4.setTextSize(73);
-            String jenis = " * Struk PLN Pasca *";
-            paint4.getTextBounds(jenis, 0, jenis.length(), bounds);
-            x = (canvas.getWidth() / 2) - (bounds.width() / 2);
-            canvas.drawText(jenis, x, 250 +tambahan2, paint4);
-
-            Paint paint1 = new Paint();
-
-            paint1.setColor(ContextCompat.getColor(getApplicationContext(), R.color.gray4));
-            Typeface type2 = ResourcesCompat.getFont(getApplicationContext(), R.font.courierprimereguler);
-            paint1.setTypeface(type2);
-
-            paint1.setTextSize(72);
-
-            int left = 120;
-            int tambahan = 50+tambahan2;
-
-            canvas.drawText("Nama  : ", left, 400 + tambahan, paint1);
-            canvas.drawText(namaPS.getText().toString().substring(6), 460, 400 + tambahan, paint1);
-
-            canvas.drawText("ID    : ", left, 500 + tambahan, paint1);
-            canvas.drawText(IdPS.getText().toString().substring(5), 460, 500 + tambahan, paint1);
-
-            tambahan = 150+ tambahan2;
-            canvas.drawText("PTAG  : ", left, 500 + tambahan, paint1);
-            canvas.drawText(TagihanPS.getText().toString().substring(18), 460, 500 + tambahan, paint1);
-//
-            canvas.drawText("JBLN  : ", left, 600 + tambahan, paint1);
-            canvas.drawText(jumlahBulanPS.getText().toString().substring(15), 460, 600 + tambahan, paint1);
-//
-            canvas.drawText("TD    : ", left, 700 + tambahan, paint1);
-            canvas.drawText(TarifDayaPS.getText().toString().substring(13), 460, 700 + tambahan, paint1);
-//
-            canvas.drawText("SM    : ", left, 800 + tambahan, paint1);
-            canvas.drawText(SMPS.getText().toString().substring(14), 460, 800 + tambahan, paint1);
-//
-            canvas.drawText("TGHN  : ", left, 900 + tambahan, paint1);
-            canvas.drawText(jmlhTagihanPS.getText().toString().substring(10), 460, 900 + tambahan, paint1);
-//
-            canvas.drawText("Admin : ", left, 1000 + tambahan, paint1);
-            canvas.drawText(adminPS.getText().toString(), 460, 1000 + tambahan, paint1);
-
-            canvas.drawText("Total : ", left, 1100 + tambahan, paint1);
-            canvas.drawText(totaltagihanPS.getText().toString().substring(16), 460, 1100 + tambahan, paint1);
-//            paint4.setTextSize(63);
-//            paint4.setTypeface(Typeface.DEFAULT_BOLD);
-//            canvas.drawText("SN :" + SNPR.getText().toString().substring(8), left+100, 1230, paint4);
-
-            Paint paint3 = new Paint();
-
-            paint3.setColor(ContextCompat.getColor(getApplicationContext(), R.color.gray4));
-            Typeface type4 = ResourcesCompat.getFont(getApplicationContext(), R.font.mukta);
-            paint3.setTypeface(type4);
-            paint3.setTextSize(36);
-
-            canvas.drawText("* Struk ini merupakan bukti pembayaran yang sah ", left + 200, 1280 + tambahan, paint3);
-            canvas.drawText("mohon disimpan,Terimakasih", left + 350, 1330 + tambahan, paint3);
-
-            String Footer = footer.getText().toString();
-
-            if (Footer.length() > 45) {
-                canvas.drawText(Footer.substring(0, 45), left, 1430 + tambahan, paint5);
-                canvas.drawText(Footer.substring(45), left, 1480 + tambahan, paint5);
-            } else {
-                canvas.drawText(Footer, left, 1430 + tambahan, paint5);
-            }
-
-            saveImageExternal(bmp);
+            saveImageExternal(bitmap);
             File imagePath = new File(getApplicationContext().getCacheDir(), "images");
             File newFile = new File(imagePath, "image.png");
             Uri contentUri = FileProvider.getUriForFile(getApplicationContext(), "com.c.kreload.fileprovider", newFile);
@@ -275,7 +169,6 @@ public class CetakPlnPasca extends AppCompatActivity {
                 shareIntent.putExtra(Intent.EXTRA_STREAM, contentUri);
                 startActivity(Intent.createChooser(shareIntent, "Choose an app"));
             }
-
         });
     }
 
@@ -316,21 +209,26 @@ public class CetakPlnPasca extends AppCompatActivity {
 
     }
 
-    public void popUpEditHeader() {
+    public void popUpEditFooterHeader() {
 
         android.app.AlertDialog dialogBuilder = new android.app.AlertDialog.Builder(CetakPlnPasca.this).create();
         LayoutInflater inflater = getLayoutInflater();
-        View dialogView = inflater.inflate(R.layout.set_header, null);
+        View dialogView = inflater.inflate(R.layout.set_footerheader, null);
 
-        EditText editText = (EditText) dialogView.findViewById(R.id.EFooter);
-        editText.setText(Preference.getHeader(getApplicationContext()));
-        Preference.setHeader(getApplicationContext(), editText.getText().toString());
+        EditText editTextF = (EditText) dialogView.findViewById(R.id.EFooter);
+        EditText editTextH = (EditText) dialogView.findViewById(R.id.EHeader);
+        editTextF.setText(Preference.getFooter(getApplicationContext()));
+        editTextH.setText(Preference.getHeader(getApplicationContext()));
         Button button1 = (Button) dialogView.findViewById(R.id.BEFoter);
 
         button1.setOnClickListener(v -> {
-            header.setText(editText.getText().toString());
-            Preference.setHeader(getApplicationContext(), editText.getText().toString());
+            footer.setText(editTextF.getText().toString());
+            Preference.setFooter(getApplicationContext(), editTextF.getText().toString());
+            header.setText(editTextH.getText().toString());
+            Preference.setHeader(getApplicationContext(), editTextH.getText().toString());
+
             dialogBuilder.dismiss();
+
         });
 
         dialogBuilder.setView(dialogView);
@@ -350,13 +248,7 @@ public class CetakPlnPasca extends AppCompatActivity {
             int i = 0;
             for (BluetoothConnection device : bluetoothDevicesList) {
                 if (ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
-                    // TODO: Consider calling
-                    //    ActivityCompat#requestPermissions
-                    // here to request the missing permissions, and then overriding
-                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                    //                                          int[] grantResults)
-                    // to handle the case where the user grants the permission. See the documentation
-                    // for ActivityCompat#requestPermissions for more details.
+
                     return;
                 }
                 items[++i] = device.getDevice().getName();

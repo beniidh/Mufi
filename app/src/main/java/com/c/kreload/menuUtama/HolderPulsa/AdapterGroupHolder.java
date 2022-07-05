@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.c.kreload.R;
+import com.c.kreload.sharePreference.Preference;
 
 import java.util.ArrayList;
 
@@ -19,13 +20,10 @@ public class AdapterGroupHolder extends RecyclerView.Adapter<AdapterGroupHolder.
     Context context;
     ArrayList<ResponGroup.Data> datasub;
 
-
     public AdapterGroupHolder(Context context, ArrayList<ResponGroup.Data> datasub) {
         this.context = context;
         this.datasub = datasub;
-
     }
-
 
     @NonNull
     @Override
@@ -33,7 +31,6 @@ public class AdapterGroupHolder extends RecyclerView.Adapter<AdapterGroupHolder.
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_groupkategori, parent, false);
         ViewHolder holder = new ViewHolder(v);
         return holder;
-
     }
 
     @Override
@@ -41,16 +38,27 @@ public class AdapterGroupHolder extends RecyclerView.Adapter<AdapterGroupHolder.
 
         ResponGroup.Data data = datasub.get(position);
         holder.namesub.setText(data.getName());
-
-
         holder.linierSubCategory.setOnClickListener(v -> {
 
-            Intent intent = new Intent(context, produkholder.class);
-            intent.putExtra("id", data.getId());
-            intent.putExtra("jenis","sub");
-            intent.putExtra("name", data.getName());
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            context.startActivity(intent);
+
+            if (Preference.getNoType(context).equals("PASCABAYAR")) {
+                Intent intent = new Intent(context, produkholderPasca.class);
+                intent.putExtra("id", data.getId());
+                intent.putExtra("jenis","sub");
+                intent.putExtra("name", data.getName());
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(intent);
+
+            } else {
+
+                Intent intent = new Intent(context, produkholder.class);
+                intent.putExtra("id", data.getId());
+                intent.putExtra("jenis","sub");
+                intent.putExtra("name", data.getName());
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(intent);
+            }
+
         });
 
     }

@@ -52,6 +52,7 @@ import com.c.kreload.sharePreference.Preference;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.muddzdev.styleabletoast.StyleableToast;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -68,8 +69,8 @@ public class drawer_activity extends AppCompatActivity implements NavigationView
     DrawerLayout drawer_layout;
     ActionBarDrawerToggle toggle;
     NavigationView navigationView;
-    String idServer;
-    Fragment fragment1, fragment2, fragment3;
+
+    Fragment  fragment3;
 
     LinearLayout profil;
     ArrayList<Micon> micons = new ArrayList<>();
@@ -299,6 +300,7 @@ public class drawer_activity extends AppCompatActivity implements NavigationView
                 myViewModel.sendSaldoku(response.body().getData().getWallet().getSaldoku());
                 myViewModel.sendPayyLetter(response.body().getData().getWallet().getPaylatter());
                 parent.setText(response.body().getData().getReferal_code());
+                Picasso.get().load(response.body().getData().getAvatar()).into(iconprofilsidebar);
                 Preference.setServerID(getApplicationContext(),response.body().getData().getServer_id());
                 getIconBanner(response.body().getData().getServer_id());
                 Preference.setKeyUserCode(getApplicationContext(),response.body().getData().getCode());

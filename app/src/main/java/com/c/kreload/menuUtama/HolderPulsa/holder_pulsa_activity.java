@@ -36,6 +36,8 @@ public class holder_pulsa_activity extends AppCompatActivity {
         setContentView(R.layout.holder_pulsa_activity);
         //get judul
         String judul = getIntent().getStringExtra("name");
+        String url = getIntent().getStringExtra("url");
+
         recyclerView = findViewById(R.id.reyHolderPulsa);
 
         String color = Integer.toHexString(ContextCompat.getColor(getApplicationContext(),R.color.green)).toUpperCase();
@@ -106,7 +108,5 @@ public class holder_pulsa_activity extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
     }
-
-
 
 }

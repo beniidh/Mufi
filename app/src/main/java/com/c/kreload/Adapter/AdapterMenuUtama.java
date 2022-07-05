@@ -85,6 +85,7 @@ public class AdapterMenuUtama extends RecyclerView.Adapter<AdapterMenuUtama.View
                     Intent intent = new Intent(context, holder_pulsa_activity.class);
                     intent.putExtra("id", modelMenuUtama.getId());
                     Preference.setNoType(context, modelMenuUtama.getType());
+                    Preference.setPascatype(context,modelMenuUtama.getUrl());
                     intent.putExtra("name", modelMenuUtama.getName());
                     context.startActivity(intent);
                     break;
@@ -114,6 +115,7 @@ public class AdapterMenuUtama extends RecyclerView.Adapter<AdapterMenuUtama.View
                     Intent intent = new Intent(context, holder_pulsa_activity.class);
                     intent.putExtra("id", modelMenuUtama.getId());
                     Preference.setNoType(context, modelMenuUtama.getType());
+                    Preference.setPascatype(context,modelMenuUtama.getUrl());
                     intent.putExtra("name", modelMenuUtama.getName());
                     context.startActivity(intent);
                     break;
@@ -121,6 +123,7 @@ public class AdapterMenuUtama extends RecyclerView.Adapter<AdapterMenuUtama.View
                 case "uang_elektronik": {
                     Intent intent = new Intent(context, holder_pulsa_activity.class);
                     intent.putExtra("id", modelMenuUtama.getId());
+                    Preference.setPascatype(context,modelMenuUtama.getUrl());
                     Preference.setNoType(context, modelMenuUtama.getType());
                     intent.putExtra("name", modelMenuUtama.getName());
                     context.startActivity(intent);
@@ -129,6 +132,7 @@ public class AdapterMenuUtama extends RecyclerView.Adapter<AdapterMenuUtama.View
                 case "air_pdam": {
                     Intent intent = new Intent(context, holder_pulsa_activity.class);
                     intent.putExtra("id", modelMenuUtama.getId());
+                    Preference.setPascatype(context,modelMenuUtama.getUrl());
                     Preference.setNoType(context, modelMenuUtama.getType());
                     intent.putExtra("name", modelMenuUtama.getName());
                     context.startActivity(intent);
@@ -137,6 +141,7 @@ public class AdapterMenuUtama extends RecyclerView.Adapter<AdapterMenuUtama.View
                 case "voucher_game": {
                     Intent intent = new Intent(context, holder_pulsa_activity.class);
                     intent.putExtra("id", modelMenuUtama.getId());
+                    Preference.setPascatype(context,modelMenuUtama.getUrl());
                     Preference.setNoType(context, modelMenuUtama.getType());
                     intent.putExtra("name", modelMenuUtama.getName());
                     context.startActivity(intent);
@@ -145,6 +150,7 @@ public class AdapterMenuUtama extends RecyclerView.Adapter<AdapterMenuUtama.View
                 case "internet": {
                     Intent intent = new Intent(context, holder_pulsa_activity.class);
                     intent.putExtra("id", modelMenuUtama.getId());
+                    Preference.setPascatype(context,modelMenuUtama.getUrl());
                     Preference.setNoType(context, modelMenuUtama.getType());
                     intent.putExtra("name", modelMenuUtama.getName());
                     context.startActivity(intent);
@@ -153,6 +159,7 @@ public class AdapterMenuUtama extends RecyclerView.Adapter<AdapterMenuUtama.View
                 case "tv": {
                     Intent intent = new Intent(context, holder_pulsa_activity.class);
                     intent.putExtra("id", modelMenuUtama.getId());
+                    Preference.setPascatype(context,modelMenuUtama.getUrl());
                     Preference.setNoType(context, modelMenuUtama.getType());
                     intent.putExtra("name", modelMenuUtama.getName());
                     context.startActivity(intent);
@@ -161,6 +168,7 @@ public class AdapterMenuUtama extends RecyclerView.Adapter<AdapterMenuUtama.View
                 case "voucher": {
                     Intent intent = new Intent(context, holder_pulsa_activity.class);
                     intent.putExtra("id", modelMenuUtama.getId());
+                    Preference.setPascatype(context,modelMenuUtama.getUrl());
                     Preference.setNoType(context, modelMenuUtama.getType());
                     intent.putExtra("name", modelMenuUtama.getName());
                     context.startActivity(intent);
@@ -176,6 +184,7 @@ public class AdapterMenuUtama extends RecyclerView.Adapter<AdapterMenuUtama.View
                 case "angsuran_krefit": {
                     Intent intent = new Intent(context, holder_pulsa_activity.class);
                     intent.putExtra("id", modelMenuUtama.getId());
+                    Preference.setPascatype(context,modelMenuUtama.getUrl());
                     Preference.setNoType(context, modelMenuUtama.getType());
                     intent.putExtra("name", modelMenuUtama.getName());
                     context.startActivity(intent);
@@ -184,6 +193,7 @@ public class AdapterMenuUtama extends RecyclerView.Adapter<AdapterMenuUtama.View
                 case "pajak_pbb": {
                     Intent intent = new Intent(context, holder_pulsa_activity.class);
                     intent.putExtra("id", modelMenuUtama.getId());
+                    Preference.setPascatype(context,modelMenuUtama.getUrl());
                     Preference.setNoType(context, modelMenuUtama.getType());
                     intent.putExtra("name", modelMenuUtama.getName());
                     context.startActivity(intent);
@@ -192,6 +202,7 @@ public class AdapterMenuUtama extends RecyclerView.Adapter<AdapterMenuUtama.View
                 case "gas_negara": {
                     Intent intent = new Intent(context, holder_pulsa_activity.class);
                     intent.putExtra("id", modelMenuUtama.getId());
+                    Preference.setPascatype(context,modelMenuUtama.getUrl());
                     Preference.setNoType(context, modelMenuUtama.getType());
                     intent.putExtra("name", modelMenuUtama.getName());
                     context.startActivity(intent);
@@ -214,6 +225,7 @@ public class AdapterMenuUtama extends RecyclerView.Adapter<AdapterMenuUtama.View
                 case "Produk_pra": {
                     Intent intent = new Intent(context, holder_pulsa_activity.class);
                     intent.putExtra("id", modelMenuUtama.getId());
+                    Preference.setPascatype(context,modelMenuUtama.getUrl());
                     Preference.setNoType(context, modelMenuUtama.getType());
                     intent.putExtra("name", modelMenuUtama.getName());
                     context.startActivity(intent);

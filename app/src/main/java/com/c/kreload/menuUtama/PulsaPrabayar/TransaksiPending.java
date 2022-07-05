@@ -105,8 +105,6 @@ public class TransaksiPending extends AppCompatActivity {
 
 
 
-
-
         ChekTransaksi(transaksiid);
         cetakStruk.setOnClickListener(v -> {
             Bundle bundle = new Bundle();
@@ -119,7 +117,6 @@ public class TransaksiPending extends AppCompatActivity {
             bundle.putString("waktu2", getTanggaldet());
             bundle.putString("sn", noSN.getText().toString());
             bundle.putString("transaksid", NomorTransaksiDetail.getText().toString());
-
 
             LoadingPrimer loadingPrimer = new LoadingPrimer(TransaksiPending.this);
             loadingPrimer.startDialogLoading();

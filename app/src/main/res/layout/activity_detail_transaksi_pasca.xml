@@ -129,6 +129,27 @@
             android:textAlignment="textEnd" />
 
     </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:padding="6dp">
+
+        <TextView
+            android:id="@+id/angsuran"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:text="Angsuran Ke-" />
+
+        <TextView
+            android:id="@+id/Angske"
+            android:layout_width="270sp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="N/A"
+            android:textAlignment="textEnd" />
+
+    </RelativeLayout>
 
     <TextView
         android:layout_width="wrap_content"

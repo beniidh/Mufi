@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:padding="18sp"
+    android:padding="10sp"
     android:layout_height="match_parent"
     tools:context=".CetakStruk.StrukPLNPasca.CetakPlnPasca">
 
@@ -12,9 +12,23 @@
         android:orientation="vertical"
         android:layout_height="match_parent">
 
-        <RelativeLayout
+        <ImageView
+            android:id="@+id/EditHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="right"
+            android:src="@drawable/ic_baseline_edit_24" />
+
+
+        <LinearLayout
+            android:id="@+id/LinCetakPln"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/bg_putih"
+            android:orientation="vertical"
+            android:padding="8dp"
+            android:layout_marginTop="10dp"
             android:paddingVertical="2dp">
 
             <TextView
@@ -23,19 +37,9 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_marginRight="40dp"
-                android:layout_toEndOf="@id/EditHeader"
                 android:hint="Edit Header"
+                android:layout_marginBottom="10dp"
                 android:text="" />
-
-            <ImageView
-                android:id="@+id/EditHeader"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_marginStart="239dp"
-                android:src="@drawable/ic_baseline_edit_24" />
-
-        </RelativeLayout>
 
         <TextView
             android:id="@+id/KonterPR"
@@ -44,6 +48,7 @@
             android:text="Gita Cell BRI LINK"
             android:textAlignment="center"
             android:textSize="17sp"
+            android:layout_marginTop="20dp"
             android:textStyle="bold"
             android:textColor="@color/black"
             />
@@ -205,6 +210,7 @@
 
             <TextView
                 android:id="@+id/footer"
+                android:layout_marginTop="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
@@ -218,10 +224,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
+                android:visibility="gone"
                 android:layout_marginStart="239dp"
                 android:src="@drawable/ic_baseline_edit_24" />
 
         </RelativeLayout>
+
+        </LinearLayout>
         <Button
             android:id="@+id/setAdmin"
             android:layout_width="wrap_content"

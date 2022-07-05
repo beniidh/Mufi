@@ -19,7 +19,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 public class DetailTransaksiPasca extends BottomSheetDialogFragment {
     TextView total;
-    TextView nomor, produk, tagihan, status, harga, deskripsi,AdminP;
+    TextView nomor, produk, tagihan, status, harga, deskripsi,AdminP,angsuran;
 
     @Nullable
     @Override
@@ -32,6 +32,7 @@ public class DetailTransaksiPasca extends BottomSheetDialogFragment {
         status = v.findViewById(R.id.statusP);
         harga = v.findViewById(R.id.hargaP);
         AdminP = v.findViewById(R.id.AdminP);
+        angsuran = v.findViewById(R.id.Angske);
         deskripsi = v.findViewById(R.id.deskripsiP);
 
         Button konfirasidetail = v.findViewById(R.id.konfirmasidetaill);
@@ -64,6 +65,7 @@ public class DetailTransaksiPasca extends BottomSheetDialogFragment {
         String admin = getArguments().getString("admin");
         String statuss = getArguments().getString("status");
         String tagihann = getArguments().getString("tagihan");
+        String Angs = getArguments().getString("angske");
 
         if(statuss.equals("Gagal")){
             konfirasidetail.setEnabled(false);
@@ -76,6 +78,8 @@ public class DetailTransaksiPasca extends BottomSheetDialogFragment {
         status.setText(statuss);
         deskripsi.setText(deskripsii);
         AdminP.setText(admin);
+        angsuran.setText(Angs);
+
 
         return v;
     }

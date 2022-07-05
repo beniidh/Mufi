@@ -98,6 +98,7 @@ public class AdapterProdukHolderP extends RecyclerView.Adapter<AdapterProdukHold
                                 bundle.putString("kodeproduk", "pulsapasca");
                                 bundle.putString("inquiry", response.body().getData().getInquiry_type());
                                 bundle.putString("hargga", response.body().getData().getSelling_price());
+                                bundle.putString("angske", response.body().getData().getDetail_product().getLembar_tagihan());
 
                                 bundle.putString("status", response.body().getData().getStatus());
                                 bundle.putString("tagihan", response.body().getData().getBasic_price());

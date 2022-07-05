@@ -14,15 +14,15 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/mukta"
         android:textAlignment="center"
-        android:text="Cek Harga Digipos Sukses"
+        android:text="Cek Harga Paket Telkomsel Digipos"
         android:textColor="@color/black"
-        android:textSize="18dp"
+        android:textSize="16dp"
         android:textStyle="bold" />
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/RelativeLayout01"
         android:layout_width="fill_parent"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:layout_height="fill_parent"
         android:padding="6dp">
 
@@ -31,7 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-            android:text="Nomor " />
+            android:text="Nomor Tujuan" />
 
         <TextView
             android:id="@+id/nomorD"
@@ -75,15 +75,18 @@
         android:padding="6dp">
 
         <TextView
+            android:id="@+id/produkP"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-            android:text="Produk" />
+            android:text="Produk Paket" />
 
         <TextView
             android:id="@+id/ProdukD"
-            android:layout_width="270sp"
+            android:layout_marginLeft="20dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/produkP"
             android:layout_alignParentRight="true"
             android:text="N/A"
             android:textAlignment="textEnd" />
@@ -100,12 +103,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-            android:text="Jenis" />
+            android:text="Jenis Paket" />
 
         <TextView
             android:id="@+id/JenisD"
-            android:layout_width="270sp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/produk"
+            android:layout_marginLeft="20dp"
             android:layout_alignParentRight="true"
             android:text="N/A"
             android:textAlignment="textEnd" />

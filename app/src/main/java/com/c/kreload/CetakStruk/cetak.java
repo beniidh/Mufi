@@ -39,6 +39,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -46,6 +47,7 @@ import com.c.kreload.Api.Api;
 import com.c.kreload.CetakStruk.Epos.AsyncBluetoothEscPosPrint;
 import com.c.kreload.CetakStruk.Epos.AsyncEscPosPrinter;
 import com.c.kreload.CetakStruk.StrukPLNPasca.CetakPlnPasca;
+import com.c.kreload.CetakStruk.StrukPLNPra.cetakBank;
 import com.c.kreload.Helper.RetroClient;
 import com.c.kreload.Helper.utils;
 import com.c.kreload.R;
@@ -78,25 +80,15 @@ public class cetak extends AppCompatActivity {
     Button buttondownloadPDF, cetakStrukPDF;
     TextView header, footer;
     ImageView EditHeader, EditFooter;
+    LinearLayout linCetak;
     int PERMISSION_ALL = 1;
-    BluetoothAdapter mBluetoothAdapter;
-    BluetoothSocket mmSocket;
-    BluetoothDevice mmDevice;
+
     TextView myLabel;
     String alamat;
 
-    private final Locale locale = new Locale("id", "ID");
-    private final DateFormat df = new SimpleDateFormat("dd-MMM-yyyy hh:mm:ss a", locale);
-    private final NumberFormat nf = NumberFormat.getCurrencyInstance(locale);
 
-    // needed for communication to bluetooth device / network
-    OutputStream mmOutputStream;
-    InputStream mmInputStream;
-    Thread workerThread;
-    String[] options;
-    byte[] readBuffer;
-    int readBufferPosition;
-    volatile boolean stopWorker;
+
+
     String title;
 
     String[] PERMISSIONS = {
@@ -104,7 +96,7 @@ public class cetak extends AppCompatActivity {
             android.Manifest.permission.READ_EXTERNAL_STORAGE,
     };
     EditText pilihPerangkat;
-    private ListPopupWindow serverpopup;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -121,6 +113,7 @@ public class cetak extends AppCompatActivity {
         EditHeader = findViewById(R.id.EditHeader);
         header = findViewById(R.id.header);
         footer = findViewById(R.id.footer);
+        linCetak = findViewById(R.id.linCetak);
 
         header.setText(Preference.getHeader(getApplicationContext()));
         footer.setText(Preference.getFooter(getApplicationContext()));
@@ -132,7 +125,7 @@ public class cetak extends AppCompatActivity {
 
         EditHeader.setOnClickListener(v -> {
 
-            popUpEditHeader();
+            popUpEditFooterHeader();
 
         });
 
@@ -175,17 +168,30 @@ public class cetak extends AppCompatActivity {
         buttondownloadPDF.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                saveImage();
+
+                Bitmap bitmap = Bitmap.createBitmap(linCetak.getWidth(),linCetak.getHeight(),Bitmap.Config.ARGB_8888);
+                Canvas canvas = new Canvas(bitmap);
+                linCetak.draw(canvas);
+
+                saveImageExternal(bitmap);
+                File imagePath = new File(getApplicationContext().getCacheDir(), "images");
+                File newFile = new File(imagePath, "image.png");
+                Uri contentUri = FileProvider.getUriForFile(getApplicationContext(), "com.c.kreload.fileprovider", newFile);
+
+                if (contentUri != null) {
+                    Intent shareIntent = new Intent();
+                    shareIntent.setAction(Intent.ACTION_SEND);
+                    shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION); // temp permission for receiving app to read this file
+                    shareIntent.setDataAndType(contentUri, getContentResolver().getType(contentUri));
+                    shareIntent.putExtra(Intent.EXTRA_STREAM, contentUri);
+                    startActivity(Intent.createChooser(shareIntent, "Choose an app"));
+                }
+
+
             }
         });
 
-        cetakStrukPDF.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                printBluetooth();
-
-            }
-        });
+        cetakStrukPDF.setOnClickListener(v -> printBluetooth());
 
         pilihPerangkat.setOnClickListener(v -> {
             browseBluetoothDevice();
@@ -215,20 +221,25 @@ public class cetak extends AppCompatActivity {
 
     }
 
-    public void popUpEditHeader() {
+    public void popUpEditFooterHeader() {
 
-        AlertDialog dialogBuilder = new AlertDialog.Builder(cetak.this).create();
+        android.app.AlertDialog dialogBuilder = new android.app.AlertDialog.Builder(cetak.this).create();
         LayoutInflater inflater = getLayoutInflater();
-        View dialogView = inflater.inflate(R.layout.set_header, null);
+        View dialogView = inflater.inflate(R.layout.set_footerheader, null);
 
-        EditText editText = (EditText) dialogView.findViewById(R.id.EFooter);
-        editText.setText(Preference.getHeader(getApplicationContext()));
-        Preference.setHeader(getApplicationContext(), editText.getText().toString());
+        EditText editTextF = (EditText) dialogView.findViewById(R.id.EFooter);
+        EditText editTextH = (EditText) dialogView.findViewById(R.id.EHeader);
+        editTextF.setText(Preference.getFooter(getApplicationContext()));
+        editTextH.setText(Preference.getHeader(getApplicationContext()));
         Button button1 = (Button) dialogView.findViewById(R.id.BEFoter);
 
+
         button1.setOnClickListener(v -> {
-            header.setText(editText.getText().toString());
-            Preference.setHeader(getApplicationContext(), editText.getText().toString());
+             footer.setText(editTextF.getText().toString());
+            Preference.setFooter(getApplicationContext(), editTextF.getText().toString());
+             header.setText(editTextH.getText().toString());
+            Preference.setHeader(getApplicationContext(), editTextH.getText().toString());
+
             dialogBuilder.dismiss();
         });
 
@@ -249,207 +260,6 @@ public class cetak extends AppCompatActivity {
         super.onBackPressed();
     }
 
-    private void beginListenForData() {
-        try {
-            final Handler handler = new Handler();
-
-            // this is the ASCII code for a newline character
-            final byte delimiter = 10;
-
-            stopWorker = false;
-            readBufferPosition = 0;
-            readBuffer = new byte[1024];
-
-            workerThread = new Thread(new Runnable() {
-                public void run() {
-
-                    while (!Thread.currentThread().isInterrupted() && !stopWorker) {
-
-                        try {
-
-                            int bytesAvailable = mmInputStream.available();
-
-                            if (bytesAvailable > 0) {
-
-                                byte[] packetBytes = new byte[bytesAvailable];
-                                mmInputStream.read(packetBytes);
-
-                                for (int i = 0; i < bytesAvailable; i++) {
-
-                                    byte b = packetBytes[i];
-                                    if (b == delimiter) {
-
-                                        byte[] encodedBytes = new byte[readBufferPosition];
-                                        System.arraycopy(
-                                                readBuffer, 0,
-                                                encodedBytes, 0,
-                                                encodedBytes.length
-                                        );
-
-                                        // specify US-ASCII encoding
-                                        final String data = new String(encodedBytes, "US-ASCII");
-                                        readBufferPosition = 0;
-
-                                        // tell the user data were sent to bluetooth printer device
-                                        handler.post(new Runnable() {
-                                            public void run() {
-                                                myLabel.setText(data);
-                                            }
-                                        });
-
-                                    } else {
-                                        readBuffer[readBufferPosition++] = b;
-                                    }
-                                }
-                            }
-
-                        } catch (IOException ex) {
-                            stopWorker = true;
-                        }
-
-                    }
-                }
-            });
-
-            workerThread.start();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void saveImage() {
-
-        Rect bounds = new Rect();
-        Bitmap bmp = Bitmap.createBitmap(1400, 1700, Bitmap.Config.ARGB_4444);
-        Canvas canvas = new Canvas(bmp);
-        canvas.drawColor(-1);
-        Paint paint = new Paint();
-        Typeface type3 = ResourcesCompat.getFont(getApplicationContext(), R.font.exobold);
-        paint.setTypeface(type3);
-        paint.setTextSize(70);
-        paint.setColor(Color.rgb(0, 0, 0));
-
-        Paint paint4 = new Paint();
-
-        paint4.setColor(ContextCompat.getColor(getApplicationContext(), R.color.gray4));
-        Typeface type5 = ResourcesCompat.getFont(getApplicationContext(), R.font.mukta);
-        paint4.setTypeface(type5);
-        paint4.setTextSize(52);
-
-        int y = 150; // x = 10,
-        int tambahan2 = 150;
-        int x = 10;
-
-        String text = titlestrukC.getText().toString();
-        String headerr = header.getText().toString();
-
-        paint.getTextBounds(text, 0, text.length(), bounds);
-        x = (canvas.getWidth() / 2) - (bounds.width() / 2);
-        canvas.drawText(text, x, y + tambahan2, paint);
-
-        Paint paint1 = new Paint();
-
-        paint1.setColor(ContextCompat.getColor(getApplicationContext(), R.color.gray4));
-        Typeface type2 = ResourcesCompat.getFont(getApplicationContext(), R.font.courierprimereguler);
-        paint1.setTypeface(type2);
-        paint1.setTextSize(72);
-        canvas.drawText(headerr, 120, y, paint4);
-        int left = 120;
-        int tambahan = 50 + tambahan2;
-
-        canvas.drawText("Nomor  : ", left, 250 + tambahan, paint1);
-        canvas.drawText(idNomorStruk.getText().toString(), 460, 250 + tambahan, paint1);
-
-        String produk = idProdukStruk.getText().toString();
-
-        if (produk.length() >= 50) {
-            canvas.drawText("Produk : ", left, 350 + tambahan, paint1);
-            canvas.drawText(produk.substring(0, 18), 460, 350 + tambahan, paint1);
-            canvas.drawText(produk.substring(19, 36), 460, 450 + tambahan, paint1);
-            canvas.drawText(produk.substring(37), 460, 550 + tambahan, paint1);
-            tambahan = 230;
-
-        } else if (produk.length() >= 20) {
-
-            canvas.drawText("Produk : ", left, 350 + tambahan, paint1);
-            canvas.drawText(produk.substring(0, 18), 460, 350 + tambahan, paint1);
-            canvas.drawText(produk.substring(19), 460, 450 + tambahan, paint1);
-            tambahan = 130;
-        } else {
-
-            canvas.drawText("Produk : ", left, 350 + tambahan, paint1);
-            canvas.drawText(produk, 460, 350 + tambahan, paint1);
-        }
-//
-        canvas.drawText("Tanggal:", left, 450 + tambahan, paint1);
-        canvas.drawText(idTanggalStruk.getText().toString(), 460, 450 + tambahan, paint1);
-//
-        canvas.drawText("Waktu  :", left, 550 + tambahan, paint1);
-        canvas.drawText(idWaktuStruk.getText().toString(), 460, 550 + tambahan, paint1);
-
-        canvas.drawText("Trx ID :", left, 650 + tambahan, paint1);
-        canvas.drawText(idNomorTransaksiStruk.getText().toString(), 460, 650 + tambahan, paint1);
-//
-        canvas.drawText("Total  :", left, 750 + tambahan, paint1);
-        canvas.drawText(idTotalPembelianStruk.getText().toString(), 460, 750 + tambahan, paint1);
-        canvas.drawText("---------------------------", left, 850 + tambahan, paint1);
-        String sn = idNomorSNStruk.getText().toString();
-        if (sn.length() >= 42) {
-            canvas.drawText("SN :", left, 950 + tambahan, paint1);
-            canvas.drawText(sn.substring(0, 21), 300, 950 + tambahan, paint1);
-            canvas.drawText(sn.substring(22, 41), 300, 1050 + tambahan, paint1);
-            canvas.drawText(sn.substring(41), 300, 1150 + tambahan, paint1);
-
-        } else if (sn.length() >= 25) {
-            canvas.drawText("SN :", left, 950 + tambahan, paint1);
-            canvas.drawText(sn.substring(0, 21), 300, 950 + tambahan, paint1);
-            canvas.drawText(sn.substring(22), 300, 1050 + tambahan, paint1);
-        } else {
-            canvas.drawText("SN :", left, 950 + tambahan, paint1);
-            canvas.drawText(sn, 300, 950 + tambahan, paint1);
-        }
-
-        Paint paint3 = new Paint();
-
-        paint3.setColor(ContextCompat.getColor(getApplicationContext(), R.color.gray4));
-        Typeface type4 = ResourcesCompat.getFont(getApplicationContext(), R.font.mukta);
-        paint3.setTypeface(type4);
-        paint3.setTextSize(36);
-
-        canvas.drawText("* Struk ini merupakan bukti pembayaran yang sah ", left, 1250 + tambahan, paint3);
-        canvas.drawText("mohon disimpan,Terimakasih", left, 1300 + tambahan, paint3);
-
-        String Footer = footer.getText().toString();
-
-        if (Footer.length() > 45) {
-            canvas.drawText(Footer.substring(0,45), left, 1400 + tambahan, paint4);
-            canvas.drawText(Footer.substring(45), left, 1450 + tambahan, paint4);
-        } else {
-            canvas.drawText(Footer, left, 1400 + tambahan, paint4);
-        }
-
-
-        //blank space
-        y += paint.descent() - paint.ascent();
-        canvas.drawText("", x, y, paint);
-
-
-        saveImageExternal(bmp);
-        File imagePath = new File(getApplicationContext().getCacheDir(), "images");
-        File newFile = new File(imagePath, "image.png");
-        Uri contentUri = FileProvider.getUriForFile(getApplicationContext(), "com.c.kreload.fileprovider", newFile);
-
-        if (contentUri != null) {
-            Intent shareIntent = new Intent();
-            shareIntent.setAction(Intent.ACTION_SEND);
-            shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION); // temp permission for receiving app to read this file
-            shareIntent.setDataAndType(contentUri, getContentResolver().getType(contentUri));
-            shareIntent.putExtra(Intent.EXTRA_STREAM, contentUri);
-            startActivity(Intent.createChooser(shareIntent, "Choose an app"));
-        }
-    }
-
     private void saveImageExternal(Bitmap image) {
         //TODO - Should be processed in another thread
         try {
@@ -467,7 +277,6 @@ public class cetak extends AppCompatActivity {
 
 
     public void getContentProfil() {
-
         Api api = RetroClient.getApiServices();
         Call<ResponProfil> call = api.getProfileDas("Bearer " + Preference.getToken(getApplicationContext()));
         call.enqueue(new Callback<ResponProfil>() {
@@ -572,11 +381,11 @@ public class cetak extends AppCompatActivity {
                         "[L]\n" +
                         "[L]<b>Nomor</b>[R]" + idNomorStruk.getText().toString() + "\n" +
 //                        "[L]\n" +
-                        "[L]<b>Nama</b>[R]" + namaTPCC.getText().toString() + "\n" +
+                       TextAdd(namaTPCC.getText().toString(),"Nama") + "\n" +
                         //"[L]\n" +
-                        "[L]<b>Produk</b>[R]" + idProdukStruk.getText().toString() + "\n" +
+                       TextAdd(idProdukStruk.getText().toString(),"Produk") + "\n" +
 //                        "[L]\n" +
-                        "[L]<b>Transaksi</b>[R]" + idNomorTransaksiStruk.getText().toString() + "\n" +
+                        TextAdd(idNomorTransaksiStruk.getText().toString(),"Transaksi") + "\n" +
                         "[C]--------------------------------\n" +
 //                        "[L]\n" +
                         "[L]<b>Total Bayar</b>[R]" + idTotalPembelianStruk.getText().toString() + "\n" +
@@ -596,46 +405,21 @@ public class cetak extends AppCompatActivity {
         this.alamat = alamat;
     }
 
-    public void doPrint(View view) {
-        SimpleDateFormat format = new SimpleDateFormat(" yyyy-MM-dd ':' HH:mm:ss");
-        try {
-            if (ContextCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH) != PackageManager.PERMISSION_GRANTED) {
-                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.BLUETOOTH}, cetak.PERMISSION_BLUETOOTH);
-            } else {
-                BluetoothConnection connection = BluetoothPrintersConnections.selectFirstPaired();
-                if (connection != null) {
-                    EscPosPrinter printer = new EscPosPrinter(connection, 203, 48f, 32);
-                    final String text =
-                            "[C]<u><font size='big'>" + titlestrukC.getText().toString() + "</font></u>\n" +
-                                    "[C]\n" +
-                                    "[C]" + "JL " + getAlamat() + "\n" +
-                                    "[C]<u type='double'>" + format.format(new Date()) + "</u>\n" +
-                                    "[C]\n" +
-                                    "[C]<b>STRUK PEMBELIAN<b>\n" +
-                                    "[C]================================\n" +
-                                    "[L]\n" +
-                                    "[L]<b>Nomor</b>[R]" + idNomorStruk.getText().toString() + "\n" +
-//                        "[L]\n" +
-                                    "[L]<b>Nama</b>[R]" + namaTPCC.getText().toString() + "\n" +
-                                    //"[L]\n" +
-                                    "[L]<b>Produk</b>[R]" + idProdukStruk.getText().toString() + "\n" +
-//                        "[L]\n" +
-                                    "[L]<b>Transaksi</b>[R]" + idNomorTransaksiStruk.getText().toString() + "\n" +
-                                    "[C]--------------------------------\n" +
-//                        "[L]\n" +
-                                    "[L]<b>Total Bayar</b>[R]" + idTotalPembelianStruk.getText().toString() + "\n" +
-                                    "[L]\n" +
-                                    "[C]" + "SN " + idNomorSNStruk.getText().toString() + "\n" +
-                                    "[L]\n";
 
-                    printer.printFormattedText(text);
-                } else {
-                    Toast.makeText(this, "No printer was connected!", Toast.LENGTH_SHORT).show();
-                }
-            }
-        } catch (Exception e) {
-            Log.e("APP", "Can't print", e);
+    private String TextAdd(String caption,String judul){
+
+        String value="";
+
+        if(caption.length()<15){
+            value = "[L]<b>"+judul+"</b>[R]" + caption;
+        }else if(caption.length()>=15 && caption.length()<30 ){
+            value = "[L]<b>"+judul+"</b>[R]" + caption.substring(0,14)+"\n"+"[L][R] " + caption.substring(14);
+        }else {
+            value = "[L]<b>"+judul+"</b>[R]" + caption.substring(0,14)+"\n"+"[L][R] " + caption.substring(14,30)+"\n"+"[L][R] " + caption.substring(30,45);
         }
+
+        return value;
     }
+
 
 }

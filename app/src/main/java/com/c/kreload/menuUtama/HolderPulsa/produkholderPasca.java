@@ -84,8 +84,15 @@ public class produkholderPasca extends AppCompatActivity {
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         ReyProdukHolder.setLayoutManager(mLayoutManager);
         ReyProdukHolder.setAdapter(adapterProdukHolder);
+
         String id = getIntent().getStringExtra("id");
-        getProduk(id, inputnomorproduk.getText().toString());
+        String jenis = getIntent().getStringExtra("jenis");
+        if (jenis.equals("sub")) {
+            getProdukSub(id);
+        } else {
+            getProduk(id);
+        }
+
         getContact = findViewById(R.id.getContact);
         getContact.setOnClickListener(view -> {
             if (checkContactPermission()) {
@@ -116,7 +123,7 @@ public class produkholderPasca extends AppCompatActivity {
 
     }
 
-    private void getProduk(String id, String nomor) {
+    private void getProduk(String id) {
 
         LoadingPrimer loadingPrimer = new LoadingPrimer(produkholderPasca.this);
         loadingPrimer.startDialogLoading();
@@ -151,6 +158,45 @@ public class produkholderPasca extends AppCompatActivity {
         });
 
     }
+
+
+    private void getProdukSub(String id) {
+        LoadingPrimer loadingPrimer = new LoadingPrimer(produkholderPasca.this);
+        loadingPrimer.startDialogLoading();
+
+        String token = "Bearer " + Preference.getToken(getApplicationContext());
+        Api api = RetroClient.getApiServices();
+        Call<ResponProdukHolder> call = api.getProdukHolderSub(token, id);
+        call.enqueue(new Callback<ResponProdukHolder>() {
+            @Override
+            public void onResponse(Call<ResponProdukHolder> call, Response<ResponProdukHolder> response) {
+                String code = response.body().getCode();
+                if (code.equals("200")) {
+                    produk = response.body().getData();
+                    adapterProdukHolder = new AdapterProdukHolderP(getApplicationContext(), produk,  Preference.getNo(getApplicationContext()), produkholderPasca.this);
+                    ReyProdukHolder.setAdapter(adapterProdukHolder);
+
+                    loadingPrimer.dismissDialog();
+
+                } else {
+
+                    Toast.makeText(getApplicationContext(), response.body().getError(), Toast.LENGTH_LONG).show();
+                    loadingPrimer.dismissDialog();
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<ResponProdukHolder> call, Throwable t) {
+
+                Toast.makeText(getApplicationContext(), "Koneksi tidak stabil,silahkan ulangi", Toast.LENGTH_LONG).show();
+                loadingPrimer.dismissDialog();
+            }
+        });
+
+
+    }
+
 
     @Override
     public boolean onSupportNavigateUp() {
@@ -213,8 +259,13 @@ public class produkholderPasca extends AppCompatActivity {
                                     }
                                     String id = getIntent().getStringExtra("id");
                                     Preference.setNo(getApplicationContext(),nom.replaceAll("-",""));
-                                    getProduk(id, nom);
 
+                                    String jenis = getIntent().getStringExtra("jenis");
+                                    if (jenis.equals("sub")) {
+                                        getProdukSub(id);
+                                    } else {
+                                        getProduk(id);
+                                    }
 
                                 }
 

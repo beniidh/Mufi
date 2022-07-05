@@ -94,6 +94,7 @@ public class produkholder extends AppCompatActivity {
         ReyProdukHolder.setAdapter(adapterProdukHolder);
         String id = getIntent().getStringExtra("id");
         String jenis = getIntent().getStringExtra("jenis");
+
         if (jenis.equals("sub")) {
             getProdukSub(id);
         } else {

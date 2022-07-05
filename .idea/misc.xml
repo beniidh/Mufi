@@ -352,7 +352,7 @@
         <entry key="..\:/AndroidP/Versi Baru/KReload/app/src/main/res/layout/activity_bayar_via_bank.xml" value="0.18640350877192982" />
         <entry key="..\:/AndroidP/Versi Baru/KReload/app/src/main/res/layout/activity_cetak.xml" value="0.18640350877192982" />
         <entry key="..\:/AndroidP/Versi Baru/KReload/app/src/main/res/layout/activity_cetak_bank.xml" value="0.165" />
-        <entry key="..\:/AndroidP/Versi Baru/KReload/app/src/main/res/layout/activity_cetak_pln_pasca.xml" value="0.18640350877192982" />
+        <entry key="..\:/AndroidP/Versi Baru/KReload/app/src/main/res/layout/activity_cetak_pln_pasca.xml" value="0.165" />
         <entry key="..\:/AndroidP/Versi Baru/KReload/app/src/main/res/layout/activity_cetak_pln_pra.xml" value="0.18640350877192982" />
         <entry key="..\:/AndroidP/Versi Baru/KReload/app/src/main/res/layout/activity_cetakstruk.xml" value="0.18640350877192982" />
         <entry key="..\:/AndroidP/Versi Baru/KReload/app/src/main/res/layout/activity_detail_digipos.xml" value="0.25" />
@@ -421,6 +421,7 @@
         <entry key="..\:/AndroidP/Versi Baru/KReload/app/src/main/res/layout/set_footerheader.xml" value="0.165" />
         <entry key="..\:/AndroidP/Versi Baru/KReload/app/src/main/res/layout/set_hargaadmin.xml" value="0.18640350877192982" />
         <entry key="..\:/AndroidP/Versi Baru/KReload/app/src/main/res/layout/set_header.xml" value="0.18640350877192982" />
+        <entry key="..\:/AndroidP/Versi Baru/KReload/app/src/main/res/layout/transaksi_fragment.xml" value="0.18640350877192982" />
         <entry key="..\:/AndroidP/Versi Baru/KReload/app/src/main/res/menu/menu_xml.xml" value="0.18640350877192982" />
         <entry key="..\:/AndroidP/Versi Baru/KReload/app/src/main/res/menu/menukonter.xml" value="0.18640350877192982" />
         <entry key="..\:/AndroidP/Versi Baru/KReload/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.156" />

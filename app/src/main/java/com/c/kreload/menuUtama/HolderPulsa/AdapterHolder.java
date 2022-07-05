@@ -62,13 +62,15 @@ public class AdapterHolder extends RecyclerView.Adapter<AdapterHolder.ViewHolder
 
         holder.linierSubCategory.setOnClickListener(v -> {
             if (Preference.getNoType(context).equals("PASCABAYAR")) {
-                Intent intent = new Intent(context, produkholderPasca.class);
-                intent.putExtra("id", data.getId());
-                intent.putExtra("name", data.getName());
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                context.startActivity(intent);
+//                Intent intent = new Intent(context, produkholderPasca.class);
+//                intent.putExtra("id", data.getId());
+//                intent.putExtra("name", data.getName());
+//                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                context.startActivity(intent);
+
+                chekGroupPasca(data.getId(), data.getName());
             } else {
-                chekGroup(data.getId(), data.getName(),position);
+                chekGroup(data.getId(), data.getName());
             }
         });
 
@@ -93,7 +95,7 @@ public class AdapterHolder extends RecyclerView.Adapter<AdapterHolder.ViewHolder
         }
     }
 
-    public void chekGroup(String id, String nama, int position) {
+    public void chekGroup(String id, String nama) {
 
         String token = "Bearer " + Preference.getToken(context.getApplicationContext());
         Api api = RetroClient.getApiServices();
@@ -112,6 +114,41 @@ public class AdapterHolder extends RecyclerView.Adapter<AdapterHolder.ViewHolder
                 } else if (code.equals("400")) {
 
                     Intent intent = new Intent(context, produkholder.class);
+                    intent.putExtra("id", id);
+                    intent.putExtra("jenis","nosub");
+                    intent.putExtra("name", nama);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    context.startActivity(intent);
+
+                }
+            }
+            @Override
+            public void onFailure(Call<ResponGroup> call, Throwable t) {
+
+            }
+        });
+
+    }
+
+    public void chekGroupPasca(String id, String nama) {
+
+        String token = "Bearer " + Preference.getToken(context.getApplicationContext());
+        Api api = RetroClient.getApiServices();
+        Call<ResponGroup> call = api.getProdukGroup(token, id);
+        call.enqueue(new Callback<ResponGroup>() {
+            @Override
+            public void onResponse(Call<ResponGroup> call, Response<ResponGroup> response) {
+                String code = response.body().getCode();
+                if (code.equals("200")) {
+
+                    Intent intent = new Intent(context,groupHolder_Activity.class);
+                    intent.putExtra("id",id);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    context.startActivity(intent);
+
+                } else if (code.equals("400")) {
+
+                    Intent intent = new Intent(context, produkholderPasca.class);
                     intent.putExtra("id", id);
                     intent.putExtra("jenis","nosub");
                     intent.putExtra("name", nama);

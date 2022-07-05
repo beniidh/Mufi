@@ -68,8 +68,6 @@ public class AdapterKabupaten extends RecyclerView.Adapter<AdapterKabupaten.View
                 Preference.setName(context,modelKabupaten.getName());
                 Preference.setID(context,modelKabupaten.getId());
                 Preference.setIDKabupaten(context,modelKabupaten.getId());
-
-
                 String id = Preference.getID(v.getContext());
                 String name = Preference.getName(v.getContext());
                 Preference.setName(v.getContext(),"");
@@ -146,5 +144,4 @@ public class AdapterKabupaten extends RecyclerView.Adapter<AdapterKabupaten.View
 
         }
     }
-
 }

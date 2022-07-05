@@ -46,8 +46,6 @@ import retrofit2.Response;
 
 public class TransaksiFragment extends Fragment {
 
-    private TransaksiViewModel mViewModel;
-
     TabLayout tablayoutnotifikasi;
     private ViewPager viewPager;
     TabAdapter tabAdapter;
@@ -57,8 +55,7 @@ public class TransaksiFragment extends Fragment {
     ArrayList<ResponTransaksi.DataTransaksi> datasaldoserver = new ArrayList<>();
     ArrayList<ResponTransaksi.DataTransaksi> datasaldoku = new ArrayList<>();
     TextView idTotalTransaksiTextView, idTransaksiSuksesTextView, idTotalPengeluaranTextView;
-    private int mYear, mMonth, mDay, mHour, mMinute;
-
+    private int mYear, mMonth, mDay;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -87,34 +84,11 @@ public class TransaksiFragment extends Fragment {
             showDateDialog("end");
         });
 
-        idTransaksiTanggalSelesai.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
-
 
         return v;
     }
 
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        mViewModel = new ViewModelProvider(this).get(TransaksiViewModel.class);
-        // TODO: Use the ViewModel
-    }
+
 
     public void getDataHistory(String start, String end) {
         LoadingPrimer loadingPrimer = new LoadingPrimer(getActivity());
@@ -153,8 +127,8 @@ public class TransaksiFragment extends Fragment {
 
                         }
 
-
                     }
+
                     loadingPrimer.dismissDialog();
 
 
@@ -171,6 +145,7 @@ public class TransaksiFragment extends Fragment {
                 tabAdapter.addFragment(new FragmentSaldoku(datasaldoku), "Tab 1");
                 tabAdapter.addFragment(new FragmentSaldoServer(datasaldoserver), "Tab 2");
                 viewPager.setAdapter(tabAdapter);
+
                 tablayoutnotifikasi.setupWithViewPager(viewPager);
                 tablayoutnotifikasi.getTabAt(0).setText("Saldoku");
                 tablayoutnotifikasi.getTabAt(1).setText("Saldo Server");
@@ -192,7 +167,6 @@ public class TransaksiFragment extends Fragment {
 
     }
 
-
     public void showDateDialog(String jenis) {
         // Get Current Date
         final Calendar c = Calendar.getInstance();
@@ -203,7 +177,6 @@ public class TransaksiFragment extends Fragment {
 
         @SuppressLint("SetTextI18n") DatePickerDialog datePickerDialog = new DatePickerDialog(getContext(),
                 (view, year, monthOfYear, dayOfMonth) -> {
-
 
                     String bulan = String.valueOf(monthOfYear + 1);
                     String day = String.valueOf(dayOfMonth);
@@ -277,7 +250,7 @@ public class TransaksiFragment extends Fragment {
         idtransaksiTanggalEditText.setText(date);
         idTransaksiTanggalSelesai.setText(date);
         getDataHistory(date, date);
-        getDataHistory(date, date);
+
         datahistory.clear();
     }
 }

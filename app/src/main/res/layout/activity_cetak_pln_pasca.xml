@@ -3,19 +3,31 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:padding="18sp"
     android:layout_height="match_parent"
+    android:padding="10sp"
     tools:context=".CetakStruk.StrukPLNPasca.CetakPlnPasca">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <RelativeLayout
+        <ImageView
+            android:id="@+id/EditHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="right"
+            android:src="@drawable/ic_baseline_edit_24" />
+
+        <LinearLayout
+            android:id="@+id/LinCetakPasca"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingVertical="2dp">
+            android:layout_marginTop="15dp"
+            android:background="@drawable/bg_putih"
+            android:orientation="vertical"
+            android:padding="10dp">
 
             <TextView
                 android:id="@+id/header"
@@ -23,207 +35,175 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_marginRight="40dp"
-                android:layout_toEndOf="@id/EditHeader"
-                android:hint="Edit Header"
+                android:hint="Header"
                 android:text="" />
 
+
+            <TextView
+                android:id="@+id/KonterPS"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Gita Cell BRI LINK"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/AlamatPS"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Jl. Ir Sutami KM 18"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/WaktuPS"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="-- -- --"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
             <ImageView
-                android:id="@+id/EditHeader"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_marginStart="239dp"
-                android:src="@drawable/ic_baseline_edit_24" />
-
-        </RelativeLayout>
-        <TextView
-            android:id="@+id/KonterPS"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Gita Cell BRI LINK"
-            android:textAlignment="center"
-            android:textSize="17sp"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            />
-
-        <TextView
-            android:id="@+id/AlamatPS"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Jl. Ir Sutami KM 18"
-            android:textAlignment="center"
-            android:textSize="14sp"
-            android:textColor="@color/black"
-            />
-        <TextView
-            android:id="@+id/WaktuPS"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="-- -- --"
-            android:textAlignment="center"
-            android:textSize="14sp"
-            android:textColor="@color/black"
-            />
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="5dp"
-            android:layout_marginTop="15dp"
-            android:src="@drawable/dashline"
-            />
-
-        <TextView
-            android:id="@+id/namaPS"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="NAMA:"
-            android:layout_marginTop="10sp"
-            android:textSize="15sp"
-            android:textColor="@color/gray4"
-            />
-        <TextView
-            android:id="@+id/IdPS"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="ID:"
-            android:layout_marginTop="10sp"
-            android:textSize="15sp"
-            android:textColor="@color/gray4"
-            />
-        <TextView
-            android:id="@+id/TagihanPS"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="PTAG:"
-            android:layout_marginTop="5sp"
-            android:textSize="15sp"
-            android:textColor="@color/gray4"
-            />
-        <TextView
-            android:id="@+id/jumlahBulanPS"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="JBLN:"
-            android:layout_marginTop="5sp"
-            android:textSize="15sp"
-            android:textColor="@color/gray4"
-            />
-
-        <TextView
-            android:id="@+id/TarifDayaPS"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TD:"
-            android:layout_marginTop="5sp"
-            android:textSize="15sp"
-            android:textColor="@color/gray4"
-            />
-
-        <TextView
-            android:id="@+id/SMPS"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="SM:"
-            android:layout_marginTop="5sp"
-            android:textSize="15sp"
-            android:textColor="@color/gray4"
-            />
-        <TextView
-            android:id="@+id/jmlhTagihanPS"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TAG:"
-            android:layout_marginTop="5sp"
-            android:textSize="15sp"
-            android:textColor="@color/gray4"
-            />
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:orientation="horizontal"
-            android:layout_height="wrap_content">
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:layout_marginTop="15dp"
+                android:src="@drawable/dashline" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:id="@+id/namaPS"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Admin: "
-                android:layout_marginTop="5sp"
-                android:textSize="15sp"
+                android:layout_marginTop="10sp"
+                android:text="NAMA:"
                 android:textColor="@color/gray4"
-                />
+                android:textSize="15sp" />
+
             <TextView
-                android:id="@+id/adminPS"
-                android:layout_width="wrap_content"
+                android:id="@+id/IdPS"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="0"
-                android:layout_marginTop="5sp"
-                android:textSize="15sp"
+                android:layout_marginTop="10sp"
+                android:text="ID:"
                 android:textColor="@color/gray4"
-                />
-        </LinearLayout>
+                android:textSize="15sp" />
 
-        <TextView
-            android:id="@+id/totaltagihanPS"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TTAG:0"
-            android:layout_marginTop="5sp"
-            android:textSize="15sp"
-            android:textColor="@color/gray4"
-            />
+            <TextView
+                android:id="@+id/TagihanPS"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5sp"
+                android:text="PTAG:"
+                android:textColor="@color/gray4"
+                android:textSize="15sp" />
 
-        <TextView
-            android:id="@+id/RefPS"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="REF:"
-            android:layout_marginTop="5sp"
-            android:textSize="15sp"
-            android:textColor="@color/gray4"
-            />
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="5dp"
-            android:layout_marginTop="25dp"
-            android:src="@drawable/dashline"
-            />
-        <Button
-            android:id="@+id/setAdmin"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_marginTop="15dp"
-            android:text="Set Admin"
-            android:layout_marginBottom="5dp"
-            android:textSize="10dp"
-            android:textAllCaps="false"
-            android:background="@drawable/bg_chat"
-            />
+            <TextView
+                android:id="@+id/jumlahBulanPS"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5sp"
+                android:text="JBLN:"
+                android:textColor="@color/gray4"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/TarifDayaPS"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5sp"
+                android:text="TD:"
+                android:textColor="@color/gray4"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/SMPS"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5sp"
+                android:text="SM:"
+                android:textColor="@color/gray4"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/jmlhTagihanPS"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5sp"
+                android:text="TAG:"
+                android:textColor="@color/gray4"
+                android:textSize="15sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5sp"
+                    android:text="Admin: "
+                    android:textColor="@color/gray4"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/adminPS"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5sp"
+                    android:text="0"
+                    android:textColor="@color/gray4"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/totaltagihanPS"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5sp"
+                android:text="TTAG:0"
+                android:textColor="@color/gray4"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/RefPS"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5sp"
+                android:text="REF:"
+                android:textColor="@color/gray4"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:layout_marginTop="25dp"
+                android:src="@drawable/dashline" />
 
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Struk ini merupakan bukti pembayaran yang SAH, dan harap disimpan TERIMAKASIH"
-            android:textAlignment="center"
-            android:textSize="14sp"
-            android:layout_marginTop="20sp"
-            android:textColor="@color/black"
-            />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20sp"
+                android:text="Struk ini merupakan bukti pembayaran yang SAH, dan harap disimpan TERIMAKASIH"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:paddingVertical="2dp">
 
             <TextView
                 android:id="@+id/footer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
+                android:layout_marginTop="30dp"
                 android:layout_marginRight="40dp"
                 android:layout_toEndOf="@id/EditFooter"
-                android:hint="Edit Footer"
+                android:hint="Footer"
                 android:text="" />
 
             <ImageView
@@ -232,9 +212,23 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_marginStart="239dp"
-                android:src="@drawable/ic_baseline_edit_24" />
+                android:src="@drawable/ic_baseline_edit_24"
+                android:visibility="gone" />
 
-        </RelativeLayout>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/setAdmin"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_gravity="right"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/bg_chat"
+            android:text="Set Admin"
+            android:textAllCaps="false"
+            android:textSize="10dp" />
 
         <EditText
             android:id="@+id/pilihPerangkat"
@@ -245,6 +239,7 @@
             android:focusable="false"
             android:hint="Pilih Perangkat"
             android:paddingStart="20sp" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
