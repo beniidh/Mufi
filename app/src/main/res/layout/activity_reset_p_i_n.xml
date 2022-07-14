@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/mukta"
             android:textAlignment="center"
-            android:text="Masukan PIN Lama :"
+            android:text="@string/masukan_pin_lama"
             android:textColor="@color/green"
             android:textSize="19sp" />
 
@@ -66,7 +66,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/mukta"
-            android:text="Masukan PIN Baru :"
+            android:text="@string/masukan_pin_baru"
             android:textAlignment="center"
             android:textColor="@color/green"
             android:textSize="19sp" />
@@ -109,7 +109,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/mukta"
             android:textAlignment="center"
-            android:text="Konfirmasi PIN Baru :"
+            android:text="@string/konfirmasi_pin_baru"
             android:textColor="@color/green"
             android:textSize="19sp" />
 
@@ -142,9 +142,9 @@
         android:layout_marginTop="57sp"
         android:background="@drawable/bg_button_login2"
         android:foreground="?android:attr/selectableItemBackground"
-        android:text="Reset"
+        android:text="@string/reset"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        android:textSize="20dp" />
+        android:textSize="20sp" />
 
 </LinearLayout>

@@ -20,6 +20,7 @@ import com.c.kreload.DaftarHarga.DaftarHarga_activity;
 import com.c.kreload.Fragment.TransaksiFragment;
 import com.c.kreload.KodeProduk.Kodeprodukact;
 import com.c.kreload.KomisiSales.Komisi_sales;
+import com.c.kreload.MarkUP.markupSpesifik.MarkUpSpesifikActi;
 import com.c.kreload.MarkUP.popUpPilihanMarkUp;
 import com.c.kreload.Model.MSubMenu;
 import com.c.kreload.Notifikasi.Notifikasi_Activity;
@@ -139,7 +140,6 @@ public class AdapterSubMenuSide extends RecyclerView.Adapter<AdapterSubMenuSide.
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     context.startActivity(intent);
                     drawer_activity.LinDaftarHarga();
-
                     break;
                 }
                 case "riwayat_transaksi": {
@@ -153,9 +153,9 @@ public class AdapterSubMenuSide extends RecyclerView.Adapter<AdapterSubMenuSide.
                 }
                 case "mark_up": {
 
-                    popUpPilihanMarkUp fragment = new popUpPilihanMarkUp(); // you fragment
-                    FragmentManager fragmentManager = ((FragmentActivity) v.getContext()).getSupportFragmentManager();
-                    fragment.show(fragmentManager, "markup");
+                    Intent intent = new Intent(context, MarkUpSpesifikActi.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    context.startActivity(intent);
                     drawer_activity.LinDaftarHarga();
                     break;
                 }

@@ -1,5 +1,6 @@
 package com.c.kreload.pinNew;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
@@ -31,7 +32,7 @@ import com.c.kreload.otpvery;
 import com.c.kreload.sharePreference.Preference;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.muddzdev.styleabletoast.StyleableToast;
-import com.oakkub.android.PinEditText;
+
 
 import java.util.ArrayList;
 
@@ -286,12 +287,7 @@ public class pinnew extends AppCompatActivity implements View.OnClickListener {
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        clearDotsIndicator();
-                    }
-                }, 150);
+                handler.postDelayed(() -> clearDotsIndicator(), 150);
             }
 
             @Override
@@ -335,12 +331,7 @@ public class pinnew extends AppCompatActivity implements View.OnClickListener {
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        clearDotsIndicator();
-                    }
-                }, 150);
+                handler.postDelayed(() -> clearDotsIndicator(), 150);
 
             }
 
@@ -353,20 +344,17 @@ public class pinnew extends AppCompatActivity implements View.OnClickListener {
 
     private String getUserAgent() {
 
-        String ua = new WebView(this).getSettings().getUserAgentString();
-        return ua;
+        return new WebView(this).getSettings().getUserAgentString();
     }
 
     private String getIPaddress() {
 
-        String IP = utils.getIPAddress(true);
-        return IP;
+        return utils.getIPAddress(true);
     }
     public void getLocation() {
         gpsTracker = new GpsTracker(pinnew.this);
         if (gpsTracker.canGetLocation()) {
-            double latitude = gpsTracker.getLatitude();
-            double longitude = gpsTracker.getLongitude();
+
 
         } else {
             gpsTracker.showSettingsAlert();

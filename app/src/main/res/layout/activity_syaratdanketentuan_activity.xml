@@ -59,6 +59,7 @@
                     android:layout_width="wrap_content"
                     android:textStyle="bold"
                     android:checked="true"
+                    android:buttonTint="@color/green"
                     android:text="@string/saya_menerima_dan_menyetujui_syarat_dan_ketentuan_aplikasi"
                     android:layout_height="wrap_content" />
 

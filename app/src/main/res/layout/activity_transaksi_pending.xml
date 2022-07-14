@@ -13,7 +13,6 @@
         android:scrollbars="none"
         android:layout_height="match_parent">
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -26,7 +25,7 @@
             android:layout_height="40dp"
             android:layout_gravity="center"
             android:background="@drawable/ic_baseline_access_time_filled_24"
-             />
+            android:contentDescription="@string/todo" />
 
         <TextView
             android:id="@+id/KeteranganTP"
@@ -35,7 +34,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="10sp"
             android:fontFamily="@font/notoregular"
-            android:text="Pending"
+            android:text="@string/pending"
             android:textColor="#FFC107"
             android:textSize="18sp"
            />
@@ -48,7 +47,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10sp"
             android:fontFamily="@font/poppins"
-            android:text="Rp.0"
+            android:text="Proses"
             android:textColor="@color/black"
             android:textSize="30dp"
             android:textStyle="bold" />
@@ -68,7 +67,7 @@
                 android:layout_height="45dp"
                 android:layout_gravity="center"
                 android:scaleType="centerInside"
-                />
+                android:contentDescription="@string/todo" />
 
         </androidx.cardview.widget.CardView>
 
@@ -88,7 +87,6 @@
                 android:visibility="invisible"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/notoregular"
-                android:text="Telkomsel"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -100,16 +98,16 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
                     android:fontFamily="@font/mukta"
-                    android:text="Nomor tujuan"
+                    android:text="@string/nomor_tujuan"
                     android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/nomorTP"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
                     android:text=""
 
                     />
@@ -123,17 +121,17 @@
                     android:id="@+id/namatr"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
                     android:fontFamily="@font/mukta"
-                    android:text="Nama"
+                    android:text="@string/nama"
                     android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/namaTP"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginLeft="20sp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="20sp"
                     android:layout_toEndOf="@id/namatr"
                     android:text=""
                     android:textAlignment="textEnd"
@@ -152,7 +150,7 @@
                     android:layout_alignParentStart="true"
                     android:layout_marginBottom="10sp"
                     android:fontFamily="@font/mukta"
-                    android:text="Nominal Produk"
+                    android:text="@string/nominal_produk"
                     android:textSize="16sp" />
 
                 <TextView
@@ -160,7 +158,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
-                    android:text="Rp.0"
+                    android:text="@string/rp_0"
 
                     />
             </RelativeLayout>
@@ -203,7 +201,7 @@
                     android:layout_alignParentBottom="true"
                     android:fontFamily="@font/notoregular"
                     android:gravity="center"
-                    android:text="Detail Transaksi"
+                    android:text="@string/detail_transaksi"
                     android:textColor="@color/black"
                     android:textStyle="bold" />
 
@@ -212,7 +210,8 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_alignParentEnd="true"
-                    android:src="@drawable/ic_baseline_expand_more_24" />
+                    android:src="@drawable/ic_baseline_expand_more_24"
+                    android:contentDescription="@string/todo" />
 
             </RelativeLayout>
 
@@ -233,17 +232,17 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
                         android:fontFamily="@font/mukta"
-                        android:text="Saldo Terpakai"
+                        android:text="@string/saldo_terpakai"
                         android:textSize="16sp" />
 
                     <TextView
                         android:id="@+id/saldokuterpakai"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:layout_alignParentRight="true"
-                        android:text="Rp.0"
+                        android:layout_alignParentEnd="true"
+                        android:text="@string/rp_0"
 
                         />
                 </RelativeLayout>
@@ -255,16 +254,16 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
                         android:fontFamily="@font/mukta"
-                        android:text="Produk"
+                        android:text="@string/produkk"
                         android:textSize="16sp" />
 
                     <TextView
                         android:id="@+id/produkTransaksi"
                         android:layout_width="210sp"
                         android:layout_height="match_parent"
-                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true"
                         android:text=""
                         android:textAlignment="textEnd"
 
@@ -279,9 +278,9 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
                         android:fontFamily="@font/mukta"
-                        android:text="Tanggal"
+                        android:text="@string/tanggal"
                         android:textSize="16sp"
                         />
 
@@ -289,7 +288,7 @@
                         android:id="@+id/tanggalDetail"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true"
                         android:text=""
 
 
@@ -304,16 +303,16 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
                         android:fontFamily="@font/mukta"
-                        android:text="Waktu"
+                        android:text="@string/waktu"
                         android:textSize="16sp" />
 
                     <TextView
                         android:id="@+id/waktuDetail"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true"
                         android:text=""
 
 
@@ -328,9 +327,9 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
                         android:fontFamily="@font/mukta"
-                        android:text="Nomor Transaksi"
+                        android:text="@string/nomor_transaksi"
                         android:textSize="16sp" />
 
                     <TextView
@@ -369,9 +368,9 @@
                         android:layout_weight="0.4"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
                         android:fontFamily="@font/mukta"
-                        android:text="Nomor SN"
+                        android:text="@string/nomor_sn"
                         android:textSize="16sp" />
 
                     <TextView
@@ -403,17 +402,17 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
                         android:fontFamily="@font/mukta"
-                        android:text="Harga Produk"
+                        android:text="@string/harga_produk"
                         android:textSize="16sp" />
 
                     <TextView
                         android:id="@+id/hargatotalDetail"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:layout_alignParentRight="true"
-                        android:text="Rp.0"
+                        android:layout_alignParentEnd="true"
+                        android:text="@string/rp_0"
 
                         />
                 </RelativeLayout>
@@ -432,7 +431,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/bg_button_login3"
                     android:layout_height="36dp"
-                    android:text="Tutup"
+                    android:text="@string/tutup"
                     android:textColor="@color/white"
                     android:textAllCaps="false"/>
                 <Button
@@ -443,7 +442,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/bg_button_login2"
                     android:layout_height="36dp"
-                    android:text="Cetak"
+                    android:text="@string/cetak"
                     android:textColor="@color/white"
                     android:textAllCaps="false"/>
 

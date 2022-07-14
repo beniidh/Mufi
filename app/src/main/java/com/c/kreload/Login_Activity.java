@@ -1,5 +1,6 @@
 package com.c.kreload;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
 
@@ -8,19 +9,13 @@ import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.c.kreload.Api.Api;
 import com.c.kreload.Helper.GpsTracker;
 import com.c.kreload.Helper.RetroClient;
 import com.c.kreload.Model.Mphone;
+import com.c.kreload.databinding.ActivityLoginBinding;
 import com.c.kreload.pinNew.pinnew;
 import com.c.kreload.sharePreference.Preference;
 import com.muddzdev.styleabletoast.StyleableToast;
@@ -31,27 +26,18 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class Login_Activity extends AppCompatActivity {
-    EditText numberphone;
-    Button login_button;
-    TextView register;
-    ImageView logologin;
-    ProgressBar progressBar;
-    CheckBox checkBoxsave,savecheck;
+
+
+    private ActivityLoginBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login_);
+        binding = ActivityLoginBinding.inflate(getLayoutInflater());
+        View view = binding.getRoot();
+        setContentView(view);
+
         getSupportActionBar().hide();
-
-        //ID Define
-        numberphone = findViewById(R.id.numberphone);
-        login_button = findViewById(R.id.login_button);
-        register = findViewById(R.id.register);
-        logologin = findViewById(R.id.logologin);
-        progressBar = findViewById(R.id.progressbutton);
-        savecheck = findViewById(R.id.savecheck);
-
 
         //get informasi lokasi login
         getLocation();
@@ -64,36 +50,25 @@ public class Login_Activity extends AppCompatActivity {
             drawable.setTextColor(getColor(R.color.black));
         }
         drawable.setTextSize(20);
-        numberphone.setCompoundDrawablesWithIntrinsicBounds(drawable,null,null,null);
+        binding.numberphone.setCompoundDrawablesWithIntrinsicBounds(drawable,null,null,null);
 
         // Event Onclick for register activity
-        register.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent register = new Intent(Login_Activity.this, Register_activity.class);
-                startActivity(register);
-            }
+        binding.register.setOnClickListener(v -> {
+            Intent register = new Intent(Login_Activity.this, Register_activity.class);
+            startActivity(register);
         });
 
         // Event Onclick for login activity
-        login_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                validation(numberphone.getText().toString());
-            }
-        });
+        binding.loginButtn.setOnClickListener(v -> validation(binding.numberphone.getText().toString()));
 
-        savecheck.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked == true){
+        binding.savecheck.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if(isChecked){
 
-                    Preference.getSharedPreference(getApplicationContext());
-                    Preference.setkredentials(getApplicationContext(),numberphone.getText().toString());
-
-                }
+                Preference.getSharedPreference(getApplicationContext());
+                Preference.setkredentials(getApplicationContext(),binding.numberphone.getText().toString());
 
             }
+
         });
     }
 
@@ -112,17 +87,17 @@ public class Login_Activity extends AppCompatActivity {
                         Intent intent = new Intent(Login_Activity.this, pinnew.class);
                         intent.putExtra("number",number);
                         Preference.getSharedPreference(getApplicationContext());
-                        Preference.setkredentials(getApplicationContext(),numberphone.getText().toString());
+                        Preference.setkredentials(getApplicationContext(),binding.numberphone.getText().toString());
                         startActivity(intent);
                         finish();
-                        numberphone.setText("");
+                        binding.numberphone.setText("");
                     }else {
                         StyleableToast.makeText(getApplicationContext(), "Nomor belum terdaftar", Toast.LENGTH_SHORT, R.style.mytoast2).show();
                     }
                 }
 
                 @Override
-                public void onFailure(Call<Mphone> call, Throwable t) {
+                public void onFailure(@NonNull Call<Mphone> call, Throwable t) {
                     StyleableToast.makeText(getApplicationContext(), "Periksa Sambungan internet", Toast.LENGTH_SHORT, R.style.mytoast2).show();
 
                 }
@@ -137,8 +112,6 @@ public class Login_Activity extends AppCompatActivity {
     public void getLocation() {
         GpsTracker gpsTracker = new GpsTracker(Login_Activity.this);
         if (gpsTracker.canGetLocation()) {
-            double latitude = gpsTracker.getLatitude();
-            double longitude = gpsTracker.getLongitude();
 
         } else {
             gpsTracker.showSettingsAlert();

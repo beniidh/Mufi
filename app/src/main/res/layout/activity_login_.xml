@@ -16,7 +16,8 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.514" />
+        app:layout_constraintVertical_bias="0.514"
+        android:contentDescription="@string/todo" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -34,7 +35,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins"
-            android:text="Login"
+            android:text="@string/login"
             android:textColor="@color/black"
             android:textSize="30sp"
             android:textStyle="bold" />
@@ -46,11 +47,12 @@
             android:layout_marginTop="8dp"
             android:fontFamily="@font/abata"
             android:background="@drawable/bg_edittextlogin"
-            android:hint="Nomor Telepone "
+            android:hint="@string/nomor_telepone"
             android:drawablePadding="10dp"
             android:inputType="number"
             android:paddingStart="12dp"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            tools:ignore="RtlSymmetry,TextFields" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -69,10 +71,10 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="5dp"
                 android:fontFamily="@font/poppins"
-                android:text="Ingat Selalu Saya "
+                android:text="@string/ingat_selalu_saya"
                 android:textColor="@color/black" />
 
         </LinearLayout>
@@ -90,14 +92,14 @@
                 />
 
             <Button
-                android:id="@+id/login_button"
+                android:id="@+id/loginButtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="19dp"
                 android:background="@drawable/bg_button_login2"
                 android:fontFamily="@font/mukta"
                 android:foreground="?android:attr/selectableItemBackground"
-                android:text="Masuk"
+                android:text="@string/masuk"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="20dp"
@@ -116,20 +118,20 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="5dp"
                 android:fontFamily="@font/poppins"
-                android:text="Tidak memiliki akun ?" />
+                android:text="@string/tidak_memiliki_akun" />
 
             <TextView
                 android:id="@+id/register"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
                 android:foreground="?android:attr/selectableItemBackground"
                 android:layout_marginTop="5dp"
                 android:fontFamily="@font/poppins"
-                android:text="Daftar"
+                android:text="@string/daftar"
                 android:textColor="@color/green"
                 android:textStyle="bold" />
 

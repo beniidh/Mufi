@@ -34,8 +34,7 @@ public class MainActivity extends AppCompatActivity {
         dl = findViewById(R.id.drawer_layout);
         burger = new ActionBarDrawerToggle(this,dl,R.string.open,R.string.close);
         burger.setDrawerIndicatorEnabled(true);
-//        dl.addDrawerListener(burger);
-//        burger.syncState();
+
         menu_bawah.setOnNavigationItemSelectedListener(this::onOptionsItemSelected);
 
     }

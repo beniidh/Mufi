@@ -8,6 +8,11 @@
         android:id="@+id/transaksi"
         android:icon="@drawable/ic_baseline_history"
         android:title="Transaksi" />
+
+    <item
+        android:id="@+id/rekapSaldo"
+        android:icon="@drawable/rekapsaldo"
+        android:title="Rekap" />
     <item
         android:id="@+id/chat"
         android:icon="@drawable/ic_baseline_chat_24"

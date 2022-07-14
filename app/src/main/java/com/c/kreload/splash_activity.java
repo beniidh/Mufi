@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.renderscript.ScriptGroup;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -13,6 +15,8 @@ import android.widget.Toast;
 import com.c.kreload.Api.Api;
 import com.c.kreload.Helper.RetroClient;
 import com.c.kreload.Model.Mlogin;
+import com.c.kreload.databinding.ActivityCetakBankBinding;
+import com.c.kreload.databinding.ActivitySplashActivityBinding;
 import com.c.kreload.pinNew.pinnew;
 import com.c.kreload.sharePreference.Preference;
 import com.muddzdev.styleabletoast.StyleableToast;
@@ -22,24 +26,22 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class splash_activity extends AppCompatActivity {
-    ImageView logo;
-    TextView versionCode;
+    private ActivitySplashActivityBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash_activity);
-//        Sentry.captureMessage("Great this is setting");
+        binding = ActivitySplashActivityBinding.inflate(getLayoutInflater());
+        View view = binding.getRoot();
+        setContentView(view);
 
-        logo = findViewById(R.id.logosplash);
         getSupportActionBar().hide();
         int delay = 2000;
-        versionCode = findViewById(R.id.versionCode);
 
         int versionCodein = BuildConfig.VERSION_CODE;
         String versionName = BuildConfig.VERSION_NAME;
 
-        versionCode.setText(new StringBuilder().append("versi ").append(versionCodein).append(".").append(versionName).toString());
+        binding.versionCode.setText(new StringBuilder().append("versi ").append(versionCodein).append(".").append(versionName).toString());
         String coder = Preference.getTrackRegister(getApplicationContext());
 
         Handler handler = new Handler();
@@ -48,7 +50,6 @@ public class splash_activity extends AppCompatActivity {
             String token = Preference.getToken(getApplicationContext());
 
             if(coder.equals("")) {
-
                 if (!token.equals("")) {
 
                     Api api = RetroClient.getApiServices();
@@ -57,6 +58,7 @@ public class splash_activity extends AppCompatActivity {
                         @Override
                         public void onResponse(Call<Mlogin> call, Response<Mlogin> response) {
                             String code = response.body().getCode();
+
                             if (code.equals("200")) {
                                 Intent home = new Intent(splash_activity.this, drawer_activity.class);
                                 startActivity(home);

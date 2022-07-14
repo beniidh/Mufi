@@ -21,18 +21,6 @@
             android:gravity="center"
             android:text="Selamat Datang" />
 
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/menu_bawah"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:itemBackground="@color/white"
-            app:itemTextAppearanceActive="@style/themetext"
-            android:layout_gravity="bottom"
-            android:foregroundGravity="bottom"
-            app:menu="@menu/menu_xml"
-            app:itemTextColor="@color/bottomnav_color"
-            app:itemIconTint="@color/bottomnav_color"
-            />
     </FrameLayout>
 
 

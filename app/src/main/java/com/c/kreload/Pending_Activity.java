@@ -52,14 +52,11 @@ public class Pending_Activity extends AppCompatActivity {
             }
         });
 
-        keluar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Preference.setTrackRegister(getApplicationContext(), "");
-                Intent intent = new Intent(Pending_Activity.this, Login_Activity.class);
-                startActivity(intent);
-                finish();
-            }
+        keluar.setOnClickListener(v -> {
+            Preference.setTrackRegister(getApplicationContext(), "");
+            Intent intent = new Intent(Pending_Activity.this, Login_Activity.class);
+            startActivity(intent);
+            finish();
         });
 
 

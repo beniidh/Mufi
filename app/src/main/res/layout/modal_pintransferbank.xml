@@ -17,7 +17,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
-            android:text="x"
+            android:text="@string/x"
             android:fontFamily="@font/typografica"
             android:layout_marginBottom="50dp"
             android:textColor="@color/green"
@@ -27,7 +27,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/mukta"
-            android:text="Masukan PIN :"
+            android:text="@string/masukan_pinn"
             android:textAlignment="center"
             android:textColor="@color/green"
             android:textSize="22sp" />
@@ -35,7 +35,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/mukta"
-            android:text="PIN anda digunakan untuk bertransaksi"
+            android:text="@string/pin_anda_digunakan_untuk_bertransaksi"
             android:textAlignment="center"
             android:textSize="18sp" />
 

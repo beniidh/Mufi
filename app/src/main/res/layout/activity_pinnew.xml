@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -14,7 +13,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="32dp"
         android:singleLine="true"
-        android:text="Masukan PIN"
+        android:text="@string/masukan_pin"
         android:textColor="@color/green"
         android:textSize="20sp"
         android:textStyle="bold" />
@@ -26,7 +25,7 @@
         android:layout_below="@id/name_textview"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="8dp"
-        android:text="Kesempatan memasukan PIN 3 kali"
+        android:text="@string/kesempatan_memasukan_pin_3_kali"
         android:textColor="@color/colorLightGrey" />
 
     <include

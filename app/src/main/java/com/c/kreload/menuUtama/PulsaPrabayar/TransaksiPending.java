@@ -9,6 +9,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.Html;
 import android.transition.AutoTransition;
 import android.transition.TransitionManager;
@@ -81,10 +82,23 @@ public class TransaksiPending extends AppCompatActivity {
         swipeTransaksi = findViewById(R.id.swipeTransaksi);
         String transaksiid = getIntent().getStringExtra("transaksid");
         loadingPrimer = new LoadingPrimer(TransaksiPending.this);
+        loadingPrimer.startDialogLoadingCancleAble();
+
         swipeTransaksi.setOnRefreshListener(() -> {
+            loadingPrimer.startDialogLoadingCancleAble();
             ChekTransaksi(transaksiid);
             swipeTransaksi.setRefreshing(false);
         });
+
+
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+
+                ChekTransaksi(transaksiid);
+            }
+        },1000);
 
 
         //Broadcase for Refresh Transaksi
@@ -102,10 +116,6 @@ public class TransaksiPending extends AppCompatActivity {
         registerReceiver(broadcastReceiver, new IntentFilter("refresh"));
 
 
-
-
-
-        ChekTransaksi(transaksiid);
         cetakStruk.setOnClickListener(v -> {
             Bundle bundle = new Bundle();
             bundle.putString("nomor", nomorTP.getText().toString());
@@ -119,7 +129,7 @@ public class TransaksiPending extends AppCompatActivity {
             bundle.putString("transaksid", NomorTransaksiDetail.getText().toString());
 
             LoadingPrimer loadingPrimer = new LoadingPrimer(TransaksiPending.this);
-            loadingPrimer.startDialogLoading();
+            loadingPrimer.startDialogLoadingCancleAble();
             String token = "Bearer " + Preference.getToken(getApplicationContext());
             Api api = RetroClient.getApiServices();
             Call<ResponCodeSubPS> call = api.getSubCodePS(token, getProductcode());
@@ -162,6 +172,7 @@ public class TransaksiPending extends AppCompatActivity {
                             Intent intent = new Intent(TransaksiPending.this, cetakBank.class);
                             intent.putExtras(bundle);
                             startActivity(intent);
+
 
                         }else {
 
@@ -225,7 +236,6 @@ public class TransaksiPending extends AppCompatActivity {
 
                 finish();
 
-
             } else {
 
                 if (code.equals("saldo")) {
@@ -270,7 +280,7 @@ public class TransaksiPending extends AppCompatActivity {
     }
 
     public void ChekTransaksi(String id) {
-        loadingPrimer.startDialogLoading();
+
 
         String token = "Bearer " + Preference.getToken(getApplicationContext());
         Api api = RetroClient.getApiServices();

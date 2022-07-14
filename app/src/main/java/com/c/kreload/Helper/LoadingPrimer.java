@@ -26,6 +26,17 @@ public class LoadingPrimer {
 
     }
 
+    public void startDialogLoadingCancleAble() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+        LayoutInflater inflater = activity.getLayoutInflater();
+        builder.setView(inflater.inflate(R.layout.loadingprimer, null));
+        builder.setCancelable(false);
+        dialog = builder.create();
+        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        dialog.show();
+
+    }
+
     public void dismissDialog() {
         dialog.dismiss();
 

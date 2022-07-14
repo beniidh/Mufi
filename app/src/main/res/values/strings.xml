@@ -6,7 +6,7 @@
         menggunakan layanan, produk dan/atau aplikasi (“Aplikasi”) K RELOAD. Pada saat Anda
         mengakses, mengunduh atau menggunakan Aplikasi K RELOAD maka Syarat dan Ketentuan ini
         berlaku terhadap Anda. Dengan melanjutkan mengakses, mengunduh atau menggunakan Aplikasi
-       K RELOAD, Anda mengakui dan menyetujui bahwa Anda telah membaca dengan teliti, memahami,
+        K RELOAD, Anda mengakui dan menyetujui bahwa Anda telah membaca dengan teliti, memahami,
         menerima dan menyetujui seluruh Syarat dan Ketentuan ini yang akan berlaku sebagai
         perjanjian antara Anda dengan Kami. Syarat dan Ketentuan ini juga berlaku setiap kali
         Anda melakukan transaksi menggunakan Aplikasi K RELOAD melalui mitra penyedia
@@ -102,4 +102,83 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="title_activity_otp_verify">OtpVerify</string>
+    <string name="todo">TODO</string>
+    <string name="daftar">Daftar</string>
+    <string name="tidak_memiliki_akun">Tidak memiliki akun ?</string>
+    <string name="masuk">Masuk</string>
+    <string name="ingat_selalu_saya">Ingat Selalu Saya</string>
+    <string name="nomor_telepone">Nomor Telepone</string>
+    <string name="login">Login</string>
+    <string name="masukan_pin">Masukan PIN</string>
+    <string name="kesempatan_memasukan_pin_3_kali">Kesempatan memasukan PIN 3 kali</string>
+    <string name="masukan_pin_lama">Masukan PIN Lama :</string>
+    <string name="masukan_pin_baru">Masukan PIN Baru :</string>
+    <string name="konfirmasi_pin_baru">Konfirmasi PIN Baru :</string>
+    <string name="reset">Reset</string>
+    <string name="nama_pemilikd">Nama Pemilik</string>
+    <string name="masukan_nama_pemilikd">Masukan Nama Pemilik</string>
+    <string name="nama_konterd">Nama Konter</string>
+    <string name="masukan_nama_konterd">Masukan Nama Konter</string>
+    <string name="emaild">Email</string>
+    <string name="masukan_emaild">Masukan Email</string>
+    <string name="alamatd">Alamat</string>
+    <string name="masukan_alamatd">Masukan Alamat</string>
+    <string name="provinsid">Provinsi</string>
+    <string name="pilih_provinsid">Pilih Provinsi</string>
+    <string name="kabupaten_kotad">Kabupaten/Kota</string>
+    <string name="pilih_kabupaten_kotad">Pilih Kabupaten / Kota</string>
+    <string name="kecamatand">Kecamatan</string>
+    <string name="pilih_kecamatand">Pilih Kecamatan</string>
+    <string name="kelurahand">Kelurahan</string>
+    <string name="pilih_kelurahand">Pilih Kelurahan</string>
+    <string name="kode_posf">Kode Pos</string>
+    <string name="pilih_kode_posd">Pilih Kode Pos</string>
+    <string name="nomor_hanphoned">Nomor Hanphone</string>
+    <string name="nomor_yang_dimasukan_digunakan_untuk_logind">Nomor yang dimasukan digunakan untuk login</string>
+    <string name="masukan_nomord">Masukan Nomor</string>
+    <string name="kode_referal_sales">Kode Referal Sales</string>
+    <string name="masukan_kode_referal">Masukan Kode Referal</string>
+    <string name="server_id">Server ID</string>
+    <string name="srvid00000016">SRVID00000016</string>
+    <string name="pilih_server">Pilih Server</string>
+    <string name="selanjutnya">Selanjutnya</string>
+    <string name="pending">Pending</string>
+    <string name="rp_0">Rp.0</string>
+    <string name="nomor_tujuan">Nomor tujuan</string>
+    <string name="nama">Nama</string>
+    <string name="nominal_produk">Nominal Produk</string>
+    <string name="detail_transaksi">Detail Transaksi</string>
+    <string name="saldo_terpakai">Saldo Terpakai</string>
+    <string name="produkk">Produk</string>
+    <string name="tanggal">Tanggal</string>
+    <string name="waktu">Waktu</string>
+    <string name="nomor_transaksi">Nomor Transaksi</string>
+    <string name="nomor_sn">Nomor SN</string>
+    <string name="harga_produk">Harga Produk</string>
+    <string name="tutup">Tutup</string>
+    <string name="cetak">Cetak</string>
+    <string name="proses_pendaftaranmu_belum_selesai_yuk_lanjutkan">Proses pendaftaranmu belum selesai yuk lanjutkan..</string>
+    <string name="lanjutkan">Lanjutkan</string>
+    <string name="keluar">Keluar</string>
+    <string name="masukan_pind">Masukan PIN</string>
+    <string name="_3_kali_kesempatan_memasukan_pin">3 Kali kesempatan memasukan PIN</string>
+    <string name="lupa_pin">Lupa PIN</string>
+    <string name="verifikasi">Verifikasi</string>
+    <string name="otpveryf">(Anda telah login dengan device yang berbeda, silahkan masukan OTP yang telah dikirim melalui WA)</string>
+    <string name="masukan_otp">Masukan OTP</string>
+    <string name="kirim_otp">Kirim OTP</string>
+    <string name="whatsapp">Whatsapp</string>
+    <string name="konfirmasi_pin">Konfirmasi PIN :</string>
+    <string name="selesai">Selesai</string>
+    <string name="masukan_pinn">Masukan PIN :</string>
+    <string name="pin_anda_digunakan_untuk_bertransaksi">PIN anda digunakan untuk bertransaksi</string>
+    <string name="x">x</string>
+    <string name="pilih_bank">Pilih Bank</string>
+    <string name="nomor_rekening">Nomor Rekening</string>
+    <string name="nominal">Nominal</string>
+    <string name="admin">Admin</string>
+    <string name="total">Total</string>
+    <string name="keterangan">Keterangan</string>
+    <string name="konfirmasi">Konfirmasi</string>
+    <string name="transfer">Transfer</string>
 </resources>

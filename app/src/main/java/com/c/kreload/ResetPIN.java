@@ -19,6 +19,8 @@ import com.c.kreload.sharePreference.Preference;
 import com.muddzdev.styleabletoast.StyleableToast;
 import com.oakkub.android.PinEditText;
 
+import java.util.Objects;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -34,7 +36,7 @@ public class ResetPIN extends AppCompatActivity {
         setContentView(R.layout.activity_reset_p_i_n);
         String color = Integer.toHexString(ContextCompat.getColor(getApplicationContext(),R.color.green)).toUpperCase();
         String color2 = "#" + color.substring(1);
-        getSupportActionBar().setTitle(Html.fromHtml("<font color='" + color2 +"'><b>Reset PIN <b></font>"));
+        Objects.requireNonNull(getSupportActionBar()).setTitle(Html.fromHtml("<font color='" + color2 +"'><b>Reset PIN <b></font>"));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_24);
 
@@ -43,12 +45,7 @@ public class ResetPIN extends AppCompatActivity {
         pinduareset = findViewById(R.id.pinduareset);
         resetPIN = findViewById(R.id.resetPIN);
 
-        resetPIN.setOnClickListener(v -> {
-
-
-            ResetPin(utils.hmacSha(pinlamareset.getText().toString()),utils.hmacSha(pinsatureset.getText().toString()),utils.hmacSha(pinduareset.getText().toString()));
-
-        });
+        resetPIN.setOnClickListener(v -> ResetPin(utils.hmacSha(pinlamareset.getText().toString()),utils.hmacSha(pinsatureset.getText().toString()),utils.hmacSha(pinduareset.getText().toString())));
 
     }
 
@@ -64,6 +61,7 @@ public class ResetPIN extends AppCompatActivity {
             @Override
             public void onResponse(Call<ResponResetPin> call, Response<ResponResetPin> response) {
 
+                assert response.body() != null;
                 String code = response.body().getCode();
                 if (code.equals("200")) {
                     StyleableToast.makeText(getApplicationContext(), "Berhasil", Toast.LENGTH_SHORT, R.style.mytoast).show();

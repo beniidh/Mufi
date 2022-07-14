@@ -33,13 +33,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
-                android:foregroundGravity="bottom"
-                app:itemBackground="@color/white"
+                app:labelVisibilityMode="labeled"
                 app:itemIconTint="@color/bottomnav_color"
-                app:itemTextAppearanceActive="@style/themetext"
-                app:itemTextAppearanceInactive="@style/themetext"
-                app:itemTextColor="@color/bottomnav_color">
-                <include layout="@layout/navbottom_bar"/>
+                app:itemTextColor="@color/bottomnav_color"
+                android:background="@color/white"
+                android:foregroundGravity="bottom"
+                app:menu="@menu/menu_xml"
+
+               >
+
+
             </com.google.android.material.bottomnavigation.BottomNavigationView>
 
         </FrameLayout>

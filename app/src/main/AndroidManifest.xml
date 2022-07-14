@@ -35,8 +35,6 @@
         android:usesCleartextTraffic="true"
         tools:ignore="LockedOrientationActivity">
 
-
-
         <activity
             android:name=".CetakStruk.StrukPLNPra.cetakBank"
             android:exported="false"

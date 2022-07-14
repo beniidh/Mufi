@@ -21,7 +21,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Kirim OTP"
+            android:text="@string/kirim_otp"
             android:textColor="@color/green"
             android:textSize="25dp"
             android:textStyle="bold" />
@@ -40,16 +40,17 @@
             android:layout_height="40dp"
             android:layout_marginTop="35dp"
             android:background="@drawable/bg_button_login2"
-            android:drawableLeft="@drawable/ic_gmail"
+            android:drawableStart="@drawable/ic_gmail"
             android:drawablePadding="-10dp"
             android:fontFamily="@font/mukta"
             android:foreground="?android:attr/selectableItemBackground"
             android:paddingStart="10dp"
-            android:text="Email"
+            android:text="@string/email"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="18dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:ignore="RtlSymmetry" />
 
         <Button
             android:id="@+id/SendWaOtp"
@@ -58,7 +59,7 @@
             android:layout_marginTop="10dp"
             android:drawableStart="@drawable/ic_whatsapp"
             android:background="@drawable/bg_button_login"
-            android:text="Whatsapp"
+            android:text="@string/whatsapp"
             android:foreground="?android:attr/selectableItemBackground"
             android:fontFamily="@font/mukta"
             android:textStyle="bold"
@@ -66,7 +67,8 @@
             android:paddingStart="10dp"
             android:textAllCaps="false"
             android:textColor="@color/green"
-            android:textSize="18dp" />
+            android:textSize="18dp"
+            tools:ignore="RtlSymmetry" />
     </LinearLayout>
 
 

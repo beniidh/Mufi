@@ -87,7 +87,6 @@ public class MarkUpSpesifikActi extends AppCompatActivity implements ModalProduk
     public void getDaftarHarga(String id){
 
 
-
         String token = "Bearer " + Preference.getToken(getApplicationContext());
         Api api = RetroClient.getApiServices();
         Call<ResponProdukListM> call = api.getProdukDHListMM(token,id);
@@ -131,16 +130,15 @@ public class MarkUpSpesifikActi extends AppCompatActivity implements ModalProduk
         getDaftarHarga(id);
         Preference.setIDsalesProduk(getApplicationContext(),id);
 
+
     }
 
     @Override
     public void onButtonClickS(String name, String id) {
-        mData.clear();
-        adapterProdukDHList = new AdapterProdukDHListM(getApplicationContext(),mData);
-        reyIDDaftarHarga.setAdapter(adapterProdukDHList);
-        getDaftarHarga(Preference.getIDsalesProduk(getApplicationContext()));
-        Toast.makeText(getApplicationContext(),"Berhasil",Toast.LENGTH_SHORT).show();
 
+        Toast.makeText(getApplicationContext(),"Berhasil",Toast.LENGTH_SHORT).show();
+        mData.clear();
+        getDaftarHarga(Preference.getIDsalesProduk(getApplicationContext()));
     }
 
     public String getIdsalesProduk() {

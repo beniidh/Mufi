@@ -6,14 +6,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="18dp"
     tools:context=".TransferBank.transferBank">
-
     <LinearLayout
         android:id="@+id/wrapdata"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:orientation="vertical">
-
         <EditText
             android:id="@+id/pilihBank"
             android:layout_width="match_parent"
@@ -23,9 +21,8 @@
             android:focusable="false"
             android:paddingVertical="3dp"
             android:fontFamily="@font/exobold"
-            android:hint="Pilih Bank"
+            android:hint="@string/pilih_bank"
             android:paddingStart="10dp" />
-
         <TextView
             android:id="@+id/BkodeBank"
             android:layout_width="wrap_content"
@@ -45,11 +42,10 @@
             android:layout_height="40dp"
             android:paddingVertical="3dp"
             android:layout_marginTop="20dp"
-            android:hint="Nomor Rekening"
+            android:hint="@string/nomor_rekening"
             android:textStyle="bold"
             android:fontFamily="@font/notoregular"
             android:inputType="number" />
-
 
         <EditText
             android:id="@+id/Bnominal"
@@ -59,7 +55,7 @@
             android:fontFamily="@font/poppins"
             android:layout_marginTop="20dp"
             android:textStyle="bold"
-            android:hint="Nominal"
+            android:hint="@string/nominal"
             android:inputType="number" />
 
         <TextView
@@ -71,9 +67,6 @@
             android:textSize="22sp"
             android:layout_marginTop="10dp"
             />
-
-
-
     </LinearLayout>
 
     <com.airbnb.lottie.LottieAnimationView
@@ -107,7 +100,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:fontFamily="@font/poppins"
-                android:text="Nama"
+                android:text="@string/nama"
                 android:textColor="@color/black"
                 android:textSize="18sp" />
 
@@ -116,7 +109,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:layout_marginLeft="40sp"
+                android:layout_marginStart="40sp"
                 android:layout_toEndOf="@+id/namaakun"
                 android:fontFamily="@font/poppinsbold"
                 android:text=""
@@ -135,7 +128,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:fontFamily="@font/poppins"
-                android:text="Nominal"
+                android:text="@string/nominal"
                 android:textColor="@color/black"
                 android:textSize="18sp" />
 
@@ -160,7 +153,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:fontFamily="@font/poppins"
-                android:text="Admin"
+                android:text="@string/admin"
                 android:textColor="@color/black"
                 android:textSize="18sp" />
 
@@ -192,7 +185,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:fontFamily="@font/poppins"
-                android:text="Total"
+                android:text="@string/total"
                 android:textColor="@color/black"
                 android:textSize="18sp" />
 
@@ -230,7 +223,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_marginTop="5dp"
                 android:fontFamily="@font/mukta"
-                android:text="Keterangan"
+                android:text="@string/keterangan"
                 android:textAlignment="center"
                 android:textColor="@color/green"
                 android:textSize="18sp" />
@@ -254,7 +247,7 @@
             android:layout_height="44dp"
             android:layout_weight="1"
             android:background="@drawable/bg_button_login2"
-            android:text="Konfirmasi"
+            android:text="@string/konfirmasi"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="16sp" />
@@ -263,10 +256,10 @@
             android:id="@+id/TransferTransfer"
             android:layout_width="match_parent"
             android:layout_height="44dp"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             android:layout_weight="1"
             android:background="@drawable/bg_button_login3"
-            android:text="Transfer"
+            android:text="@string/transfer"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="16sp"

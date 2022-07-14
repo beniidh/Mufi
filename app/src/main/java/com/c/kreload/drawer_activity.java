@@ -65,12 +65,12 @@ import ru.nikartm.support.ImageBadgeView;
 public class drawer_activity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     BottomNavigationView menu_bawah;
     Toolbar toolbar;
-    TextView tulisan,NBRekap,NBRekapT, nameheadernav, navheadernamakonter, nbhome, nbtransaksi, nbchat, nbhomet, nbtransaksit, nbchatt;
+    TextView tulisan, nameheadernav, navheadernamakonter;
     DrawerLayout drawer_layout;
     ActionBarDrawerToggle toggle;
     NavigationView navigationView;
 
-    Fragment  fragment3;
+    Fragment home;
 
     LinearLayout profil;
     ArrayList<Micon> micons = new ArrayList<>();
@@ -94,22 +94,9 @@ public class drawer_activity extends AppCompatActivity implements NavigationView
 
         iconprofilsidebar = findViewById(R.id.iconprofilsidebar);
         parent = findViewById(R.id.parent);
-        Typeface type2 = ResourcesCompat.getFont(getApplicationContext(), R.font.abata);
-        nbhome = findViewById(R.id.NBhome);
-        NBRekap = findViewById(R.id.NBRekap);
-        NBRekapT = findViewById(R.id.NBRekapT);
-        NBRekap.setTypeface(type2);
-        nbhomet = findViewById(R.id.NBhomeT);
-        nbhome.setTypeface(type2);
         nameheadernav = findViewById(R.id.nameheadernav);
-        nbtransaksi = findViewById(R.id.NBTransaksi);
-        nbtransaksit = findViewById(R.id.NBTransaksiT);
-        nbtransaksi.setTypeface(type2);
-        nbchat = findViewById(R.id.NBchat);
-        nbchatt = findViewById(R.id.NBchatT);
-        nbchat.setTypeface(type2);
-        notifikasi = findViewById(R.id.notifikasiID);
 
+        notifikasi = findViewById(R.id.notifikasiID);
 
 
         notifikasi.setOnClickListener(v -> {
@@ -155,88 +142,37 @@ public class drawer_activity extends AppCompatActivity implements NavigationView
         toggle.syncState();
 
 
-        fragment3 = new HomeFragment();
+        home = new HomeFragment();
 
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fm.beginTransaction();
-        fragmentTransaction.replace(R.id.fLayout, fragment3);
+        fragmentTransaction.replace(R.id.fLayout, home);
         fragmentTransaction.commit(); // save the changes
 
+        menu_bawah.setOnNavigationItemSelectedListener(item -> {
+            switch (item.getItemId()) {
+                case R.id.home:
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fLayout, home).commit();
+                    return true;
+                case R.id.transaksi:
+                    Fragment Transaksi = new TransaksiFragment();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fLayout, Transaksi).commit();
+                    return true;
+                case R.id.rekapSaldo:
+                    Fragment rekap = new RekapFragment();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fLayout, rekap).commit();
+                    return true;
 
-        nbhome.setTextColor(ContextCompat.getColor(getApplicationContext(),R.color.green));
-        nbhomet.setTextColor(ContextCompat.getColor(getApplicationContext(),R.color.green));
+                case R.id.chat:
+                    Fragment chat = new ChatFragment();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fLayout, chat).commit();
+                    return true;
+            }
 
-        nbchat.setOnClickListener(v -> {
-            Fragment fragment2 = new ChatFragment();
-            FragmentManager fm3 = getSupportFragmentManager();
-            FragmentTransaction fragmentTransaction2 = fm3.beginTransaction();
-            fragmentTransaction2.replace(R.id.fLayout, fragment2);
-            fragmentTransaction2.commit(); // save the changes
-            nbchat.setTextColor(ContextCompat.getColor(getApplicationContext(),R.color.green));
-            nbchatt.setTextColor(ContextCompat.getColor(getApplicationContext(),R.color.green));
-            nbtransaksi.setTextColor(ContextCompat.getColor(getApplicationContext(),R.color.gray3));
-            nbtransaksit.setTextColor(ContextCompat.getColor(getApplicationContext(),R.color.gray3));
-            nbhome.setTextColor(ContextCompat.getColor(getApplicationContext(),R.color.gray3));
-            nbhomet.setTextColor(ContextCompat.getColor(getApplicationContext(),R.color.gray3));
-            NBRekap.setTextColor(ContextCompat.getColor(getApplicationContext(),R.color.gray3));
-            NBRekapT.setTextColor(ContextCompat.getColor(getApplicationContext(),R.color.gray3));
-
+            return false;
         });
 
-        nbhome.setOnClickListener(v -> {
-            FragmentManager fmm = getSupportFragmentManager();
-            FragmentTransaction fragmentTransactionn = fmm.beginTransaction();
-            fragmentTransactionn.replace(R.id.fLayout, fragment3);
-            fragmentTransactionn.commit(); // save the changes
-            nbchat.setTextColor(ContextCompat.getColor(getApplicationContext(),R.color.gray3));
-            nbchatt.setTextColor(ContextCompat.getColor(getApplicationContext(),R.color.gray3));
-            nbtransaksi.setTextColor(ContextCompat.getColor(getApplicationContext(),R.color.gray3));
-            nbtransaksit.setTextColor(ContextCompat.getColor(getApplicationContext(),R.color.gray3));
-            nbhome.setTextColor(ContextCompat.getColor(getApplicationContext(),R.color.green));
-            nbhomet.setTextColor(ContextCompat.getColor(getApplicationContext(),R.color.green));
-            NBRekap.setTextColor(ContextCompat.getColor(getApplicationContext(),R.color.gray3));
-            NBRekapT.setTextColor(ContextCompat.getColor(getApplicationContext(),R.color.gray3));
-
-
-        });
-
-        nbtransaksi.setOnClickListener(v -> {
-
-            Fragment fragment1 = new TransaksiFragment();
-            FragmentManager fm2 = getSupportFragmentManager();
-            FragmentTransaction fragmentTransactionnn = fm2.beginTransaction();
-            fragmentTransactionnn.replace(R.id.fLayout, fragment1);
-            fragmentTransactionnn.commit(); // save the changes
-            nbchat.setTextColor(ContextCompat.getColor(getApplicationContext(),R.color.gray3));
-            nbchatt.setTextColor(ContextCompat.getColor(getApplicationContext(),R.color.gray3));
-            nbtransaksi.setTextColor(ContextCompat.getColor(getApplicationContext(),R.color.green));
-            nbtransaksit.setTextColor(ContextCompat.getColor(getApplicationContext(),R.color.green));
-            nbhome.setTextColor(ContextCompat.getColor(getApplicationContext(),R.color.gray3));
-            nbhomet.setTextColor(ContextCompat.getColor(getApplicationContext(),R.color.gray3));
-            NBRekap.setTextColor(ContextCompat.getColor(getApplicationContext(),R.color.gray3));
-            NBRekapT.setTextColor(ContextCompat.getColor(getApplicationContext(),R.color.gray3));
-
-        });
-
-        NBRekap.setOnClickListener(v -> {
-
-            Fragment fragment1 = new RekapFragment();
-            FragmentManager fm2 = getSupportFragmentManager();
-            FragmentTransaction fragmentTransactionnn = fm2.beginTransaction();
-            fragmentTransactionnn.replace(R.id.fLayout, fragment1);
-            fragmentTransactionnn.commit(); // save the changes
-            nbchat.setTextColor(ContextCompat.getColor(getApplicationContext(),R.color.gray3));
-            nbchatt.setTextColor(ContextCompat.getColor(getApplicationContext(),R.color.gray3));
-            nbtransaksi.setTextColor(ContextCompat.getColor(getApplicationContext(),R.color.gray3));
-            nbtransaksit.setTextColor(ContextCompat.getColor(getApplicationContext(),R.color.gray3));
-            nbhome.setTextColor(ContextCompat.getColor(getApplicationContext(),R.color.gray3));
-            nbhomet.setTextColor(ContextCompat.getColor(getApplicationContext(),R.color.gray3));
-            NBRekap.setTextColor(ContextCompat.getColor(getApplicationContext(),R.color.green));
-            NBRekapT.setTextColor(ContextCompat.getColor(getApplicationContext(),R.color.green));
-
-        });
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -301,9 +237,9 @@ public class drawer_activity extends AppCompatActivity implements NavigationView
                 myViewModel.sendPayyLetter(response.body().getData().getWallet().getPaylatter());
                 parent.setText(response.body().getData().getReferal_code());
                 Picasso.get().load(response.body().getData().getAvatar()).into(iconprofilsidebar);
-                Preference.setServerID(getApplicationContext(),response.body().getData().getServer_id());
+                Preference.setServerID(getApplicationContext(), response.body().getData().getServer_id());
                 getIconBanner(response.body().getData().getServer_id());
-                Preference.setKeyUserCode(getApplicationContext(),response.body().getData().getCode());
+                Preference.setKeyUserCode(getApplicationContext(), response.body().getData().getCode());
                 mSubMenus = (ArrayList<MSubMenu>) response.body().getData().getMenu();
                 getRunningText(response.body().getData().getServer_id());
                 adapterSubMenuSide = new AdapterSubMenuSide(getApplicationContext(), mSubMenus, drawer_activity.this);

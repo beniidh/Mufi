@@ -10,8 +10,8 @@ android {
         applicationId "com.c.kreload"
         minSdkVersion 21
         targetSdkVersion 32
-        versionCode 4
-        versionName "2.1"
+        versionCode 5
+        versionName "2.2"
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -35,13 +35,13 @@ android {
 }
 
 dependencies {
-    implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'com.google.android.material:material:1.3.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'androidx.appcompat:appcompat:1.4.2'
+    implementation 'com.google.android.material:material:1.6.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'com.muddzdev:styleabletoast:2.3.0'
-    implementation'com.squareup.retrofit2:retrofit:2.1.0'
-    implementation 'com.google.code.gson:gson:2.6.2'
-    implementation 'com.squareup.retrofit2:converter-gson:2.1.0'
+    implementation'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     implementation'com.squareup.retrofit2:converter-scalars:2.5.0'
     implementation 'com.oakkub.android:pin-edittext:1.1.3'
     implementation 'com.github.Dhaval2404:ImagePicker:v2.1'
@@ -53,11 +53,11 @@ dependencies {
     implementation 'info.androidhive:fontawesome:0.0.5'
     implementation 'com.github.rygelouv:Android-LoadingButton:1.2.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'androidx.navigation:navigation-fragment:2.3.1'
-    implementation 'androidx.navigation:navigation-ui:2.3.1'
-    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.1'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'
-    implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0-alpha1'
+    implementation 'androidx.navigation:navigation-fragment:2.5.0'
+    implementation 'androidx.navigation:navigation-ui:2.5.0'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.5.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
     implementation 'com.github.denzcoskun:ImageSlideshow:0.0.6'
     implementation 'com.facebook.shimmer:shimmer:0.1.0@aar'
     implementation 'com.github.bumptech.glide:glide:4.12.0'
@@ -74,10 +74,7 @@ dependencies {
 
 
     implementation 'com.github.psinetron:slycalendarview:0.0.9'
-//    implementation 'com.google.firebase:firebase-messaging:23.0.0'
-//    implementation 'com.google.firebase:firebase-crashlytics:18.2.7'
-//    implementation 'com.google.firebase:firebase-analytics:20.0.2'
-//    implementation 'com.google.firebase:firebase-messaging:22.0.0'
+
     def lottieVersion = "4.2.0"
     implementation "com.airbnb.android:lottie:$lottieVersion"
     annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
