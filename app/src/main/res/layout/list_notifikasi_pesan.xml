@@ -52,6 +52,12 @@
                 android:textColor="@color/gray4" />
 
         </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/gray2"
+            />
 
     </LinearLayout>
 </LinearLayout>

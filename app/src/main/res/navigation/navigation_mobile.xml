@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/home"
-        android:name="com.c.kreload.Fragment.HomeFragment"
+        android:name="com.c.cpay.Fragment.HomeFragment"
         android:label="Home"
         tools:layout="@layout/home_fragment" />
 
     <fragment
         android:id="@+id/transaksi"
-        android:name="com.c.kreload.Fragment.TransaksiFragment"
+        android:name="com.c.cpay.Fragment.TransaksiFragment"
         android:label="Transaksi"
         tools:layout="@layout/transaksi_fragment" />
 
     <fragment
         android:id="@+id/chat"
-        android:name="com.c.kreload.Fragment.ChatFragment"
+        android:name="com.c.cpay.Fragment.ChatFragment"
         android:label="Chat"
         tools:layout="@layout/chat_fragment" />
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.c.kreload">
+    package="com.c.cpay">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
@@ -34,146 +34,151 @@
         android:theme="@style/Theme.DompetAbata"
         android:usesCleartextTraffic="true"
         tools:ignore="LockedOrientationActivity">
-
         <activity
-            android:name=".CetakStruk.StrukPLNPra.cetakBank"
+            android:name="com.c.cpay.TopUpSaldoku.HistoryTopUp.uploadBukti"
+            android:exported="false" />
+        <activity
+            android:name="com.c.cpay.TopUpSaldoku.HistoryTopUp.Activity_HistoryTopUp"
+            android:exported="false" />
+        <activity
+            android:name="com.c.cpay.CetakStruk.StrukPLNPra.cetakBank"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Fragment.DirectLink.webDirect_Activity"
+            android:name="com.c.cpay.Fragment.DirectLink.webDirect_Activity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".menuUtama.ListrikPLN.groupPLN"
+            android:name="com.c.cpay.menuUtama.ListrikPLN.groupPLN"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Notifikasi.Pesan.detail_pesan_activity"
+            android:name="com.c.cpay.Notifikasi.Pesan.detail_pesan_activity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".konter.DrawSaldo.drawsaldoku"
+            android:name="com.c.cpay.konter.DrawSaldo.drawsaldoku"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".TarikKomisi.TarikKomisiSales_Activity"
+            android:name="com.c.cpay.TarikKomisi.TarikKomisiSales_Activity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".menuUtama.HolderPulsa.groupHolder_Activity"
+            android:name="com.c.cpay.menuUtama.HolderPulsa.groupHolder_Activity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".konter.MarkupKonter.MarkupKonter"
+            android:name="com.c.cpay.konter.MarkupKonter.MarkupKonter"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".konter.KirimSaldo.TransferSaldo"
+            android:name="com.c.cpay.konter.KirimSaldo.TransferSaldo"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".otpvery"
+            android:name="com.c.cpay.otpvery"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".konter.tambahKonter"
+            android:name="com.c.cpay.konter.tambahKonter"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".CetakStruk.StrukPLNPra.CetakPlnPra"
+            android:name="com.c.cpay.CetakStruk.StrukPLNPra.CetakPlnPra"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".CetakStruk.StrukPLNPasca.CetakPlnPasca"
+            android:name="com.c.cpay.CetakStruk.StrukPLNPasca.CetakPlnPasca"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".reseller.PilihMetodeBayar"
+            android:name="com.c.cpay.reseller.PilihMetodeBayar"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".reseller.PersetujuanSaldokuReseller"
+            android:name="com.c.cpay.reseller.PersetujuanSaldokuReseller"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".pinNew.pin_transaksi"
+            android:name="com.c.cpay.pinNew.pin_transaksi"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".pinNew.pinnew"
+            android:name="com.c.cpay.pinNew.pinnew"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".MarkUP.markupSpesifik.MarkUpSpesifikActi"
+            android:name="com.c.cpay.MarkUP.markupSpesifik.MarkUpSpesifikActi"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Fragment.RekapSaldo.RekapSaldoActivity"
+            android:name="com.c.cpay.Fragment.RekapSaldo.RekapSaldoActivity"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".MarkUP.markupSpesifik.markupSpesifikActivity"
+            android:name="com.c.cpay.MarkUP.markupSpesifik.markupSpesifikActivity"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".TransferBank.metodebayarBank"
+            android:name="com.c.cpay.TransferBank.metodebayarBank"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".TransferBank.transferBank"
+            android:name="com.c.cpay.TransferBank.transferBank"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".TagihanKonterSales.TagihanKonterbySales"
+            android:name="com.c.cpay.TagihanKonterSales.TagihanKonterbySales"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".KomisiSales.Komisi_sales"
+            android:name="com.c.cpay.KomisiSales.Komisi_sales"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".konter.konter_activity"
+            android:name="com.c.cpay.konter.konter_activity"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".menuUtama.HolderPulsa.produkholderPasca"
+            android:name="com.c.cpay.menuUtama.HolderPulsa.produkholderPasca"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".menuUtama.HolderPulsa.produkholder"
+            android:name="com.c.cpay.menuUtama.HolderPulsa.produkholder"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".menuUtama.HolderPulsa.holder_pulsa_activity"
+            android:name="com.c.cpay.menuUtama.HolderPulsa.holder_pulsa_activity"
             android:exported="false"
             android:screenOrientation="portrait" /> <!-- <meta-data -->
         <!-- android:name="io.sentry.dsn" -->
         <!-- android:value="https://c7552e566d0148ef9d067b45fc46742b@o505958.ingest.sentry.io/5965814" /> -->
-        <activity android:name=".Transfer.transferKonter" />
+        <activity android:name="com.c.cpay.Transfer.transferKonter" />
         <activity
-            android:name=".Pending_Activity"
+            android:name="com.c.cpay.Pending_Activity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".TagihanKonter.DetailTagihanKonter"
+            android:name="com.c.cpay.TagihanKonter.DetailTagihanKonter"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".TagihanKonter.TagihanKonter"
+            android:name="com.c.cpay.TagihanKonter.TagihanKonter"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".MarkUP.markup"
+            android:name="com.c.cpay.MarkUP.markup"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".CetakStruk.cetak"
+            android:name="com.c.cpay.CetakStruk.cetak"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Inquiry.InquiryPasca"
+            android:name="com.c.cpay.Inquiry.InquiryPasca"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".GantiPin"
+            android:name="com.c.cpay.GantiPin"
             android:screenOrientation="portrait" />
 
         <service
-            android:name=".Notifikasi.MyService"
+            android:name="com.c.cpay.Notifikasi.MyService"
             android:exported="true">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
@@ -182,7 +187,7 @@
 
         <provider
             android:name="androidx.core.content.FileProvider"
-            android:authorities="com.c.kreload.fileprovider"
+            android:authorities="com.c.cpay.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
@@ -191,191 +196,191 @@
         </provider>
 
         <activity
-            android:name=".ResetPIN"
+            android:name="com.c.cpay.ResetPIN"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".PersetujuanSaldoSales.DetailPersetujuan"
+            android:name="com.c.cpay.PersetujuanSaldoSales.DetailPersetujuan"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".TambahKonter.addKonter"
+            android:name="com.c.cpay.TambahKonter.addKonter"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".PersetujuanSaldoSales.PersetujuanSaldoSales"
+            android:name="com.c.cpay.PersetujuanSaldoSales.PersetujuanSaldoSales"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".SaldoServer.AjukanLimit"
+            android:name="com.c.cpay.SaldoServer.AjukanLimit"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Fragment.RiwayatTransaksi.HistoryTransaksi"
+            android:name="com.c.cpay.Fragment.RiwayatTransaksi.HistoryTransaksi"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Notifikasi.DetailNotifikasi"
+            android:name="com.c.cpay.Notifikasi.DetailNotifikasi"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".TentangKami.TentangKamiAct"
+            android:name="com.c.cpay.TentangKami.TentangKamiAct"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".KodeProduk.Kodeprodukact"
+            android:name="com.c.cpay.KodeProduk.Kodeprodukact"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".CetakStruk.DetailTransaksiTruk"
+            android:name="com.c.cpay.CetakStruk.DetailTransaksiTruk"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".CetakStruk.Cetakstruk"
+            android:name="com.c.cpay.CetakStruk.Cetakstruk"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".DaftarHarga.DaftarHarga_activity"
+            android:name="com.c.cpay.DaftarHarga.DaftarHarga_activity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".PengajuanLimit.PengajuanDompet"
+            android:name="com.c.cpay.PengajuanLimit.PengajuanDompet"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".menuUtama.WarungAbata.produkWarungAbata"
+            android:name="com.c.cpay.menuUtama.WarungAbata.produkWarungAbata"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".menuUtama.PajakPBB.produkPajakPBB"
+            android:name="com.c.cpay.menuUtama.PajakPBB.produkPajakPBB"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".menuUtama.GasNegara.produkGasnegara"
+            android:name="com.c.cpay.menuUtama.GasNegara.produkGasnegara"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".menuUtama.AngsuranKredit.ProdukAngsuranKredit"
+            android:name="com.c.cpay.menuUtama.AngsuranKredit.ProdukAngsuranKredit"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".menuUtama.BPJS.produkBPJS"
+            android:name="com.c.cpay.menuUtama.BPJS.produkBPJS"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".menuUtama.Voucher.produkVoucher"
+            android:name="com.c.cpay.menuUtama.Voucher.produkVoucher"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".menuUtama.TV.tv_produk"
+            android:name="com.c.cpay.menuUtama.TV.tv_produk"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".menuUtama.Internet.InternetProduk"
+            android:name="com.c.cpay.menuUtama.Internet.InternetProduk"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".menuUtama.VoucherGame.produkVoucherGame"
+            android:name="com.c.cpay.menuUtama.VoucherGame.produkVoucherGame"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".menuUtama.air.produkair"
+            android:name="com.c.cpay.menuUtama.air.produkair"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".menuUtama.UangElektronik.ProdukUangElektronik"
+            android:name="com.c.cpay.menuUtama.UangElektronik.ProdukUangElektronik"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".menuUtama.PaketsmsTelpon.produksmstelpon"
+            android:name="com.c.cpay.menuUtama.PaketsmsTelpon.produksmstelpon"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".menuUtama.ListrikPLNPasca.Pln_produk_pasca"
+            android:name="com.c.cpay.menuUtama.ListrikPLNPasca.Pln_produk_pasca"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".menuUtama.ListrikPLN.Pln_Produk"
+            android:name="com.c.cpay.menuUtama.ListrikPLN.Pln_Produk"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".menuUtama.Paket.PaketData_Activity"
+            android:name="com.c.cpay.menuUtama.Paket.PaketData_Activity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Notifikasi.Notifikasi_Activity"
+            android:name="com.c.cpay.Notifikasi.Notifikasi_Activity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".menuUtama.PulsaPrabayar.TransaksiPending"
+            android:name="com.c.cpay.menuUtama.PulsaPrabayar.TransaksiPending"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".menuUtama.PulsaPrabayar.KonfirmasiPembayaran"
+            android:name="com.c.cpay.menuUtama.PulsaPrabayar.KonfirmasiPembayaran"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".menuUtama.PulsaPrabayar.PulsaPrabayar_activity"
+            android:name="com.c.cpay.menuUtama.PulsaPrabayar.PulsaPrabayar_activity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".menuUtama.PulsaPascaBayar.PulsaPascaBayar_activity"
+            android:name="com.c.cpay.menuUtama.PulsaPascaBayar.PulsaPascaBayar_activity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Kodeproduk"
+            android:name="com.c.cpay.Kodeproduk"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".SaldoServer.BayarSalesServer"
+            android:name="com.c.cpay.SaldoServer.BayarSalesServer"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Profil.Device"
+            android:name="com.c.cpay.Profil.Device"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Profil.Poin.Point"
+            android:name="com.c.cpay.Profil.Poin.Point"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Profil.ubah_pin"
+            android:name="com.c.cpay.Profil.ubah_pin"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Profil.ubah_profil"
+            android:name="com.c.cpay.Profil.ubah_profil"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Profil.Profil"
+            android:name="com.c.cpay.Profil.Profil"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".SaldoServer.RincianTagihan"
+            android:name="com.c.cpay.SaldoServer.RincianTagihan"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".SaldoServer.RiwayatTagihan"
+            android:name="com.c.cpay.SaldoServer.RiwayatTagihan"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".SaldoServer.TopupSaldoServer"
+            android:name="com.c.cpay.SaldoServer.TopupSaldoServer"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".TopUpSaldoku.TrasferBank"
+            android:name="com.c.cpay.TopUpSaldoku.TrasferBank"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".SaldoServer.TrasferBankServer"
+            android:name="com.c.cpay.SaldoServer.TrasferBankServer"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Transaksi.BayarViaBank"
+            android:name="com.c.cpay.Transaksi.BayarViaBank"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".TopUpSaldoku.BayarSales"
+            android:name="com.c.cpay.TopUpSaldoku.BayarSales"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".InsertPIN_activity"
+            android:name="com.c.cpay.InsertPIN_activity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".TopUpSaldoku.topup_saldoku_activity"
+            android:name="com.c.cpay.TopUpSaldoku.topup_saldoku_activity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".homelainnya"
+            android:name="com.c.cpay.homelainnya"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".MainActivity"
+            android:name="com.c.cpay.MainActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
             android:theme="@style/Base.Theme.AppCompat" />
         <activity
-            android:name=".pin_activity"
+            android:name="com.c.cpay.pin_activity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".syaratdanketentuan_activity"
+            android:name="com.c.cpay.syaratdanketentuan_activity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".RegisterFoto_activity"
+            android:name="com.c.cpay.RegisterFoto_activity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Modal.OTPinsert"
+            android:name="com.c.cpay.Modal.OTPinsert"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".OTPsend"
+            android:name="com.c.cpay.OTPsend"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Register_activity"
+            android:name="com.c.cpay.Register_activity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Login_Activity"
+            android:name="com.c.cpay.Login_Activity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".drawer_activity"
+            android:name="com.c.cpay.drawer_activity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.DompetAbata2"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name=".splash_activity"
+            android:name="com.c.cpay.splash_activity"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -384,7 +389,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

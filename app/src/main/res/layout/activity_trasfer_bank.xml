@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="18dp"
     android:scrollbars="none"
     tools:context=".TopUpSaldoku.TrasferBank">
@@ -13,14 +14,18 @@
         android:layout_marginTop="5dp"
         android:orientation="vertical">
 
+
+
         <TextView
-            android:id="@+id/titleakunbank"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/mukta"
-            android:text="Transfer Bank"
-            android:textColor="@color/green"
-            android:textSize="20sp" />
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/notoregular"
+            android:text="Rincian Pembayaran"
+            android:textColor="@color/gray4"
+            android:textSize="16dp"
+
+            />
 
         <View
             android:layout_width="match_parent"
@@ -33,32 +38,77 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/mukta"
-            android:text="Total Tagihan"
+            android:text="Total Pembayaran"
             android:textColor="@color/black"
             android:textSize="18dp"
 
             />
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-
 
             <TextView
                 android:id="@+id/saldokubank"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/mukta"
-                android:text="1.000.000"
                 android:textColor="@color/black"
                 android:textSize="22sp"
                 android:textStyle="bold" />
 
+            <ImageView
+                android:id="@+id/salinTotal"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/ic_baseline_file_copy_24" />
 
+
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:background="@color/yellow"
+            android:layout_height="match_parent">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="2dp"
+                app:lottie_url="https://assets10.lottiefiles.com/packages/lf20_j6fywzxe.json"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="4dp"
+                android:textColor="@color/white"
+                android:text="Pastikan transfer sesuai 3 digit terakhir kode unik"
+                />
         </LinearLayout>
 
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginVertical="10dp"
+            android:background="@color/gray3" />
+        <TextView
+            android:id="@+id/titleakunbank"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/mukta"
+            android:text="Transfer Bank"
+            android:textColor="@color/green"
+            android:textSize="20sp" />
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
@@ -69,29 +119,46 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/mukta"
-            android:text="No. Rekening"
+            android:text="Nomor Rekening"
             android:textColor="@color/black"
             android:textSize="18dp"
 
             />
 
-        <TextView
-            android:id="@+id/noRekenning"
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/mukta"
-            android:text=""
-            android:textColor="@color/black"
-            android:textSize="22sp"
-            android:textStyle="bold" />
+            android:orientation="horizontal">
 
+
+            <TextView
+                android:id="@+id/noRekenning"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/mukta"
+                android:text="1.232.34.2.344333"
+                android:textColor="@color/black"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/salinRekening"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/ic_baseline_file_copy_24" />
+
+
+        </RelativeLayout>
         <TextView
             android:id="@+id/NamaRekening"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/mukta"
             android:text="A.n ZAENAL ABDI"
-            android:textColor="@color/gray3"
+            android:textColor="@color/black"
             android:textSize="18dp"
             />
 
@@ -114,7 +181,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:fontFamily="@font/poppins"
-            android:text="Petunjuk Transfer ATM"
+            android:text="Petunjuk Transfer via ATM"
             android:textColor="@color/black"
             android:textSize="18dp"
             android:textStyle="bold" />
@@ -174,29 +241,33 @@
             android:textSize="15sp" />
 
         <Button
-            android:id="@+id/oktransaksi"
+            android:id="@+id/batal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/bg_button_login2"
+            android:layout_height="40dp"
+            android:layout_gravity="right"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bgtolak_pengajuan"
             android:padding="5dp"
-            android:text="Ajukan"
+            android:fontFamily="@font/mukta"
+            android:text="Batalkan"
+
             android:textAllCaps="false"
             android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/uploadBuktiTBSaldo"
             android:layout_width="match_parent"
             android:layout_height="54dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/bg_button_login3"
             android:padding="5dp"
-            android:text="Upload Bukti"
+            android:text="Upload Bukti Pembayaran"
             android:layout_marginBottom="45dp"
             android:textAllCaps="false"
+            android:fontFamily="@font/mukta"
             android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:textSize="18dp" />
 
 
 

@@ -21,10 +21,10 @@
         android:layout_height="30sp"
         android:layout_marginTop="5dp"
         android:textSize="10dp"
-        android:fontFamily="@font/miriamlibrebold"
+        android:fontFamily="@font/opensanssemisold"
         android:text="Uang Elektronik"
         android:textAlignment="center"
-        android:textColor="@color/black"
+        android:textColor="@color/green3"
 
         />
 

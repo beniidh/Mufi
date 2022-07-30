@@ -82,7 +82,7 @@
         android:layout_below="@id/linearLayout6"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
-        app:lottie_url="https://assets5.lottiefiles.com/private_files/lf30_2c7wnifx.json"
+        app:lottie_url="https://assets10.lottiefiles.com/packages/lf20_n2m0isqh.json"
         />
 
 

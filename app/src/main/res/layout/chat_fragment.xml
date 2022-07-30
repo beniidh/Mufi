@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/white"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
@@ -11,7 +12,7 @@
   <com.airbnb.lottie.LottieAnimationView
       android:layout_width="match_parent"
       android:layout_height="250dp"
-      app:lottie_url="https://assets4.lottiefiles.com/packages/lf20_qo07xg45.json"
+      app:lottie_url="https://assets4.lottiefiles.com/packages/lf20_zj4zuvsi.json"
       app:lottie_loop="true"
       app:lottie_autoPlay="true"
       android:layout_marginBottom="20dp"
@@ -43,7 +44,7 @@
                     android:layout_width="match_parent"
                     android:layout_marginTop="5dp"
                     android:layout_height="wrap_content"
-                    android:text="+62 812-9744-3747"
+                    android:text="+62 821-2411-1197"
                     android:textStyle="bold"
                     android:fontFamily="@font/notoregular"
                     />

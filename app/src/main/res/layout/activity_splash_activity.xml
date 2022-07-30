@@ -26,7 +26,7 @@
         android:layout_height="100dp"
         android:layout_marginBottom="92dp"
         app:lottie_autoPlay="true"
-        app:lottie_url="https://assets10.lottiefiles.com/packages/lf20_dkz94xcg.json"
+        app:lottie_url="https://assets9.lottiefiles.com/packages/lf20_p8bfn5to.json"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

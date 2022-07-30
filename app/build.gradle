@@ -2,16 +2,15 @@ plugins {
     id 'com.android.application'
     id 'com.google.gms.google-services'
     id 'com.google.firebase.crashlytics'
-
 }
 android {
     compileSdkVersion 32
     defaultConfig {
-        applicationId "com.c.kreload"
+        applicationId "com.c.cpay"
         minSdkVersion 21
         targetSdkVersion 32
-        versionCode 5
-        versionName "2.2"
+        versionCode 1
+        versionName "0"
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
