@@ -32,15 +32,16 @@
             android:layout_marginRight="5sp"
             android:layout_weight="1"
             android:focusable="false"
-            android:fontFamily="@font/mukta"
+            android:fontFamily="@font/opensansreguler"
             android:hint="Mulai"
-            android:textSize="15sp" />
+            android:textSize="15dp" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.3"
             android:text="To"
+            android:textSize="14dp"
             android:textAlignment="center"
             android:textStyle="bold" />
 
@@ -52,9 +53,9 @@
             android:layout_marginRight="5sp"
             android:layout_weight="1"
             android:focusable="false"
-            android:fontFamily="@font/mukta"
+            android:fontFamily="@font/opensansreguler"
             android:hint="Selesai"
-            android:textSize="15sp" />
+            android:textSize="15dp" />
 
     </LinearLayout>
 
@@ -81,6 +82,8 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="Total"
+                android:textSize="14dp"
+                android:fontFamily="@font/opensanssemisold"
                 android:textColor="@color/black"
                 android:textStyle="bold" />
 
@@ -88,10 +91,10 @@
                 android:id="@+id/idTotalTransaksiTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/mukta"
+                android:fontFamily="@font/opensansreguler"
                 android:text="0"
                 android:textAlignment="center"
-                android:textSize="20sp" />
+                android:textSize="20dp" />
         </LinearLayout>
 
         <LinearLayout
@@ -110,7 +113,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Sukses"
+                android:textSize="14dp"
                 android:textAlignment="center"
+                android:fontFamily="@font/opensanssemisold"
                 android:textColor="@color/black"
                 android:textStyle="bold" />
 
@@ -118,10 +123,10 @@
                 android:id="@+id/idTransaksiSuksesTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/mukta"
+                android:fontFamily="@font/opensansreguler"
                 android:text="0"
                 android:textAlignment="center"
-                android:textSize="20sp" />
+                android:textSize="20dp" />
 
         </LinearLayout>
 
@@ -141,7 +146,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Penjualan"
+            android:fontFamily="@font/opensanssemisold"
             android:textAlignment="center"
+            android:textSize="14dp"
             android:textColor="@color/black"
             android:textStyle="bold" />
 
@@ -149,16 +156,17 @@
             android:id="@+id/idTotalPengeluaranTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/mukta"
+            android:fontFamily="@font/opensansreguler"
             android:text="Rp.0"
             android:textAlignment="center"
-            android:textSize="20sp" />
+            android:textSize="20dp" />
 
     </LinearLayout>
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tablayoutransaksi"
         android:layout_width="match_parent"
+     android:theme="@style/MineCustomTabText"
         android:layout_height="wrap_content"
         app:tabIndicatorColor="@color/green"
         app:tabSelectedTextColor="@color/green" />

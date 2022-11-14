@@ -26,7 +26,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/mukta"
+            android:fontFamily="@font/opensanssemisold"
             android:text="Masukan PIN :"
             android:textAlignment="center"
             android:textColor="@color/green"
@@ -34,7 +34,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/mukta"
+            android:fontFamily="@font/opensansreguler"
             android:text="PIN anda digunakan untuk bertransaksi"
             android:textAlignment="center"
             android:textSize="18sp" />

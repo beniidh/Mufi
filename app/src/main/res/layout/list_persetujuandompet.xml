@@ -44,8 +44,10 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
                         android:layout_marginLeft="10sp"
+                        android:fontFamily="@font/opensanssemisold"
                         android:text="Dompet C-Software"
                         android:textColor="@color/black"
+                        android:textSize="14dp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -54,9 +56,10 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
                         android:layout_marginLeft="10sp"
-                        android:textSize="12sp"
+                        android:fontFamily="@font/opensansreguler"
                         android:text="30 April 2021"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/black"
+                        android:textSize="12dp" />
 
                 </RelativeLayout>
 
@@ -71,7 +74,9 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
                         android:layout_marginLeft="10sp"
+                        android:fontFamily="@font/opensansreguler"
                         android:text="Rp. 10.000"
+                        android:textSize="14dp"
                         android:textColor="@color/black" />
 
                     <TextView
@@ -81,7 +86,9 @@
                         android:layout_alignParentEnd="true"
                         android:layout_marginLeft="10sp"
                         android:background="@drawable/bg_button_login2"
+                        android:fontFamily="@font/opensansreguler"
                         android:paddingHorizontal="7dp"
+                        android:textSize="14dp"
                         android:text="Menunggu Persetujuan"
                         android:textColor="@color/white" />
 

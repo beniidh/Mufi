@@ -18,7 +18,7 @@
         android:textAllCaps="false"
         android:textColor="@color/black"
         android:textSize="17dp"
-        android:fontFamily="@font/poppinsbold"
+        android:fontFamily="@font/opensanssemisold"
         />
     <TextView
         android:id="@+id/deskripsi"
@@ -29,7 +29,7 @@
         android:layout_marginTop="5dp"
         android:textColor="@color/black"
         android:textSize="15dp"
-        android:fontFamily="@font/notoregular"
+        android:fontFamily="@font/opensansreguler"
         />
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -86,6 +86,7 @@
     android:paddingHorizontal="4dp"
     android:layout_marginTop="16dp"
     android:elevation="3dp"
+    android:fontFamily="@font/opensanssemisold"
     android:textAllCaps="false"
     android:textSize="14dp"
     android:textColor="@color/white"

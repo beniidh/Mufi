@@ -12,6 +12,7 @@
         android:id="@+id/Search_konter"
         android:layout_width="match_parent"
         android:layout_height="40dp"
+        android:textSize="15dp"
         android:background="@drawable/bg_search_modal"
         android:paddingStart="5dp" />
 

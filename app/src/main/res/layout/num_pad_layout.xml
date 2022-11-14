@@ -21,6 +21,7 @@
                 android:foreground="?android:attr/selectableItemBackground"
                 android:background="@android:color/transparent"
                 android:paddingStart="4dp"
+                android:fontFamily="@font/opensanssemisold"
                 android:paddingEnd="4dp"
                 android:text="1"
                 android:textColor="@color/green"
@@ -36,6 +37,7 @@
                 android:foreground="?android:attr/selectableItemBackground"
                 android:paddingEnd="4dp"
                 android:text="2"
+                android:fontFamily="@font/opensanssemisold"
                 android:textColor="@color/green"
                 android:textSize="30dp" />
 
@@ -48,6 +50,7 @@
                 android:background="@android:color/transparent"
                 android:paddingStart="4dp"
                 android:paddingEnd="4dp"
+                android:fontFamily="@font/opensanssemisold"
                 android:text="3"
                 android:textColor="@color/green"
                 android:textSize="30dp" />
@@ -66,6 +69,7 @@
                 android:foreground="?android:attr/selectableItemBackground"
                 android:paddingEnd="4dp"
                 android:text="4"
+                android:fontFamily="@font/opensanssemisold"
                 android:textColor="@color/green"
                 android:textSize="30dp" />
 
@@ -77,6 +81,7 @@
                 android:background="@android:color/transparent"
                 android:paddingStart="4dp"
                 android:paddingEnd="4dp"
+                android:fontFamily="@font/opensanssemisold"
                 android:foreground="?android:attr/selectableItemBackground"
                 android:text="5"
                 android:textColor="@color/green"
@@ -92,6 +97,7 @@
                 android:foreground="?android:attr/selectableItemBackground"
                 android:paddingEnd="4dp"
                 android:text="6"
+                android:fontFamily="@font/opensanssemisold"
                 android:textColor="@color/green"
                 android:textSize="30dp" />
 
@@ -109,6 +115,7 @@
                 android:paddingStart="4dp"
                 android:paddingEnd="4dp"
                 android:text="7"
+                android:fontFamily="@font/opensanssemisold"
                 android:textColor="@color/green"
                 android:textSize="30dp" />
 
@@ -121,6 +128,7 @@
                 android:paddingStart="4dp"
                 android:paddingEnd="4dp"
                 android:text="8"
+                android:fontFamily="@font/opensanssemisold"
                 android:foreground="?android:attr/selectableItemBackground"
                 android:textColor="@color/green"
                 android:textSize="30dp" />
@@ -134,6 +142,7 @@
                 android:paddingStart="4dp"
                 android:paddingEnd="4dp"
                 android:text="9"
+                android:fontFamily="@font/opensanssemisold"
                 android:foreground="?android:attr/selectableItemBackground"
                 android:textColor="@color/green"
                 android:textSize="30dp" />
@@ -161,6 +170,7 @@
                 android:paddingStart="4dp"
                 android:paddingEnd="4dp"
                 android:text="0"
+                android:fontFamily="@font/opensanssemisold"
                 android:foreground="?android:attr/selectableItemBackground"
                 android:textColor="@color/green"
                 android:textSize="30dp" />
@@ -185,6 +195,7 @@
             android:layout_below="@+id/tblNumpad"
             android:gravity="center"
             android:text="Lupa pin"
+            android:fontFamily="@font/opensanssemisold"
             android:textAlignment="center"
             android:textColor="@color/green" />
 

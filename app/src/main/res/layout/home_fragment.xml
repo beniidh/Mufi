@@ -8,10 +8,9 @@
     android:background="@color/white"
     android:orientation="vertical"
     android:padding="10dp"
-    android:scrollbars="none"
-    tools:context=".Fragment.HomeFragment">
+    >
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:scrollbars="none">
@@ -19,9 +18,119 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="120dp"
             android:orientation="vertical"
             android:padding="6dp">
 
+            <com.smarteist.autoimageslider.SliderView
+                android:id="@+id/imageSlider"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/bg_putih"
+                android:elevation="3dp"
+                android:padding="2dp"
+                app:sliderAnimationDuration="600"
+                app:sliderAutoCycleDirection="back_and_forth"
+                app:sliderIndicatorAnimationDuration="600"
+                app:sliderIndicatorGravity="center_horizontal|bottom"
+                app:sliderIndicatorMargin="10dp"
+                app:sliderIndicatorOrientation="horizontal"
+                app:sliderIndicatorPadding="3dp"
+                app:sliderIndicatorRadius="1.5dp"
+                app:sliderScrollTimeInSec="1" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/bg_button_homesaldo"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="8dp">
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/databasepay" />
+
+                <LinearLayout
+                    android:id="@+id/KlikSaldoku"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/acmereguler"
+                        android:text="@string/saldoku"
+                        android:textColor="@color/green"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+
+
+                    <TextView
+                        android:id="@+id/saldoku"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:fontFamily="@font/poppins"
+                        android:text="0"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="6dp"
+                    android:background="@color/gray3" />
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/databasepay" />
+
+                <LinearLayout
+                    android:id="@+id/kliksaldoserver"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/acmereguler"
+                        android:text="Saldo Server"
+                        android:textColor="@color/green"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/saldoserver"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins"
+                        android:text="0"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+
+                </LinearLayout>
+
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/marqueeText"
@@ -38,93 +147,15 @@
                 android:paddingVertical="3dp"
                 android:scrollHorizontally="true"
                 android:singleLine="true"
-                android:text="Selamat datang di Aplikasi Latansa Reload, maksimalkan transaksi anda bersama Latansa Reload"
+                android:text="Selamat datang di Aplikasi Barokah Reload, maksimalkan transaksi anda bersama Barokah Reload"
                 android:textColor="@color/white"
                 android:textSize="16sp"
-                android:visibility="gone"
                 tools:ignore="HardcodedText" />
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="20dp"
-                android:background="@drawable/bg_button_homesaldo"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:padding="8dp">
-
-                <TextView
-                    android:id="@+id/caption"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="54dp"
-                    android:layout_marginTop="5dp"
-                    android:fontFamily="@font/opensanssemisold"
-                    android:text="Saldo"
-                    android:textColor="@color/green3"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/saldoku"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
-                    android:fontFamily="@font/opensansbold"
-                    android:text="Rp.1.000.000"
-                    android:textColor="@color/green3"
-                    app:layout_constraintEnd_toEndOf="@+id/caption"
-                    app:layout_constraintStart_toStartOf="@+id/caption"
-                    app:layout_constraintTop_toBottomOf="@+id/caption" />
-
-
-                <ImageView
-                    android:id="@+id/imageView2"
-                    android:layout_width="39dp"
-                    android:layout_height="39dp"
-                    android:layout_marginEnd="20dp"
-                    android:src="@drawable/logoqris"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="3dp"
-                    android:fontFamily="@font/opensansbold"
-                    android:text="QRIS"
-                    android:textColor="@color/green3"
-                    app:layout_constraintEnd_toEndOf="@+id/imageView2"
-                    app:layout_constraintStart_toStartOf="@+id/imageView2"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView2" />
-
-                <ImageView
-                    android:id="@+id/imageView3"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_marginEnd="28dp"
-                    android:src="@drawable/ic_baseline_add_circle_24"
-                    app:layout_constraintEnd_toStartOf="@+id/imageView2"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
-                    android:fontFamily="@font/opensansbold"
-                    android:text="Isi Saldo"
-                    android:textColor="@color/green3"
-                    app:layout_constraintEnd_toEndOf="@+id/imageView3"
-                    app:layout_constraintStart_toStartOf="@+id/imageView3"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView3" />
-
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:fontFamily="@font/opensansbold"
                 android:text="Prabayar"
@@ -146,52 +177,40 @@
                 android:textColor="@color/green3"
                 android:textSize="16dp" />
 
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/ReyMenuUtamaPasca"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-            />
-
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:textColor="@color/green3"
-                android:visibility="gone"
-                android:fontFamily="@font/opensansbold"
-                android:text="Menu Lainnya"
-                android:textSize="16dp" />
+                android:layout_marginBottom="20dp"
+                android:layout_height="wrap_content" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/ReyMenuDirect"
                 android:layout_width="match_parent"
-                android:visibility="gone"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="40sp" />
+                android:layout_marginBottom="60sp"
+                android:visibility="gone" />
 
-            <com.smarteist.autoimageslider.SliderView
-                android:id="@+id/imageSlider"
+            <TextView
+                android:id="@+id/CaptionLainnya"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/opensansbold"
+                android:text="Lainnya"
+                android:textColor="@color/green3"
+                android:textSize="16dp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/reyLainnya"
                 android:layout_width="match_parent"
-                android:layout_height="160dp"
-                android:padding="2dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="70dp"
-            android:background="@drawable/bg_putih"
-                android:elevation="3dp"
-                app:sliderAnimationDuration="600"
-                app:sliderAutoCycleDirection="back_and_forth"
-                app:sliderIndicatorAnimationDuration="600"
-                app:sliderIndicatorGravity="center_horizontal|bottom"
-                app:sliderIndicatorMargin="10dp"
-                app:sliderIndicatorOrientation="horizontal"
-                app:sliderIndicatorPadding="3dp"
-                app:sliderIndicatorRadius="1.5dp"
-                app:sliderScrollTimeInSec="1" />
+                android:layout_marginBottom="35dp"
+                android:layout_height="wrap_content"/>
+
 
         </LinearLayout>
 
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

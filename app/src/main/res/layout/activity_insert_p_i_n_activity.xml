@@ -21,11 +21,11 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/mukta"
+            android:fontFamily="@font/opensanssemisold"
             android:text="@string/masukan_pin"
             android:textAlignment="center"
             android:textColor="@color/green"
-            android:textSize="27sp" />
+            android:textSize="27dp" />
 
         <com.oakkub.android.PinEditText
             android:id="@+id/pinsatu"
@@ -64,11 +64,11 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/mukta"
+            android:fontFamily="@font/opensanssemisold"
             android:text="@string/konfirmasi_pin"
             android:textAlignment="center"
             android:textColor="@color/green"
-            android:textSize="27sp" />
+            android:textSize="27dp" />
 
         <com.oakkub.android.PinEditText
             android:id="@+id/pindua"

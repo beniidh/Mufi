@@ -15,7 +15,7 @@
         android:layout_marginTop="5dp"
         android:layout_width="match_parent"
         android:hint="Pilih Tipe"
-        android:textSize="17sp"
+        android:textSize="17dp"
         android:layout_height="47dp"/>
 
     <EditText
@@ -25,8 +25,9 @@
         android:layout_width="match_parent"
         android:hint="Masukan Harga"
         android:paddingStart="9sp"
+        android:fontFamily="@font/opensanssemisold"
         android:background="@drawable/bg_edittextlogin"
-        android:textSize="17sp"
+        android:textSize="17dp"
         android:layout_height="47dp"/>
 
     <Button
@@ -36,7 +37,7 @@
         android:layout_marginTop="20sp"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        android:textSize="18sp"
+        android:textSize="18dp"
         android:text="Simpan"
         android:background="@drawable/bg_button_login2"
         />

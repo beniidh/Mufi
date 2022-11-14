@@ -2,8 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/paste"
-        android:icon="@drawable/ic_baseline_home"
-        android:title="paste" />
 
+        android:title="paste" />
+    <item
+        android:id="@+id/copy"
+
+        android:title="copy" />
 
 </menu>

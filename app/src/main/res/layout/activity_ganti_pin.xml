@@ -13,9 +13,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="15sp"
-        android:fontFamily="@font/mukta"
+        android:fontFamily="@font/opensansreguler"
         android:text="Reset PIN"
-        android:textSize="18sp"
+        android:textSize="18dp"
         android:textStyle="bold" />
 
     <EditText
@@ -25,27 +25,30 @@
         android:background="@drawable/bg_edittextlogin"
         android:drawableRight="@drawable/ic_baseline_mail_outline_24"
         android:hint="Masukan Email"
+        android:fontFamily="@font/opensansreguler"
         android:paddingStart="10sp"
         android:paddingRight="10sp"
-        android:textSize="17sp" />
+        android:textSize="17dp" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
+        android:fontFamily="@font/opensansreguler"
         android:text="* Masukan alamat Email untuk mengirimkan link perubahan PIN"
-        android:textSize="11sp" />
+        android:textSize="11dp" />
 
     <Button
         android:id="@+id/ResetPINGanti"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:background="@drawable/bg_button_login3"
+        android:background="@drawable/bg_button_login2"
         android:text="Reset PIN"
+        android:fontFamily="@font/opensanssemisold"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        android:textSize="18sp" />
+        android:textSize="18dp" />
 
     <TextView
         android:id="@+id/keterangangantipin"
@@ -54,6 +57,6 @@
         android:layout_marginTop="25dp"
         android:text=""
         android:textAlignment="center"
-        android:textSize="15sp" />
+        android:textSize="15dp" />
 
 </LinearLayout>

@@ -1,17 +1,17 @@
 <resources>
-    <string name="app_name">C-pay.id</string>
+    <string name="app_name">Barokah Reload</string>
     <string name="keteranganOTP">Untuk mendapatkan Kode OTP silahkan pilih salah satu metode dibawah ini :</string>
     <string name="otp">Kode telah dikirim ke Email, silahkan cek Email Anda</string>
     <string name="syaratketentuan">Terima kasih Anda telah mengakses situs atau mengunduh,
-        menggunakan layanan, produk dan/atau aplikasi (“Aplikasi”) C-pay.id. Pada saat Anda
-        mengakses, mengunduh atau menggunakan Aplikasi C-pay.id maka Syarat dan Ketentuan ini
+        menggunakan layanan, produk dan/atau aplikasi (“Aplikasi”) Barokah Reload. Pada saat Anda
+        mengakses, mengunduh atau menggunakan Aplikasi Barokah Reload maka Syarat dan Ketentuan ini
         berlaku terhadap Anda. Dengan melanjutkan mengakses, mengunduh atau menggunakan Aplikasi
-        C-pay.id, Anda mengakui dan menyetujui bahwa Anda telah membaca dengan teliti, memahami,
+        Barokah Reload, Anda mengakui dan menyetujui bahwa Anda telah membaca dengan teliti, memahami,
         menerima dan menyetujui seluruh Syarat dan Ketentuan ini yang akan berlaku sebagai
-        perjanjian antara Anda dengan Kami. Syarat dan Ketentuan ini juga berlaku setiap kali
-        Anda melakukan transaksi menggunakan Aplikasi C-pay.id melalui mitra penyedia
+        perjanjian antara Anda dengan Kami. Aplikasi ini juga menampilkan daftar kontak anda untuk keperluan transaksi. Syarat dan Ketentuan ini juga berlaku setiap kali
+        Anda melakukan transaksi menggunakan Aplikasi Barokah Reload melalui mitra penyedia
         platform lain yang menandatangani perjanjian kerjasama dengan Kami dan menggunakan
-        Aplikasi C-pay.id sebagai salah satu metode pembayaran (“Partner C-pay.id”)</string>
+        Aplikasi Barokah Reload sebagai salah satu metode pembayaran (“Partner Barokah Reload”)</string>
 
     <string name="Open">buka</string>
     <string name="Close">tutup</string>
@@ -39,13 +39,14 @@
     <string name="nom3">3. Berikan uang tunai sesuai nominal Tagihan</string>
     <string name="nom4">4. Anda akan menerima Notifikasi Tagihan saldo server telah dibayar</string>
     <string name="bank">Silakan lakukan transfer pembayaran ke nomor rekening yang tertera diatas maksimal 6 jam dari pengajuan. Untuk kendala Deposit, Hubungi CS</string>
+    <string name="va">Silakan lakukan transfer pembayaran ke nomor Virtual Account yang tertera diatas maksimal 6 jam dari pengajuan. Untuk kendala Deposit, Hubungi CS</string>
     <string name="car1">1. Masukan kartu ATM dan PIN Rekening Anda</string>
     <string name="car2">2. Pilih menu Transfer</string>
     <string name="car3">3. Pilih bank yang dituju</string>
     <string name="car4">4. Masukan nomor rekening Tujuan</string>
     <string name="car6">6. Ikuti instruksi untuk menyelesaikan transaksi</string>
     <string name="car5">5. Masukan nominal Tagihan</string>
-    <string name="selamat_datang_di_dompet_abata">Selamat Datang di C-pay.id !</string>
+    <string name="selamat_datang_di_dompet_abata">Selamat Datang di Barokah Reload !</string>
     <string name="saya_menerima_dan_menyetujui_syarat_dan_ketentuan_aplikasi">Saya menerima dan menyetujui Syarat dan Ketentuan Aplikasi</string>
     <string name="silahkan_hubungi_cs_jika_dalam_1x24_jam_pembelian_belum_diterima">Silahkan Hubungi CS jika dalam 1x24 jam pembelian belum diterima</string>
     <string name="produk">Produk</string>
@@ -106,7 +107,7 @@
     <string name="daftar">Daftar</string>
     <string name="tidak_memiliki_akun">Tidak memiliki akun ?</string>
     <string name="masuk">Masuk</string>
-    <string name="ingat_selalu_saya">Ingat Selalu Saya</string>
+    <string name="ingat_selalu_saya">Setujui</string>
     <string name="nomor_telepone">Nomor Telepone</string>
     <string name="login">Login</string>
     <string name="masukan_pin">Masukan PIN</string>
@@ -134,12 +135,12 @@
     <string name="kode_posf">Kode Pos</string>
     <string name="pilih_kode_posd">Pilih Kode Pos</string>
     <string name="nomor_hanphoned">Nomor Hanphone</string>
-    <string name="nomor_yang_dimasukan_digunakan_untuk_logind">Nomor yang dimasukan digunakan untuk login</string>
+    <string name="nomor_yang_dimasukan_digunakan_untuk_logind">Nomor yang didaftarkan digunakan untuk login</string>
     <string name="masukan_nomord">Masukan Nomor</string>
     <string name="kode_referal_sales">Kode Referal Sales</string>
-    <string name="masukan_kode_referal">Masukan Kode Referal</string>
+    <string name="masukan_kode_referal">Masukan Kode Referal ( Tidak Wajib )</string>
     <string name="server_id">Server ID</string>
-    <string name="srvid00000016">SRVID00000033</string>
+    <string name="SRVID00000060">SRVID00000060</string>
     <string name="pilih_server">Pilih Server</string>
     <string name="selanjutnya">Selanjutnya</string>
     <string name="pending">Pending</string>

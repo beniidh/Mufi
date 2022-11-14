@@ -12,6 +12,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/opensanssemisold"
+        android:textSize="16dp"
         android:text="Batalkan Top up Saldoku ?"
         android:textColor="@color/black"
         />
@@ -27,9 +29,11 @@
             android:layout_width="0dp"
             android:layout_height="36dp"
             android:layout_margin="6dp"
+            android:fontFamily="@font/opensanssemisold"
             android:layout_weight="1"
             android:background="@drawable/bgtolak_pengajuan"
             android:text="Tidak"
+            android:textSize="16dp"
             android:textAllCaps="false"
             android:textColor="@color/white" />
 
@@ -39,8 +43,10 @@
             android:layout_height="36dp"
             android:layout_margin="6dp"
             android:layout_weight="1"
+            android:fontFamily="@font/opensanssemisold"
             android:background="@drawable/bgsetuju_pengajuan"
             android:text="Ya"
+            android:textSize="16dp"
             android:textAllCaps="false"
             android:textColor="@color/white" />
 

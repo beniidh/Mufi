@@ -18,10 +18,10 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins"
+            android:fontFamily="@font/opensanssemisold"
             android:text="Bayar ke Server"
             android:textColor="@color/green"
-            android:textSize="20sp" />
+            android:textSize="20dp" />
 
         <View
             android:layout_width="match_parent"
@@ -33,10 +33,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:fontFamily="@font/poppins"
+            android:fontFamily="@font/opensansreguler"
             android:text="Total Top UP"
             android:textColor="@color/black"
-            android:textSize="16sp"
+            android:textSize="16dp"
 
             />
 
@@ -51,10 +51,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:fontFamily="@font/mukta"
+                android:fontFamily="@font/opensansreguler"
                 android:text=""
                 android:textColor="@color/black"
-                android:textSize="23sp"
+                android:textSize="23dp"
                 android:textStyle="bold" />
 
 
@@ -69,10 +69,10 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins"
+            android:fontFamily="@font/opensansreguler"
             android:text="Server"
             android:textColor="@color/black"
-            android:textSize="16sp"
+            android:textSize="16dp"
 
             />
 
@@ -80,10 +80,10 @@
             android:id="@+id/namasalesserver"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/mukta"
+            android:fontFamily="@font/opensansreguler"
             android:text=""
             android:textColor="@color/black"
-            android:textSize="23sp"
+            android:textSize="23dp"
             android:textStyle="bold" />
 
         <View
@@ -97,7 +97,8 @@
             android:layout_height="wrap_content"
             android:background="@drawable/bgsalessaldoku"
             android:padding="10dp"
-            android:fontFamily="sans-serif-medium"
+            android:textSize="15dp"
+            android:fontFamily="@font/opensansreguler"
             android:text="@string/salessaldoku"
             android:textAlignment="center" />
 
@@ -105,7 +106,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:fontFamily="@font/poppins"
+            android:fontFamily="@font/opensanssemisold"
             android:text="Petunjuk Bayar Server"
             android:textColor="@color/black"
             android:textSize="18dp"
@@ -115,37 +116,37 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:fontFamily="@font/mukta"
+            android:fontFamily="@font/opensansreguler"
             android:text="@string/nom1"
             android:textColor="@color/gray4"
-            android:textSize="15sp" />
+            android:textSize="15dp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="1dp"
-            android:fontFamily="@font/mukta"
+            android:fontFamily="@font/opensansreguler"
             android:text="@string/nomdua"
             android:textColor="@color/gray4"
-            android:textSize="15sp"  />
+            android:textSize="15dp"  />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="1dp"
-            android:fontFamily="@font/mukta"
+            android:fontFamily="@font/opensansreguler"
             android:text="@string/nom3"
             android:textColor="@color/gray4"
-            android:textSize="15sp"  />
+            android:textSize="15dp"  />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="1dp"
-            android:fontFamily="@font/mukta"
+            android:fontFamily="@font/opensansreguler"
             android:text="@string/nom4"
             android:textColor="@color/gray4"
-            android:textSize="15sp"  />
+            android:textSize="15dp"  />
 
         <Button
             android:id="@+id/idbayarsaldokuButton"
@@ -154,9 +155,10 @@
             android:layout_marginTop="20dp"
             android:background="@drawable/bg_button_login2"
             android:text="OK"
+            android:fontFamily="@font/opensanssemisold"
             android:textColor="@color/white"
             android:layout_marginBottom="10dp"
-            android:textSize="20sp" />
+            android:textSize="20dp" />
     </LinearLayout>
 
 </ScrollView>

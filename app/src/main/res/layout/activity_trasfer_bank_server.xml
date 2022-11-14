@@ -17,10 +17,10 @@
             android:id="@+id/BankTujuan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/mukta"
+            android:fontFamily="@font/opensanssemisold"
             android:text="Transfer Bank BCA"
             android:textColor="@color/green"
-            android:textSize="20sp" />
+            android:textSize="20dp" />
 
         <View
             android:layout_width="match_parent"
@@ -32,7 +32,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:fontFamily="@font/mukta"
+            android:fontFamily="@font/opensanssemisold"
             android:text="Total Tagihan"
             android:textColor="@color/black"
             android:textSize="18dp"
@@ -50,10 +50,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:fontFamily="@font/mukta"
+                android:fontFamily="@font/opensanssemisold"
                 android:text="1.000.000"
                 android:textColor="@color/black"
-                android:textSize="22sp"
+                android:textSize="22dp"
                 android:textStyle="bold" />
 
 
@@ -68,7 +68,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/mukta"
+            android:fontFamily="@font/opensanssemisold"
             android:text="No. Rekening"
             android:textColor="@color/black"
             android:textSize="18dp"
@@ -79,17 +79,17 @@
             android:id="@+id/rekeningserver"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/mukta"
+            android:fontFamily="@font/opensanssemisold"
             android:text="4970756308"
             android:textColor="@color/black"
-            android:textSize="22sp"
+            android:textSize="22dp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/namaRekeningServer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/mukta"
+            android:fontFamily="@font/opensanssemisold"
             android:text="A.n ZAENAL ABDI"
             android:textColor="@color/gray3"
             android:textSize="18dp"
@@ -107,6 +107,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/bgsalessaldoku"
             android:padding="10dp"
+            android:fontFamily="@font/opensansreguler"
             android:text="@string/bank"
             android:textAlignment="center" />
 
@@ -124,55 +125,55 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:fontFamily="@font/mukta"
+            android:fontFamily="@font/opensanssemisold"
             android:text="@string/car1"
             android:textColor="@color/gray4"
-            android:textSize="15sp" />
+            android:textSize="15dp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="1dp"
-            android:fontFamily="@font/mukta"
+            android:fontFamily="@font/opensanssemisold"
             android:text="@string/car2"
             android:textColor="@color/gray4"
-            android:textSize="15sp" />
+            android:textSize="15dp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="1dp"
-            android:fontFamily="@font/mukta"
+            android:fontFamily="@font/opensanssemisold"
             android:text="@string/car3"
             android:textColor="@color/gray4"
-            android:textSize="15sp" />
+            android:textSize="15dp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="1dp"
-            android:fontFamily="@font/mukta"
+            android:fontFamily="@font/opensanssemisold"
             android:text="@string/car4"
             android:textColor="@color/gray4"
-            android:textSize="15sp" />
+            android:textSize="15dp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="1dp"
-            android:fontFamily="@font/mukta"
+            android:fontFamily="@font/opensanssemisold"
             android:text="@string/car5"
             android:textColor="@color/gray4"
-            android:textSize="15sp" />
+            android:textSize="15dp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="1dp"
-            android:fontFamily="@font/mukta"
+            android:fontFamily="@font/opensanssemisold"
             android:text="@string/car6"
             android:textColor="@color/gray4"
-            android:textSize="15sp" />
+            android:textSize="15dp" />
 
         <Button
             android:id="@+id/oktransaksi"
@@ -182,22 +183,24 @@
             android:background="@drawable/bg_button_login2"
             android:padding="5dp"
             android:text="Ajukan"
+            android:fontFamily="@font/opensanssemisold"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:textSize="20dp" />
 
         <Button
             android:id="@+id/uploadBuktiTBSaldo"
             android:layout_width="match_parent"
             android:layout_height="54dp"
             android:layout_marginTop="10dp"
+            android:fontFamily="@font/opensanssemisold"
             android:background="@drawable/bg_button_login3"
             android:padding="5dp"
             android:text="Upload Bukti"
             android:layout_marginBottom="45dp"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:textSize="20dp" />
 
 
 

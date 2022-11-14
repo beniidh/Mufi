@@ -16,16 +16,19 @@
             android:id="@+id/NTketerangantransaksi"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:fontFamily="@font/opensanssemisold"
             android:text="Transaksi tranfers ditutup"
             android:textColor="@color/black"
-            android:textSize="16sp"
+            android:textSize="16dp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/NTketeranganisi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="14dp"
             android:layout_marginTop="4dp"
+            android:fontFamily="@font/opensansreguler"
             android:text="Transaksi transfer sedang tidak dapat digunakan. mohon dikondisikan."
             android:textColor="@color/gray4" />
 
@@ -40,6 +43,8 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="4dp"
                 android:text="22/06/2021"
+                android:textSize="15dp"
+                android:fontFamily="@font/opensansreguler"
                 android:textColor="@color/gray4" />
 
             <TextView
@@ -49,6 +54,8 @@
                 android:layout_marginLeft="6dp"
                 android:layout_marginTop="4dp"
                 android:text="15.30"
+                android:textSize="15dp"
+                android:fontFamily="@font/opensansreguler"
                 android:textColor="@color/gray4" />
 
         </LinearLayout>

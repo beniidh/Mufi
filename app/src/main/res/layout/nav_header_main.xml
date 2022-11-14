@@ -42,7 +42,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Konter Amadea"
-                android:fontFamily="@font/miriamlibrebold"
+                android:fontFamily="@font/opensansreguler"
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 android:layout_marginLeft="18dp"
@@ -52,7 +52,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="DA009AB"
-                android:fontFamily="@font/miriamlibrereguler"
+                android:fontFamily="@font/opensansreguler"
                 android:textColor="@color/gray3"
                 android:layout_marginLeft="20dp"
                 android:textSize="17dp"/>
@@ -82,7 +82,7 @@
             android:text="Profil Saya"
             android:textColor="@color/black"
             android:gravity="center"
-            android:fontFamily="@font/miriamlibrebold"
+            android:fontFamily="@font/opensanssemisold"
             android:textSize="17dp"
             android:layout_marginLeft="10dp"
             />

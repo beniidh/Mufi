@@ -29,22 +29,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:fontFamily="@font/mukta"
+                android:fontFamily="@font/opensanssemisold"
                 android:text="@string/selamat_datang_di_dompet_abata"
                 android:textColor="@color/black"
-                android:textSize="17sp"
+                android:textSize="17dp"
                 android:textStyle="bold" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:fontFamily="@font/hindsiligur"
+                android:fontFamily="@font/opensansreguler"
                 android:justificationMode="inter_word"
                 android:text="@string/syaratketentuan"
                 android:textAlignment="textStart"
                 android:textColor="@color/black"
-                android:textSize="16sp" />
+                android:textSize="16dp" />
 
             <LinearLayout
                 android:id="@+id/linearLayout3"
@@ -59,6 +59,7 @@
                     android:layout_width="wrap_content"
                     android:textStyle="bold"
                     android:checked="true"
+                    android:fontFamily="@font/opensansreguler"
                     android:text="@string/saya_menerima_dan_menyetujui_syarat_dan_ketentuan_aplikasi"
                     android:layout_height="wrap_content" />
 
@@ -70,7 +71,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/bg_button_login2"
-                android:fontFamily="@font/mukta"
+                android:fontFamily="@font/opensanssemisold"
                 android:foreground="?android:attr/selectableItemBackground"
                 android:onClick="SendOTP"
                 android:text="Daftar"

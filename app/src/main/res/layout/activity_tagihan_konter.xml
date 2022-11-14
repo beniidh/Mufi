@@ -12,8 +12,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Daftar Tagihan Konter"
-        android:textSize="16sp"
-        android:fontFamily="@font/mukta"
+        android:textSize="16dp"
+        android:fontFamily="@font/opensanssemisold"
         android:textColor="@color/black"
         />
 
@@ -28,9 +28,9 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:focusable="false"
-        android:textSize="17sp"
+        android:textSize="17dp"
         android:textColor="@color/gray4"
-        android:fontFamily="@font/mukta"
+        android:fontFamily="@font/opensansreguler"
         android:paddingStart="15dp"
         android:paddingVertical="2dp"
         android:hint="Tanggal"

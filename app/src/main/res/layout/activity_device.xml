@@ -11,8 +11,8 @@
         android:layout_height="wrap_content"
         android:text="Total Device"
         android:textColor="@color/black"
-        android:fontFamily="@font/mukta"
-        android:textSize="20sp"
+        android:fontFamily="@font/opensanssemisold"
+        android:textSize="20dp"
         />
 
 

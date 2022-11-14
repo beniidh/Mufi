@@ -39,7 +39,7 @@
                 android:padding="2dp"
                 android:textStyle="bold"
                 android:layout_gravity="end"
-                android:textSize="12sp"
+                android:textSize="12dp"
                 android:background="@drawable/bgtolak_pengajuan"
                 android:textColor="@color/white"
                 />
@@ -49,19 +49,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="-"
-                android:fontFamily="@font/miriamlibrebold"
+                android:fontFamily="@font/opensanssemisold"
                 android:textStyle="bold"
                 android:textColor="@color/black"
-                android:textSize="15sp" />
+                android:textSize="15dp" />
 
             <TextView
                 android:id="@+id/brandair"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/miriamlibrebold"
+                android:fontFamily="@font/opensansreguler"
                 android:text="-"
                 android:textColor="@color/black"
-                android:textSize="14sp"
+                android:textSize="14dp"
                 android:textStyle="bold" />
 
             <TextView
@@ -69,9 +69,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="-"
-                android:fontFamily="@font/mukta"
+                android:fontFamily="@font/opensansreguler"
                 android:textColor="@color/gray4"
-                android:textSize="13sp" />
+                android:textSize="13dp" />
 
 
         </LinearLayout>

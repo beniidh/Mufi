@@ -38,10 +38,10 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="2dp"
             android:fontFamily="@font/opensansbold"
-            android:text="Konter Agus"
+            android:text=""
             android:textAlignment="textEnd"
             android:textColor="@color/green3"
-            android:textSize="15sp"
+            android:textSize="15dp"
             android:textStyle="bold"
  />
 

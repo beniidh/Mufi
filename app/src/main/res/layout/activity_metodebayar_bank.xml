@@ -26,28 +26,28 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20px"
-            android:fontFamily="@font/mukta"
+            android:fontFamily="@font/opensanssemisold"
             android:text="Pembayaran"
             android:textColor="@color/gray4"
-            android:textSize="18sp" />
+            android:textSize="18dp" />
 
         <TextView
             android:id="@+id/pemayarankonfirasi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/mukta"
+            android:fontFamily="@font/opensansreguler"
             android:text="Rp.0"
             android:textColor="@color/gray4"
-            android:textSize="22sp" />
+            android:textSize="22dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20sp"
-            android:fontFamily="@font/mukta"
+            android:fontFamily="@font/opensanssemisold"
             android:text="Pilih Metode Pembayaran"
             android:textColor="@color/black"
-            android:textSize="16sp" />
+            android:textSize="16dp" />
 
         <RelativeLayout
             android:id="@+id/LinearSaldoku"
@@ -71,19 +71,19 @@
                     android:id="@+id/saldokuket1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/notoregular"
+                    android:fontFamily="@font/opensansreguler"
                     android:text="Saldoku"
                     android:textColor="@color/black"
-                    android:textSize="16sp" />
+                    android:textSize="16dp" />
 
                 <TextView
                     android:id="@+id/saldokuket2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/mukta"
+                    android:fontFamily="@font/opensanssemisold"
                     android:text="Rp.0"
                     android:textColor="@color/black"
-                    android:textSize="19sp"
+                    android:textSize="19dp"
                     android:textStyle="bold" />
 
             </LinearLayout>
@@ -123,19 +123,19 @@
                     android:id="@+id/saldoserverket1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/notoregular"
+                    android:fontFamily="@font/opensansreguler"
                     android:text="Saldo Server"
                     android:textColor="@color/black"
-                    android:textSize="16sp" />
+                    android:textSize="16dp" />
 
                 <TextView
                     android:id="@+id/saldoserverket2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/mukta"
+                    android:fontFamily="@font/opensanssemisold"
                     android:text="Rp.0"
                     android:textColor="@color/black"
-                    android:textSize="19sp"
+                    android:textSize="19dp"
                     android:textStyle="bold" />
 
             </LinearLayout>
@@ -160,7 +160,8 @@
         android:layout_height="wrap_content"
         android:background="@drawable/bg_button_login2"
         android:text="Bayar"
-        android:textSize="20sp"
+        android:fontFamily="@font/opensanssemisold"
+        android:textSize="20dp"
         android:textAllCaps="false"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"

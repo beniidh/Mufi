@@ -30,9 +30,9 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="30dp"
                 android:textColor="@color/black"
-                android:fontFamily="@font/notoregular"
+                android:fontFamily="@font/opensanssemisold"
                 android:text="Masukan Harga Jual"
-                android:textSize="20sp"
+                android:textSize="20dp"
                 android:textStyle="bold" />
             <TextView
                 android:layout_width="wrap_content"
@@ -40,9 +40,9 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="5dp"
                 android:textColor="@color/black"
-                android:fontFamily="@font/notoregular"
+                android:fontFamily="@font/opensanssemisold"
                 android:text="Harga total : 11.0000"
-                android:textSize="15sp"
+                android:textSize="15dp"
               />
 
            <EditText
@@ -51,6 +51,8 @@
                android:hint="Harga Jual"
                android:textAlignment="center"
                android:inputType="number"
+               android:textSize="15dp"
+               android:fontFamily="@font/opensansreguler"
                android:layout_marginHorizontal="20sp"
                android:layout_height="wrap_content"/>
 
@@ -67,6 +69,8 @@
                 android:background="@drawable/bg_button_login3"
                 android:layout_height="36dp"
                 android:text="Batal"
+                android:textSize="15dp"
+                android:fontFamily="@font/opensanssemisold"
                 android:textColor="@color/white"
                 android:textAllCaps="false"/>
             <Button
@@ -74,9 +78,11 @@
                 android:layout_width="0dp"
                 android:layout_margin="6dp"
                 android:layout_weight="1"
+                android:fontFamily="@font/opensanssemisold"
                 android:background="@drawable/bg_button_login2"
                 android:layout_height="36dp"
                 android:text="Masuk"
+                android:textSize="15dp"
                 android:textColor="@color/white"
                 android:textAllCaps="false"/>
 

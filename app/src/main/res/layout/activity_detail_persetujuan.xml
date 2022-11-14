@@ -19,8 +19,9 @@
             android:layout_height="wrap_content"
             android:text="Limit Saldo Server Saat ini"
             android:textAlignment="center"
+            android:fontFamily="@font/opensansreguler"
             android:textColor="@color/black"
-            android:textSize="17dp" />
+            android:textSize="15dp" />
 
         <TextView
             android:id="@+id/saldoServerSaatini"
@@ -28,9 +29,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="RP 100.000"
+            android:fontFamily="@font/opensansreguler"
             android:textAlignment="center"
             android:textColor="@color/black"
-            android:textSize="28dp"
+            android:textSize="24dp"
             android:layout_marginBottom="10dp"
             android:textStyle="bold" />
 
@@ -46,6 +48,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="5dp"
+                android:fontFamily="@font/opensansreguler"
                 android:text="Nominal Pengajuan Limit Baru "
                 android:textSize="15dp" />
 
@@ -56,8 +59,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="RP 200.000"
+                android:fontFamily="@font/opensansreguler"
                 android:textColor="@color/black"
-                android:textSize="20sp"
+                android:textSize="20dp"
                 android:textStyle="bold" />
 
         <LinearLayout
@@ -74,6 +78,7 @@
                 android:background="@drawable/bgtolak_pengajuan"
                 android:textColor="@color/white"
                 android:textSize="18dp"
+                android:fontFamily="@font/opensanssemisold"
                 android:layout_marginRight="10dp"
                 android:textAllCaps="false"
                 android:layout_weight="1"/>
@@ -83,6 +88,7 @@
                 android:layout_width="0dp"
                 android:layout_height="42dp"
                 android:text="Setuju"
+                android:fontFamily="@font/opensanssemisold"
                 android:background="@drawable/bgsetuju_pengajuan"
                 android:textColor="@color/white"
                 android:textSize="18dp"
@@ -101,7 +107,7 @@
             android:layout_marginTop="20dp"
             android:text="Riwayat Pengajuan"
             android:textColor="@color/green"
-            android:textSize="18sp"
+            android:textSize="18dp"
             android:textStyle="bold" />
 
         <View

@@ -15,12 +15,11 @@
         android:orientation="vertical">
 
 
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:fontFamily="@font/notoregular"
+            android:fontFamily="@font/opensansreguler"
             android:text="Rincian Pembayaran"
             android:textColor="@color/gray4"
             android:textSize="16dp"
@@ -37,7 +36,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:fontFamily="@font/mukta"
+            android:fontFamily="@font/opensanssemisold"
             android:text="Total Pembayaran"
             android:textColor="@color/black"
             android:textSize="18dp"
@@ -55,9 +54,9 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_marginTop="10dp"
-                android:fontFamily="@font/mukta"
+                android:fontFamily="@font/opensansreguler"
                 android:textColor="@color/black"
-                android:textSize="22sp"
+                android:textSize="20dp"
                 android:textStyle="bold" />
 
             <ImageView
@@ -89,6 +88,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="4dp"
+                android:textSize="11dp"
                 android:textColor="@color/white"
                 android:text="Pastikan transfer sesuai 3 digit terakhir kode unik"
                 />
@@ -99,16 +99,19 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
+            android:visibility="invisible"
             android:layout_marginVertical="10dp"
             android:background="@color/gray3" />
+
         <TextView
             android:id="@+id/titleakunbank"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/mukta"
+            android:fontFamily="@font/opensanssemisold"
             android:text="Transfer Bank"
             android:textColor="@color/green"
-            android:textSize="20sp" />
+            android:textSize="20dp" />
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
@@ -118,7 +121,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/mukta"
+            android:fontFamily="@font/opensansreguler"
             android:text="Nomor Rekening"
             android:textColor="@color/black"
             android:textSize="18dp"
@@ -127,6 +130,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
+            android:layout_marginTop="4dp"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
@@ -137,10 +141,10 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_marginTop="10dp"
-                android:fontFamily="@font/mukta"
+                android:fontFamily="@font/opensansreguler"
                 android:text="1.232.34.2.344333"
                 android:textColor="@color/black"
-                android:textSize="22sp"
+                android:textSize="21dp"
                 android:textStyle="bold" />
 
             <ImageView
@@ -156,7 +160,7 @@
             android:id="@+id/NamaRekening"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/mukta"
+            android:fontFamily="@font/opensansreguler"
             android:text="A.n ZAENAL ABDI"
             android:textColor="@color/black"
             android:textSize="18dp"
@@ -190,55 +194,55 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:fontFamily="@font/mukta"
+            android:fontFamily="@font/opensansreguler"
             android:text="@string/car1"
             android:textColor="@color/gray4"
-            android:textSize="15sp" />
+            android:textSize="15dp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="1dp"
-            android:fontFamily="@font/mukta"
+            android:fontFamily="@font/opensansreguler"
             android:text="@string/car2"
             android:textColor="@color/gray4"
-            android:textSize="15sp" />
+            android:textSize="15dp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="1dp"
-            android:fontFamily="@font/mukta"
+            android:fontFamily="@font/opensansreguler"
             android:text="@string/car3"
             android:textColor="@color/gray4"
-            android:textSize="15sp" />
+            android:textSize="15dp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="1dp"
-            android:fontFamily="@font/mukta"
+            android:fontFamily="@font/opensansreguler"
             android:text="@string/car4"
             android:textColor="@color/gray4"
-            android:textSize="15sp" />
+            android:textSize="15dp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="1dp"
-            android:fontFamily="@font/mukta"
+            android:fontFamily="@font/opensansreguler"
             android:text="@string/car5"
             android:textColor="@color/gray4"
-            android:textSize="15sp" />
+            android:textSize="15dp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="1dp"
-            android:fontFamily="@font/mukta"
+            android:fontFamily="@font/opensansreguler"
             android:text="@string/car6"
             android:textColor="@color/gray4"
-            android:textSize="15sp" />
+            android:textSize="15dp" />
 
         <Button
             android:id="@+id/batal"
@@ -248,24 +252,23 @@
             android:layout_marginTop="20dp"
             android:background="@drawable/bgtolak_pengajuan"
             android:padding="5dp"
-            android:fontFamily="@font/mukta"
+            android:fontFamily="@font/opensanssemisold"
             android:text="Batalkan"
-
             android:textAllCaps="false"
             android:textColor="@color/white"
-            android:textSize="18sp" />
+            android:textSize="18dp" />
 
         <Button
             android:id="@+id/uploadBuktiTBSaldo"
             android:layout_width="match_parent"
-            android:layout_height="54dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/bg_button_login3"
+            android:layout_height="44dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bgsetuju_pengajuan"
             android:padding="5dp"
-            android:text="Upload Bukti Pembayaran"
+            android:text="Upload Bukti"
             android:layout_marginBottom="45dp"
             android:textAllCaps="false"
-            android:fontFamily="@font/mukta"
+            android:fontFamily="@font/opensanssemisold"
             android:textColor="@color/white"
             android:textSize="18dp" />
 

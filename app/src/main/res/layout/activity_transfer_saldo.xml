@@ -19,17 +19,17 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10sp"
             android:textColor="@color/black"
-            android:fontFamily="@font/mukta"
+            android:fontFamily="@font/opensanssemisold"
             android:text="Kirim saldo : Beni Cell"
-            android:textSize="17sp" />
+            android:textSize="17dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10sp"
-            android:fontFamily="@font/mukta"
+            android:fontFamily="@font/opensansreguler"
             android:text="Nominal Saldo (Rp)"
-            android:textSize="17sp" />
+            android:textSize="17dp" />
 
         <EditText
             android:id="@+id/nominalkirimSaldo"
@@ -39,6 +39,8 @@
             android:background="@drawable/bg_edittextlogin"
             android:hint="Masukan Nominal"
             android:inputType="number"
+            android:textSize="17dp"
+            android:fontFamily="@font/opensansreguler"
             android:paddingStart="5sp" />
 
         <TextView
@@ -46,6 +48,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:textSize="17dp"
             android:paddingVertical="3dp" />
 
         <Button
@@ -55,9 +58,10 @@
             android:layout_marginTop="25sp"
             android:background="@drawable/bg_button_login2"
             android:text="Kirim Saldo"
+            android:fontFamily="@font/opensanssemisold"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            android:textSize="17sp" />
+            android:textSize="17dp" />
     </LinearLayout>
 
     <ScrollView
@@ -67,7 +71,6 @@
         android:layout_alignParentBottom="true"
         android:layout_marginTop="20sp"
         android:scrollbars="none">
-
 
 
     </ScrollView>

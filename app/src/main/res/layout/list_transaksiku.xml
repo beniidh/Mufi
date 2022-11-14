@@ -50,6 +50,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
                         android:layout_marginLeft="10sp"
+                        android:fontFamily="@font/opensansreguler"
                         android:text="30 April 2021"
                         android:textColor="@color/black"
                         android:textSize="10sp" />
@@ -65,7 +66,8 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
                         android:layout_marginLeft="10sp"
-                        android:fontFamily="@font/notoregular"
+                        android:textSize="14dp"
+                        android:fontFamily="@font/opensansreguler"
                         android:text="TRX2021865431526789"
                         android:textColor="@color/black" />
 
@@ -94,7 +96,8 @@
                                 android:layout_alignParentStart="true"
                                 android:layout_marginLeft="10sp"
                                 android:text="Harga"
-                                android:textSize="12sp" />
+                                android:fontFamily="@font/opensansreguler"
+                                android:textSize="12dp" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -102,7 +105,8 @@
                                 android:layout_alignParentEnd="true"
                                 android:layout_marginLeft="10sp"
                                 android:text="Produk"
-                                android:textSize="12sp" />
+                                android:fontFamily="@font/opensansreguler"
+                                android:textSize="12dp" />
 
 
                         </RelativeLayout>
@@ -117,11 +121,10 @@
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentStart="true"
                                 android:layout_marginLeft="10sp"
+                                android:fontFamily="@font/opensanssemisold"
                                 android:text="Rp.35000"
-                                android:fontFamily="@font/poppinsbold"
                                 android:textColor="@color/black"
-                                android:textSize="12sp"
-                                 />
+                                android:textSize="12dp" />
 
                             <TextView
                                 android:id="@+id/ProdukFSSS"
@@ -129,10 +132,10 @@
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentEnd="true"
                                 android:layout_marginStart="77dp"
+                                android:fontFamily="@font/opensanssemisold"
                                 android:text="Pulsa"
                                 android:textColor="@color/black"
-                                android:textSize="12sp"
-                                android:fontFamily="@font/poppinsbold" />
+                                android:textSize="12dp" />
 
 
                         </RelativeLayout>
@@ -146,8 +149,10 @@
                         android:layout_alignParentEnd="true"
                         android:layout_marginLeft="10sp"
                         android:background="#4CAF50"
+                        android:fontFamily="@font/opensanssemisold"
                         android:paddingHorizontal="7dp"
                         android:text="Sukses"
+                        android:textSize="13dp"
                         android:textColor="@color/white" />
 
                 </RelativeLayout>

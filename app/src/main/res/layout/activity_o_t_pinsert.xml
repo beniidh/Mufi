@@ -21,7 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/otp"
-            android:fontFamily="@font/poppins"
+            android:fontFamily="@font/opensansreguler"
             android:textAlignment="center"
             android:textSize="19dp" />
 
@@ -63,7 +63,7 @@
             android:layout_height="wrap_content"
             android:text="Kirim ulang setelah 0 : 59"
             android:layout_marginTop="25dp"
-            android:fontFamily="@font/mukta"
+            android:fontFamily="@font/opensanssemisold"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="20dp" />
@@ -74,7 +74,7 @@
             android:layout_height="45dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/bg_button_login2"
-            android:fontFamily="@font/mukta"
+            android:fontFamily="@font/opensanssemisold"
             android:foreground="?android:attr/selectableItemBackground"
             android:text="Verifikasi"
             android:textAllCaps="false"

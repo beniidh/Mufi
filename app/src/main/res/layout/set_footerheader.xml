@@ -9,6 +9,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Header"
+        android:textSize="14dp"
+        android:fontFamily="@font/opensanssemisold"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="10dp"
         />
@@ -20,6 +22,7 @@
         android:layout_marginTop="5sp"
         android:maxLines="3"
         android:elevation="2dp"
+        android:fontFamily="@font/opensansreguler"
         android:maxLength="35"
         android:textSize="14dp"
         android:text=""
@@ -33,6 +36,7 @@
         android:layout_height="wrap_content"
         android:text="(Maksimal 35 karakter)"
         android:textSize="10dp"
+        android:fontFamily="@font/opensansreguler"
         android:layout_marginTop="1dp"
         android:layout_marginLeft="11dp"
         />
@@ -41,7 +45,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Footer"
+        android:fontFamily="@font/opensanssemisold"
         android:layout_marginTop="20dp"
+        android:textSize="14dp"
         android:layout_marginLeft="10dp"
         />
 
@@ -52,6 +58,7 @@
         android:layout_marginTop="5sp"
         android:maxLines="3"
         android:elevation="2dp"
+        android:fontFamily="@font/opensansreguler"
         android:text=""
         android:maxLength="71"
         android:textSize="14dp"
@@ -64,6 +71,7 @@
         android:layout_height="wrap_content"
         android:text="(Maksimal 70 karakter)"
         android:textSize="10dp"
+        android:fontFamily="@font/opensansreguler"
         android:layout_marginTop="1dp"
         android:layout_marginLeft="11dp"
         />
@@ -78,6 +86,7 @@
         android:background="@drawable/bg_button_login2"
         android:layout_gravity="end"
         android:text="Simpan"
+        android:textSize="14dp"
         android:textAllCaps="false"
         android:textColor="@color/white"
 

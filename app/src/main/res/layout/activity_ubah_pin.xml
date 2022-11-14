@@ -21,14 +21,14 @@
         android:text="Masukan PIN anda yang baru :"
         android:textAlignment="center"
         android:textColor="@color/green"
-        android:textSize="22sp" />
+        android:textSize="22dp" />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/mukta"
         android:text="PIN anda digunakan untuk bertransaksi"
         android:textAlignment="center"
-        android:textSize="18sp" />
+        android:textSize="18dp" />
 
     <com.oakkub.android.PinEditText
         android:id="@+id/ubahpin"

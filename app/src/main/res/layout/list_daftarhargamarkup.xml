@@ -32,9 +32,11 @@
                     android:id="@+id/namaProdukDH"
                     android:layout_width="0dp"
                     android:layout_weight="0.7"
+                    android:fontFamily="@font/opensanssemisold"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10sp"
                     android:text="Indosat 5000"
+                    android:textSize="15dp"
                     android:textColor="@color/black" />
 
                 <TextView
@@ -45,6 +47,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10sp"
                     android:text="Rp.5800"
+                    android:textSize="15dp"
+                    android:fontFamily="@font/opensanssemisold"
                     android:textColor="@color/black"
                     android:textStyle="bold" />
 
@@ -55,8 +59,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
+                android:fontFamily="@font/opensansreguler"
                 android:layout_marginLeft="10dp"
                 android:text="Markup : Rp500"
+                android:textSize="15dp"
                 />
 
 

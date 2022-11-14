@@ -12,43 +12,43 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-           android:id="@+id/iconkonfirmasi"
+            android:id="@+id/iconkonfirmasi"
             android:layout_width="wrap_content"
             android:layout_height="50sp"
-            android:padding="5dp"
-            />
+            android:padding="5dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20px"
-            android:fontFamily="@font/mukta"
+            android:fontFamily="@font/opensanssemisold"
             android:text="Pembayaran"
             android:textColor="@color/gray4"
-            android:textSize="18sp" />
+            android:textSize="18dp" />
 
         <TextView
             android:id="@+id/pemayarankonfirasi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/mukta"
+            android:fontFamily="@font/opensansreguler"
             android:text="Rp. 5200"
             android:textColor="@color/gray4"
-            android:textSize="22sp" />
+            android:textSize="22dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20sp"
-            android:fontFamily="@font/mukta"
+            android:fontFamily="@font/opensanssemisold"
             android:text="Pilih Metode Pembayaran"
             android:textColor="@color/black"
-            android:textSize="16sp" />
+            android:textSize="16dp" />
 
         <RelativeLayout
             android:id="@+id/LinearSaldoku"
@@ -72,33 +72,33 @@
                     android:id="@+id/saldokuket1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/notoregular"
+                    android:fontFamily="@font/opensansreguler"
                     android:text="Saldoku"
                     android:textColor="@color/black"
-                    android:textSize="16sp" />
+                    android:textSize="16dp" />
 
                 <TextView
                     android:id="@+id/saldokuket2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/mukta"
+                    android:fontFamily="@font/opensanssemisold"
                     android:text="Rp.50.000"
                     android:textColor="@color/black"
-                    android:textSize="19sp"
+                    android:textSize="19dp"
                     android:textStyle="bold" />
 
             </LinearLayout>
 
-<!--            <RadioButton-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_alignParentTop="true"-->
-<!--                android:layout_alignParentRight="true"-->
-<!--                android:layout_alignParentBottom="true"-->
-<!--                android:layout_marginTop="18dp"-->
-<!--                android:layout_marginRight="18dp"-->
-<!--                android:layout_marginBottom="18dp"-->
-<!--                android:buttonTint="@color/green" />-->
+            <!--            <RadioButton-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_alignParentTop="true"-->
+            <!--                android:layout_alignParentRight="true"-->
+            <!--                android:layout_alignParentBottom="true"-->
+            <!--                android:layout_marginTop="18dp"-->
+            <!--                android:layout_marginRight="18dp"-->
+            <!--                android:layout_marginBottom="18dp"-->
+            <!--                android:buttonTint="@color/green" />-->
 
         </RelativeLayout>
 
@@ -124,7 +124,7 @@
                     android:id="@+id/saldoserverket1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/notoregular"
+                    android:fontFamily="@font/opensansreguler"
                     android:text="Saldo Server"
                     android:textColor="@color/black"
                     android:textSize="16sp" />
@@ -133,7 +133,7 @@
                     android:id="@+id/saldoserverket2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/mukta"
+                    android:fontFamily="@font/opensanssemisold"
                     android:text="Rp.50.000"
                     android:textColor="@color/black"
                     android:textSize="19sp"
@@ -141,16 +141,16 @@
 
             </LinearLayout>
 
-<!--            <RadioButton-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_alignParentTop="true"-->
-<!--                android:layout_alignParentRight="true"-->
-<!--                android:layout_alignParentBottom="true"-->
-<!--                android:layout_marginTop="18dp"-->
-<!--                android:layout_marginRight="18dp"-->
-<!--                android:layout_marginBottom="18dp"-->
-<!--                android:buttonTint="@color/green" />-->
+            <!--            <RadioButton-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_alignParentTop="true"-->
+            <!--                android:layout_alignParentRight="true"-->
+            <!--                android:layout_alignParentBottom="true"-->
+            <!--                android:layout_marginTop="18dp"-->
+            <!--                android:layout_marginRight="18dp"-->
+            <!--                android:layout_marginBottom="18dp"-->
+            <!--                android:buttonTint="@color/green" />-->
 
         </RelativeLayout>
     </LinearLayout>
@@ -158,6 +158,7 @@
     <Button
         android:id="@+id/konfirmbayar"
         android:layout_width="match_parent"
+        android:visibility="gone"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_button_login2"
         android:text="Bayar"

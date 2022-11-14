@@ -22,6 +22,7 @@ app:lottie_url="https://assets1.lottiefiles.com/private_files/lf30_dmituz7c.json
         android:layout_height="wrap_content"
         android:background="@drawable/bg_button_login2"
         android:text="Upload Bukti"
+        android:fontFamily="@font/opensanssemisold"
         android:textAllCaps="false"
         android:textSize="18dp"
         android:textColor="@color/white"

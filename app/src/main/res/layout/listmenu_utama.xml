@@ -18,7 +18,8 @@
     <TextView
         android:id="@+id/titlemenuutama"
         android:layout_width="60dp"
-        android:layout_height="30sp"
+        android:layout_height="35sp"
+        android:padding="2dp"
         android:layout_marginTop="5dp"
         android:textSize="10dp"
         android:fontFamily="@font/opensanssemisold"

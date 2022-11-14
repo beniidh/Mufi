@@ -8,6 +8,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Masukan Teks :"
+        android:fontFamily="@font/opensanssemisold"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="10dp"
         />
@@ -19,6 +20,7 @@
         android:layout_marginTop="5sp"
         android:maxLines="3"
         android:text=""
+        android:fontFamily="@font/opensansreguler"
         android:maxLength="71"
         android:textSize="14dp"
         android:layout_marginHorizontal="10sp"
@@ -30,6 +32,7 @@
         android:layout_height="wrap_content"
         android:text="(Maksimal 70 karakter)"
         android:textSize="10dp"
+        android:fontFamily="@font/opensansreguler"
         android:layout_marginLeft="11dp"
         />
     <Button

@@ -16,7 +16,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="7"
-        android:fontFamily="@font/poppins"
+        android:fontFamily="@font/opensansreguler"
         android:text="Data"
         android:textSize="17dp"
         android:textStyle="bold" />

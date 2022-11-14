@@ -15,8 +15,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
+        android:fontFamily="@font/opensanssemisold"
         android:hint="Produk : Indosat 5000"
-        android:textSize="17sp" />
+        android:textSize="17dp" />
 
     <EditText
         android:id="@+id/markupNilaiMS"
@@ -26,8 +27,9 @@
         android:background="@drawable/bg_edittextlogin"
         android:hint="Masukan Markup"
         android:inputType="number"
+        android:fontFamily="@font/opensansreguler"
         android:paddingStart="9sp"
-        android:textSize="17sp" />
+        android:textSize="17dp" />
 
     <Button
         android:id="@+id/markupButtonMS"
@@ -39,6 +41,6 @@
         android:layout_marginBottom="30sp"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        android:textSize="18sp" />
+        android:textSize="18dp" />
 
 </LinearLayout>

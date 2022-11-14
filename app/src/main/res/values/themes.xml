@@ -6,6 +6,8 @@
         <item name="colorPrimaryVariant">@color/green</item>
         <item name="colorOnPrimary">@color/white</item>
         <item name="android:screenOrientation">userPortrait</item>
+        <item name="android:textSize">15dp</item>
+        <item name="android:fontFamily">@font/opensansreguler</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/orange</item>
         <item name="colorSecondaryVariant">@color/green</item>
@@ -25,6 +27,8 @@
         <item name="android:screenOrientation">portrait</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/orange</item>
+        <item name="android:textSize">15dp</item>
+        <item name="android:fontFamily">@font/opensansreguler</item>
         <item name="colorSecondaryVariant">@color/green</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
@@ -141,5 +145,16 @@
     <style name="Theme.DompetAbata.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.DompetAbata.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="MineCustomTabText" parent="Widget.MaterialComponents.TabLayout">
+        <item name="android:fontFamily">@font/opensansreguler</item>
+        <item name="android:textSize">16dp</item>
+    </style>
+
+    <style name="bottomB" parent="Widget.MaterialComponents.ActionBar.Primary">
+        <item name="android:fontFamily">@font/opensanssemisold</item>
+        <item name="android:textSize">12sp</item>
+
+    </style>
 
 </resources>

@@ -49,7 +49,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:fontFamily="@font/mukta"
+                android:fontFamily="@font/opensanssemisold"
                 android:text=""
                 android:textColor="@color/black"
                 android:textSize="17dp" />
@@ -86,10 +86,10 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/mukta"
+                android:fontFamily="@font/opensanssemisold"
                 android:text="@string/saldoku"
                 android:textColor="@color/green"
-                android:textSize="15sp"
+                android:textSize="15dp"
                 android:textStyle="bold" />
 
                 <TextView
@@ -99,7 +99,7 @@
                     android:fontFamily="@font/poppins"
                     android:text="Rp.0"
                     android:textColor="@color/black"
-                    android:textSize="15sp"
+                    android:textSize="15dp"
                     android:textStyle="bold" />
 
 
@@ -128,7 +128,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/mukta"
+                android:fontFamily="@font/opensanssemisold"
                 android:text="Saldo Server"
                 android:textColor="@color/green"
                 android:textSize="15sp"
@@ -176,7 +176,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/mukta"
+                android:fontFamily="@font/opensanssemisold"
                 android:text="Point"
                 android:textColor="@color/green"
                 android:textSize="15sp"
@@ -228,7 +228,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/mukta"
+                android:fontFamily="@font/opensanssemisold"
                 android:text="Total Transaksi"
                 android:textColor="@color/green"
                 android:textSize="15sp"
@@ -287,11 +287,11 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="10sp"
             android:layout_weight="5"
-            android:fontFamily="@font/mukta"
+            android:fontFamily="@font/opensanssemisold"
             android:gravity="fill_vertical"
             android:text="Ubah Profil"
             android:textColor="@color/black"
-            android:textSize="17sp" />
+            android:textSize="17dp" />
 
         <ImageView
             android:layout_width="0dp"
@@ -334,11 +334,11 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="10sp"
             android:layout_weight="5"
-            android:fontFamily="@font/mukta"
+            android:fontFamily="@font/opensanssemisold"
             android:gravity="fill_vertical"
             android:text="Ubah PIN"
             android:textColor="@color/black"
-            android:textSize="17sp" />
+            android:textSize="17dp" />
 
         <ImageView
             android:layout_width="0dp"
@@ -381,11 +381,11 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="10sp"
             android:layout_weight="5"
-            android:fontFamily="@font/mukta"
+            android:fontFamily="@font/opensanssemisold"
             android:gravity="fill_vertical"
             android:text="Point"
             android:textColor="@color/black"
-            android:textSize="17sp" />
+            android:textSize="17dp" />
 
         <ImageView
             android:layout_width="0dp"
@@ -428,11 +428,11 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="10sp"
             android:layout_weight="5"
-            android:fontFamily="@font/mukta"
+            android:fontFamily="@font/opensanssemisold"
             android:gravity="fill_vertical"
             android:text="Device"
             android:textColor="@color/black"
-            android:textSize="17sp" />
+            android:textSize="17dp" />
 
         <ImageView
             android:layout_width="0dp"

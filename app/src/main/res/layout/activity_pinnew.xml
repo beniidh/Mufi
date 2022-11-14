@@ -12,10 +12,11 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="32dp"
+        android:fontFamily="@font/opensanssemisold"
         android:singleLine="true"
         android:text="@string/masukan_pin"
         android:textColor="@color/green"
-        android:textSize="20sp"
+        android:textSize="20dp"
         android:textStyle="bold" />
 
     <TextView
@@ -25,6 +26,8 @@
         android:layout_below="@id/name_textview"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="8dp"
+        android:textSize="15dp"
+        android:fontFamily="@font/opensansreguler"
         android:text="@string/kesempatan_memasukan_pin_3_kali"
         android:textColor="@color/colorLightGrey" />
 

@@ -16,8 +16,9 @@
         android:padding="5dp"
         android:textColor="@color/green"
         android:textStyle="bold"
+        android:fontFamily="@font/opensanssemisold"
         android:text="@string/pengajuan_limit"
-        android:textSize="20sp" />
+        android:textSize="20dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -31,22 +32,25 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="5dp"
+            android:fontFamily="@font/opensansreguler"
             android:text="@string/isi_pengajuan_limit"
-            android:textSize="15sp" />
+            android:textSize="15dp" />
 
         <EditText
             android:id="@+id/idPengajuanLimitServerEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textSize="17dp"
             android:inputType="number" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="5dp"
+            android:fontFamily="@font/opensansreguler"
             android:text="@string/nominal_diatas_adalah_nominal_untuk_pengajuan_limit_baru"
             android:textAlignment="center"
-            android:textSize="13sp" />
+            android:textSize="13dp" />
 
     </LinearLayout>
 
@@ -57,7 +61,8 @@
         android:layout_marginTop="50dp"
         android:background="@drawable/bg_button_login2"
         android:text="@string/ajukan"
+        android:fontFamily="@font/opensanssemisold"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        android:textSize="20sp" />
+        android:textSize="20dp" />
 </LinearLayout>

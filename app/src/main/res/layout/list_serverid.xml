@@ -13,8 +13,8 @@
         android:text="item"
         android:layout_margin="10dp"
         android:textColor="@color/black"
-        android:textSize="14sp"
-        android:fontFamily="sans-serif"
+        android:textSize="14dp"
+        android:fontFamily="@font/opensansreguler"
         />
 
 </LinearLayout>

@@ -12,11 +12,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="25sp"
-        android:fontFamily="@font/poppins"
+        android:fontFamily="@font/opensansreguler"
         android:text="@string/proses_pendaftaranmu_belum_selesai_yuk_lanjutkan"
         android:textAlignment="center"
         android:textColor="@color/green"
-        android:textSize="20sp" />
+        android:textSize="20dp" />
 
     <Button
         android:id="@+id/LanjutRegister"
@@ -24,9 +24,10 @@
         android:layout_height="wrap_content"
         android:background="@drawable/bg_button_login2"
         android:text="@string/lanjutkan"
+        android:fontFamily="@font/opensanssemisold"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        android:textSize="20sp" />
+        android:textSize="20dp" />
 
     <Button
         android:id="@+id/KeluarRegister"
@@ -35,8 +36,9 @@
         android:layout_marginTop="10dp"
         android:background="@drawable/bg_button_login3"
         android:text="@string/keluar"
+        android:fontFamily="@font/opensanssemisold"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        android:textSize="20sp" />
+        android:textSize="20dp" />
 
 </LinearLayout>

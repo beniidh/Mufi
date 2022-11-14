@@ -20,18 +20,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/masukan_otp"
-            android:fontFamily="@font/poppins"
+            android:fontFamily="@font/opensanssemisold"
             android:textColor="@color/black"
             android:textAlignment="center"
-            android:textSize="19sp" />
+            android:textSize="19dp" />
         <TextView
             android:layout_width="match_parent"
             android:layout_marginTop="10dp"
             android:layout_height="wrap_content"
             android:text="@string/otpveryf"
-          android:fontFamily="@font/poppins"
+          android:fontFamily="@font/opensansreguler"
             android:textAlignment="center"
-            android:textSize="16sp" />
+            android:textSize="16dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -73,12 +73,12 @@
             android:layout_height="45dp"
             android:layout_marginTop="45dp"
             android:background="@drawable/bg_button_login2"
-            android:fontFamily="@font/mukta"
+            android:fontFamily="@font/opensanssemisold"
             android:foreground="?android:attr/selectableItemBackground"
             android:text="@string/verifikasi"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            android:textSize="20sp"
+            android:textSize="20dp"
             android:textStyle="bold" />
 
     </LinearLayout>

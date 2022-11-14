@@ -22,6 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/kirim_otp"
+            android:fontFamily="@font/opensanssemisold"
             android:textColor="@color/green"
             android:textSize="25dp"
             android:textStyle="bold" />
@@ -32,6 +33,7 @@
             android:layout_marginTop="10dp"
             android:text="@string/keteranganOTP"
             android:textColor="@color/black"
+            android:fontFamily="@font/opensansreguler"
             android:textSize="15dp" />
 
         <Button
@@ -42,7 +44,7 @@
             android:background="@drawable/bg_button_login2"
             android:drawableStart="@drawable/ic_gmail"
             android:drawablePadding="-10dp"
-            android:fontFamily="@font/mukta"
+            android:fontFamily="@font/opensanssemisold"
             android:foreground="?android:attr/selectableItemBackground"
             android:paddingStart="10dp"
             android:text="@string/email"
@@ -61,7 +63,7 @@
             android:background="@drawable/bg_button_login"
             android:text="@string/whatsapp"
             android:foreground="?android:attr/selectableItemBackground"
-            android:fontFamily="@font/mukta"
+            android:fontFamily="@font/opensanssemisold"
             android:textStyle="bold"
             android:drawablePadding="-10dp"
             android:paddingStart="10dp"

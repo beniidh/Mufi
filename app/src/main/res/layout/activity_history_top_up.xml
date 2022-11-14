@@ -14,6 +14,7 @@
         android:layout_height="40dp"
         android:focusable="false"
         android:paddingStart="20dp"
+        android:textSize="17dp"
         android:drawableEnd="@drawable/ic_baseline_arrow_drop_down_24"
         android:background="@drawable/bg_button_login"
         />

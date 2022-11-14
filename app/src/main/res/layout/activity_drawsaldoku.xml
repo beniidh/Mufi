@@ -20,17 +20,17 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10sp"
             android:textColor="@color/black"
-            android:fontFamily="@font/mukta"
+            android:fontFamily="@font/opensanssemisold"
             android:text="Tarik saldo : Beni Cell"
-            android:textSize="17sp" />
+            android:textSize="17dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10sp"
-            android:fontFamily="@font/mukta"
+            android:fontFamily="@font/opensanssemisold"
             android:text="Nominal Saldo (Rp)"
-            android:textSize="17sp" />
+            android:textSize="17dp" />
 
         <EditText
             android:id="@+id/nominaltarikSaldo"
@@ -39,6 +39,8 @@
             android:layout_marginTop="10sp"
             android:background="@drawable/bg_edittextlogin"
             android:hint="Masukan Nominal"
+            android:textSize="15dp"
+            android:fontFamily="@font/opensansreguler"
             android:inputType="number"
             android:paddingStart="5sp" />
 
@@ -47,6 +49,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:textSize="15dp"
+            android:fontFamily="@font/opensansreguler"
             android:paddingVertical="3dp" />
 
         <Button
@@ -56,9 +60,10 @@
             android:layout_marginTop="25sp"
             android:background="@drawable/bg_button_login2"
             android:text="Tarik Saldo"
+            android:fontFamily="@font/opensanssemisold"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            android:textSize="17sp" />
+            android:textSize="17dp" />
     </LinearLayout>
 
 
