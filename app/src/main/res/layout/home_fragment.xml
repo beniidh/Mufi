@@ -147,7 +147,7 @@
                 android:paddingVertical="3dp"
                 android:scrollHorizontally="true"
                 android:singleLine="true"
-                android:text="Selamat datang di Aplikasi Barokah Reload, maksimalkan transaksi anda bersama Barokah Reload"
+                android:text="Selamat datang di Aplikasi  Bintang Timur, maksimalkan transaksi anda bersama  Bintang Timur"
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 tools:ignore="HardcodedText" />
