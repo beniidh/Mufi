@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/home"
-        android:name="com.c.rcf.Fragment.HomeFragment"
+        android:name="com.c.apay.Fragment.HomeFragment"
         android:label="Home"
         tools:layout="@layout/home_fragment" />
 
     <fragment
         android:id="@+id/transaksi"
-        android:name="com.c.rcf.Fragment.TransaksiFragment"
+        android:name="com.c.apay.Fragment.TransaksiFragment"
         android:label="Transaksi"
         tools:layout="@layout/transaksi_fragment" />
 
     <fragment
         android:id="@+id/chat"
-        android:name="com.c.rcf.Fragment.ChatFragment"
+        android:name="com.c.apay.Fragment.ChatFragment"
         android:label="Chat"
         tools:layout="@layout/chat_fragment" />
 
