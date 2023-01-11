@@ -147,7 +147,7 @@
                 android:paddingVertical="3dp"
                 android:scrollHorizontally="true"
                 android:singleLine="true"
-                android:text="Selamat datang di Aplikasi  Apay, maksimalkan transaksi anda bersama Apay"
+                android:text="Selamat datang di Aplikasi  Faiz Payment, maksimalkan transaksi anda bersama Faiz Payment"
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 tools:ignore="HardcodedText" />
