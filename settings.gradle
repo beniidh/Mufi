@@ -1,2 +1,2 @@
 include ':app'
-rootProject.name = "FaizPay"
+rootProject.name = "AtmPay"

@@ -1,17 +1,17 @@
 <resources>
-    <string name="app_name"> Faiz Payment</string>
+    <string name="app_name"> ATMPay</string>
     <string name="keteranganOTP">Untuk mendapatkan Kode OTP silahkan pilih salah satu metode dibawah ini :</string>
     <string name="otp">Kode telah dikirim ke Email, silahkan cek Email Anda</string>
     <string name="syaratketentuan">Terima kasih Anda telah mengakses situs atau mengunduh,
-        menggunakan layanan, produk dan/atau aplikasi (“Aplikasi”)  Faiz Payment. Pada saat Anda
-        mengakses, mengunduh atau menggunakan Aplikasi  Faiz Payment maka Syarat dan Ketentuan ini
+        menggunakan layanan, produk dan/atau aplikasi (“Aplikasi”)  ATMPay. Pada saat Anda
+        mengakses, mengunduh atau menggunakan Aplikasi  ATMPay maka Syarat dan Ketentuan ini
         berlaku terhadap Anda. Dengan melanjutkan mengakses, mengunduh atau menggunakan Aplikasi
-        Faiz Payment, Anda mengakui dan menyetujui bahwa Anda telah membaca dengan teliti, memahami,
+        ATMPay, Anda mengakui dan menyetujui bahwa Anda telah membaca dengan teliti, memahami,
         menerima dan menyetujui seluruh Syarat dan Ketentuan ini yang akan berlaku sebagai
         perjanjian antara Anda dengan Kami. Aplikasi ini juga menampilkan daftar kontak anda untuk keperluan transaksi. Syarat dan Ketentuan ini juga berlaku setiap kali
-        Anda melakukan transaksi menggunakan Aplikasi  Faiz Payment melalui mitra penyedia
+        Anda melakukan transaksi menggunakan Aplikasi  ATMPay melalui mitra penyedia
         platform lain yang menandatangani perjanjian kerjasama dengan Kami dan menggunakan
-        Aplikasi  Faiz Payment sebagai salah satu metode pembayaran (“Partner  Faiz Payment”)</string>
+        Aplikasi  ATMPay sebagai salah satu metode pembayaran (“Partner  ATMPay”)</string>
 
     <string name="Open">buka</string>
     <string name="Close">tutup</string>
@@ -46,7 +46,7 @@
     <string name="car4">4. Masukan nomor rekening Tujuan</string>
     <string name="car6">6. Ikuti instruksi untuk menyelesaikan transaksi</string>
     <string name="car5">5. Masukan nominal Tagihan</string>
-    <string name="selamat_datang_di_dompet_abata">Selamat Datang di  Faiz Payment !</string>
+    <string name="selamat_datang_di_dompet_abata">Selamat Datang di  ATMPay !</string>
     <string name="saya_menerima_dan_menyetujui_syarat_dan_ketentuan_aplikasi">Saya menerima dan menyetujui Syarat dan Ketentuan Aplikasi</string>
     <string name="silahkan_hubungi_cs_jika_dalam_1x24_jam_pembelian_belum_diterima">Silahkan Hubungi CS jika dalam 1x24 jam pembelian belum diterima</string>
     <string name="produk">Produk</string>

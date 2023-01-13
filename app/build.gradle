@@ -6,7 +6,7 @@ plugins {
 android {
     compileSdkVersion 32
     defaultConfig {
-        applicationId "com.c.faizpay"
+        applicationId "com.c.atmpay"
         minSdkVersion 21
         targetSdkVersion 32
         versionCode 1

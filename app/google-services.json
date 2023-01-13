@@ -7,6 +7,35 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:494633760068:android:d12b9475707f34b8805311",
+        "android_client_info": {
+          "package_name": "com.c.atmpay"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "494633760068-19tapuoabh582t7kaaqr86qo7da26p42.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCo2KMy_2YNNpWHejNnLb1crJ5sCeSgygg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "494633760068-19tapuoabh582t7kaaqr86qo7da26p42.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:494633760068:android:ee29d2d916156f90805311",
         "android_client_info": {
           "package_name": "com.c.dompetabata"

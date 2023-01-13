@@ -16,7 +16,7 @@
         android:theme="@style/progressbar"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
-        app:lottie_url="https://assets3.lottiefiles.com/packages/lf20_9xbnvzyh.json
+        app:lottie_url="https://assets3.lottiefiles.com/private_files/lf30_ykdoon9j.json
 " />
 
 
